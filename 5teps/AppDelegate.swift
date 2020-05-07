@@ -8,14 +8,41 @@
 
 import UIKit
 import CoreData
+import BackgroundTasks
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    public static var app: AppDelegate {
+        get {
+            return (UIApplication.shared.delegate as! AppDelegate)
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        application.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+        
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+        
+        notificationCenter.requestAuthorization(options: options) { (didAllow, error) in
+            if didAllow {
+                print("User has accepted notifications")
+            } else {
+                print("User has declined notifications \(String(describing: error))")
+            }
+        }
+        notificationCenter.getNotificationSettings { (settings) in
+            if settings.authorizationStatus != .authorized {
+                print("User has declined notifications")
+            } else {
+                print("User has accepted notifications")
+            }
+        }
+        notificationCenter.delegate = self
         return true
     }
 
@@ -42,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentCloudKitContainer(name: "_teps")
+        let container = NSPersistentCloudKitContainer(name: "5teps")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -77,6 +104,80 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    // MARK: - Gestione Notifiche
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // fetch data from internet now
+        guard let data = fetchSomeData() else {
+            // data download failed
+            completionHandler(.failed)
+            return
+        }
+        
+        if data.count > 0 {
+            // data download succeeded and is new
+            completionHandler(.newData)
+        } else {
+            // data downloaded succeeded and is not new
+            completionHandler(.noData)
+        }
+    }
+    func fetchSomeData() -> String? {
+        
+        scheduleNotification(notificationType: "Prova")
+        return "dati"
+    }
+    func scheduleNotification(notificationType: String) {
+        
+        let content = UNMutableNotificationContent()
+        content.title = notificationType
+        content.body = "This is example how to create " + notificationType + " Notifications"
+        content.sound = UNNotificationSound.default
+        content.badge = 1
+        
+        //let date = Date(timeIntervalSinceNow: 60)
+        //let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
+        //let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        let identifier = "Local Notification"
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
 
+        let notificationCenter = UNUserNotificationCenter.current()
+        
+        notificationCenter.add(request) { (error) in
+            if let error = error {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+        /*
+        let userActions = "User Actions"
+        
+        let snoozeAction = UNNotificationAction(identifier: "Snooze", title: "Snooze", options: [])
+        let deleteAction = UNNotificationAction(identifier: "Delete", title: "Delete", options: [.destructive])
+        let category = UNNotificationCategory(identifier: userActions, actions: [snoozeAction, deleteAction], intentIdentifiers: [], options: [])
+        
+        notificationCenter.setNotificationCategories([category])
+        */
+    }
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
+        
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        if response.notification.request.identifier == "Local Notification" {
+            print("Handling notifications with the Local Notification Identifier")
+        }
+        
+        completionHandler()
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+}
