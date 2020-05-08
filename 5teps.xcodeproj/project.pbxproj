@@ -29,6 +29,11 @@
 		6C64C84024648E3100D03184 /* SharedInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64C83524648E3100D03184 /* SharedInfo.swift */; };
 		6C64C84124648E3100D03184 /* StepChallenge+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64C83624648E3100D03184 /* StepChallenge+CoreDataClass.swift */; };
 		6C64C84224648E3100D03184 /* Challenge+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64C83724648E3100D03184 /* Challenge+Methods.swift */; };
+		6C6FEDA6246525630089BDFF /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6FED9F246525630089BDFF /* User+CoreDataClass.swift */; };
+		6C6FEDA7246525630089BDFF /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6FEDA0246525630089BDFF /* User+CoreDataProperties.swift */; };
+		6C6FEDA8246525630089BDFF /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6FEDA1246525630089BDFF /* Goal+CoreDataClass.swift */; };
+		6C6FEDA9246525630089BDFF /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6FEDA2246525630089BDFF /* Goal+CoreDataProperties.swift */; };
+		6C6FEDAD246525DB0089BDFF /* User+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6FEDAC246525DB0089BDFF /* User+Methods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +61,11 @@
 		6C64C83524648E3100D03184 /* SharedInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedInfo.swift; sourceTree = "<group>"; };
 		6C64C83624648E3100D03184 /* StepChallenge+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StepChallenge+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6C64C83724648E3100D03184 /* Challenge+Methods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Challenge+Methods.swift"; sourceTree = "<group>"; };
+		6C6FED9F246525630089BDFF /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6C6FEDA0246525630089BDFF /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6C6FEDA1246525630089BDFF /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6C6FEDA2246525630089BDFF /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6C6FEDAC246525DB0089BDFF /* User+Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Methods.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,9 +134,14 @@
 		6C64C82A24648E0200D03184 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6C6FEDA0246525630089BDFF /* User+CoreDataProperties.swift */,
+				6C6FED9F246525630089BDFF /* User+CoreDataClass.swift */,
+				6C6FEDAC246525DB0089BDFF /* User+Methods.swift */,
 				6C64C83324648E3100D03184 /* Challenge+CoreDataClass.swift */,
 				6C64C82F24648E3000D03184 /* Challenge+CoreDataProperties.swift */,
 				6C64C83724648E3100D03184 /* Challenge+Methods.swift */,
+				6C6FEDA1246525630089BDFF /* Goal+CoreDataClass.swift */,
+				6C6FEDA2246525630089BDFF /* Goal+CoreDataProperties.swift */,
 				6C64C83524648E3100D03184 /* SharedInfo.swift */,
 				6C64C83624648E3100D03184 /* StepChallenge+CoreDataClass.swift */,
 				6C64C82E24648E3000D03184 /* StepChallenge+CoreDataProperties.swift */,
@@ -218,15 +233,20 @@
 				6C64C84024648E3100D03184 /* SharedInfo.swift in Sources */,
 				6C64C83F24648E3100D03184 /* StepChallenge+Methods.swift in Sources */,
 				6C64C83E24648E3100D03184 /* Challenge+CoreDataClass.swift in Sources */,
+				6C6FEDA9246525630089BDFF /* Goal+CoreDataProperties.swift in Sources */,
 				6C64C82924648DF600D03184 /* 5teps.xcdatamodeld in Sources */,
 				6C64C83924648E3100D03184 /* StepChallenge+CoreDataProperties.swift in Sources */,
 				6C64C83824648E3100D03184 /* Utils.swift in Sources */,
 				6C64C83C24648E3100D03184 /* Topic+CoreDataProperties.swift in Sources */,
 				01B3E2D42464615400B0C18A /* AppDelegate.swift in Sources */,
+				6C6FEDA8246525630089BDFF /* Goal+CoreDataClass.swift in Sources */,
+				6C6FEDA7246525630089BDFF /* User+CoreDataProperties.swift in Sources */,
 				6C64C83D24648E3100D03184 /* Topic+Methods.swift in Sources */,
 				6C64C84224648E3100D03184 /* Challenge+Methods.swift in Sources */,
 				01B3E2D62464615400B0C18A /* SceneDelegate.swift in Sources */,
 				6C64C84124648E3100D03184 /* StepChallenge+CoreDataClass.swift in Sources */,
+				6C6FEDAD246525DB0089BDFF /* User+Methods.swift in Sources */,
+				6C6FEDA6246525630089BDFF /* User+CoreDataClass.swift in Sources */,
 				6C64C83A24648E3100D03184 /* Challenge+CoreDataProperties.swift in Sources */,
 				6C64C83B24648E3100D03184 /* Topic+CoreDataClass.swift in Sources */,
 			);

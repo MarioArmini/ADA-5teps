@@ -1,9 +1,9 @@
 //
 //  Topic+CoreDataProperties.swift
-//  Test2
+//  5teps
 //
-//  Created by Fabio Palladino on 07/05/2020.
-//  Copyright © 2020 Fabio Palladino. All rights reserved.
+//  Created by Fabio Palladino on 08/05/2020.
+//  Copyright © 2020 Mario Armini. All rights reserved.
 //
 //
 
@@ -22,6 +22,7 @@ extension Topic {
     @NSManaged public var name: String?
     @NSManaged public var timestamp: Date?
     @NSManaged public var challanges: NSSet?
+    @NSManaged public var user: User?
 
 }
 

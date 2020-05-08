@@ -10,8 +10,16 @@
         <attribute name="numberSteps" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="state" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="goal" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Goal" inverseName="challenge" inverseEntity="Goal"/>
         <relationship name="steps" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="StepChallenge" inverseName="challenge" inverseEntity="StepChallenge"/>
         <relationship name="topic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Topic" inverseName="challanges" inverseEntity="Topic"/>
+    </entity>
+    <entity name="Goal" representedClassName="Goal" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="challenge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Challenge" inverseName="goal" inverseEntity="Challenge"/>
     </entity>
     <entity name="StepChallenge" representedClassName="StepChallenge" syncable="YES">
         <attribute name="dateEnd" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -30,15 +38,18 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="challanges" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Challenge" inverseName="topic" inverseEntity="Challenge"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="topics" inverseEntity="User"/>
     </entity>
-    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+    <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="topics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Topic" inverseName="user" inverseEntity="Topic"/>
     </entity>
     <elements>
-        <element name="Challenge" positionX="42.08203125" positionY="-119.73046875" width="128" height="208"/>
+        <element name="Challenge" positionX="15.37890625" positionY="195.31640625" width="128" height="223"/>
         <element name="StepChallenge" positionX="278.4453125" positionY="37.109375" width="128" height="178"/>
-        <element name="Topic" positionX="-195.6328125" positionY="59.703125" width="128" height="118"/>
-        <element name="User" positionX="0" positionY="27" width="128" height="73"/>
+        <element name="Topic" positionX="-195.6328125" positionY="59.703125" width="128" height="133"/>
+        <element name="User" positionX="9.46875" positionY="-117.4609375" width="128" height="88"/>
+        <element name="Goal" positionX="45" positionY="126" width="128" height="118"/>
     </elements>
 </model>
