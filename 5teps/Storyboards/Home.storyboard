@@ -26,11 +26,25 @@
         <!--Topics-->
         <scene sceneID="cCp-Hx-xCE">
             <objects>
-                <viewController id="ViF-AZ-p7O" sceneMemberID="viewController">
+                <viewController id="ViF-AZ-p7O" customClass="FirstViewController" customModule="_teps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o2R-nd-j21">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mid-7I-HCO">
+                                <rect key="frame" x="0.0" y="88" width="414" height="169"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="169" id="lLq-3M-0K4"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mid-7I-HCO" firstAttribute="top" secondItem="GsT-7C-JFW" secondAttribute="top" id="Gck-e4-57M"/>
+                            <constraint firstItem="mid-7I-HCO" firstAttribute="leading" secondItem="GsT-7C-JFW" secondAttribute="leading" id="W5I-lZ-nUY"/>
+                            <constraint firstItem="mid-7I-HCO" firstAttribute="trailing" secondItem="GsT-7C-JFW" secondAttribute="trailing" id="wSM-Xq-xhy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="GsT-7C-JFW"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Topics" image="house" catalog="system" id="3R4-Pp-6Ay"/>
@@ -38,10 +52,13 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="Vlg-RU-ocC"/>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="viewMentorTop" destination="mid-7I-HCO" id="wB1-Ck-37g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUA-kd-42B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84" y="-74"/>
+            <point key="canvasLocation" x="82.608695652173921" y="-74.330357142857139"/>
         </scene>
     </scenes>
     <resources>
