@@ -48,6 +48,20 @@ class FirstViewController: UIViewController {
             print(topic)
             topicLabelTest.text = topicLabelTest.text! + "\n \(String(describing: topic.name)) - \(String(describing: topic.icon))"
         }
+        // MARK: Esempio di navigazione oggetti Topic -> Challenge -> Step
+        /*
+         for t in topics {
+             print("Topic: \(t.name!)")
+             let challenges = t.findChallengeByState(state: ChallengeState.Create)
+             for c in challenges {
+                 print("Challenge: \(c.name!) State:\(c.state)")
+                 for s in c.stepsOrder {
+                     print("Step: \(s.step) - \(s.name!)")
+                 }
+             }
+             print("###########################################")
+         }
+         */
     }
 }
 

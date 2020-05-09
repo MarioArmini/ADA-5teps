@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-enum StepChallengeState: Int64 {
+public enum StepChallengeState: Int64 {
     case Create = 0
     case Started = 1
     case Finished = 2
@@ -62,13 +62,15 @@ extension StepChallenge {
         return nil
     }
     public func start() {
-        self.dateStart = Date()
-        self.state = Int64(StepChallengeState.Started.rawValue)
-        
+        if self.state == Int64(StepChallengeState.Create.rawValue) {
+            self.dateStart = Date()
+            self.state = Int64(StepChallengeState.Started.rawValue)
+        }
     }
     public func finish() {
-        self.dateEnd = Date()
-        self.state = Int64(StepChallengeState.Finished.rawValue)
-        
+        if self.state != Int64(StepChallengeState.Finished.rawValue) {
+            self.dateEnd = Date()
+            self.state = Int64(StepChallengeState.Finished.rawValue)
+        }
     }
 }

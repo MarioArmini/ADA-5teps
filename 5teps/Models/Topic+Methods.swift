@@ -84,6 +84,17 @@ extension Topic {
         }
         return nil
     }
+    
+    public func findChallengeByState(state: ChallengeState) -> [Challenge] {
+        var resultData = [Challenge]()
+     
+        if let result = self.challanges?.filtered(using: NSPredicate(format: "state == %i", state.rawValue)) {
+            for c in result {
+                resultData.append(c as! Challenge)
+            }
+        }
+        return resultData
+    }
     public func delete() {
         let context = SharedInfo.context
         

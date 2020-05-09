@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-enum ChallengeState: Int64 {
+public enum ChallengeState: Int64 {
     case Create = 0
     case Started = 1
     case Finished = 2
@@ -46,6 +46,14 @@ extension Challenge {
     var isCreate: Bool {
         get {
             return (enumState == ChallengeState.Create) ? true : false
+        }
+    }
+    var stepsOrder: [StepChallenge] {
+        get  {
+            let steps = self.steps?.allObjects as! [StepChallenge]
+            return steps.sorted { (step1, step2) -> Bool in
+                return step1.step < step2.step ? true : false
+            }
         }
     }
     
@@ -120,7 +128,6 @@ extension Challenge {
     }
     public func nextStep() -> Bool
     {
-        let context = SharedInfo.context
         if self.numberSteps == self.currentStep {
             self.finish()
             return false
@@ -129,7 +136,7 @@ extension Challenge {
             step.finish()
         }
         self.currentStep = self.currentStep + 1
-        let steps = self.steps?.allObjects as! [StepChallenge]
+        let steps = self.stepsOrder
         for i in steps {
             if i.step < self.currentStep {
                 i.finish()
@@ -137,11 +144,11 @@ extension Challenge {
                 i.start()
             }
         }
-        return context.safeSave()
+        self.save()
+        return true
     }
     public func finish()
     {
-        let context = SharedInfo.context
         self.dateEnd = Date()
         self.dateLast = Date()
         self.state = Int64(ChallengeState.Finished.rawValue)
@@ -149,7 +156,7 @@ extension Challenge {
             step.finish()
         }
         
-        _ = context.safeSave()
+        self.save()
     }
     public func getCurrentStepChallenge() -> StepChallenge? {
         if self.isStart {

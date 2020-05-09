@@ -27,10 +27,23 @@ class ProfileViewController: UIViewController {
     }
     */
     @IBAction func onClickCaricaDatiJson(_ sender: Any) {
-        let json = ImportData.importJson()
-        print(json)
+        //let json = ImportData.importJson()
+        //print(json)
         
-        ImportData.saveTopic(topics: json)
+        //ImportData.saveTopic(topics: json)
+        let topics = Topic.list()
+        
+        for t in topics {
+            print("Topic: \(t.name!)")
+            let challenges = t.findChallengeByState(state: ChallengeState.Create)
+            for c in challenges {
+                print("Challenge: \(c.name!) State:\(c.state)")
+                for s in c.stepsOrder {
+                    print("Step: \(s.step) - \(s.name!)")
+                }
+            }
+            print("###########################################")
+        }
     }
     
 }
