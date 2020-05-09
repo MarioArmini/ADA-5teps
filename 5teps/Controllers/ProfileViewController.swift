@@ -60,6 +60,7 @@ class ProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    // MARK: - TEST FABIO
     @IBAction func onClickCaricaDatiJson(_ sender: Any) {
         //let json = ImportData.importJson()
         //print(json)
@@ -96,7 +97,12 @@ class ProfileViewController: UIViewController {
         }
         
     }
-    
+    @IBAction func onClickNewTopic(_ sender: Any) {
+        let viewTmp = UIStoryboard(name: "NewTopic", bundle: nil).instantiateViewController(withIdentifier: "newTopicView") as! NewTopicViewController
+        //viewTmp.helpRequest = requestData
+        self.navigationController?.pushViewController(viewTmp, animated: true)
+    }
+    // MARK: - ###############################################
 }
 
 // MARK: Mentor SubviewDelegate

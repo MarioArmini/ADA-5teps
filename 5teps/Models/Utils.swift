@@ -39,4 +39,43 @@ public class Utils {
             alpha: CGFloat(1.0)
         )
     }
+    public static func getArrayIcon() -> [String] {
+        var icons = [String]()
+        
+        for i in 0x1F601...0x1F64F {
+            let c = String(UnicodeScalar(i)!)
+            icons.append(c)
+        }
+        return icons
+    }
+    public static func getArrayColor() -> [String] {
+        var colors = [String]()
+        colors.append("ffffff")
+        colors.append("ff0000")
+        colors.append("ff4000")
+        colors.append("ff8000")
+        colors.append("ffbf00")
+        colors.append("ffff00")
+        colors.append("bfff00")
+        colors.append("80ff00")
+        colors.append("40ff00")
+        colors.append("00ff00")
+        colors.append("00ff40")
+        colors.append("00ff80")
+        colors.append("00ffbf")
+        colors.append("00ffff")
+        colors.append("00bfff")
+        colors.append("0080ff")
+        colors.append("0040ff")
+        colors.append("0000ff")
+        colors.append("4000ff")
+        colors.append("8000ff")
+        colors.append("bf00ff")
+        colors.append("ff00ff")
+        colors.append("ff00bf")
+        colors.append("ff0080")
+        colors.append("ff0040")
+        colors.append("ff0000")
+        return colors
+    }
 }

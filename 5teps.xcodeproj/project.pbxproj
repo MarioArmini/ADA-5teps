@@ -42,6 +42,10 @@
 		6C6FEDB4246671F50089BDFF /* ImportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6FEDB3246671F50089BDFF /* ImportData.swift */; };
 		6C6FEDB62466746A0089BDFF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6FEDB52466746A0089BDFF /* ProfileViewController.swift */; };
 		6CF284032466E56600340C6B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF284022466E56600340C6B /* Extension.swift */; };
+		6CF284052466E93600340C6B /* NewTopic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CF284042466E93600340C6B /* NewTopic.storyboard */; };
+		6CF284072466EB3B00340C6B /* NewTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF284062466EB3B00340C6B /* NewTopicViewController.swift */; };
+		6CF2840A2466F20200340C6B /* NewTopicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF284092466F20200340C6B /* NewTopicCollectionViewCell.swift */; };
+		6CF2840C2466FA3300340C6B /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF2840B2466FA3300340C6B /* ColorCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +86,10 @@
 		6C6FEDB3246671F50089BDFF /* ImportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportData.swift; sourceTree = "<group>"; };
 		6C6FEDB52466746A0089BDFF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6CF284022466E56600340C6B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		6CF284042466E93600340C6B /* NewTopic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewTopic.storyboard; sourceTree = "<group>"; };
+		6CF284062466EB3B00340C6B /* NewTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTopicViewController.swift; sourceTree = "<group>"; };
+		6CF284092466F20200340C6B /* NewTopicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTopicCollectionViewCell.swift; sourceTree = "<group>"; };
+		6CF2840B2466FA3300340C6B /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,7 @@
 		01B3E2D22464615400B0C18A /* 5teps */ = {
 			isa = PBXGroup;
 			children = (
+				6CF284082466F1DF00340C6B /* View */,
 				6C6FEDB024666FA80089BDFF /* Data */,
 				6C64C82A24648E0200D03184 /* Models */,
 				01B3E2F4246461E500B0C18A /* Controllers */,
@@ -135,6 +144,7 @@
 				01B3E2F2246461DE00B0C18A /* Home.storyboard */,
 				4E13BF5C24656A59006AD0C4 /* InProgress.storyboard */,
 				01B3E2F0246461CB00B0C18A /* Profile.storyboard */,
+				6CF284042466E93600340C6B /* NewTopic.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -146,6 +156,7 @@
 				01B3E2D92464615400B0C18A /* SecondViewController.swift */,
 				4E13BF6024658A83006AD0C4 /* Onboarding.swift */,
 				6C6FEDB52466746A0089BDFF /* ProfileViewController.swift */,
+				6CF284062466EB3B00340C6B /* NewTopicViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -192,6 +203,15 @@
 				6C6FEDB3246671F50089BDFF /* ImportData.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		6CF284082466F1DF00340C6B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6CF284092466F20200340C6B /* NewTopicCollectionViewCell.swift */,
+				6CF2840B2466FA3300340C6B /* ColorCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +277,7 @@
 				4E13BF5D24656A59006AD0C4 /* InProgress.storyboard in Resources */,
 				4EA0879E2465FD70001DEFBF /* Subview.xib in Resources */,
 				01B3E2E22464615500B0C18A /* Assets.xcassets in Resources */,
+				6CF284052466E93600340C6B /* NewTopic.storyboard in Resources */,
 				01B3E2F1246461CB00B0C18A /* Profile.storyboard in Resources */,
 				01B3E2F3246461DE00B0C18A /* Home.storyboard in Resources */,
 				01B3E2DD2464615400B0C18A /* Main.storyboard in Resources */,
@@ -270,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CF2840C2466FA3300340C6B /* ColorCollectionViewCell.swift in Sources */,
 				01B3E2DA2464615400B0C18A /* SecondViewController.swift in Sources */,
 				01B3E2D82464615400B0C18A /* FirstViewController.swift in Sources */,
 				6C64C84024648E3100D03184 /* SharedInfo.swift in Sources */,
@@ -281,6 +303,7 @@
 				6C64C83824648E3100D03184 /* Utils.swift in Sources */,
 				6C64C83C24648E3100D03184 /* Topic+CoreDataProperties.swift in Sources */,
 				01B3E2D42464615400B0C18A /* AppDelegate.swift in Sources */,
+				6CF284072466EB3B00340C6B /* NewTopicViewController.swift in Sources */,
 				6C6FEDA8246525630089BDFF /* Goal+CoreDataClass.swift in Sources */,
 				018AD88A2466B5EF002BA840 /* TopicCollectionViewCell.swift in Sources */,
 				6C6FEDA7246525630089BDFF /* User+CoreDataProperties.swift in Sources */,
@@ -291,6 +314,7 @@
 				6CF284032466E56600340C6B /* Extension.swift in Sources */,
 				6C64C84124648E3100D03184 /* StepChallenge+CoreDataClass.swift in Sources */,
 				6C6FEDAD246525DB0089BDFF /* User+Methods.swift in Sources */,
+				6CF2840A2466F20200340C6B /* NewTopicCollectionViewCell.swift in Sources */,
 				4E13BF6124658A83006AD0C4 /* Onboarding.swift in Sources */,
 				6C6FEDA6246525630089BDFF /* User+CoreDataClass.swift in Sources */,
 				4EA0879C2465FD33001DEFBF /* Subview.swift in Sources */,
