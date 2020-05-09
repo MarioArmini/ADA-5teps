@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dwy-wk-8Pi">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -15,26 +15,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LkE-At-8mV">
+                                <rect key="frame" x="0.0" y="5" width="414" height="896"/>
+                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMJ-U5-uCh">
-                                <rect key="frame" x="220" y="804" width="174" height="30"/>
+                                <rect key="frame" x="200" y="832" width="214" height="30"/>
                                 <state key="normal" title="Skip"/>
                                 <connections>
                                     <segue destination="49e-Tb-3d3" kind="presentation" modalPresentationStyle="fullScreen" id="wSl-Sm-FPA"/>
                                 </connections>
                             </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="xAz-fS-t4J">
+                                <rect key="frame" x="187.66666666666666" y="767" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="9Hj-qA-ros" firstAttribute="bottom" secondItem="kMJ-U5-uCh" secondAttribute="bottom" constant="28" id="03s-T9-KZM"/>
-                            <constraint firstItem="9Hj-qA-ros" firstAttribute="trailing" secondItem="kMJ-U5-uCh" secondAttribute="trailing" constant="20" id="KxF-8q-4wD"/>
+                            <constraint firstItem="9Hj-qA-ros" firstAttribute="bottom" secondItem="kMJ-U5-uCh" secondAttribute="bottom" id="03s-T9-KZM"/>
+                            <constraint firstItem="LkE-At-8mV" firstAttribute="width" secondItem="9g0-S3-geF" secondAttribute="width" id="Bqe-iA-naw"/>
+                            <constraint firstItem="LkE-At-8mV" firstAttribute="height" secondItem="9g0-S3-geF" secondAttribute="height" id="Isq-Sj-pGG"/>
+                            <constraint firstItem="9Hj-qA-ros" firstAttribute="trailing" secondItem="kMJ-U5-uCh" secondAttribute="trailing" id="KxF-8q-4wD"/>
+                            <constraint firstItem="kMJ-U5-uCh" firstAttribute="top" secondItem="xAz-fS-t4J" secondAttribute="bottom" constant="28" id="QPU-SP-5nV"/>
+                            <constraint firstItem="xAz-fS-t4J" firstAttribute="centerX" secondItem="9g0-S3-geF" secondAttribute="centerX" id="eBq-qc-y47"/>
+                            <constraint firstItem="LkE-At-8mV" firstAttribute="centerX" secondItem="9Hj-qA-ros" secondAttribute="centerX" id="nVf-2H-z91"/>
                             <constraint firstItem="kMJ-U5-uCh" firstAttribute="centerX" secondItem="9g0-S3-geF" secondAttribute="centerX" constant="100" id="u7n-FR-jXD"/>
+                            <constraint firstItem="LkE-At-8mV" firstAttribute="centerY" secondItem="9Hj-qA-ros" secondAttribute="centerY" id="ubm-u6-zQ1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Hj-qA-ros"/>
                     </view>
+                    <connections>
+                        <outlet property="pageControl" destination="xAz-fS-t4J" id="YFX-oU-7Q2"/>
+                        <outlet property="scrollView" destination="LkE-At-8mV" id="sVM-CE-6wE"/>
+                        <outlet property="skipButton" destination="kMJ-U5-uCh" id="ART-WG-Igj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZ0-ei-uAK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1314" y="1"/>
+            <point key="canvasLocation" x="-1317.3913043478262" y="0.0"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
