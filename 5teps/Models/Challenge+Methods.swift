@@ -19,6 +19,9 @@ enum ChallengeState: Int64 {
 extension Challenge {
     public static var DEFAULT_STEPS: Int64 = 5
     
+    public func save() {
+        _ = SharedInfo.context.safeSave()
+    }
     //MARK: Custom Property
     var enumState: ChallengeState {
         get {

@@ -1,0 +1,110 @@
+[
+    {
+        "name": "Sport",
+        "icon": "🏋️‍♀️",
+        "challenge": [
+            {
+                "name": "10 Flessioni x 5 Giorni",
+                "steps": [
+                    {"name": "step #1", "days": 1},
+                    {"name": "step #2", "days": 1},
+                    {"name": "step #3", "days": 1},
+                    {"name": "step #4", "days": 1},
+                    {"name": "step #5", "days": 1}
+                ]
+            },
+            {
+                "name": "5 Km x 5 Giorni",
+                "steps": [
+                    {"name": "step #1", "days": 1},
+                    {"name": "step #2", "days": 1},
+                    {"name": "step #3", "days": 1},
+                    {"name": "step #4", "days": 1},
+                    {"name": "step #5", "days": 1}
+                ]
+            },
+            {
+                "name": "10 Km x 5 Giorni",
+                "steps": [
+                    {"name": "step #1", "days": 1},
+                    {"name": "step #2", "days": 1},
+                    {"name": "step #3", "days": 1},
+                    {"name": "step #4", "days": 1},
+                    {"name": "step #5", "days": 1}
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Cucina",
+        "icon": "🍝",
+        "challenge": [
+            {
+                "name": "Mangia sano x 5 giorni",
+                "steps": [
+                    {"name": "step #1", "days": 1},
+                    {"name": "step #2", "days": 1},
+                    {"name": "step #3", "days": 1},
+                    {"name": "step #4", "days": 1},
+                    {"name": "step #5", "days": 1}
+                ]
+            },
+            {
+                "name": "Solo sfizi",
+                "steps": [
+                    {"name": "step #1", "days": 1},
+                    {"name": "step #2", "days": 1},
+                    {"name": "step #3", "days": 1},
+                    {"name": "step #4", "days": 1},
+                    {"name": "step #5", "days": 1}
+                ]
+            },
+            {
+                "name": "Solo Pane e Acqua",
+                "steps": [
+                    {"name": "step #1", "days": 1},
+                    {"name": "step #2", "days": 1},
+                    {"name": "step #3", "days": 1},
+                    {"name": "step #4", "days": 1},
+                    {"name": "step #5", "days": 1}
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Hobby",
+        "icon": "🔨",
+        "challenge": [
+            {
+                "name": "1 Libro in 5 giorni",
+                "steps": [
+                    {"name": "step #1", "days": 1},
+                    {"name": "step #2", "days": 1},
+                    {"name": "step #3", "days": 1},
+                    {"name": "step #4", "days": 1},
+                    {"name": "step #5", "days": 1}
+                ]
+            },
+            {
+                "name": "Imparata il russo",
+                "steps": [
+                    {"name": "step #1", "days": 1},
+                    {"name": "step #2", "days": 1},
+                    {"name": "step #3", "days": 1},
+                    {"name": "step #4", "days": 1},
+                    {"name": "step #5", "days": 1}
+                ]
+            },
+            {
+                "name": "Non far niete x 5 giorni",
+                "steps": [
+                    {"name": "step #1", "days": 1},
+                    {"name": "step #2", "days": 1},
+                    {"name": "step #3", "days": 1},
+                    {"name": "step #4", "days": 1},
+                    {"name": "step #5", "days": 1}
+                ]
+            }
+        ]
+    }
+]

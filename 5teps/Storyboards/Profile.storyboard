@@ -26,10 +26,20 @@
         <!--Profile-->
         <scene sceneID="UdY-Wq-t71">
             <objects>
-                <viewController id="0r3-CG-Yz4" sceneMemberID="viewController">
+                <viewController id="0r3-CG-Yz4" customClass="ProfileViewController" customModule="_teps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oi9-LH-ePE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXv-rG-Fsp">
+                                <rect key="frame" x="20" y="105" width="112" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Carica Dati Json"/>
+                                <connections>
+                                    <action selector="onClickCaricaDatiJson:" destination="0r3-CG-Yz4" eventType="touchUpInside" id="Cxg-zd-B6e"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="1Zo-yK-Wpl"/>
                     </view>

@@ -97,4 +97,7 @@ extension Topic {
             print("Unresolved error \(nserror), \(nserror.userInfo)")
         }
     }
+    public func save() {
+        _ = SharedInfo.context.safeSave()
+    }
 }

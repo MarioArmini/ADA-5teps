@@ -17,7 +17,9 @@ enum StepChallengeState: Int64 {
 }
 
 extension StepChallenge {
-    
+    public func save() {
+        _ = SharedInfo.context.safeSave()
+    }
     public static func list() -> [StepChallenge] {
         let context = SharedInfo.context
         let fetchRequest: NSFetchRequest<StepChallenge> = StepChallenge.fetchRequest()
