@@ -12,6 +12,10 @@ import CoreData
 
 extension User {
     
+    public func save() {
+        _ = SharedInfo.context.safeSave()
+    }
+    
     public static var userData: User {
         get {
             let context = SharedInfo.context
@@ -29,7 +33,8 @@ extension User {
             }
             let user = User(context: SharedInfo.context)
             user.id = UUID()
-            user.name = "No Name"
+            user.name = ""
+            user.save()
             return user
         }
         

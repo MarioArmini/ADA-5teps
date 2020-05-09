@@ -10,12 +10,46 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    
+    @IBOutlet weak var viewMentorTop: UIView!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameTextView: UITextField!
+    
+    var user: User?
+    var referenceForViewTop : Subview?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // MARK: Mentor top view settings ------------------------------------
+        if let referenceForViewOnTheTop = Bundle.main.loadNibNamed("Subview", owner: self, options: nil)?.first as? Subview  {
+            viewMentorTop.addSubview(referenceForViewOnTheTop)
+            referenceForViewOnTheTop.frame.size.height = viewMentorTop.frame.size.height
+            referenceForViewOnTheTop.frame.size.width = viewMentorTop.frame.size.width
+            referenceForViewOnTheTop.subViewDelegate = self
+            referenceForViewTop = referenceForViewOnTheTop
+        }
+        
+        // MARK: update Mentor topview -------------------------------------------------------------
+        referenceForViewTop?.backgroundColor = UIColor.gray
+        //referenceForViewTop?.settingsMentor(imageName: "mentor", text: "Hello!")
+        referenceForViewTop?.greetings(imageName: "mentor")
+        //------------------------------------------------------------------
 
-        // Do any additional setup after loading the view.
+        self.profileImageView.image =  UIImage(named:"mentor")
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
+        self.profileImageView.clipsToBounds = true
+        
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        user = User.userData
+        
+        nameTextView.text = user?.name
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        user?.name = nameTextView.text
+        user?.save()
+    }
 
     /*
     // MARK: - Navigation
@@ -61,6 +95,14 @@ class ProfileViewController: UIViewController {
             }
         }
         
+    }
+    
+}
+
+// MARK: Mentor SubviewDelegate
+extension ProfileViewController : SubviewDelegate {
+    func didTapOnMe(name: String, showMessage: String) {
+        print("name: \(name), message: \(showMessage)")
     }
     
 }
