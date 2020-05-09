@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		018AD88A2466B5EF002BA840 /* TopicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018AD8892466B5EF002BA840 /* TopicCollectionViewCell.swift */; };
 		01B3E2D42464615400B0C18A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B3E2D32464615400B0C18A /* AppDelegate.swift */; };
 		01B3E2D62464615400B0C18A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B3E2D52464615400B0C18A /* SceneDelegate.swift */; };
 		01B3E2D82464615400B0C18A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B3E2D72464615400B0C18A /* FirstViewController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		018AD8892466B5EF002BA840 /* TopicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCollectionViewCell.swift; sourceTree = "<group>"; };
 		01B3E2D02464615400B0C18A /* 5teps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 5teps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01B3E2D32464615400B0C18A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01B3E2D52464615400B0C18A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				6C64C83124648E3100D03184 /* Topic+CoreDataProperties.swift */,
 				6C64C83224648E3100D03184 /* Topic+Methods.swift */,
 				6C64C82D24648E3000D03184 /* Utils.swift */,
+				018AD8892466B5EF002BA840 /* TopicCollectionViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				6C64C83C24648E3100D03184 /* Topic+CoreDataProperties.swift in Sources */,
 				01B3E2D42464615400B0C18A /* AppDelegate.swift in Sources */,
 				6C6FEDA8246525630089BDFF /* Goal+CoreDataClass.swift in Sources */,
+				018AD88A2466B5EF002BA840 /* TopicCollectionViewCell.swift in Sources */,
 				6C6FEDA7246525630089BDFF /* User+CoreDataProperties.swift in Sources */,
 				6C64C83D24648E3100D03184 /* Topic+Methods.swift in Sources */,
 				6C64C84224648E3100D03184 /* Challenge+Methods.swift in Sources */,
