@@ -22,6 +22,7 @@
         <relationship name="challenge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Challenge" inverseName="goal" inverseEntity="Challenge"/>
     </entity>
     <entity name="StepChallenge" representedClassName="StepChallenge" syncable="YES">
+        <attribute name="dateComplete" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dateEnd" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dateStart" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="days" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -49,7 +50,7 @@
     <elements>
         <element name="Challenge" positionX="15.37890625" positionY="195.31640625" width="128" height="223"/>
         <element name="Goal" positionX="45" positionY="126" width="128" height="118"/>
-        <element name="StepChallenge" positionX="278.4453125" positionY="37.109375" width="128" height="178"/>
+        <element name="StepChallenge" positionX="278.4453125" positionY="37.109375" width="128" height="193"/>
         <element name="Topic" positionX="-195.6328125" positionY="59.703125" width="128" height="148"/>
         <element name="User" positionX="9.46875" positionY="-117.4609375" width="128" height="88"/>
     </elements>

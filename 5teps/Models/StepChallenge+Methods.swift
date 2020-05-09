@@ -20,6 +20,33 @@ extension StepChallenge {
     public func save() {
         _ = SharedInfo.context.safeSave()
     }
+    //MARK: Custom Property
+    var enumState: StepChallengeState {
+        get {
+            return StepChallengeState(rawValue: self.state)!
+        }
+    }
+    var isStart: Bool {
+        get {
+            return (enumState == StepChallengeState.Started) ? true : false
+        }
+    }
+    var isFinish: Bool {
+        get {
+            return (enumState == StepChallengeState.Finished) ? true : false
+        }
+    }
+    var isAbort: Bool {
+        get {
+            return (enumState == StepChallengeState.Abort) ? true : false
+        }
+    }
+    var isCreate: Bool {
+        get {
+            return (enumState == StepChallengeState.Create) ? true : false
+        }
+    }
+    
     public static func list() -> [StepChallenge] {
         let context = SharedInfo.context
         let fetchRequest: NSFetchRequest<StepChallenge> = StepChallenge.fetchRequest()
@@ -62,14 +89,15 @@ extension StepChallenge {
         return nil
     }
     public func start() {
-        if self.state == Int64(StepChallengeState.Create.rawValue) {
+        if isCreate {
             self.dateStart = Date()
             self.state = Int64(StepChallengeState.Started.rawValue)
         }
     }
     public func finish() {
-        if self.state != Int64(StepChallengeState.Finished.rawValue) {
+        if !isFinish {
             self.dateEnd = Date()
+            self.dateComplete = Date()
             self.state = Int64(StepChallengeState.Finished.rawValue)
         }
     }

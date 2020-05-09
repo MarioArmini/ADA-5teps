@@ -45,5 +45,22 @@ class ProfileViewController: UIViewController {
             print("###########################################")
         }
     }
+    @IBAction func onClickStart(_ sender: Any) {
+        if let topic = Topic.findByName(name: "Hobby") {
+            if let challenge = topic.findChallengeByName(name: "Impara il russo") {
+                print("Challenge: \(challenge.name!) State:\(challenge.state) - \(String(describing: challenge.dateEnd))")
+                if challenge.isCreate {
+                    if challenge.start() {
+                        
+                    }
+                }
+                print("DeadLine challenge: \(challenge.deadLine!)")
+                for s in challenge.stepsOrder {
+                    print("Step: \(s.step) - \(s.name!) - \(String(describing: s.dateEnd))")
+                }
+            }
+        }
+        
+    }
     
 }

@@ -17,6 +17,7 @@ extension StepChallenge {
         return NSFetchRequest<StepChallenge>(entityName: "StepChallenge")
     }
 
+    @NSManaged public var dateComplete: Date?
     @NSManaged public var dateEnd: Date?
     @NSManaged public var dateStart: Date?
     @NSManaged public var days: Int16

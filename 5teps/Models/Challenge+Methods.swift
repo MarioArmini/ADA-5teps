@@ -56,6 +56,15 @@ extension Challenge {
             }
         }
     }
+    var deadLine: Date? {
+        if isStart || isFinish {
+            let steps = self.stepsOrder
+            if steps.count > 0 {
+                return steps[steps.count-1].dateComplete ?? steps[steps.count-1].dateEnd
+            }
+        }
+        return nil
+    }
     
     public static func list() -> [Challenge] {
         let context = SharedInfo.context
@@ -136,27 +145,42 @@ extension Challenge {
             step.finish()
         }
         self.currentStep = self.currentStep + 1
+        
+        //Se si tratta del primo step calcolo le deadline
+        if self.currentStep == 1 {
+            self.calculateDeadLine()
+        }
+        var updateDeadLine = false
         let steps = self.stepsOrder
         for i in steps {
             if i.step < self.currentStep {
-                i.finish()
+                if(!i.isFinish) {
+                    i.finish()
+                    updateDeadLine = true
+                }
             }else if i.step == self.currentStep {
                 i.start()
             }
         }
         self.save()
+        //Ricalcolo la deadline
+        if updateDeadLine {
+            self.calculateDeadLine()
+        }
         return true
     }
     public func finish()
     {
-        self.dateEnd = Date()
-        self.dateLast = Date()
-        self.state = Int64(ChallengeState.Finished.rawValue)
-        if let step = getCurrentStepChallenge() {
-            step.finish()
+        if !isFinish {
+            self.dateEnd = Date()
+            self.dateLast = Date()
+            self.state = Int64(ChallengeState.Finished.rawValue)
+            if let step = getCurrentStepChallenge() {
+                step.finish()
+            }
+            
+            self.save()
         }
-        
-        self.save()
     }
     public func getCurrentStepChallenge() -> StepChallenge? {
         if self.isStart {
@@ -168,6 +192,20 @@ extension Challenge {
             }
         }
         return nil
+    }
+    public func calculateDeadLine() {
+        let steps = self.stepsOrder
+        var dateBase = self.dateStart!
+        for s in steps {
+            if !s.isFinish {
+                s.dateEnd = Calendar.current.date(byAdding: .day, value: Int(s.days), to: dateBase)
+                s.save()
+                
+                dateBase = s.dateEnd!
+            } else {
+                dateBase = s.dateComplete ?? s.dateEnd!
+            }
+        }
     }
 }
 
