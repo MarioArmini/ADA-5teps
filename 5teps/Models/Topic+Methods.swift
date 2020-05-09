@@ -8,9 +8,18 @@
 
 import Foundation
 import CoreData
-
+import UIKit
 
 extension Topic {
+    
+    var bgColor: UIColor {
+        get {
+            if let color = self.color {
+                return Utils.hexStringToUIColor(hex: color)
+            }
+            return UIColor.white
+        }
+    }
     
     public static func list() -> [Topic] {
         let context = SharedInfo.context

@@ -68,7 +68,7 @@ class ProfileViewController: UIViewController {
         let topics = Topic.list()
         
         for t in topics {
-            print("Topic: \(t.name!)")
+            print("Topic: \(t.name!) \(t.bgColor)")
             let challenges = t.findChallengeByState(state: ChallengeState.Create)
             for c in challenges {
                 print("Challenge: \(c.name!) State:\(c.state)")

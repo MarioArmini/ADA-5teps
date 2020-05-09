@@ -18,6 +18,7 @@ extension Topic {
     }
 
     @NSManaged public var active: Bool
+    @NSManaged public var color: String?
     @NSManaged public var id: UUID?
     @NSManaged public var icon: String?
     @NSManaged public var name: String?

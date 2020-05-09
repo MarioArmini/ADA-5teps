@@ -35,6 +35,7 @@
     </entity>
     <entity name="Topic" representedClassName="Topic" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="icon" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -51,7 +52,7 @@
         <element name="Challenge" positionX="15.37890625" positionY="195.31640625" width="128" height="223"/>
         <element name="Goal" positionX="45" positionY="126" width="128" height="118"/>
         <element name="StepChallenge" positionX="278.4453125" positionY="37.109375" width="128" height="193"/>
-        <element name="Topic" positionX="-195.6328125" positionY="59.703125" width="128" height="148"/>
+        <element name="Topic" positionX="-195.6328125" positionY="59.703125" width="128" height="163"/>
         <element name="User" positionX="9.46875" positionY="-117.4609375" width="128" height="88"/>
     </elements>
 </model>

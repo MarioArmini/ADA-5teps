@@ -42,6 +42,7 @@ public class ImportData {
                 topic?.active = true
                 topic?.timestamp = Date()
                 topic?.icon = t.icon
+                topic?.color = t.color
                 topic?.save()
                 print("New Topic created \(String(describing: topic?.name))")
             }
@@ -81,6 +82,7 @@ public class ImportData {
 struct JsonTopic: Codable {
     var name: String
     var icon: String
+    var color: String
     var challenge: [JsonChallenge]
     
 }
