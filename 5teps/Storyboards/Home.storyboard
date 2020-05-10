@@ -168,6 +168,7 @@
                                         <connections>
                                             <outlet property="challengeLabel" destination="U8w-ee-a8Z" id="lcK-jX-uMY"/>
                                             <outlet property="stepsImage" destination="cvn-BO-ERD" id="4Rf-h9-oAw"/>
+                                            <segue destination="cjK-Sc-1iH" kind="presentation" id="MUJ-w0-axa"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -189,7 +190,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dz9-a9-uwY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Challenges" id="pDd-Fx-yZT"/>
+                    <navigationItem key="navigationItem" title="Challenges" id="pDd-Fx-yZT">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="wZM-nx-rGT"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="challengeCollectionView" destination="qpK-iC-jR6" id="q9y-4o-uEx"/>
                         <outlet property="viewMentorTop" destination="1Tg-eU-bw2" id="BPt-R4-WJC"/>
@@ -198,6 +201,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ndz-KT-qeI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076.8115942028987" y="-74.330357142857139"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="MeI-on-qbb">
+            <objects>
+                <viewController id="cjK-Sc-1iH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8qj-zY-ISG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="bKw-C2-0GA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hRS-5T-vyA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UWa-wx-bwn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2062" y="-74"/>
         </scene>
     </scenes>
     <resources>
