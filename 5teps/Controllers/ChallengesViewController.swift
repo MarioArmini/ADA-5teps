@@ -14,7 +14,6 @@ class ChallengesViewController: UIViewController {
     @IBOutlet weak var challengeCollectionView: UICollectionView!
     var referenceForViewTop : Subview?
     let defaults = UserDefaults.standard
-    let topics = Topic.list()
     var topicName = String()
     var challenges = [Challenge]()
 
@@ -40,13 +39,20 @@ class ChallengesViewController: UIViewController {
         challengeCollectionView.reloadData()
         
         topicName = defaults.string(forKey: "topicName") ?? ""
-        for t in topics{
-            if t.name == topicName{
-                challenges = t.findChallengeByState(state: ChallengeState.Create)
-            }
+        if let topic = Topic.findByName(name: topicName) {
+            challenges = topic.findChallengeByState(state: ChallengeState.Create)
         }
     }
-
+    @IBAction func onClickNewChallenge(_ sender: Any) {
+        if let topic = Topic.findByName(name: topicName) {
+            let viewTmp = UIStoryboard(name: "NewTopic", bundle: nil).instantiateViewController(withIdentifier: "newChallengeView") as! NewChallengeViewController
+            viewTmp.topic = topic
+            self.navigationController?.pushViewController(viewTmp, animated: true)
+        } else {
+            Utils.showMessage(vc: self, title: "Attention", msg: "Hobby topic not found")
+        }
+    }
+    
 }
 
 extension ChallengesViewController: UICollectionViewDelegate{

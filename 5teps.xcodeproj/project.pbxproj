@@ -47,6 +47,8 @@
 		6C6FEDB2246671910089BDFF /* topic.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C6FEDB1246671910089BDFF /* topic.json */; };
 		6C6FEDB4246671F50089BDFF /* ImportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6FEDB3246671F50089BDFF /* ImportData.swift */; };
 		6C6FEDB62466746A0089BDFF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6FEDB52466746A0089BDFF /* ProfileViewController.swift */; };
+		6C91AF31246882C600A98D8B /* ChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C91AF30246882C600A98D8B /* ChallengesViewController.swift */; };
+		6C91AF332468831F00A98D8B /* ChallengeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C91AF322468831F00A98D8B /* ChallengeCollectionViewCell.swift */; };
 		6CF284032466E56600340C6B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF284022466E56600340C6B /* Extension.swift */; };
 		6CF284052466E93600340C6B /* NewTopic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CF284042466E93600340C6B /* NewTopic.storyboard */; };
 		6CF284072466EB3B00340C6B /* NewTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF284062466EB3B00340C6B /* NewTopicViewController.swift */; };
@@ -98,6 +100,8 @@
 		6C6FEDB1246671910089BDFF /* topic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = topic.json; sourceTree = "<group>"; };
 		6C6FEDB3246671F50089BDFF /* ImportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportData.swift; sourceTree = "<group>"; };
 		6C6FEDB52466746A0089BDFF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6C91AF30246882C600A98D8B /* ChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengesViewController.swift; sourceTree = "<group>"; };
+		6C91AF322468831F00A98D8B /* ChallengeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeCollectionViewCell.swift; sourceTree = "<group>"; };
 		6CF284022466E56600340C6B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		6CF284042466E93600340C6B /* NewTopic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewTopic.storyboard; sourceTree = "<group>"; };
 		6CF284062466EB3B00340C6B /* NewTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTopicViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 				01B3E2D72464615400B0C18A /* FirstViewController.swift */,
 				01B3E2D92464615400B0C18A /* SecondViewController.swift */,
 				4E13BF6024658A83006AD0C4 /* Onboarding.swift */,
+				6C91AF30246882C600A98D8B /* ChallengesViewController.swift */,
 				6C6FEDB52466746A0089BDFF /* ProfileViewController.swift */,
 				6CF284062466EB3B00340C6B /* NewTopicViewController.swift */,
 				6C1F848C2467C7C300EDF793 /* NewChallengeViewController.swift */,
@@ -198,6 +203,7 @@
 		6C64C82A24648E0200D03184 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6C91AF322468831F00A98D8B /* ChallengeCollectionViewCell.swift */,
 				6CF284022466E56600340C6B /* Extension.swift */,
 				4EA0879F24661525001DEFBF /* Mentor */,
 				6C6FEDA0246525630089BDFF /* User+CoreDataProperties.swift */,
@@ -325,6 +331,7 @@
 				6CF2840C2466FA3300340C6B /* ColorCollectionViewCell.swift in Sources */,
 				01B3E2DA2464615400B0C18A /* SecondViewController.swift in Sources */,
 				01B3E2D82464615400B0C18A /* FirstViewController.swift in Sources */,
+				6C91AF332468831F00A98D8B /* ChallengeCollectionViewCell.swift in Sources */,
 				6C64C84024648E3100D03184 /* SharedInfo.swift in Sources */,
 				6C64C83F24648E3100D03184 /* StepChallenge+Methods.swift in Sources */,
 				6C64C83E24648E3100D03184 /* Challenge+CoreDataClass.swift in Sources */,
@@ -343,6 +350,7 @@
 				6C6FEDA7246525630089BDFF /* User+CoreDataProperties.swift in Sources */,
 				6C64C83D24648E3100D03184 /* Topic+Methods.swift in Sources */,
 				6C64C84224648E3100D03184 /* Challenge+Methods.swift in Sources */,
+				6C91AF31246882C600A98D8B /* ChallengesViewController.swift in Sources */,
 				01B3E2D62464615400B0C18A /* SceneDelegate.swift in Sources */,
 				6C6FEDB4246671F50089BDFF /* ImportData.swift in Sources */,
 				6CF284032466E56600340C6B /* Extension.swift in Sources */,

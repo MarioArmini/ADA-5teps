@@ -42,28 +42,14 @@ class FirstViewController: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        TopicCollectionView.reloadData()
-       /* topicLabelTest.text = ""
         let topics = Topic.list()
-        for topic in topics {
-            print(topic)
-            topicLabelTest.text = topicLabelTest.text! + "\n \(String(describing: topic.name)) - \(String(describing: topic.icon))"
-        }
-        // MARK: Esempio di navigazione oggetti Topic -> Challenge -> Step
-        
-         for t in topics {
-             print("Topic: \(t.name!)")
-             let challenges = t.findChallengeByState(state: ChallengeState.Create)
-             for c in challenges {
-                 print("Challenge: \(c.name!) State:\(c.state)")
-                 for s in c.stepsOrder {
-                     print("Step: \(s.step) - \(s.name!)")
-                 }
-             }
-             print("###########################################")
-         }
-         */
+        TopicCollectionView.reloadData()
     }
+    @IBAction func onClickNewTopic(_ sender: UIBarButtonItem) {
+        let viewTmp = UIStoryboard(name: "NewTopic", bundle: nil).instantiateViewController(withIdentifier: "newTopicView") as! NewTopicViewController
+        self.navigationController?.pushViewController(viewTmp, animated: true)
+    }
+    
 }
 
 extension FirstViewController: UICollectionViewDelegate{

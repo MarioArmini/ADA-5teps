@@ -105,7 +105,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Topics" image="house" catalog="system" id="3R4-Pp-6Ay"/>
                     <navigationItem key="navigationItem" title="Topics" id="7Jm-JZ-sZI">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="Vlg-RU-ocC"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="Vlg-RU-ocC">
+                            <connections>
+                                <action selector="onClickNewTopic:" destination="ViF-AZ-p7O" id="CCz-uv-Lz5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -191,7 +195,11 @@
                         <viewLayoutGuide key="safeArea" id="Dz9-a9-uwY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Challenges" id="pDd-Fx-yZT">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="wZM-nx-rGT"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="wZM-nx-rGT">
+                            <connections>
+                                <action selector="onClickNewChallenge:" destination="Gv8-kr-XoY" id="JL3-tU-93i"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="challengeCollectionView" destination="qpK-iC-jR6" id="q9y-4o-uEx"/>
