@@ -83,6 +83,26 @@ extension Challenge {
         }
         return [Challenge]()
     }
+    public static func listInProgress() -> [Challenge] {
+        let context = SharedInfo.context
+        let fetchRequest: NSFetchRequest<Challenge> = Challenge.fetchRequest()
+        //fetchRequest.fetchBatchSize = 20
+        
+        let sortDescriptor = NSSortDescriptor(key: "dateEnd", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        let filter = NSPredicate(format: "state == %i", ChallengeState.Started.rawValue)
+        fetchRequest.predicate = filter
+        
+        do {
+            
+            let result = try context.fetch(fetchRequest)
+            return result
+        } catch {
+            print ("Error retrieving data")
+        }
+        return [Challenge]()
+    }
     public static func findByName(name: String) -> Challenge? {
         let context = SharedInfo.context
         let fetchRequest: NSFetchRequest<Challenge> = Challenge.fetchRequest()
