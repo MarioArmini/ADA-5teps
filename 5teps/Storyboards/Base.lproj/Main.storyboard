@@ -22,6 +22,7 @@
                                 <rect key="frame" x="200" y="832" width="214" height="30"/>
                                 <state key="normal" title="Skip"/>
                                 <connections>
+                                    <action selector="start:" destination="dwy-wk-8Pi" eventType="touchUpInside" id="b6r-Us-EhE"/>
                                     <segue destination="49e-Tb-3d3" kind="presentation" modalPresentationStyle="fullScreen" id="wSl-Sm-FPA"/>
                                 </connections>
                             </button>

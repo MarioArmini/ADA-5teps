@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class Onboarding: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var pageControl: UIPageControl!
@@ -15,7 +16,7 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var skipButton: UIButton!
-    
+    var mentor = Subview()
     var slides:[Slide] = []
     
     override func viewDidLoad() {
@@ -39,15 +40,20 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
         
         let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide1.imageView.image = UIImage(named: "mentor")
+        slide1.title.text = "TITOLO 1"
+        slide1.desc.text  = "DESCRIZIONE 1"
         
         
         let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide2.imageView.image = UIImage(named: "mentor")
-        
+        slide2.title.text = "TITOLO 2"
+        slide2.desc.text = "DESCRIZIONE 2"
         
         let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide3.imageView.image = UIImage(named: "mentor")
-        
+        slide3.title.text = "TITOLO 3"
+        slide3.desc.text = "DESCRIZIONE 3"
+        slide3.playMentorPresentation.isHidden = false
         return [slide1, slide2, slide3]
     }
     
@@ -80,5 +86,10 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
         skipButton.setTitle("Start", for: .normal)
         
     }
+    
+    @IBAction func start(_ sender: Any) {
+        
+    }
+    
     
 }
