@@ -13,7 +13,7 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var viewMentorTop: UIView!
     @IBOutlet weak var TopicCollectionView: UICollectionView!
     var referenceForViewTop : Subview?
-    let topics = Topic.list()
+    var topics: [Topic]!
     let defaults = UserDefaults.standard
     
     
@@ -35,14 +35,14 @@ class FirstViewController: UIViewController {
         //------------------------------------------------------------------
         
         // MARK: load default data from json
-        let topics = Topic.list()
+        topics = Topic.list()
         if topics.count == 0 {
             let json = ImportData.importJson()
             ImportData.saveTopic(topics: json)
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        let topics = Topic.list()
+        topics = Topic.list()
         TopicCollectionView.reloadData()
     }
     @IBAction func onClickNewTopic(_ sender: UIBarButtonItem) {
