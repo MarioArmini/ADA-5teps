@@ -10,9 +10,12 @@ import UIKit
 
 class NewTopicViewController: UIViewController {
     
+    @IBOutlet weak var viewMentorTop: UIView!
     @IBOutlet weak var collectionViewIcons: UICollectionView!
     @IBOutlet weak var collectionViewColors: UICollectionView!
     @IBOutlet weak var nameTextField: UITextField!
+    
+    var referenceForViewTop : Subview?
     
     var icons = Utils.getArrayIcon()
     var colors = Utils.getArrayColor()
@@ -20,6 +23,22 @@ class NewTopicViewController: UIViewController {
     public var topic: Topic?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // MARK: Mentor top view settings ------------------------------------
+        if let referenceForViewOnTheTop = Bundle.main.loadNibNamed("Subview", owner: self, options: nil)?.first as? Subview  {
+            viewMentorTop.addSubview(referenceForViewOnTheTop)
+            referenceForViewOnTheTop.frame.size.height = viewMentorTop.frame.size.height
+            referenceForViewOnTheTop.frame.size.width = viewMentorTop.frame.size.width
+            referenceForViewOnTheTop.subViewDelegate = self
+            referenceForViewTop = referenceForViewOnTheTop
+        }
+        
+        // MARK: update Mentor topview -------------------------------------------------------------
+        referenceForViewTop?.backgroundColor = UIColor.gray
+        //referenceForViewTop?.settingsMentor(imageName: "mentor", text: "Hello!")
+        referenceForViewTop?.greetings(imageName: "mentor")
+        //------------------------------------------------------------------
+
         
         collectionViewIcons.delegate = self
         collectionViewIcons.dataSource = self
@@ -113,7 +132,7 @@ extension NewTopicViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let w = collectionViewIcons.bounds.width
         if collectionView.tag == 1 {
-            return CGSize(width: w, height: 350)
+            return CGSize(width: w, height: 300)
         }
         else if collectionView.tag == 2 {
             return CGSize(width: 60, height: 60)
@@ -130,5 +149,11 @@ extension NewTopicViewController: UICollectionViewDataSource, UICollectionViewDe
                 collectionViewIcons.selectItem(at: selItems[selItems.count - 1], animated: false, scrollPosition: .centeredHorizontally)
             }
         }
+    }
+}
+// MARK: Mentor SubviewDelegate
+extension NewTopicViewController : SubviewDelegate {
+    func didTapOnMe(name: String, showMessage: String) {
+        print("name: \(name), message: \(showMessage)")
     }
 }

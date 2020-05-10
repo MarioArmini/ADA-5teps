@@ -102,6 +102,17 @@ class ProfileViewController: UIViewController {
         //viewTmp.helpRequest = requestData
         self.navigationController?.pushViewController(viewTmp, animated: true)
     }
+    @IBAction func onClickNewChallenge(_ sender: UIButton) {
+        if let topic = Topic.findByName(name: "Hobby") {
+            let viewTmp = UIStoryboard(name: "NewTopic", bundle: nil).instantiateViewController(withIdentifier: "newChallengeView") as! NewChallengeViewController
+            viewTmp.topic = topic
+            self.navigationController?.pushViewController(viewTmp, animated: true)
+        } else {
+            Utils.showMessage(vc: self, title: "Attention", msg: "Hobby topic not found")
+        }
+        
+    }
+    
     // MARK: - ###############################################
 }
 
