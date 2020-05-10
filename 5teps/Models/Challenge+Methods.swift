@@ -200,6 +200,14 @@ extension Challenge {
             }
             
             self.save()
+            //Salvo l'obiettivo raggiunto
+            let goal = Goal(context: SharedInfo.context)
+            goal.id = UUID()
+            goal.date = Date()
+            goal.level = Int16(Goal.getMaxLevel() + 1)
+            goal.name = Goal.getNameLevel(level: goal.level)
+            goal.challenge = self
+            goal.save()
         }
     }
     public func getCurrentStepChallenge() -> StepChallenge? {

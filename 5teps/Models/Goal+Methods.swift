@@ -48,7 +48,47 @@ extension Goal {
         return nil
     }
     
+    public static func findLastGoal() -> Goal? {
+        let context = SharedInfo.context
+        let fetchRequest: NSFetchRequest<Goal> = Goal.fetchRequest()
+        fetchRequest.fetchBatchSize = 1
+        
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        do {
+            
+            let result = try context.fetch(fetchRequest)
+            if result.count > 0 {
+                return result[0]
+            }
+        } catch {
+            print ("Error retrieving data")
+        }
+        return nil
+    }
+    
     public func save() {
         _ = SharedInfo.context.safeSave()
+    }
+    public static func getMaxLevel() ->Int {
+        var level = 0
+        
+        let goals = Goal.list()
+        for g in goals {
+            level = max(level,Int(g.level))
+        }
+        
+        return level + 1
+    }
+    public static func getNameLevel(level: Int16) -> String {
+        var name = "Beginner"
+        if (level > 10 && level <= 20) {
+            name = "Intermediate"
+        } else if (level > 20 && level <= 30) {
+            name = "Master"
+        } else {
+            name = "Gran Master"
+        }
+        return name
     }
 }
