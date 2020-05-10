@@ -52,7 +52,7 @@ extension StepChallenge {
         let fetchRequest: NSFetchRequest<StepChallenge> = StepChallenge.fetchRequest()
         fetchRequest.fetchBatchSize = 20
         
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
