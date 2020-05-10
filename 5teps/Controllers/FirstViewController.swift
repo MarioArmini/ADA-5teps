@@ -14,7 +14,7 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var TopicCollectionView: UICollectionView!
     var referenceForViewTop : Subview?
     let topics = Topic.list()
-    
+    let defaults = UserDefaults.standard
     
     
     override func viewDidLoad() {
@@ -91,6 +91,10 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
                return CGSize(width: 373, height: 528)
        }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        defaults.set(topics[indexPath.section].name, forKey: "topicName")
+    }
     
 }
 
