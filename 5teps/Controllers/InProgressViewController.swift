@@ -35,6 +35,7 @@ class InProgressViewController: UIViewController {
         referenceForViewTop?.greetings(imageName: "mentor")
         //------------------------------------------------------------------
         
+        challengeCollectionView.register(UINib.init(nibName: "CardChallenge", bundle: nil), forCellWithReuseIdentifier: "cellCard")
         
         challengeCollectionView.delegate = self
         challengeCollectionView.dataSource = self
@@ -42,7 +43,6 @@ class InProgressViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         sections = [Int: [Challenge]]()
         sections[0] = Challenge.listInProgress()
-        
         challengeCollectionView.reloadData()
     }
 
@@ -72,10 +72,9 @@ extension InProgressViewController : UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CardCollectionViewCell
-        cell.contentView.backgroundColor = UIColor.red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellCard", for: indexPath) as! CardCollectionViewCell
         if let challenge = sections[indexPath.section]?[indexPath.row] {
-            cell.nameLabel.text = challenge.name
+            cell.challenge = challenge
         }
         return cell
     }
@@ -88,8 +87,9 @@ extension InProgressViewController : UICollectionViewDelegate, UICollectionViewD
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = collectionView.layer.bounds.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
+        let heightPerItem = widthPerItem * 1.25
         
-        return CGSize(width: widthPerItem, height: widthPerItem)
+        return CGSize(width: widthPerItem, height: heightPerItem)
     }
     
     //3
