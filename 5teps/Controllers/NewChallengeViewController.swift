@@ -32,7 +32,7 @@ class NewChallengeViewController: UIViewController {
         // MARK: update Mentor topview -------------------------------------------------------------
         referenceForViewTop?.backgroundColor = UIColor.gray
         //referenceForViewTop?.settingsMentor(imageName: "mentor", text: "Hello!")
-        referenceForViewTop?.greetings(imageName: "mentor")
+        referenceForViewTop?.greetingsMentor()
         //------------------------------------------------------------------
         
         // Do any additional setup after loading the view.

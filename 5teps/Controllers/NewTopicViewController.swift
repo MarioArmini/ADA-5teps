@@ -38,7 +38,7 @@ class NewTopicViewController: UIViewController {
         // MARK: update Mentor topview -------------------------------------------------------------
         referenceForViewTop?.backgroundColor = UIColor.gray
         //referenceForViewTop?.settingsMentor(imageName: "mentor", text: "Hello!")
-        referenceForViewTop?.greetings(imageName: "mentor")
+        referenceForViewTop?.greetingsMentor()
         //------------------------------------------------------------------
         
         colorsPickerView.delegate = self

@@ -31,7 +31,7 @@ class FirstViewController: UIViewController {
         // MARK: update Mentor topview -------------------------------------------------------------
         referenceForViewTop?.backgroundColor = UIColor.gray
         //referenceForViewTop?.settingsMentor(imageName: "mentor", text: "Hello!")
-        referenceForViewTop?.greetings(imageName: "mentor")
+        referenceForViewTop?.greetingsMentor()
         //------------------------------------------------------------------
         
         // MARK: load default data from json

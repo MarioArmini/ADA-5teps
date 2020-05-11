@@ -42,18 +42,22 @@ class Subview: UIView {
     var stepIndications: [String] = ["In this section..."]
     var arrayCazziatone: [String] = []
    
-
+    var mentorImages : [String] = ["mentor", "mentor1", "mentor2"]
 //MARK:  CHECKCHALLENGE 2 SECTION
     //----------------------------------------------------------
     
     var msgIndex = 0
     
     override func awakeFromNib() {
-        imageView.layer.cornerRadius = 20.0
-        imageView.layer.masksToBounds = true
-        imageView.clipsToBounds = true
-        
-        
+         imageView.layer.borderWidth = 2
+              imageView.layer.masksToBounds = false
+              imageView.layer.borderColor = UIColor.gray.cgColor
+              imageView.layer.cornerRadius = 40.0//imageView.frame.height/2
+              imageView.clipsToBounds = true
+              /*imageView.layer.cornerRadius = 20.0
+              imageView.layer.masksToBounds = true
+              imageView.clipsToBounds = true */
+              
     }
     
     //MARK: CUSTOMIZE
@@ -64,18 +68,20 @@ class Subview: UIView {
     }
     
     //MARK: GREETINGS [RANDOM]
-    func greetings(imageName: String) {
-        imageView.image = UIImage(named: imageName)
-        let randomGreetings = Int(arc4random() % UInt32(greetings.count))
-        user = User.userData
-        if user?.name != nil {
-        textView.text = "\(greetings[randomGreetings])  \(user!.name!)"
-        }else{
-             textView.text = "\(greetings[randomGreetings])"
-        }
-        let greet = textView
-        print(greet!)
-    }
+       func greetingsMentor() {
+         msgIndex = .random(in: 0...2)
+         imageView.image = UIImage(named: mentorImages[msgIndex])
+         
+         let randomGreetings = Int(arc4random() % UInt32(greetings.count))
+         user = User.userData
+         if user?.name != nil {
+         textView.text = "\(greetings[randomGreetings])  \(user!.name!)"
+         }else{
+              textView.text = "\(greetings[randomGreetings])"
+         }
+         let greet = textView
+         print(greet!)
+     }
     
     //MARK: MOTIVATION [RANDOM]
     func mentorMotivatesYou(imageName: String) {
