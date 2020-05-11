@@ -11,9 +11,11 @@ import UIKit
 class NewTopicViewController: UIViewController {
     
     @IBOutlet weak var viewMentorTop: UIView!
-    @IBOutlet weak var collectionViewIcons: UICollectionView!
-    @IBOutlet weak var collectionViewColors: UICollectionView!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var iconsPickerView: UIPickerView!
+    @IBOutlet weak var colorsPickerView: UIPickerView!
+    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var cardImageView: UIImageView!
     
     var referenceForViewTop : Subview?
     
@@ -38,20 +40,30 @@ class NewTopicViewController: UIViewController {
         //referenceForViewTop?.settingsMentor(imageName: "mentor", text: "Hello!")
         referenceForViewTop?.greetings(imageName: "mentor")
         //------------------------------------------------------------------
-
         
-        collectionViewIcons.delegate = self
-        collectionViewIcons.dataSource = self
-        collectionViewColors.delegate = self
-        collectionViewColors.dataSource = self
-        
+        colorsPickerView.delegate = self
+        iconsPickerView.delegate = self
+        colorsPickerView.dataSource = self
+        iconsPickerView.dataSource = self
         if topic != nil {
             nameTextField.text = topic?.name
         }
+        cardView.layer.cornerRadius = 20
+        cardView.clipsToBounds = true
+        cardView.backgroundColor = UIColor.red
+        cardView.layer.borderWidth = 2.0
+        cardView.layer.borderColor = UIColor.black.cgColor
     }
     override func viewWillAppear(_ animated: Bool) {
-        collectionViewIcons.reloadData()
-        collectionViewColors.reloadData()
+        if topic != nil {
+            if let index = icons.firstIndex(of: topic!.icon!) {
+                iconsPickerView.selectRow(index, inComponent: 0, animated: true)
+            }
+            if let index = colors.firstIndex(of: topic!.color!) {
+                colorsPickerView.selectRow(index, inComponent: 0, animated: true)
+            }
+        }
+        
     }
     
     @IBAction func onClickDone(_ sender: UIBarButtonItem) {
@@ -59,16 +71,10 @@ class NewTopicViewController: UIViewController {
             Utils.showMessage(vc: self, title: "Field Mandatory", msg: "Insert name of topic")
             return
         }
-        let iconsSel = collectionViewIcons.indexPathsForSelectedItems
-        if iconsSel == nil || iconsSel?.count == 0 {
-            Utils.showMessage(vc: self, title: "Field Mandatory", msg: "Select the icon")
-            return
-        }
-        let colorSel = collectionViewColors.indexPathsForSelectedItems
-        if colorSel == nil || colorSel?.count == 0 {
-            Utils.showMessage(vc: self, title: "Field Mandatory", msg: "Select the color's card")
-            return
-        }
+        
+        let iconsSel = icons[iconsPickerView.selectedRow(inComponent: 0)]
+        let colorSel = colors[colorsPickerView.selectedRow(inComponent: 0)]
+        
         
         if topic == nil {
             topic = Topic.findByName(name: nameTextField.text!)
@@ -80,8 +86,8 @@ class NewTopicViewController: UIViewController {
                 topic?.user = User.userData
             }
         }
-        topic?.color = colors[colorSel![0].section]
-        topic?.icon = icons[iconsSel![0].section]
+        topic?.color = colorSel
+        topic?.icon = iconsSel
         topic?.name = nameTextField.text
         topic?.save()
         
@@ -100,65 +106,81 @@ class NewTopicViewController: UIViewController {
     
 }
 
-extension NewTopicViewController: UICollectionViewDelegate{
-    
-}
-
-extension NewTopicViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if collectionView.tag == 1 {
-            return icons.count
-        }
-        else if collectionView.tag == 2 {
-            return colors.count
-        }
-        return 0
-    }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if collectionView.tag == 1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NewTopicCollectionViewCell
-            cell.iconLabel.text = self.icons[indexPath.section]
-            cell.contentView.backgroundColor = currentBG
-            return cell
-        }
-        else if collectionView.tag == 2 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellColor", for: indexPath) as! ColorCollectionViewCell
-            cell.viewColor.backgroundColor = Utils.hexStringToUIColor(hex: colors[indexPath.section])
-            return cell
-        }
-        
-        return UICollectionViewCell()
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let w = collectionViewIcons.bounds.width
-        if collectionView.tag == 1 {
-            return CGSize(width: w, height: 300)
-        }
-        else if collectionView.tag == 2 {
-            return CGSize(width: 60, height: 60)
-        }
-        return CGSize(width: 60, height: 60)
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView.tag == 2 {
-            currentBG = Utils.hexStringToUIColor(hex: colors[indexPath.section])
-            let selItems = collectionViewIcons.indexPathsForVisibleItems
-            
-            collectionViewIcons.reloadData()
-            if selItems.count > 0 {
-                collectionViewIcons.selectItem(at: selItems[selItems.count - 1], animated: false, scrollPosition: .centeredHorizontally)
-            }
-        }
-    }
-}
 // MARK: Mentor SubviewDelegate
 extension NewTopicViewController : SubviewDelegate {
     func didTapOnMe(name: String, showMessage: String) {
         print("name: \(name), message: \(showMessage)")
     }
+}
+extension NewTopicViewController: UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView.tag == 1 {
+            return icons.count
+        }
+        return colors.count
+    }
+    
+    /*func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+     {
+     return ""
+     }*/
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        let w = pickerView.layer.bounds.width
+        return w
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        let w = pickerView.layer.bounds.width
+        return w
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let w = pickerView.layer.bounds.width
+        
+        let parentView = UIView()
+        if pickerView.tag == 1 {
+            let wlabel = w
+            let image = UIImageView(frame: CGRect(x: 0, y: 0, width: wlabel, height: wlabel))
+            
+            image.image = icons[row].emojiToImage()
+            image.contentMode = .scaleAspectFit
+            
+            DispatchQueue.main.async {
+                self.cardImageView.image = self.icons[self.iconsPickerView.selectedRow(inComponent: 0)].emojiToImage()
+            }
+            
+            parentView.addSubview(image)
+            
+        } else {
+            let wlabel = w
+            let image = UIImageView(frame: CGRect(x: 0, y: 0, width: wlabel, height: wlabel))
+            
+            image.backgroundColor = Utils.hexStringToUIColor(hex: colors[row])
+            DispatchQueue.main.async {
+                self.cardView.backgroundColor = Utils.hexStringToUIColor(hex: self.colors[self.colorsPickerView.selectedRow(inComponent: 0)])
+            }
+            
+            parentView.addSubview(image)
+        }
+        
+        return parentView
+    }
+    func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
+    {
+        if pickerView.tag == 1 {
+            self.cardImageView.image = self.icons[row].emojiToImage()
+        } else {
+            self.cardView.backgroundColor = Utils.hexStringToUIColor(hex: self.colors[row])
+        }
+    }
+    
 }
