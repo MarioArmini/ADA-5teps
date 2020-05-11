@@ -10,6 +10,7 @@
 // MARK: THIS IS ALL ABOUT THE MENTOR.
 import UIKit
 import UserNotifications
+
 protocol SubviewDelegate {
     func didTapOnMe(name: String, showMessage: String)
     
@@ -22,6 +23,7 @@ class Subview: UIView {
     
     var subViewDelegate : SubviewDelegate!
     var challengeData = Challenge()
+    var user: User?
     
     //greetings = welcome
     //MARK: Mentor Local sentences
@@ -65,7 +67,12 @@ class Subview: UIView {
     func greetings(imageName: String) {
         imageView.image = UIImage(named: imageName)
         let randomGreetings = Int(arc4random() % UInt32(greetings.count))
-        textView.text = "\(greetings[randomGreetings])"
+        user = User.userData
+        if user?.name != nil {
+        textView.text = "\(greetings[randomGreetings])  \(user!.name!)"
+        }else{
+             textView.text = "\(greetings[randomGreetings])"
+        }
         let greet = textView
         print(greet!)
     }
