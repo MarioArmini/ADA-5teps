@@ -33,7 +33,7 @@ class InProgressViewController: UIViewController {
         // MARK: update Mentor topview -------------------------------------------------------------
         referenceForViewTop?.backgroundColor = UIColor.gray
         //referenceForViewTop?.settingsMentor(imageName: "mentor", text: "Hello!")
-        referenceForViewTop?.greetingsMentor()
+        referenceForViewTop?.checkChallenge()
         //------------------------------------------------------------------
         
         challengeCollectionView.register(UINib.init(nibName: "CardChallenge", bundle: nil), forCellWithReuseIdentifier: "cellCard")
