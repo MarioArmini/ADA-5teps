@@ -79,7 +79,9 @@ extension ChallengesViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 180, height: 245)
+        let w = collectionView.layer.bounds.width
+        let widthForItem = w/2 - 40
+        return CGSize(width: widthForItem, height: 250)
     }
     
 }

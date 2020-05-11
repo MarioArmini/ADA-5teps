@@ -57,7 +57,7 @@ extension FirstViewController: UICollectionViewDelegate{
 }
 
 extension FirstViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-   
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return topics.count
     }
@@ -75,8 +75,9 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-               return CGSize(width: 373, height: 528)
-       }
+        let w = collectionView.layer.bounds.width
+        return CGSize(width: w, height: 528)
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         defaults.set(topics[indexPath.section].name, forKey: "topicName")
@@ -84,24 +85,11 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
 }
 
-extension String {
-    func emojiToImage() -> UIImage? {
-        let size = CGSize(width: 30, height: 35)
-        UIGraphicsBeginImageContextWithOptions(size, false, 0)
-        UIColor.white.set()
-        let rect = CGRect(origin: CGPoint(), size: size)
-        UIRectFill(rect)
-        (self as NSString).draw(in: rect, withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30)])
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
-    }
-}
+
 
 // MARK: Mentor SubviewDelegate
 extension FirstViewController : SubviewDelegate {
     func didTapOnMe(name: String, showMessage: String) {
         print("name: \(name), message: \(showMessage)")
     }
-    
 }
