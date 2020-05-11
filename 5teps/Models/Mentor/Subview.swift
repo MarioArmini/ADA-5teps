@@ -29,18 +29,19 @@ class Subview: UIView {
     var motivation : [String] = ["Just do it", "Every single step becomes a leap of faith", "Just reach up, don't give up"]
     
   //MARK: CHALLENGES
-    var noChallengeInProgress: [String] = []
-    var challengeCompleted: [String] = []
-    var challengeFailed: [String] = []
+    
+    //Incitazioni se nn ci sono challenge
+    var noChallengeInProgress: [String] = ["Why don't you start a new challenge?", "Today is a great day to start a new challenge", "A new beginning: start your challenge today!"]
+    //---------------------------------------------------------
+    var challengeCompleted: [String] = ["Well done", "Great Job"]
+    var challengeFailed: [String] = ["Oh no!"]
     
 //MARK: INDICATIONS + CAZZIATONE
-    var stepIndications: [String] = []
+    var stepIndications: [String] = ["In this section..."]
     var arrayCazziatone: [String] = []
-    
-    var imagesMentor : [String] = []
-    
-//Second section: in progress
-    var mentorIndicationSecondSection: [String] = []
+   
+
+//MARK:  CHECKCHALLENGE 2 SECTION
     //----------------------------------------------------------
     
     var msgIndex = 0
@@ -78,41 +79,68 @@ class Subview: UIView {
         print(motivate!)
     }
     
-    func mentorMotivatesYouIfYouHaveNoChallenges(imageName: String) {
+    func IfYouHaveNoChallenges(imageName: String) {
         imageView.image = UIImage(named: imageName)
-        let randomIncitazioni = Int(arc4random() % UInt32(greetings.count))
+        let randomIncitazioni = Int(arc4random() % UInt32(noChallengeInProgress.count))
         textView.text = "\(noChallengeInProgress[randomIncitazioni])"
         let incitazioni = textView
         print(incitazioni!)
     }
     
+    func challengeCompletedAction(imageName: String) {
+           //var challenge completed
+        imageView.image = UIImage(named: imageName)
+        let randomChallengeCompleted = Int(arc4random() % UInt32(challengeCompleted.count))
+        textView.text = "\(challengeCompleted[randomChallengeCompleted])"
+        let challengeComp = textView
+        print(challengeComp!)
+        
+       }
     
+    func ifTheChallengeIsFailed(imageName: String) {
+        //var challenge completed
+            imageView.image = UIImage(named: imageName)
+            let randomChallengeFailed = Int(arc4random() % UInt32(challengeFailed.count))
+            textView.text = "\(challengeFailed[randomChallengeFailed])"
+            let challengeFail = textView
+            print(challengeFail!)
+    }
     
+    func someStepIndications(imageName: String) {
+        imageView.image = UIImage(named: imageName)
+                   let randomSomeSteps = Int(arc4random() % UInt32(stepIndications.count))
+                   textView.text = "\(stepIndications[randomSomeSteps])"
+                   let someSteps = textView
+                   print(someSteps!)
+        
+    }
+    
+    func mentorReproaches(imageName: String) {
+        imageView.image = UIImage(named: imageName)
+        let randomMentorReproaches = Int(arc4random() % UInt32(arrayCazziatone.count))
+        textView.text = "\(arrayCazziatone[randomMentorReproaches])"
+        let someSteps = textView
+        print(someSteps!)
+    }
     //----------------------------------------------
     
     
     
-    
-    func noChallengeAction() {
-        // call to action
-    }
+     //MARK:  State Control
     
     func checkChallenge() {
-        //motivation
-        
+     
         //array challenge in corso
         let challengeStarted = Challenge.listInProgress()
         if challengeStarted.count > 0 {
+            //quotes
             mentorMotivatesYou(imageName: "mentor")
         }else{
-            mentorMotivatesYouIfYouHaveNoChallenges(imageName: "mentor")
+            //Why don't u start a new challenge?
+           IfYouHaveNoChallenges(imageName: "mentor")
         }
     }
     
-    
-    func challengeCompletedAction() {
-        //var success
-    }
     
     func localNotification(){
         /*let center = UNUserNotificationCenter.current()
