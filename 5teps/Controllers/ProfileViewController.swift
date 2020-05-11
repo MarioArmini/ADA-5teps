@@ -45,19 +45,7 @@ class ProfileViewController: UIViewController {
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
         self.profileImageView.clipsToBounds = true
         
-        /*
-        if goals.count == 0 {
-            //TEST inserimento 10 Goals
-            for i in 0...10 {
-                let g = Goal(context: SharedInfo.context)
-                g.id = UUID()
-                g.date = Date()
-                g.name = "Goal - \(i)"
-                g.level = Int16(i + 1)
-                goals.append(g)
-            }
-        }*/
-        
+       
         goalCollectionView.delegate = self
         goalCollectionView.dataSource = self
     }
@@ -67,19 +55,14 @@ class ProfileViewController: UIViewController {
         nameTextView.text = user?.name
         sections = [Int:[Goal]]()
         goals = Goal.list()
-        for j in 0...2 {
-            sections[j] = [Goal]()
-            for _ in 0...5 {
-                let g = goals.remove(at: 0)
-                sections[j]?.append(g)
-                if goals.count == 0 {
-                    break
-                }
+        let section = 0
+        for g in goals {
+            if(!sections.keys.contains(section)) {
+                sections[section] = [Goal]()
             }
-            if goals.count == 0 {
-                break
-            }
+            sections[section]?.append(g)
         }
+        
         goalCollectionView.reloadData()
     }
     override func viewWillDisappear(_ animated: Bool) {

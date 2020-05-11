@@ -71,17 +71,22 @@ class NewTopicViewController: UIViewController {
         }
         
         if topic == nil {
-            topic = Topic(context: SharedInfo.context)
-            topic?.active = true
-            topic?.id = UUID()
-            topic?.timestamp = Date()
-            topic?.user = User.userData
+            topic = Topic.findByName(name: nameTextField.text!)
+            if topic == nil {
+                topic = Topic(context: SharedInfo.context)
+                topic?.active = true
+                topic?.id = UUID()
+                topic?.timestamp = Date()
+                topic?.user = User.userData
+            }
         }
         topic?.color = colors[colorSel![0].section]
         topic?.icon = icons[iconsSel![0].section]
         topic?.name = nameTextField.text
         topic?.save()
+        
         self.navigationController?.popViewController(animated: true)
+        
     }
     /*
      // MARK: - Navigation
