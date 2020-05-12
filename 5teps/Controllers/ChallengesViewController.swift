@@ -162,7 +162,7 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
         self.titleChallengeLabel.text = challengeTitle
         for c in challenges{
             if c.name == challengeTitle{
-                
+                // funzione per lista steps
             }
         }
     }
