@@ -20,7 +20,6 @@ class ProfiloChallengeViewController: UIViewController {
 
         challangeCollectionView.register(UINib.init(nibName: "CardChallenge", bundle: nil), forCellWithReuseIdentifier: "cellCard")
         
-        
         challangeCollectionView.delegate = self
         challangeCollectionView.dataSource = self
     }
@@ -72,5 +71,8 @@ extension ProfiloChallengeViewController : UICollectionViewDelegate, UICollectio
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("\(indexPath)")
     }
 }

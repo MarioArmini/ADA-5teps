@@ -27,7 +27,6 @@ class CardCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
 
@@ -38,7 +37,6 @@ class CardCollectionViewCell: UICollectionViewCell {
         self.contentView.isUserInteractionEnabled = true
 
     }
-    
     @objc func tapped() {
         front = UIView(frame: viewCard.frame)
         back = UIView(frame: viewCard.frame)
