@@ -95,3 +95,18 @@ struct JsonStep: Codable {
     var name: String
     var days: Int
 }
+public class StepBase {
+    public var name: String
+    public var days: Int
+    public var step: Int
+    public init() {
+        self.name = ""
+        self.days = 0
+        self.step = 0
+    }
+    public init(step: StepChallenge) {
+        self.name = step.name ?? ""
+        self.days = Int(step.days)
+        self.step = Int(step.step)
+    }
+}

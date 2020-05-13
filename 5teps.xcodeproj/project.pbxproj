@@ -30,6 +30,8 @@
 		6C0BB98724691CCD00234F23 /* NewTopic2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BB98624691CCD00234F23 /* NewTopic2ViewController.swift */; };
 		6C1F848D2467C7C300EDF793 /* NewChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1F848C2467C7C300EDF793 /* NewChallengeViewController.swift */; };
 		6C567C572469D6A50092E9F7 /* HeaderProgressCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C567C562469D6A50092E9F7 /* HeaderProgressCollectionReusableView.swift */; };
+		6C567C8B246BB5BF0092E9F7 /* NewStepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C567C8A246BB5BF0092E9F7 /* NewStepCollectionViewCell.swift */; };
+		6C567C8D246BB6500092E9F7 /* NewStepLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C567C8C246BB6500092E9F7 /* NewStepLayout.swift */; };
 		6C567E132467DE0D00B7CB3E /* Goal+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C567E122467DE0D00B7CB3E /* Goal+Methods.swift */; };
 		6C567E152467E06400B7CB3E /* MedalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C567E142467E06400B7CB3E /* MedalCollectionViewCell.swift */; };
 		6C567E1724683D3300B7CB3E /* InProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C567E1624683D3300B7CB3E /* InProgressViewController.swift */; };
@@ -89,6 +91,8 @@
 		6C0BB98624691CCD00234F23 /* NewTopic2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTopic2ViewController.swift; sourceTree = "<group>"; };
 		6C1F848C2467C7C300EDF793 /* NewChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChallengeViewController.swift; sourceTree = "<group>"; };
 		6C567C562469D6A50092E9F7 /* HeaderProgressCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderProgressCollectionReusableView.swift; sourceTree = "<group>"; };
+		6C567C8A246BB5BF0092E9F7 /* NewStepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStepCollectionViewCell.swift; sourceTree = "<group>"; };
+		6C567C8C246BB6500092E9F7 /* NewStepLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStepLayout.swift; sourceTree = "<group>"; };
 		6C567E122467DE0D00B7CB3E /* Goal+Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Goal+Methods.swift"; path = "5teps/Models/Goal+Methods.swift"; sourceTree = SOURCE_ROOT; };
 		6C567E142467E06400B7CB3E /* MedalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalCollectionViewCell.swift; sourceTree = "<group>"; };
 		6C567E1624683D3300B7CB3E /* InProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InProgressViewController.swift; sourceTree = "<group>"; };
@@ -263,6 +267,8 @@
 				6C567E142467E06400B7CB3E /* MedalCollectionViewCell.swift */,
 				6CFC4B7C2468415500D31B2D /* CardCollectionViewCell.swift */,
 				6C567C562469D6A50092E9F7 /* HeaderProgressCollectionReusableView.swift */,
+				6C567C8A246BB5BF0092E9F7 /* NewStepCollectionViewCell.swift */,
+				6C567C8C246BB6500092E9F7 /* NewStepLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,6 +355,7 @@
 			files = (
 				6C567E132467DE0D00B7CB3E /* Goal+Methods.swift in Sources */,
 				6CF2840C2466FA3300340C6B /* ColorCollectionViewCell.swift in Sources */,
+				6C567C8D246BB6500092E9F7 /* NewStepLayout.swift in Sources */,
 				01B3E2DA2464615400B0C18A /* SecondViewController.swift in Sources */,
 				01B3E2D82464615400B0C18A /* FirstViewController.swift in Sources */,
 				6C91AF332468831F00A98D8B /* ChallengeCollectionViewCell.swift in Sources */,
@@ -368,6 +375,7 @@
 				6C567E152467E06400B7CB3E /* MedalCollectionViewCell.swift in Sources */,
 				018AD88A2466B5EF002BA840 /* TopicCollectionViewCell.swift in Sources */,
 				6C6FEDA7246525630089BDFF /* User+CoreDataProperties.swift in Sources */,
+				6C567C8B246BB5BF0092E9F7 /* NewStepCollectionViewCell.swift in Sources */,
 				6C0BB98724691CCD00234F23 /* NewTopic2ViewController.swift in Sources */,
 				6C64C83D24648E3100D03184 /* Topic+Methods.swift in Sources */,
 				6C64C84224648E3100D03184 /* Challenge+Methods.swift in Sources */,

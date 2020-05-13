@@ -11,11 +11,11 @@ import UIKit
 class NewChallengeViewController: UIViewController {
     @IBOutlet weak var viewMentorTop: UIView!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var stepsPickerView: UIPickerView!
+    @IBOutlet weak var stepsCollectionView: UICollectionView!
     
     var referenceForViewTop : Subview?
     public var topic: Topic?
-    var steps: [StepChallenge]!
+    var steps: [StepBase]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,28 +37,25 @@ class NewChallengeViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        steps = [StepChallenge]()
+        steps = [StepBase]()
         for i in 1...5 {
-            let step = StepChallenge(context: SharedInfo.context)
-            step.id = UUID()
+            let step = StepBase()
+            step.step = i
             step.name = "Step #\(i)"
-            step.timestamp = Date()
-            step.state = StepChallengeState.Create.rawValue
             step.days = 1
-            step.step = Int64(i)
-            
             steps.append(step)
         }
-        
-        stepsPickerView.delegate = self
-        stepsPickerView.dataSource = self
-        
+        stepsCollectionView.delegate = self
+        stepsCollectionView.dataSource = self
+        stepsCollectionView?.backgroundColor = .clear
+        stepsCollectionView?.decelerationRate = .fast
     }
     @IBAction func onClickDone(_ sender: Any) {
         if nameTextField.text?.count == 0{
             Utils.showMessage(vc: self, title: "Field Mandatory", msg: "Insert name of topic")
             return
         }
+        
         let challenge = Challenge(context: SharedInfo.context)
         challenge.id = UUID()
         challenge.timestamp = Date()
@@ -69,7 +66,14 @@ class NewChallengeViewController: UIViewController {
         challenge.state = ChallengeState.Create.rawValue
         challenge.topic = topic
         for s in steps {
-            challenge.addToSteps(s)
+            let step = StepChallenge(context: SharedInfo.context)
+            step.id = UUID()
+            step.name = s.name
+            step.timestamp = Date()
+            step.state = StepChallengeState.Create.rawValue
+            step.days = Int16(s.days)
+            step.step = Int64(s.step)
+            challenge.addToSteps(step)
         }
         
         challenge.save()
@@ -84,57 +88,16 @@ extension NewChallengeViewController : SubviewDelegate {
         print("name: \(name), message: \(showMessage)")
     }
 }
-extension NewChallengeViewController: UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+extension NewChallengeViewController: UICollectionViewDataSource,UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return steps.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return steps?.count ?? 0
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? NewStepCollectionViewCell else {
+                return UICollectionViewCell()
+        }
+        cell.step = steps[indexPath.item]
+        return cell
     }
-    
-    /*func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
-    {
-        return ""
-    }*/
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        let w = pickerView.layer.bounds.width - 40
-        return w
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 100.0
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let w = pickerView.layer.bounds.width - 40
-        
-        let parentView = UIView()
-        let step = steps[row]
-        let textField = UITextField(frame: CGRect(x: 10, y: 0, width: w, height: 50))
-        let stepper = UIStepper(frame: CGRect(x: 10, y: 50, width: 50, height:50))
-        let labelDays = UILabel(frame: CGRect(x: stepper.layer.bounds.width + 20, y: 40, width: w - stepper.layer.bounds.width + 20, height: 50))
-        
-        textField.text = step.name
-        labelDays.text = "\(step.days) day"
-        stepper.value = Double(step.days)
-        stepper.minimumValue = 1
-        stepper.maximumValue = 7
-        
-        //textField.delegate = self
-        textField.isUserInteractionEnabled = true
-        
-        
-        parentView.addSubview(textField)
-        parentView.addSubview(stepper)
-        parentView.addSubview(labelDays)
-        
-        return parentView
-    }
-    
 }
