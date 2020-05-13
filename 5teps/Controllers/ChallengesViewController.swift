@@ -105,7 +105,7 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellCard", for: indexPath) as! CardCollectionViewCell
         cell.nameLabel.text = String(challenges[indexPath.row].name ?? "")
         cell.challenge = challenges[indexPath.row]
-        cell.isSelected = true
+        cell.tapped()
         return cell
     }
     
@@ -125,6 +125,7 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("animate")
         challengeTitle = challenges[indexPath.row].name ?? ""
         presentView()
     }
