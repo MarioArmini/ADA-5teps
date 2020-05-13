@@ -13,8 +13,17 @@ class ChallengeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var challengeLabel: UILabel!
     @IBOutlet weak var stepsImage: UIImageView!
     
+    var topic: Topic? {
+        didSet {
+            updateUI()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    func updateUI(){
+        self.contentView.backgroundColor = topic?.bgColor
     }
 }

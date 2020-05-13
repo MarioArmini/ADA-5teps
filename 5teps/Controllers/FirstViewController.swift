@@ -71,6 +71,7 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! TopicCollectionViewCell
         cell.TopicLabel.text = self.topics[indexPath.section].name
         //cell.TopicIconView.image = topics[indexPath.section].icon?.emojiToImage()
+        cell.topic = self.topics[indexPath.section]
         return cell
     }
     

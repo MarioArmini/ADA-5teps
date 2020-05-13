@@ -12,7 +12,19 @@ class TopicCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var TopicLabel: UILabel!
     @IBOutlet weak var TopicIconView: UIImageView!
     
+    var topic: Topic? {
+        didSet {
+            updateUI()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    func updateUI(){
+        self.contentView.backgroundColor = topic?.bgColor
+        self.TopicIconView.backgroundColor = topic?.bgColor
+    }
+
 }
