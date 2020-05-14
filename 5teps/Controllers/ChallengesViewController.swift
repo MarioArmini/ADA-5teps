@@ -81,8 +81,16 @@ class ChallengesViewController: UIViewController {
             let maxSections = challenges.count / 4 + 1
             var min = 0
             var max = 3
+            var j = -1
             for i in min...max{
-                challengeSections[section]?.append(challenges[i])
+                if !challengeSections.keys.contains(section) {
+                    challengeSections[section] = [Challenge]()
+                }
+                j = j + 1
+                if j >= challenges.count {
+                    break
+                }
+                challengeSections[section]?.append(challenges[j])
                 if i == max{
                     section = section + 1
                     min = min + 4
@@ -125,7 +133,7 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellCard", for: indexPath) as! CardCollectionViewCell
         cell.nameLabel.text = String(challengeSections[indexPath.section]?[indexPath.row].name ?? "")
-        cell.challenge = challenges[indexPath.row]
+        cell.challenge = challengeSections[indexPath.section]?[indexPath.row]
         return cell
     }
     
