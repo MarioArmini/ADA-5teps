@@ -47,6 +47,7 @@ class FirstViewController: UIViewController {
     }
     @IBAction func onClickNewTopic(_ sender: UIBarButtonItem) {
         let viewTmp = UIStoryboard(name: "NewTopic", bundle: nil).instantiateViewController(withIdentifier: "newTopicView") as! NewTopicViewController
+        viewTmp.parentVC = self
         self.navigationController?.pushViewController(viewTmp, animated: true)
     }
     
@@ -93,4 +94,14 @@ extension FirstViewController : SubviewDelegate {
     func didTapOnMe(name: String, showMessage: String) {
         print("name: \(name), message: \(showMessage)")
     }
+}
+extension FirstViewController : OnCloseChildView {
+    func onOpenChallengeView(topic: Topic) {
+        defaults.set(topic.name, forKey: "topicName")
+        
+        let viewTmp = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "challengeView") as! ChallengesViewController
+        //viewTmp.parentVC = self
+        self.navigationController?.pushViewController(viewTmp, animated: true)
+    }
+    
 }

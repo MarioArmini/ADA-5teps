@@ -23,6 +23,8 @@ class NewTopicViewController: UIViewController {
     var colors = Utils.getArrayColor()
     var currentBG: UIColor = UIColor.white
     public var topic: Topic?
+    public var parentVC: OnCloseChildView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,7 +94,7 @@ class NewTopicViewController: UIViewController {
         topic?.save()
         
         self.navigationController?.popViewController(animated: true)
-        
+        parentVC?.onOpenChallengeView(topic: topic!)
     }
     /*
      // MARK: - Navigation
