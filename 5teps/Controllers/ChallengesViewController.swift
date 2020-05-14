@@ -24,10 +24,6 @@ class ChallengesViewController: UIViewController {
     @IBOutlet weak var fifthStepLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     
-    //provvisorio
-    @IBOutlet weak var doneButton: UIButton!
-    
-    
     var referenceForViewTop : Subview?
     let defaults = UserDefaults.standard
     var topicName = String()
@@ -35,6 +31,7 @@ class ChallengesViewController: UIViewController {
     var challengeTitle = String()
     var steps = [StepChallenge]()
     var isOpened = false
+    var challengeSections = [Int: [Challenge]]()
     
     let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     var effect : UIVisualEffect!
@@ -61,6 +58,15 @@ class ChallengesViewController: UIViewController {
         effect = blurEffect.effect
         blurEffect.effect = nil
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        tap.numberOfTouchesRequired = 1
+
+        blurEffect.addGestureRecognizer(tap)
+        
+    }
+    
+    @objc func tapped(){
+        animateOut()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,6 +76,25 @@ class ChallengesViewController: UIViewController {
         if let topic = Topic.findByName(name: topicName) {
             challenges = topic.findChallengeByState(state: ChallengeState.Create)
         }
+        if challenges.count % 4 > 0{
+            var section = 0
+            let maxSections = challenges.count / 4 + 1
+            var min = 0
+            var max = 3
+            for i in min...max{
+                challengeSections[section]?.append(challenges[i])
+                if i == max{
+                    section = section + 1
+                    min = min + 4
+                    max = max + 4
+                    if section == maxSections{
+                        break
+                    }
+                }
+            }
+        }
+        print(challenges.count)
+        print(challengeSections)
     }
     @IBAction func onClickNewChallenge(_ sender: Any) {
         if let topic = Topic.findByName(name: topicName) {
@@ -92,10 +117,6 @@ class ChallengesViewController: UIViewController {
         }
     }
     
-    @IBAction func done(_ sender: Any) {
-        animateOut()
-    }
-    
 }
 
 
@@ -103,9 +124,8 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellCard", for: indexPath) as! CardCollectionViewCell
-        cell.nameLabel.text = String(challenges[indexPath.row].name ?? "")
+        cell.nameLabel.text = String(challengeSections[indexPath.section]?[indexPath.row].name ?? "")
         cell.challenge = challenges[indexPath.row]
-        cell.tapped()
         return cell
     }
     
@@ -114,14 +134,20 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if challenges.count < 4{
-            return 2
+        if challenges.count % 4 > 0{
+            return challenges.count / 4 + 1
+        }
+        else if challenges.count % 4 == 0{
+            return challenges.count / 4
         }
         return challenges.count / 4
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return challenges.count
+        if challenges.count < 4{
+            return challengeSections[section]?.count ?? 0
+        }
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -202,6 +228,7 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
                 self.stepView.removeFromSuperview()
             }
         }
+        self.blurEffect.isUserInteractionEnabled = false
         isOpened = false
     }
     
