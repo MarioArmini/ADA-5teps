@@ -63,6 +63,8 @@ class ChallengesViewController: UIViewController {
 
         blurEffect.addGestureRecognizer(tap)
         
+        stepView.layer.cornerRadius = 20
+        
     }
     
     @objc func tapped(){
@@ -79,30 +81,27 @@ class ChallengesViewController: UIViewController {
         if challenges.count % 4 > 0{
             var section = 0
             let maxSections = challenges.count / 4 + 1
-            var min = 0
-            var max = 3
+            var breakPoint = 3
+            let end = challenges.count
             var j = -1
-            for i in min...max{
+            for i in 0...end{
                 if !challengeSections.keys.contains(section) {
                     challengeSections[section] = [Challenge]()
                 }
                 j = j + 1
-                if j >= challenges.count {
+                if j >= end{
                     break
                 }
                 challengeSections[section]?.append(challenges[j])
-                if i == max{
+                if i == breakPoint{
+                    breakPoint = breakPoint + 4
                     section = section + 1
-                    min = min + 4
-                    max = max + 4
                     if section == maxSections{
                         break
                     }
                 }
             }
         }
-        print(challenges.count)
-        print(challengeSections)
     }
     @IBAction func onClickNewChallenge(_ sender: Any) {
         if let topic = Topic.findByName(name: topicName) {
@@ -152,15 +151,12 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if challenges.count < 4{
-            return challengeSections[section]?.count ?? 0
-        }
-        return 4
+        return challengeSections[section]?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("animate")
-        challengeTitle = challenges[indexPath.row].name ?? ""
+        challengeTitle = challengeSections[indexPath.section]?[indexPath.row].name ?? ""
         presentView()
     }
     
@@ -197,6 +193,7 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
         self.titleChallengeLabel.text = challengeTitle
         for c in challenges{
             if c.name == challengeTitle{
+                self.stepView.backgroundColor = c.topic?.bgColor
                 steps = c.stepsOrder
                 self.firstStepLabel.text = steps[0].name
                 self.secondStepLabel.text = steps[1].name
