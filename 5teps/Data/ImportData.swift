@@ -99,14 +99,17 @@ public class StepBase {
     public var name: String
     public var days: Int
     public var step: Int
+    public var state: StepChallengeState
     public init() {
         self.name = ""
         self.days = 0
         self.step = 0
+        self.state = StepChallengeState.Create
     }
     public init(step: StepChallenge) {
         self.name = step.name ?? ""
         self.days = Int(step.days)
         self.step = Int(step.step)
+        self.state = StepChallengeState(rawValue: Int64(step.state))!
     }
 }

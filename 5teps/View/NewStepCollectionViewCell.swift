@@ -34,8 +34,18 @@ class NewStepCollectionViewCell: UICollectionViewCell {
     }
     func updateUI() {
         daysLabel.text = "days"
-        nameTextField.text = step?.name
-        dayTextField.text = "\(step?.days ?? 0)"
+        if let step = self.step {
+            nameTextField.text = step.name
+            dayTextField.text = "\(step.days)"
+            
+            if step.state == StepChallengeState.Create {
+                nameTextField.isUserInteractionEnabled = true
+                dayTextField.isUserInteractionEnabled = true
+            } else {
+                nameTextField.isUserInteractionEnabled = false
+                dayTextField.isUserInteractionEnabled = false
+            }
+        }
         
     }
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
