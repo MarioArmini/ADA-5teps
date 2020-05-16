@@ -10,15 +10,15 @@ import UIKit
 
 class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
 
-    let activeDistance: CGFloat = 20
+    let activeDistance: CGFloat = 200
     let zoomFactor: CGFloat = 0.3
-
+    
     override init() {
         super.init()
 
         scrollDirection = .horizontal
         minimumLineSpacing = 40
-        itemSize = CGSize(width: 150, height: 150)
+        itemSize = CGSize(width: 170, height: 250)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -29,8 +29,8 @@ class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
         guard let collectionView = collectionView else { fatalError() }
         let verticalInsets = (collectionView.frame.height - collectionView.adjustedContentInset.top - collectionView.adjustedContentInset.bottom - itemSize.height) / 2
         let horizontalInsets = (collectionView.frame.width - collectionView.adjustedContentInset.right - collectionView.adjustedContentInset.left - itemSize.width) / 2
-        sectionInset = UIEdgeInsets(top: verticalInsets, left: horizontalInsets, bottom: verticalInsets, right: horizontalInsets)
-
+        sectionInset = UIEdgeInsets(top: verticalInsets, left: 25, bottom: verticalInsets, right: 25)
+        //print(sectionInset)
         super.prepare()
     }
 

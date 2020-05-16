@@ -39,31 +39,27 @@
                                     <constraint firstAttribute="height" constant="169" id="lLq-3M-0K4"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fbx-0y-Yb0">
-                                <rect key="frame" x="20" y="265" width="374" height="548"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XVm-G4-hHA">
+                                <rect key="frame" x="0.0" y="257" width="414" height="556"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rp8-UJ-XRJ">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7Ja-MP-hEg">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="ViF-AZ-p7O" id="ZJC-TI-UA7"/>
-                                    <outlet property="delegate" destination="ViF-AZ-p7O" id="oeo-UP-AoV"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="XVm-G4-hHA" firstAttribute="top" secondItem="mid-7I-HCO" secondAttribute="bottom" id="2C3-FM-Niv"/>
+                            <constraint firstItem="XVm-G4-hHA" firstAttribute="leading" secondItem="GsT-7C-JFW" secondAttribute="leading" id="F1Z-yc-ncf"/>
                             <constraint firstItem="mid-7I-HCO" firstAttribute="top" secondItem="GsT-7C-JFW" secondAttribute="top" id="Gck-e4-57M"/>
+                            <constraint firstItem="XVm-G4-hHA" firstAttribute="trailing" secondItem="GsT-7C-JFW" secondAttribute="trailing" id="OVI-If-udQ"/>
+                            <constraint firstItem="XVm-G4-hHA" firstAttribute="bottom" secondItem="GsT-7C-JFW" secondAttribute="bottom" id="StR-r5-Lp1"/>
                             <constraint firstItem="mid-7I-HCO" firstAttribute="leading" secondItem="GsT-7C-JFW" secondAttribute="leading" id="W5I-lZ-nUY"/>
-                            <constraint firstItem="Fbx-0y-Yb0" firstAttribute="bottom" secondItem="GsT-7C-JFW" secondAttribute="bottom" id="aO0-Oc-ZJ6"/>
-                            <constraint firstItem="GsT-7C-JFW" firstAttribute="trailing" secondItem="Fbx-0y-Yb0" secondAttribute="trailing" constant="20" id="bda-fW-8bV"/>
-                            <constraint firstItem="Fbx-0y-Yb0" firstAttribute="leading" secondItem="GsT-7C-JFW" secondAttribute="leading" constant="20" id="ep3-iJ-3gf"/>
                             <constraint firstItem="mid-7I-HCO" firstAttribute="trailing" secondItem="GsT-7C-JFW" secondAttribute="trailing" id="wSM-Xq-xhy"/>
-                            <constraint firstItem="Fbx-0y-Yb0" firstAttribute="top" secondItem="mid-7I-HCO" secondAttribute="bottom" constant="8" id="wom-Ug-C3R"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GsT-7C-JFW"/>
                     </view>
@@ -77,7 +73,7 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="TopicCollectionView" destination="Fbx-0y-Yb0" id="yUL-zQ-ki7"/>
+                        <outlet property="TopicCollectionView" destination="XVm-G4-hHA" id="Fc5-Vy-5sZ"/>
                         <outlet property="viewMentorTop" destination="mid-7I-HCO" id="wB1-Ck-37g"/>
                     </connections>
                 </viewController>

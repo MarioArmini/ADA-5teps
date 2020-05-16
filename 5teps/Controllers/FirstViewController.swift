@@ -38,6 +38,8 @@ class FirstViewController: UIViewController {
         TopicCollectionView.register(UINib.init(nibName: "TopicCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "topicCollectionViewCell")
         TopicCollectionView.collectionViewLayout = flowLayout
         TopicCollectionView.contentInsetAdjustmentBehavior = .always
+        TopicCollectionView.dataSource = self
+        TopicCollectionView.delegate = self
         
         // MARK: load default data from json
         topics = Topic.list()
@@ -58,11 +60,8 @@ class FirstViewController: UIViewController {
     
 }
 
-extension FirstViewController: UICollectionViewDelegate{
-    
-}
 
-extension FirstViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension FirstViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return topics.count
@@ -76,14 +75,17 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topicCollectionViewCell", for: indexPath) as! TopicCollectionViewCell
         cell.topic = self.topics[indexPath.section]
+        //let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        //cell.contentView.backgroundColor = UIColor.green
+        
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //let w = collectionView.layer.bounds.width * 0.60
-        //let h = collectionView.layer.bounds.height * 0.60
-        return CGSize(width: 150, height: 200)
-    }
+    /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+     //let w = collectionView.layer.bounds.width * 0.60
+     //let h = collectionView.layer.bounds.height * 0.60
+     return CGSize(width: 150, height: 200)
+     }*/
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let topic = topics[indexPath.section]
