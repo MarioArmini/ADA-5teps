@@ -86,7 +86,7 @@ class Subview: UIView {
     //MARK: MOTIVATION [RANDOM]
     func mentorMotivatesYou(imageName: String) {
         imageView.image = UIImage(named: imageName)
-        let randomMotivations = Int(arc4random() % UInt32(greetings.count))
+        let randomMotivations = Int(arc4random() % UInt32(motivation.count))
         textView.text = "\(motivation[randomMotivations])"
         let motivate = textView
         print(motivate!)
