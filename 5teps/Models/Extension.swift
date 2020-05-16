@@ -34,4 +34,22 @@ extension String {
         UIGraphicsEndImageContext()
         return image
     }
+    func emojiToImage(width: CGFloat, height: CGFloat, sizeFont: CGFloat) -> UIImage? {
+        let size = CGSize(width: width, height: height)
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        UIColor.clear.set() // clear background
+        let rect = CGRect(origin: CGPoint(), size: size)
+        UIRectFill(rect)
+        (self as NSString).draw(in: rect, withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: sizeFont)])
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+}
+
+extension UIImage {
+    static func loadTopicIcon(name: String, width: CGFloat, height: CGFloat, sizeFont: CGFloat) -> UIImage? {
+        return name.emojiToImage(width: width, height: height, sizeFont: sizeFont)
+    }
 }

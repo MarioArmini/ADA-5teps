@@ -16,6 +16,7 @@ class FirstViewController: UIViewController {
     var topics: [Topic]!
     let defaults = UserDefaults.standard
     
+    let flowLayout = ZoomAndSnapFlowLayout()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,10 @@ class FirstViewController: UIViewController {
         //referenceForViewTop?.settingsMentor(imageName: "mentor", text: "Hello!")
         referenceForViewTop?.greetingsMentor()
         //------------------------------------------------------------------
+        
+        TopicCollectionView.register(UINib.init(nibName: "TopicCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "topicCollectionViewCell")
+        TopicCollectionView.collectionViewLayout = flowLayout
+        TopicCollectionView.contentInsetAdjustmentBehavior = .always
         
         // MARK: load default data from json
         topics = Topic.list()
@@ -69,20 +74,23 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! TopicCollectionViewCell
-        cell.TopicLabel.text = self.topics[indexPath.section].name
-        //cell.TopicIconView.image = topics[indexPath.section].icon?.emojiToImage()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topicCollectionViewCell", for: indexPath) as! TopicCollectionViewCell
         cell.topic = self.topics[indexPath.section]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let w = collectionView.layer.bounds.width
-        return CGSize(width: w, height: 528)
+        //let w = collectionView.layer.bounds.width * 0.60
+        //let h = collectionView.layer.bounds.height * 0.60
+        return CGSize(width: 150, height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        defaults.set(topics[indexPath.section].name, forKey: "topicName")
+        let topic = topics[indexPath.section]
+        //print(topic)
+        defaults.set(topic.name, forKey: "topicName")
+        let viewTmp = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "challengeView") as! ChallengesViewController
+        self.navigationController?.pushViewController(viewTmp, animated: true)
     }
     
 }
