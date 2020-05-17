@@ -24,6 +24,13 @@ class ChallengesViewController: UIViewController {
     @IBOutlet weak var fifthStepLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     
+    @IBOutlet weak var circle1: UIImageView!
+    @IBOutlet weak var circle2: UIImageView!
+    @IBOutlet weak var circle3: UIImageView!
+    @IBOutlet weak var circle4: UIImageView!
+    @IBOutlet weak var circle5: UIImageView!
+    
+    
     var referenceForViewTop : Subview?
     let defaults = UserDefaults.standard
     var topicName = String()
@@ -202,6 +209,31 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
                 self.fifthStepLabel.text = steps[4].name
             }
         }
+        steps[0].finish()
+        steps[1].finish()
+        verifySteps()
+    }
+    
+    func verifySteps(){
+        if self.steps[0].isFinish{
+            self.circle1.image = UIImage(systemName: "circle.fill")
+            drawLineFromPoint(start: circle1.center, toPoint: circle2.center, ofColor: UIColor.black, inView: stepView)
+        }
+        if self.steps[1].isFinish{
+            self.circle2.image = UIImage(systemName: "circle.fill")
+            drawLineFromPoint(start: circle2.center, toPoint: circle3.center, ofColor: UIColor.black, inView: stepView)
+        }
+        if self.steps[2].isFinish{
+            self.circle3.image = UIImage(systemName: "circle.fill")
+            drawLineFromPoint(start: circle3.center, toPoint: circle4.center, ofColor: UIColor.black, inView: stepView)
+        }
+        if self.steps[3].isFinish{
+            self.circle4.image = UIImage(systemName: "circle.fill")
+            drawLineFromPoint(start: circle4.center, toPoint: circle5.center, ofColor: UIColor.black, inView: stepView)
+        }
+        if self.steps[4].isFinish{
+            self.circle5.image = UIImage(systemName: "circle.fill")
+        }
     }
     
     func animateIn(){
@@ -235,6 +267,19 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
         }
         self.blurEffect.isUserInteractionEnabled = false
         isOpened = false
+    }
+    
+    func drawLineFromPoint(start: CGPoint, toPoint end: CGPoint, ofColor lineColor: UIColor, inView view:UIView) {
+        let path = UIBezierPath()
+        path.move(to: start)
+        path.addLine(to: end)
+
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = path.cgPath
+        shapeLayer.strokeColor = lineColor.cgColor
+        shapeLayer.lineWidth = 1.5
+
+        view.layer.insertSublayer(shapeLayer, below: self.circle1.layer)
     }
     
 }

@@ -169,6 +169,11 @@
                     <connections>
                         <outlet property="blurEffect" destination="YXy-1N-trY" id="Lib-pF-MJn"/>
                         <outlet property="challengeCollectionView" destination="qpK-iC-jR6" id="q9y-4o-uEx"/>
+                        <outlet property="circle1" destination="8p2-mf-2dy" id="KfX-Eg-Fmv"/>
+                        <outlet property="circle2" destination="9ck-5R-P8x" id="Mjp-x0-byx"/>
+                        <outlet property="circle3" destination="Hx0-WD-e68" id="PSU-VP-6nb"/>
+                        <outlet property="circle4" destination="OCQ-si-kwt" id="87J-UQ-cwt"/>
+                        <outlet property="circle5" destination="2b5-pJ-bra" id="cRx-JE-Zzc"/>
                         <outlet property="fifthStepLabel" destination="3o4-Ef-wVK" id="ghn-9R-dQU"/>
                         <outlet property="firstStepLabel" destination="puZ-HW-ETs" id="fHS-Lo-e8Y"/>
                         <outlet property="fourthStepLabel" destination="aaz-pG-sy3" id="7Q7-Yh-aGg"/>
