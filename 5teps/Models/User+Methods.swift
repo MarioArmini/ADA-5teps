@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+import UIKit
 
 extension User {
     
@@ -41,5 +41,12 @@ extension User {
     }
     public static func save() {
         _ = SharedInfo.context.safeSave()
+    }
+    public func getProfiloImage() -> UIImage? {
+        if let data = self.profiloImage{
+            return UIImage(data: data)
+        }
+        return UIImage(named:"default-user")
+        
     }
 }

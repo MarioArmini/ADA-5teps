@@ -46,6 +46,7 @@
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="profiloImage" optional="YES" attributeType="Binary"/>
         <relationship name="topics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Topic" inverseName="user" inverseEntity="Topic"/>
     </entity>
     <elements>
@@ -53,6 +54,6 @@
         <element name="Goal" positionX="45" positionY="126" width="128" height="118"/>
         <element name="StepChallenge" positionX="278.4453125" positionY="37.109375" width="128" height="193"/>
         <element name="Topic" positionX="-195.6328125" positionY="59.703125" width="128" height="163"/>
-        <element name="User" positionX="9.46875" positionY="-117.4609375" width="128" height="88"/>
+        <element name="User" positionX="9.46875" positionY="-117.4609375" width="128" height="103"/>
     </elements>
 </model>

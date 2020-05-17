@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  5teps
 //
-//  Created by Fabio Palladino on 08/05/2020.
+//  Created by Fabio Palladino on 17/05/2020.
 //  Copyright © 2020 Mario Armini. All rights reserved.
 //
 //
@@ -19,6 +19,7 @@ extension User {
 
     @NSManaged public var id: UUID?
     @NSManaged public var name: String?
+    @NSManaged public var profiloImage: Data?
     @NSManaged public var topics: NSSet?
 
 }

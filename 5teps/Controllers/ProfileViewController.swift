@@ -11,9 +11,9 @@ import UIKit
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var nameTextView: UITextField!
     @IBOutlet weak var goalSegment: UISegmentedControl!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
     
     var user: User?
     var referenceForViewTop : Subview?
@@ -22,22 +22,26 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
           
-        self.profileImageView.image =  UIImage(named:"mentor")
-        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
-        self.profileImageView.clipsToBounds = true
         
        
     }
     override func viewWillAppear(_ animated: Bool) {
+        updateUI()
+    }
+    func updateUI() {
         user = User.userData
+        nameLabel.text = user?.name
         
-        nameTextView.text = user?.name
+        self.profileImageView.image = user?.getProfiloImage()
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
+        self.profileImageView.clipsToBounds = true
+        
         
         updateView()
     }
     override func viewWillDisappear(_ animated: Bool) {
-        user?.name = nameTextView.text
-        user?.save()
+        //user?.name = nameTextView.text
+        //user?.save()
     }
     private lazy var profiloGoalViewController: ProfiloGoalViewController = {
         let storyboard = UIStoryboard(name: "Profile", bundle: Bundle.main)
@@ -101,6 +105,16 @@ class ProfileViewController: UIViewController {
         // Notify Child View Controller
         viewController.removeFromParent()
     }
-
-    
+    @IBAction func onClickEdit(_ sender: Any) {
+        let viewTmp = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "editProfiloView") as! EditProfiloViewController
+        viewTmp.parentVC = self
+        self.present(viewTmp, animated: true) {
+            print("load")
+        }
+    }
+}
+extension ProfileViewController: OnCloseChildView {
+    func onReloadDati() -> Void {
+        updateUI()
+    }
 }

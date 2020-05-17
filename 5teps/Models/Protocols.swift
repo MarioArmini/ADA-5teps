@@ -11,8 +11,10 @@ import UIKit
 
 protocol OnCloseChildView {
     func onOpenChallengeView(topic: Topic) -> Void
+    func onReloadDati() -> Void
 }
 
 extension OnCloseChildView {
     func onOpenChallengeView(topic: Topic) {}
+    func onReloadDati() {}
 }
