@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,6 +16,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V4I-bX-3LG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="background"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="purple"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="purple"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="0r3-CG-Yz4" kind="relationship" relationship="rootViewController" id="KBw-IU-wof"/>
@@ -51,7 +59,7 @@
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KSB-l3-0ML">
                                 <rect key="frame" x="20" y="312" width="374" height="501"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="background"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fNP-ek-S3L">
                                 <rect key="frame" x="184" y="218" width="46" height="25"/>
@@ -63,7 +71,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="background"/>
                         <constraints>
                             <constraint firstItem="CcC-BL-iu3" firstAttribute="top" secondItem="1Zo-yK-Wpl" secondAttribute="top" constant="22" id="2XD-PZ-TVi"/>
                             <constraint firstItem="KSB-l3-0ML" firstAttribute="trailing" secondItem="1Zo-yK-Wpl" secondAttribute="trailing" constant="-20" id="32q-ff-g4g"/>
@@ -103,13 +111,13 @@
         <scene sceneID="3DZ-La-Yo9">
             <objects>
                 <viewController storyboardIdentifier="profiloChallengeView" id="jee-gI-rIZ" customClass="ProfiloChallengeViewController" customModule="_teps" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="SVl-FM-mu7">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="SVl-FM-mu7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e5k-jC-iic">
                                 <rect key="frame" x="20" y="44" width="374" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="background"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SeX-8t-dCs">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -128,7 +136,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="background"/>
                         <constraints>
                             <constraint firstItem="e5k-jC-iic" firstAttribute="top" secondItem="6lo-Qo-KoI" secondAttribute="top" id="QSR-3j-kds"/>
                             <constraint firstItem="e5k-jC-iic" firstAttribute="bottom" secondItem="6lo-Qo-KoI" secondAttribute="bottom" id="UcD-jg-eBm"/>
@@ -190,7 +198,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="background"/>
                         <constraints>
                             <constraint firstItem="4pS-6i-ajS" firstAttribute="trailing" secondItem="LLR-N9-Jnk" secondAttribute="trailing" constant="-20" id="JTM-sw-bBo"/>
                             <constraint firstItem="zPb-Ir-vOi" firstAttribute="centerX" secondItem="LLR-N9-Jnk" secondAttribute="centerX" id="LbQ-Ic-Kop"/>
@@ -224,7 +232,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gwO-b8-byQ">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="background"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kTo-OC-uLo">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -258,7 +266,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="background"/>
                         <constraints>
                             <constraint firstItem="gwO-b8-byQ" firstAttribute="trailing" secondItem="hgu-j5-9FE" secondAttribute="trailing" id="6fu-U1-Idy"/>
                             <constraint firstItem="gwO-b8-byQ" firstAttribute="leading" secondItem="hgu-j5-9FE" secondAttribute="leading" id="8tw-hi-ajV"/>
@@ -279,5 +287,11 @@
     <resources>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <namedColor name="background">
+            <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="purple">
+            <color red="0.49019607843137253" green="0.34509803921568627" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

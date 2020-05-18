@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -108,7 +109,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="background"/>
+                        <color key="tintColor" name="purple"/>
                         <constraints>
                             <constraint firstItem="pJg-PM-MYo" firstAttribute="top" secondItem="FSH-Ci-rC2" secondAttribute="bottom" constant="20" id="0dd-FQ-5nT"/>
                             <constraint firstItem="Y3c-n7-R1J" firstAttribute="top" secondItem="pJg-PM-MYo" secondAttribute="bottom" constant="20" id="Bq7-2Q-ESK"/>
@@ -169,7 +171,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="UWW-5e-tcj">
                                 <rect key="frame" x="20" y="359" width="374" height="454"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="background"/>
                                 <collectionViewLayout key="collectionViewLayout" id="CvI-4A-WnN" customClass="NewStepLayout" customModule="_teps" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="od1-IG-ZLE" customClass="NewStepCollectionViewCell" customModule="_teps" customModuleProvider="target">
@@ -205,7 +207,7 @@
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" name="background"/>
                                                     <constraints>
                                                         <constraint firstItem="8db-Wl-RH5" firstAttribute="trailing" secondItem="KLO-s4-Itt" secondAttribute="trailing" constant="-20" id="Asc-Wi-NMZ"/>
                                                         <constraint firstItem="YNc-Vx-dC3" firstAttribute="top" secondItem="8db-Wl-RH5" secondAttribute="bottom" constant="10" id="EH0-Z4-4Sy"/>
@@ -236,7 +238,8 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="background"/>
+                        <color key="tintColor" name="purple"/>
                         <constraints>
                             <constraint firstItem="eKN-6w-ez3" firstAttribute="trailing" secondItem="1zs-5s-lMk" secondAttribute="trailing" constant="70" id="7g3-aj-Ccp"/>
                             <constraint firstItem="1zs-5s-lMk" firstAttribute="leading" secondItem="eKN-6w-ez3" secondAttribute="leading" constant="70" id="APh-sg-AtC"/>
@@ -320,7 +323,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="background"/>
+                        <color key="tintColor" name="purple"/>
                         <constraints>
                             <constraint firstItem="t2C-wf-6Rw" firstAttribute="leading" secondItem="u6m-q7-XnA" secondAttribute="trailing" constant="8" id="0nG-uP-6Ci"/>
                             <constraint firstItem="u6m-q7-XnA" firstAttribute="leading" secondItem="nf0-Nh-i3k" secondAttribute="leading" constant="10" id="Do4-Ns-iyW"/>
@@ -362,4 +366,12 @@
             <point key="canvasLocation" x="-533.33333333333337" y="237.72321428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="background">
+            <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="purple">
+            <color red="0.49019607843137253" green="0.34509803921568627" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

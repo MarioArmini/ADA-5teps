@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,6 +15,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TBN-g2-OQL">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="background"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="purple"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="purple"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="0FF-pM-YH1" kind="relationship" relationship="rootViewController" id="fK5-8Q-elS"/>
@@ -40,7 +48,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ubB-2y-Qzv">
                                 <rect key="frame" x="0.0" y="277" width="414" height="536"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="background"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yc2-YT-C3L">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
@@ -70,7 +78,8 @@
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="background"/>
+                        <color key="tintColor" name="purple"/>
                         <constraints>
                             <constraint firstItem="ubB-2y-Qzv" firstAttribute="top" secondItem="em1-e4-rwN" secondAttribute="bottom" constant="20" id="4ZQ-Zh-fNI"/>
                             <constraint firstItem="ubB-2y-Qzv" firstAttribute="bottom" secondItem="1Mu-V5-rSa" secondAttribute="bottom" id="5hn-KE-ZYn"/>
@@ -97,5 +106,11 @@
     </scenes>
     <resources>
         <image name="arrow.up" catalog="system" width="120" height="128"/>
+        <namedColor name="background">
+            <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="purple">
+            <color red="0.49019607843137253" green="0.34509803921568627" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
