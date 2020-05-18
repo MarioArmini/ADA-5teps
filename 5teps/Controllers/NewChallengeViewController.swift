@@ -64,7 +64,21 @@ class NewChallengeViewController: UIViewController {
         stepsCollectionView.dataSource = self
         stepsCollectionView?.backgroundColor = .clear
         stepsCollectionView?.decelerationRate = .fast
+        
+        let nameNotification = Notification.Name("editNotification")
+        NotificationCenter.default.addObserver(self, selector: #selector(editClick(_:)), name: nameNotification, object: challenge)
+        
     }
+    
+    @objc func editClick(_ notification: Notification){
+        let challengeReceived = notification.object as! Challenge
+        print((String(challengeReceived.name ?? "no challenge")))
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "newChallengeView") as! NewChallengeViewController
+        vc.challenge = challengeReceived
+        //self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.present(vc, animated: true, completion: nil)
+    }
+    
     @IBAction func onClickDone(_ sender: Any) {
         if nameTextField.text?.count == 0{
             Utils.showMessage(vc: self, title: "Field Mandatory", msg: "Insert name of topic")

@@ -15,26 +15,18 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     var back: UIView!
     var front: UIView!
-    var showingBack = true
+    
     var initNumber:Int = 0
-    
-    
+    var flipped = true
     var challenge: Challenge? {
         didSet {
             updateUI()
         }
     }
     
-    var flipped = false
-    
-    /*override func prepareForReuse() {
-        super.prepareForReuse()
-        front = nil
-        flipped = false
-    }*/
-    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         
         front = UIView(frame: contentView.frame)
         back = UIView(frame: contentView.frame)
@@ -48,15 +40,12 @@ class CardCollectionViewCell: UICollectionViewCell {
         let deleteButton = UIButton()
         
         
-        editButton.frame = CGRect(x: viewCard.layer.bounds.width / 3 - 30, y: viewCard.layer.bounds.height / 2 - 30, width: 40, height: 40)
-        editButton.setTitle("edit", for: .normal)
-        deleteButton.setTitle("delete", for: .normal)
-        editButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
-        deleteButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
-        deleteButton.frame = CGRect(x: viewCard.layer.bounds.width - viewCard.layer.bounds.width / 3 - 15, y: viewCard.layer.bounds.height / 2 - 25, width: 40, height: 30)
+        editButton.frame = CGRect(x: viewCard.layer.bounds.width / 3 - 25, y: viewCard.layer.bounds.height / 2 - 30, width: 40, height: 40)
+        editButton.setImage(UIImage(systemName: "pencil"), for: .normal)
+        deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
+        deleteButton.frame = CGRect(x: viewCard.layer.bounds.width - viewCard.layer.bounds.width / 3, y: viewCard.layer.bounds.height / 2 - 25, width: 40, height: 30)
         
-        
-        back.backgroundColor = UIColor.green
+        back.backgroundColor = UIColor.clear
         front.backgroundColor = UIColor.clear
         
         front.layer.cornerRadius = 20
@@ -70,8 +59,12 @@ class CardCollectionViewCell: UICollectionViewCell {
         back.addSubview(deleteButton)
         back.addSubview(editButton)
         
+        editButton.addTarget(self, action: #selector(edit), for: .touchUpInside)
+        deleteButton.addTarget(self, action: #selector(deleteChallenge), for: .touchUpInside)
+        
         self.viewCard.addSubview(front)
         self.viewCard.addSubview(back)
+        back.isHidden = true
         
     }
     
@@ -88,6 +81,17 @@ class CardCollectionViewCell: UICollectionViewCell {
 
     }
     
+    @objc func edit(){
+       let editNotification = Notification.Name("editNotification")
+        NotificationCenter.default.post(name: editNotification, object: challenge)
+    }
+    
+    @objc func deleteChallenge(){
+        let deleteNotification = Notification.Name("deleteNotification")
+        NotificationCenter.default.post(name: deleteNotification, object: challenge?.id)
+        print("qui1")
+    }
+    
     @objc func flipCard(gesture:UIGestureRecognizer) {
         if gesture.state != .ended{
             let fromView = flipped ? front : back
@@ -97,6 +101,7 @@ class CardCollectionViewCell: UICollectionViewCell {
             UIView.transition(from: fromView!, to: toView!, duration: 0.6, options: options) {
                 finished in
                 self.flipped = !self.flipped
+                print(self.flipped)
             }
         }
     }

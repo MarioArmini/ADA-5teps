@@ -39,7 +39,7 @@ class ChallengesViewController: UIViewController {
     var steps = [StepChallenge]()
     var isOpened = false
     var challengeSections = [Int: [Challenge]]()
-    
+    public var id: UUID!
     let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     var effect : UIVisualEffect!
     
@@ -59,6 +59,7 @@ class ChallengesViewController: UIViewController {
         //referenceForViewTop?.settingsMentor(imageName: "mentor", text: "Hello!")
         referenceForViewTop?.greetingsMentor()
         //------------------------------------------------------------------
+       
         
         challengeCollectionView.register(UINib.init(nibName: "CardChallenge", bundle: nil), forCellWithReuseIdentifier: "cellCard")
         
@@ -72,14 +73,8 @@ class ChallengesViewController: UIViewController {
         
         stepView.layer.cornerRadius = 20
         
-    }
-    
-    @objc func tapped(){
-        animateOut()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        challengeCollectionView.reloadData()
+        let deleteNotification = Notification.Name("deleteNotification")
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteChallenge(_:)), name: deleteNotification, object: id)
         
         topicName = defaults.string(forKey: "topicName") ?? ""
         if let topic = Topic.findByName(name: topicName) {
@@ -109,6 +104,33 @@ class ChallengesViewController: UIViewController {
                 }
             }
         }
+        
+    }
+    
+    @objc func deleteChallenge(_ notification: Notification){
+        print("qui")
+        self.id = notification.object as! UUID
+        for c in challenges{
+            if c.id == self.id{
+                let alert = UIAlertController(title: "Attention", message: "Do you want to delete this challenge?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    c.delete()
+                    self.challengeCollectionView.reloadData()
+                    }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {action in
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    @objc func tapped(){
+        animateOut()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        challengeCollectionView.reloadData()
+        
     }
     @IBAction func onClickNewChallenge(_ sender: Any) {
         if let topic = Topic.findByName(name: topicName) {
