@@ -44,22 +44,22 @@ class InProgressViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         sections = [Int: [Challenge]]()
         dateSection = [String:Int]()
-        var list = Challenge.listInProgress()
-        if(list.count == 0) {
-            list = Challenge.list()
-        }
+        let list = Challenge.listInProgress()
+        
         var sectionMax = 0
         for c in list {
-            var dateEnd = c.dateEnd ?? Date().addingTimeInterval(TimeInterval(3600 * 24 * Int.random(in: 1...10)))
+            //print(c.name, c.dateStart, )
+            if let dateEnd = c.getCurrentStepChallenge()?.dateEnd  {
+                if !dateSection.keys.contains(dateEnd.toString()) {
+                    dateSection[dateEnd.toString()] = sectionMax
+                    sections[sectionMax] = [Challenge]()
+                    sectionMax = sectionMax + 1
+                }
+                if let s = dateSection[dateEnd.toString()] {
+                    sections[s]?.append(c)
+                }
+            }
             
-            if !dateSection.keys.contains(dateEnd.toString()) {
-                dateSection[dateEnd.toString()] = sectionMax
-                sections[sectionMax] = [Challenge]()
-                sectionMax = sectionMax + 1
-            }
-            if let s = dateSection[dateEnd.toString()] {
-                sections[s]?.append(c)
-            }
         }
         challengeCollectionView.reloadData()
     }

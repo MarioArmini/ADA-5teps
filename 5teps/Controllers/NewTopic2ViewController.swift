@@ -80,7 +80,7 @@ class NewTopic2ViewController: UIViewController {
                 topic?.user = User.userData
             }
         }
-        topic?.color = colors[colorSel![0].section]
+        topic?.color = colors[colorSel![0].section].color2
         topic?.icon = icons[iconsSel![0].section]
         topic?.name = nameTextField.text
         topic?.save()
@@ -128,7 +128,7 @@ extension NewTopic2ViewController: UICollectionViewDataSource, UICollectionViewD
         }
         else if collectionView.tag == 2 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellColor", for: indexPath) as! ColorCollectionViewCell
-            cell.viewColor.backgroundColor = Utils.hexStringToUIColor(hex: colors[indexPath.section])
+            cell.viewColor.backgroundColor = Utils.hexStringToUIColor(hex: colors[indexPath.section].color2)
             return cell
         }
         
@@ -146,7 +146,7 @@ extension NewTopic2ViewController: UICollectionViewDataSource, UICollectionViewD
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 2 {
-            currentBG = Utils.hexStringToUIColor(hex: colors[indexPath.section])
+            currentBG = Utils.hexStringToUIColor(hex: colors[indexPath.section].color2)
             let selItems = collectionViewIcons.indexPathsForVisibleItems
             
             collectionViewIcons.reloadData()

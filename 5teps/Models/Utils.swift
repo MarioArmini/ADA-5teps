@@ -10,6 +10,37 @@ import Foundation
 import UIKit
 import CoreData
 
+public struct ColorCard: Equatable{
+    var color1: String
+    var color2: String
+    
+    init(color1: String, color2: String) {
+        self.color1 = color1
+        self.color2 = color2
+    }
+    public var uiColor1: UIColor {
+        return Utils.hexStringToUIColor(hex: self.color1)
+    }
+    public var uiColor2: UIColor {
+        return Utils.hexStringToUIColor(hex: self.color2)
+    }
+    public static func == (lhs: ColorCard, rhs: ColorCard) -> Bool {
+        return lhs.color2 == rhs.color2
+    }
+    public static var defaultColor: ColorCard {
+        get {
+            let colors = Utils.getArrayColor()
+            return colors[0]
+        }
+    }
+    public static func findColor(color: String) -> ColorCard {
+        let colors = Utils.getArrayColor()
+        if let i = colors.firstIndex(of: ColorCard(color1: color, color2: color)) {
+            return colors[i]
+        }
+        return colors[0]
+    }
+}
 public class Utils {
     
     static func showMessage(vc: UIViewController, title: String, msg: String) {
@@ -18,7 +49,7 @@ public class Utils {
         alertController.addAction(okAction)
         vc.present(alertController, animated: true)
     }
-    static func hexStringToUIColor (hex:String) -> UIColor {
+    static func hexStringToUIColor (hex:String, alpha: CGFloat = 1.0) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 
         if (cString.hasPrefix("#")) {
@@ -36,46 +67,42 @@ public class Utils {
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
             green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
+            alpha: alpha
         )
     }
     public static func getArrayIcon() -> [String] {
         var icons = [String]()
-        
+        /*
         for i in 0x1F601...0x1F64F {
             let c = String(UnicodeScalar(i)!)
             icons.append(c)
-        }
+        }*/
+        icons.append("cucina")
+        icons.append("gioco")
+        icons.append("libro")
         return icons
     }
-    public static func getArrayColor() -> [String] {
-        var colors = [String]()
-        colors.append("ffffff")
-        colors.append("ff0000")
-        colors.append("ff4000")
-        colors.append("ff8000")
-        colors.append("ffbf00")
-        colors.append("ffff00")
-        colors.append("bfff00")
-        colors.append("80ff00")
-        colors.append("40ff00")
-        colors.append("00ff00")
-        colors.append("00ff40")
-        colors.append("00ff80")
-        colors.append("00ffbf")
-        colors.append("00ffff")
-        colors.append("00bfff")
-        colors.append("0080ff")
-        colors.append("0040ff")
-        colors.append("0000ff")
-        colors.append("4000ff")
-        colors.append("8000ff")
-        colors.append("bf00ff")
-        colors.append("ff00ff")
-        colors.append("ff00bf")
-        colors.append("ff0080")
-        colors.append("ff0040")
-        colors.append("ff0000")
+    public static func getArrayColor() -> [ColorCard] {
+        var colors = [ColorCard]()
+        colors.append(ColorCard(color1: "FFDF88", color2: "FFC859"))
+        colors.append(ColorCard(color1: "BED5FF", color2: "89B2FD"))
+        colors.append(ColorCard(color1: "FFA183", color2: "F77F57"))
         return colors
+    }
+    public static func addGradient(imageBackground: UIView, color1: UIColor, color2: UIColor) -> UIView {
+        let rectFrame = CGRect(x: 0, y: 0, width: imageBackground.frame.width, height: imageBackground.frame.height)
+        let grayView = UIView(frame: rectFrame)
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [color1.cgColor, color2.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer.locations = [0, 1]
+        gradientLayer.frame = imageBackground.bounds
+        
+        imageBackground.insertSubview(grayView, at: 0)
+        grayView.layer.insertSublayer(gradientLayer, at: UInt32(imageBackground.layer.sublayers?.count ?? 0))
+        
+        return grayView
     }
 }

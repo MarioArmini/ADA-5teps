@@ -56,6 +56,7 @@
 		6C6FEDB2246671910089BDFF /* topic.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C6FEDB1246671910089BDFF /* topic.json */; };
 		6C6FEDB4246671F50089BDFF /* ImportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6FEDB3246671F50089BDFF /* ImportData.swift */; };
 		6C6FEDB62466746A0089BDFF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6FEDB52466746A0089BDFF /* ProfileViewController.swift */; };
+		6C8E2ED32472E738009511F0 /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C8E2ED22472E738009511F0 /* icons.xcassets */; };
 		6C91AF31246882C600A98D8B /* ChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C91AF30246882C600A98D8B /* ChallengesViewController.swift */; };
 		6C91AF332468831F00A98D8B /* ChallengeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C91AF322468831F00A98D8B /* ChallengeCollectionViewCell.swift */; };
 		6CE1FDE32472563A00AD3A3F /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CE1FDE22472563A00AD3A3F /* colors.xcassets */; };
@@ -122,6 +123,7 @@
 		6C6FEDB1246671910089BDFF /* topic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = topic.json; sourceTree = "<group>"; };
 		6C6FEDB3246671F50089BDFF /* ImportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportData.swift; sourceTree = "<group>"; };
 		6C6FEDB52466746A0089BDFF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6C8E2ED22472E738009511F0 /* icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icons.xcassets; sourceTree = "<group>"; };
 		6C91AF30246882C600A98D8B /* ChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengesViewController.swift; sourceTree = "<group>"; };
 		6C91AF322468831F00A98D8B /* ChallengeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeCollectionViewCell.swift; sourceTree = "<group>"; };
 		6CE1FDE22472563A00AD3A3F /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = colors.xcassets; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				01B3E2E62464615500B0C18A /* Info.plist */,
 				6C64C82724648DF600D03184 /* 5teps.xcdatamodeld */,
 				6CE1FDE22472563A00AD3A3F /* colors.xcassets */,
+				6C8E2ED22472E738009511F0 /* icons.xcassets */,
 			);
 			path = 5teps;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				01B3E2E22464615500B0C18A /* Assets.xcassets in Resources */,
 				4E3565392467448600A06C29 /* Slide.xib in Resources */,
 				4E20461A24686D4C00AA9A17 /* mentorpresentation.mp3 in Resources */,
+				6C8E2ED32472E738009511F0 /* icons.xcassets in Resources */,
 				6C09D3C42469B94600445C07 /* CardChallenge.xib in Resources */,
 				6CF284052466E93600340C6B /* NewTopic.storyboard in Resources */,
 				01B3E2F1246461CB00B0C18A /* Profile.storyboard in Resources */,

@@ -12,6 +12,7 @@ class NewChallengeViewController: UIViewController {
     @IBOutlet weak var viewMentorTop: UIView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var stepsCollectionView: UICollectionView!
+    @IBOutlet weak var cardView: UIView!
     
     var referenceForViewTop : Subview?
     public var topic: Topic?
@@ -59,7 +60,7 @@ class NewChallengeViewController: UIViewController {
                 steps.append(step)
             }
         }
-        
+        setBackgroundCard()
         stepsCollectionView.delegate = self
         stepsCollectionView.dataSource = self
         stepsCollectionView?.backgroundColor = .clear
@@ -69,6 +70,7 @@ class NewChallengeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(editClick(_:)), name: nameNotification, object: challenge)
         
     }
+
     
     @objc func editClick(_ notification: Notification){
         let challengeReceived = notification.object as! Challenge
@@ -79,6 +81,30 @@ class NewChallengeViewController: UIViewController {
         self.navigationController?.present(vc, animated: true, completion: nil)
     }
     
+    func setBackgroundCard()  {
+        let rectFrame = CGRect(x: 0, y: 0, width: cardView.frame.width, height: cardView.frame.height)
+        guard let color = topic?.colorCard else { return }
+        
+        cardView.layer.cornerRadius = 20.20
+        cardView.clipsToBounds = true
+        cardView.backgroundColor = UIColor.clear
+        
+        let color1 = Utils.hexStringToUIColor(hex: color.color1)
+        let color2 = Utils.hexStringToUIColor(hex: color.color2)
+        
+        let gradientLayer = CAGradientLayer()
+        let gradientView = UIView(frame: rectFrame)
+        cardView.insertSubview(gradientView, at: 0)
+        
+        gradientLayer.colors = [color1.cgColor, color2.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer.locations = [0, 1]
+        gradientLayer.frame = cardView.bounds
+        
+        cardView.layer.insertSublayer(gradientLayer, at: 1)
+    }
+
     @IBAction func onClickDone(_ sender: Any) {
         if nameTextField.text?.count == 0{
             Utils.showMessage(vc: self, title: "Field Mandatory", msg: "Insert name of topic")

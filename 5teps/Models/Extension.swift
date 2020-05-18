@@ -49,7 +49,18 @@ extension String {
 }
 
 extension UIImage {
-    static func loadTopicIcon(name: String, width: CGFloat, height: CGFloat, sizeFont: CGFloat) -> UIImage? {
-        return name.emojiToImage(width: width, height: height, sizeFont: sizeFont)
+    static func loadTopicIcon(name: String, width: CGFloat = 0, height: CGFloat = 0, sizeFont: CGFloat = 0) -> UIImage? {
+        return UIImage(named: name)
+        //return name.emojiToImage(width: width, height: height, sizeFont: sizeFont)
+    }
+}
+
+extension UIView {
+    
+    func applyShadow() {
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 1
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = 10
     }
 }

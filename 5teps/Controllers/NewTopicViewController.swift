@@ -21,7 +21,10 @@ class NewTopicViewController: UIViewController {
     
     var icons = Utils.getArrayIcon()
     var colors = Utils.getArrayColor()
-    var currentBG: UIColor = UIColor.white
+    var gradientView: UIView?
+    var gradientLayer: CAGradientLayer?
+    
+    
     public var topic: Topic?
     public var parentVC: OnCloseChildView?
     
@@ -50,22 +53,22 @@ class NewTopicViewController: UIViewController {
         if topic != nil {
             nameTextField.text = topic?.name
         }
-        cardView.layer.cornerRadius = 20
+        cardView.layer.cornerRadius = 20.20
         cardView.clipsToBounds = true
-        cardView.backgroundColor = UIColor.red
-        cardView.layer.borderWidth = 2.0
-        cardView.layer.borderColor = UIColor.black.cgColor
+        cardView.backgroundColor = UIColor.clear
+        //cardView.layer.borderWidth = 2.0
+        //cardView.layer.borderColor = UIColor.black.cgColor
     }
     override func viewWillAppear(_ animated: Bool) {
         if topic != nil {
             if let index = icons.firstIndex(of: topic!.icon!) {
                 iconsPickerView.selectRow(index, inComponent: 0, animated: true)
             }
-            if let index = colors.firstIndex(of: topic!.color!) {
+            if let index = colors.firstIndex(of: ColorCard(color1: topic!.color!, color2: topic!.color!)) {
                 colorsPickerView.selectRow(index, inComponent: 0, animated: true)
             }
         }
-        
+        updateUI()
     }
     
     @IBAction func onClickDone(_ sender: UIBarButtonItem) {
@@ -88,7 +91,7 @@ class NewTopicViewController: UIViewController {
                 topic?.user = User.userData
             }
         }
-        topic?.color = colorSel
+        topic?.color = colorSel.color2
         topic?.icon = iconsSel
         topic?.name = nameTextField.text
         topic?.save()
@@ -96,16 +99,49 @@ class NewTopicViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
         parentVC?.onOpenChallengeView(topic: topic!)
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    func updateUI() {
+        let iconsSel = icons[iconsPickerView.selectedRow(inComponent: 0)]
+        let colorSel = colors[colorsPickerView.selectedRow(inComponent: 0)]
+        
+        self.cardImageView.image = UIImage(named: iconsSel)
+        //self.cardView.backgroundColor = Utils.hexStringToUIColor(hex: colorSel)
+        setBackgroundCard(color: colorSel)
+    }
+    func setBackgroundCard(color: ColorCard)  {
+        let rectFrame = CGRect(x: 0, y: 0, width: cardView.frame.width, height: cardView.frame.height)
+        let color1 = Utils.hexStringToUIColor(hex: color.color1)
+        let color2 = Utils.hexStringToUIColor(hex: color.color2)
+        
+        if self.gradientView == nil {
+            gradientLayer = CAGradientLayer()
+            
+            gradientView = UIView(frame: rectFrame)
+            cardView.insertSubview(gradientView!, at: 0)
+            
+            gradientLayer?.colors = [color1.cgColor, color2.cgColor]
+            gradientLayer?.startPoint = CGPoint(x: 0.0, y: 0.0)
+            gradientLayer?.endPoint = CGPoint(x: 1.0, y: 1.0)
+            gradientLayer?.locations = [0, 1]
+            gradientLayer?.frame = cardView.bounds
+            
+            cardView.layer.insertSublayer(gradientLayer!, at: 1)
+            
+            
+            
+        } else {
+            gradientLayer?.removeFromSuperlayer()
+            gradientLayer = CAGradientLayer()
+            gradientLayer?.colors = [color1.cgColor, color2.cgColor]
+            gradientLayer?.startPoint = CGPoint(x: 0.0, y: 0.0)
+            gradientLayer?.endPoint = CGPoint(x: 1.0, y: 1.0)
+            gradientLayer?.locations = [0, 1]
+            gradientLayer?.frame = cardView.bounds
+        
+            cardView.layer.insertSublayer(gradientLayer!, at: 0)
+            
+        }
+        
+    }
 }
 
 // MARK: Mentor SubviewDelegate
@@ -126,63 +162,53 @@ extension NewTopicViewController: UIPickerViewDataSource, UIPickerViewDelegate, 
         return colors.count
     }
     
-    /*func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
-     {
-     return ""
-     }*/
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        if pickerView.tag == 1 {
+            self.cardImageView.image = UIImage(named: self.icons[row])
+            //self.cardImageView.layer.cornerRadius = self.cardImageView.layer.bounds.width/2
+        } else {
+            setBackgroundCard(color: self.colors[row])
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        let w = pickerView.layer.bounds.width
+        let w = pickerView.layer.bounds.width - 10
         return w
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        let w = pickerView.layer.bounds.width
+        let w = pickerView.layer.bounds.width - 10
         return w
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let w = pickerView.layer.bounds.width
+        let w = pickerView.layer.bounds.width - 10
         
         let parentView = UIView()
         if pickerView.tag == 1 {
             let wlabel = w
-            let image = UIImageView(frame: CGRect(x: 0, y: 0, width: wlabel, height: wlabel))
+            let image = UIImageView(frame: CGRect(x: 5, y: 5, width: wlabel-10, height: wlabel-10))
             
-            image.image = icons[row].emojiToImage()
+            image.image = UIImage(named: self.icons[row])
             image.contentMode = .scaleAspectFit
-            
-            DispatchQueue.main.async {
-                self.cardImageView.image = self.icons[self.iconsPickerView.selectedRow(inComponent: 0)].emojiToImage()
-            }
-            
+            image.layer.cornerRadius = image.layer.bounds.width/2
+            image.clipsToBounds = true
+            image.layer.borderWidth = 1.0
+            image.layer.borderColor = UIColor(named: "fontColor")?.cgColor
+           
             parentView.addSubview(image)
             
         } else {
             let wlabel = w
-            let image = UIImageView(frame: CGRect(x: 0, y: 0, width: wlabel, height: wlabel))
+            let image = UIImageView(frame: CGRect(x: 5, y: 5, width: wlabel - 10, height: wlabel - 10))
             
-            image.backgroundColor = Utils.hexStringToUIColor(hex: colors[row])
-            DispatchQueue.main.async {
-                self.cardView.backgroundColor = Utils.hexStringToUIColor(hex: self.colors[self.colorsPickerView.selectedRow(inComponent: 0)])
-            }
-            
+            image.backgroundColor = Utils.hexStringToUIColor(hex: colors[row].color2)
+            image.layer.cornerRadius = image.layer.bounds.width/2
+            image.clipsToBounds = true
             parentView.addSubview(image)
         }
         
         return parentView
-    }
-    func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
-    {
-        if pickerView.tag == 1 {
-            self.cardImageView.image = self.icons[row].emojiToImage()
-        } else {
-            self.cardView.backgroundColor = Utils.hexStringToUIColor(hex: self.colors[row])
-        }
     }
     
 }

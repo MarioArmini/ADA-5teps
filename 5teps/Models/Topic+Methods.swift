@@ -20,6 +20,14 @@ extension Topic {
             return UIColor.white
         }
     }
+    var colorCard: ColorCard {
+        get {
+            if let color = self.color {
+                return  ColorCard.findColor(color: color)
+            }
+            return ColorCard.defaultColor
+        }
+    }
     
     public static func list() -> [Topic] {
         let context = SharedInfo.context
