@@ -73,6 +73,7 @@ public class ImportData {
                     }
                     challenge.save()
                     print("New Challenge created \(String(describing: challenge.name))")
+                    challenge.debugPrint()
                 }
             }
         }

@@ -16,6 +16,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V4I-bX-3LG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="purple"/>
                         <color key="barTintColor" name="background"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" name="purple"/>
@@ -199,6 +200,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="background"/>
+                        <color key="tintColor" name="purple"/>
                         <constraints>
                             <constraint firstItem="4pS-6i-ajS" firstAttribute="trailing" secondItem="LLR-N9-Jnk" secondAttribute="trailing" constant="-20" id="JTM-sw-bBo"/>
                             <constraint firstItem="zPb-Ir-vOi" firstAttribute="centerX" secondItem="LLR-N9-Jnk" secondAttribute="centerX" id="LbQ-Ic-Kop"/>

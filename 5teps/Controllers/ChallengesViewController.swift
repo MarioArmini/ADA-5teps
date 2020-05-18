@@ -146,7 +146,7 @@ class ChallengesViewController: UIViewController {
         if isOpened{
             for c in challenges{
                 if c.name == titleChallengeLabel.text{
-                    c.start()
+                    let _ = c.start()
                     animateOut()
                 }
             }
@@ -231,8 +231,6 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
                 self.fifthStepLabel.text = steps[4].name
             }
         }
-        steps[0].finish()
-        steps[1].finish()
         verifySteps()
     }
     

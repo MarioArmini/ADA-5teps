@@ -95,7 +95,7 @@ extension StepChallenge {
         }
     }
     public func finish() {
-        if !isFinish {
+        if isStart {
             self.dateEnd = Date()
             self.dateComplete = Date()
             self.state = Int64(StepChallengeState.Finished.rawValue)

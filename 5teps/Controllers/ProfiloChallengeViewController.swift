@@ -25,7 +25,7 @@ class ProfiloChallengeViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         sections = [Int: [Challenge]]()
-        sections[0] = Challenge.list()
+        sections[0] = Challenge.listByState(state: ChallengeState.Finished)
         
         challangeCollectionView.reloadData()
     }

@@ -83,6 +83,26 @@ extension Challenge {
         }
         return [Challenge]()
     }
+    public static func listByState(state: ChallengeState) -> [Challenge] {
+        let context = SharedInfo.context
+        let fetchRequest: NSFetchRequest<Challenge> = Challenge.fetchRequest()
+        //fetchRequest.fetchBatchSize = 20
+        
+        let sortDescriptor = NSSortDescriptor(key: "dateEnd", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        let filter = NSPredicate(format: "state == %i", state.rawValue)
+        fetchRequest.predicate = filter
+        
+        do {
+            
+            let result = try context.fetch(fetchRequest)
+            return result
+        } catch {
+            print ("Error retrieving data")
+        }
+        return [Challenge]()
+    }
     public static func listInProgress() -> [Challenge] {
         let context = SharedInfo.context
         let fetchRequest: NSFetchRequest<Challenge> = Challenge.fetchRequest()
@@ -148,12 +168,23 @@ extension Challenge {
         _ = context.safeSave()
     }
     public func start() -> Bool {
-        self.dateStart = Date()
-        self.dateLast = Date()
-        self.currentStep = 0
-        self.state = Int64(ChallengeState.Started.rawValue)
-       
+        if isCreate {
+            self.dateStart = Date()
+            self.dateLast = Date()
+            self.currentStep = 0
+            self.state = Int64(ChallengeState.Started.rawValue)
+        }
+        self.debugPrint()
         return nextStep()
+    }
+    public func debugPrint() {
+        print("####################################")
+        print(self.name, self.state, self.dateStart, self.deadLine, self.dateEnd)
+        let steps = self.stepsOrder
+        for i in steps {
+            print(i.name, i.step, i.state, i.dateStart, i.dateEnd, i.dateComplete)
+        }
+        print("####################################")
     }
     public func nextStep() -> Bool
     {
