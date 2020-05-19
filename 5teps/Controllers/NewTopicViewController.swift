@@ -124,7 +124,7 @@ class NewTopicViewController: UIViewController {
             gradientLayer?.locations = [0, 1]
             gradientLayer?.frame = cardView.bounds
             
-            cardView.layer.insertSublayer(gradientLayer!, at: 1)
+            gradientView?.layer.insertSublayer(gradientLayer!, at: 1)
             
             
             
@@ -137,7 +137,7 @@ class NewTopicViewController: UIViewController {
             gradientLayer?.locations = [0, 1]
             gradientLayer?.frame = cardView.bounds
         
-            cardView.layer.insertSublayer(gradientLayer!, at: 0)
+            gradientView?.layer.insertSublayer(gradientLayer!, at: 0)
             
         }
         

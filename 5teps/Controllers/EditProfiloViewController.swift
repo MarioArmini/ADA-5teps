@@ -24,6 +24,8 @@ class EditProfiloViewController: UIViewController {
         self.imageView.image = user.getProfiloImage()
         self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2
         self.imageView.clipsToBounds = true
+        self.imageView.layer.borderColor = UIColor.white.cgColor
+        self.imageView.layer.borderWidth = 4.0
         
         
     }

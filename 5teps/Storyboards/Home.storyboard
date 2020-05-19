@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,6 +16,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UoD-SN-Gsw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="purple"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="fontColor"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="fontColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="ViF-AZ-p7O" kind="relationship" relationship="rootViewController" id="guD-wV-iAQ"/>
@@ -63,7 +71,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GsT-7C-JFW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Topics" image="house" catalog="system" id="3R4-Pp-6Ay"/>
+                    <tabBarItem key="tabBarItem" title="Deks" image="house" catalog="system" id="3R4-Pp-6Ay"/>
                     <navigationItem key="navigationItem" title="Topics" id="7Jm-JZ-sZI">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="Vlg-RU-ocC">
                             <connections>
@@ -309,5 +317,11 @@
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <namedColor name="fontColor">
+            <color red="0.16862745098039217" green="0.20392156862745098" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="purple">
+            <color red="0.49019607843137253" green="0.34509803921568627" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

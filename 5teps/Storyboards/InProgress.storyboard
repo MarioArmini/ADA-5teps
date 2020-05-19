@@ -15,12 +15,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TBN-g2-OQL">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="purple"/>
                         <color key="barTintColor" name="background"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" name="purple"/>
+                            <color key="textColor" name="fontColor"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" name="purple"/>
+                            <color key="textColor" name="fontColor"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -108,6 +109,9 @@
         <image name="arrow.up" catalog="system" width="120" height="128"/>
         <namedColor name="background">
             <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="fontColor">
+            <color red="0.16862745098039217" green="0.20392156862745098" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="purple">
             <color red="0.49019607843137253" green="0.34509803921568627" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

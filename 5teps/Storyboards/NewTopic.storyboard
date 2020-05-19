@@ -298,28 +298,28 @@
                                 </constraints>
                             </view>
                             <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6m-q7-XnA">
-                                <rect key="frame" x="10" y="357" width="60" height="356"/>
+                                <rect key="frame" x="10" y="307" width="60" height="406"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="T2t-KO-gFl"/>
                                 </constraints>
                             </pickerView>
                             <pickerView tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fC-mU-Aa1">
-                                <rect key="frame" x="344" y="357" width="60" height="356"/>
+                                <rect key="frame" x="344" y="307" width="60" height="406"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="xjQ-fS-jG6"/>
                                 </constraints>
                             </pickerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t2C-wf-6Rw">
-                                <rect key="frame" x="78" y="357" width="256" height="356"/>
+                                <rect key="frame" x="78" y="307" width="256" height="406"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insert Topic Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R0n-Wf-TOK">
-                                        <rect key="frame" x="20" y="302" width="216" height="34"/>
+                                        <rect key="frame" x="20" y="352" width="216" height="34"/>
                                         <color key="textColor" name="fontColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KSc-ZY-YMs">
-                                        <rect key="frame" x="63" y="113" width="130" height="130"/>
+                                        <rect key="frame" x="63" y="138" width="130" height="130"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="130" id="7sJ-r7-yXL"/>
                                             <constraint firstAttribute="height" constant="130" id="sVY-fy-Xz1"/>
@@ -341,14 +341,14 @@
                         <constraints>
                             <constraint firstItem="t2C-wf-6Rw" firstAttribute="leading" secondItem="u6m-q7-XnA" secondAttribute="trailing" constant="8" id="0nG-uP-6Ci"/>
                             <constraint firstItem="u6m-q7-XnA" firstAttribute="leading" secondItem="nf0-Nh-i3k" secondAttribute="leading" constant="10" id="Do4-Ns-iyW"/>
-                            <constraint firstItem="3fC-mU-Aa1" firstAttribute="top" secondItem="WmX-RP-mHY" secondAttribute="bottom" constant="100" id="GxG-ko-QV9"/>
+                            <constraint firstItem="3fC-mU-Aa1" firstAttribute="top" secondItem="WmX-RP-mHY" secondAttribute="bottom" constant="50" id="GxG-ko-QV9"/>
                             <constraint firstItem="3fC-mU-Aa1" firstAttribute="leading" secondItem="t2C-wf-6Rw" secondAttribute="trailing" constant="10" id="Ivz-04-0I6"/>
                             <constraint firstItem="3fC-mU-Aa1" firstAttribute="bottom" secondItem="nf0-Nh-i3k" secondAttribute="bottom" constant="-100" id="MR0-UD-M6P"/>
                             <constraint firstItem="u6m-q7-XnA" firstAttribute="bottom" secondItem="nf0-Nh-i3k" secondAttribute="bottom" constant="-100" id="TDC-n6-Qc4"/>
                             <constraint firstItem="WmX-RP-mHY" firstAttribute="top" secondItem="nf0-Nh-i3k" secondAttribute="top" id="XTC-sg-Mu3"/>
                             <constraint firstItem="WmX-RP-mHY" firstAttribute="trailing" secondItem="nf0-Nh-i3k" secondAttribute="trailing" id="YSL-7y-LEy"/>
-                            <constraint firstItem="u6m-q7-XnA" firstAttribute="top" secondItem="WmX-RP-mHY" secondAttribute="bottom" constant="100" id="byb-Hc-9px"/>
-                            <constraint firstItem="t2C-wf-6Rw" firstAttribute="top" secondItem="WmX-RP-mHY" secondAttribute="bottom" constant="100" id="eRY-yC-Ac0"/>
+                            <constraint firstItem="u6m-q7-XnA" firstAttribute="top" secondItem="WmX-RP-mHY" secondAttribute="bottom" constant="50" id="byb-Hc-9px"/>
+                            <constraint firstItem="t2C-wf-6Rw" firstAttribute="top" secondItem="WmX-RP-mHY" secondAttribute="bottom" constant="50" id="eRY-yC-Ac0"/>
                             <constraint firstItem="3fC-mU-Aa1" firstAttribute="trailing" secondItem="nf0-Nh-i3k" secondAttribute="trailing" constant="-10" id="fsK-NJ-rcu"/>
                             <constraint firstItem="t2C-wf-6Rw" firstAttribute="bottom" secondItem="nf0-Nh-i3k" secondAttribute="bottom" constant="-100" id="kcg-7q-qZX"/>
                             <constraint firstItem="WmX-RP-mHY" firstAttribute="leading" secondItem="nf0-Nh-i3k" secondAttribute="leading" id="oeQ-TV-i16"/>

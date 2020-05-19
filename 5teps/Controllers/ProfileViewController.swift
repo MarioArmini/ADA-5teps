@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         
           
         
@@ -34,6 +35,8 @@ class ProfileViewController: UIViewController {
         
         self.profileImageView.image = user?.getProfiloImage()
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
+        self.profileImageView.layer.borderColor = UIColor.white.cgColor
+        self.profileImageView.layer.borderWidth = 4.0
         self.profileImageView.clipsToBounds = true
         
         
