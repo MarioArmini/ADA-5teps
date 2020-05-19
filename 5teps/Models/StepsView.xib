@@ -16,7 +16,7 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4b-Y3-RyP">
                     <rect key="frame" x="0.0" y="44" width="290" height="59"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="50"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                     <color key="textColor" name="fontColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -63,7 +63,9 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxR-Jd-50F">
                     <rect key="frame" x="73" y="360" width="144" height="23"/>
-                    <state key="normal" title="Start"/>
+                    <state key="normal" title="Start">
+                        <color key="titleColor" name="fontColor"/>
+                    </state>
                     <connections>
                         <action selector="startChallenge:" destination="iN0-l3-epB" eventType="touchUpInside" id="654-sr-9nC"/>
                     </connections>

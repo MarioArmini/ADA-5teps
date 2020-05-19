@@ -161,7 +161,6 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("animate")
         challengeTitle = challengeSections[indexPath.section]?[indexPath.row].name ?? ""
         presentView()
     }
@@ -199,6 +198,9 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
         for c in self.challenges{
             if c.name == challengeTitle{
                 stepsView.challenge = c
+                if c.isStart{
+                    stepsView.startButton.alpha = 0
+                }
                 stepsView.backgroundColor = c.topic?.bgColor
                 stepsView.steps = c.stepsOrder
                 stepsView.label1.text = stepsView.steps[0].name
@@ -208,7 +210,6 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
                 stepsView.label5.text = stepsView.steps[4].name
             }
         }
-        stepsView.verifySteps()
     }
     
     func animateIn(){
