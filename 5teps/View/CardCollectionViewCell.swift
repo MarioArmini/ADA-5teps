@@ -19,7 +19,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var step5: UIImageView!
     @IBOutlet weak var imageView: UIImageView!
     var gradientLayer: CAGradientLayer?
-
+    
     
     var back: UIView!
     var front: UIView!
@@ -79,26 +79,31 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-
+        
         let tap = UILongPressGestureRecognizer(target: self, action: #selector(flipCard))
         tap.numberOfTouchesRequired = 1
         tap.delaysTouchesEnded = true
         tap.minimumPressDuration = 0.5
-
+        
         self.contentView.addGestureRecognizer(tap)
         self.contentView.isUserInteractionEnabled = true
-
+        
     }
     
-    @objc func edit(){
-       let editNotification = Notification.Name("editNotification")
-        NotificationCenter.default.post(name: editNotification, object: challenge)
+    @objc func edit() {
+        if challenge != nil {
+            let editNotification = Notification.Name("editNotification")
+            NotificationCenter.default.post(name: editNotification, object: challenge!)
+        }
+        
     }
     
-    @objc func deleteChallenge(){
-        let deleteNotification = Notification.Name("deleteNotification")
-        NotificationCenter.default.post(name: deleteNotification, object: challenge?.id)
-        print("qui1")
+    @objc func deleteChallenge() {
+        if challenge != nil {
+            let deleteNotification = Notification.Name("deleteNotification")
+            NotificationCenter.default.post(name: deleteNotification, object: challenge!.id)
+        }
+        
     }
     
     @objc func flipCard(gesture:UIGestureRecognizer) {
@@ -172,7 +177,7 @@ class CardCollectionViewCell: UICollectionViewCell {
                 }
             }
         }
-
+        
     }
     
 }

@@ -66,21 +66,9 @@ class NewChallengeViewController: UIViewController {
         stepsCollectionView?.backgroundColor = .clear
         stepsCollectionView?.decelerationRate = .fast
         
-        let nameNotification = Notification.Name("editNotification")
-        NotificationCenter.default.addObserver(self, selector: #selector(editClick(_:)), name: nameNotification, object: challenge)
-        
+       
     }
 
-    
-    @objc func editClick(_ notification: Notification){
-        let challengeReceived = notification.object as! Challenge
-        print((String(challengeReceived.name ?? "no challenge")))
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "newChallengeView") as! NewChallengeViewController
-        vc.challenge = challengeReceived
-        //self.navigationController?.pushViewController(vc, animated: true)
-        self.navigationController?.present(vc, animated: true, completion: nil)
-    }
-    
     func setBackgroundCard()  {
         let rectFrame = CGRect(x: 0, y: 0, width: cardView.frame.width, height: cardView.frame.height)
         guard let color = topic?.colorCard else { return }

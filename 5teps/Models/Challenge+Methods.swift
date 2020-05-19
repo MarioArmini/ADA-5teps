@@ -260,6 +260,9 @@ extension Challenge {
     }
     public func calculateDeadLine() {
         let steps = self.stepsOrder
+        if self.dateStart == nil {
+            return
+        }
         var dateBase = self.dateStart!
         for s in steps {
             if !s.isFinish {

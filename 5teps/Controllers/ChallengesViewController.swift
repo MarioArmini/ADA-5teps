@@ -24,7 +24,7 @@ class ChallengesViewController: UIViewController {
     var steps = [StepChallenge]()
     var isOpened = false
     var challengeSections = [Int: [Challenge]]()
-    public var id: UUID!
+    //public var id: UUID!
     let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     
     override func viewDidLoad() {
@@ -63,13 +63,65 @@ class ChallengesViewController: UIViewController {
         stepsView.layer.cornerRadius = 20
         
         let deleteNotification = Notification.Name("deleteNotification")
-        NotificationCenter.default.addObserver(self, selector: #selector(deleteChallenge(_:)), name: deleteNotification, object: id)
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteChallenge), name: deleteNotification, object: nil)
         
+        let nameNotification = Notification.Name("editNotification")
+        NotificationCenter.default.addObserver(self, selector: #selector(editClick), name: nameNotification, object: nil)
+               
+        
+        
+        
+    }
+    
+    @objc func deleteChallenge(_ notification: Notification){
+        if let id = notification.object as? UUID {
+            if let c = Challenge.findById(id: "\(id)") {
+                let alert = UIAlertController(title: "Attention", message: "Do you want to delete this challenge?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    c.delete()
+                    DispatchQueue.main.async {
+                        
+                    }
+                    self.reloadData()
+                    }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {action in
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
+    }
+    @objc func editClick(_ notification: Notification){
+        let challengeReceived = notification.object as! Challenge
+        let viewTmp = UIStoryboard(name: "NewTopic", bundle: nil).instantiateViewController(withIdentifier: "newChallengeView") as! NewChallengeViewController
+        viewTmp.topic = challengeReceived.topic
+        viewTmp.challenge = challengeReceived
+        self.navigationController?.pushViewController(viewTmp, animated: true)
+    }
+    
+    @objc func tapped(){
+        animateOut()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        reloadData()
+    }
+    @IBAction func onClickNewChallenge(_ sender: Any) {
+        if let topic = Topic.findByName(name: topicName) {
+            let viewTmp = UIStoryboard(name: "NewTopic", bundle: nil).instantiateViewController(withIdentifier: "newChallengeView") as! NewChallengeViewController
+            viewTmp.topic = topic
+            self.navigationController?.pushViewController(viewTmp, animated: true)
+        } else {
+            Utils.showMessage(vc: self, title: "Attention", msg: "Hobby topic not found")
+        }
+    }
+    func reloadData() {
         topicName = defaults.string(forKey: "topicName") ?? ""
         if let topic = Topic.findByName(name: topicName) {
-            challenges = topic.findChallengeByState(state: ChallengeState.Create)
+            challenges = topic.findChallengeByState(state: ChallengeState.Create, state2: ChallengeState.Started)
         }
-        if challenges.count % 4 > 0{
+        challengeSections[0] = challenges
+        /*if challenges.count % 4 > 0{
             var section = 0
             let maxSections = challenges.count / 4 + 1
             var breakPoint = 3
@@ -92,44 +144,10 @@ class ChallengesViewController: UIViewController {
                     }
                 }
             }
-        }
-        
-    }
-    
-    @objc func deleteChallenge(_ notification: Notification){
-        self.id = notification.object as? UUID
-        for c in challenges{
-            if c.id == self.id{
-                let alert = UIAlertController(title: "Attention", message: "Do you want to delete this challenge?", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                    c.delete()
-                    self.challengeCollectionView.reloadData()
-                    }))
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {action in
-                }))
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
-    }
-    
-    @objc func tapped(){
-        animateOut()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+        }*/
         challengeCollectionView.reloadData()
         
     }
-    @IBAction func onClickNewChallenge(_ sender: Any) {
-        if let topic = Topic.findByName(name: topicName) {
-            let viewTmp = UIStoryboard(name: "NewTopic", bundle: nil).instantiateViewController(withIdentifier: "newChallengeView") as! NewChallengeViewController
-            viewTmp.topic = topic
-            self.navigationController?.pushViewController(viewTmp, animated: true)
-        } else {
-            Utils.showMessage(vc: self, title: "Attention", msg: "Hobby topic not found")
-        }
-    }
-    
 }
 
 

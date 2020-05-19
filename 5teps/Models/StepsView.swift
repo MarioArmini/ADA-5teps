@@ -76,32 +76,52 @@ class StepsView: UIView {
     }
     
     @IBAction func startChallenge(_ sender: Any) {
-        challenge = Challenge.findByName(name: self.titleLabel.text ?? "")
-        challenge.start()
+        //challenge = Challenge.findByName(name: self.titleLabel.text ?? "")
+        let _ = challenge.start()
     }
     @IBAction func completeStep1(_ sender: Any) {
         self.button1.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
-        challenge.nextStep()
+        if challenge.isCreate {
+            let _ = challenge.start()
+            return
+        }
+        let _ = challenge.nextStep()
         self.deadlineLabel1.text = String(steps[0].days)
     }
     @IBAction func completeStep2(_ sender: Any) {
         self.button2.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
-        challenge.nextStep()
+        if challenge.isCreate {
+            let _ = challenge.start()
+            return
+        }
+        let _ = challenge.nextStep()
         self.deadlineLabel2.text = String(steps[1].days)
     }
     @IBAction func completeStep3(_ sender: Any) {
         self.button3.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
-        challenge.nextStep()
+        if challenge.isCreate {
+            let _ = challenge.start()
+            return
+        }
+        let _ = challenge.nextStep()
         self.deadlineLabel3.text = String(steps[2].days)
     }
     @IBAction func completeStep4(_ sender: Any) {
         self.button4.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
-        challenge.nextStep()
+        if challenge.isCreate {
+            let _ = challenge.start()
+            return
+        }
+        let _ = challenge.nextStep()
         self.deadlineLabel4.text = String(steps[3].days)
     }
     @IBAction func completeStep5(_ sender: Any) {
         self.button5.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
-        challenge.nextStep()
+        if challenge.isCreate {
+            let _ = challenge.start()
+            return
+        }
+        let _ = challenge.nextStep()
         self.deadlineLabel5.text = String(steps[4].days)
     }
 }
