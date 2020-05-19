@@ -21,33 +21,11 @@ class Slide: UIView, AVAudioPlayerDelegate {
     @IBOutlet weak var desc: UILabel!
     
     
-    @IBOutlet weak var playMentorPresentation: UIButton!
+   
     
     
-    func playMentorAudio() {
-        let soundURL = Bundle.main.url(forResource: "mentorpresentation", withExtension: "mp3")
-        do {
-            audioPlayer = try
-                AVAudioPlayer(contentsOf: soundURL!)
-            audioPlayer.play()
-        }
-        catch {
-            print(error)
-        }
-    }
+ 
     
-    
-    
-    @IBAction func whenButtonIsPressed(_ sender: UIButton) {
-        playMentorAudio()
-        /*   if audioPlayer.isPlaying {
-         playMentorPresentation.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-         }else{
-         audioPlayer.pause()
-         playMentorPresentation.setImage(UIImage(systemName: "play.fill"), for: .normal)
-         }*/
-        
-        
-    }
+
     
 }

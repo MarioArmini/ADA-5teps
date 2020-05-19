@@ -37,16 +37,6 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qj5-RV-Ibp">
-                    <rect key="frame" x="23" y="614" width="69" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="uWw-59-2ih"/>
-                    </constraints>
-                    <state key="normal" title="Play" image="play.fill" catalog="system"/>
-                    <connections>
-                        <action selector="whenButtonIsPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="80y-Sb-sux"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
@@ -58,22 +48,15 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7yp-6N-pc7" secondAttribute="trailing" constant="70" id="Rcw-03-hYQ"/>
                 <constraint firstItem="7yp-6N-pc7" firstAttribute="top" secondItem="IUR-ER-d5C" secondAttribute="bottom" constant="22" id="Tqe-4X-l9w"/>
                 <constraint firstItem="IUR-ER-d5C" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="WZV-OK-61Z"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Qj5-RV-Ibp" secondAttribute="trailing" constant="322" id="bIP-xJ-5z4"/>
-                <constraint firstItem="Qj5-RV-Ibp" firstAttribute="top" secondItem="7yp-6N-pc7" secondAttribute="bottom" constant="48" id="dwy-g3-AVp"/>
                 <constraint firstItem="7yp-6N-pc7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="fWr-QV-d0O"/>
-                <constraint firstItem="Qj5-RV-Ibp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="23" id="vwf-Pf-jYT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="desc" destination="7yp-6N-pc7" id="VEu-Cc-TJ5"/>
                 <outlet property="imageView" destination="Mol-1m-ZQj" id="cOW-ox-kAD"/>
-                <outlet property="playMentorPresentation" destination="Qj5-RV-Ibp" id="qIU-wh-XLg"/>
                 <outlet property="title" destination="IUR-ER-d5C" id="TXA-KD-PRU"/>
             </connections>
             <point key="canvasLocation" x="134.78260869565219" y="115.84821428571428"/>
         </view>
     </objects>
-    <resources>
-        <image name="play.fill" catalog="system" width="116" height="128"/>
-    </resources>
 </document>
