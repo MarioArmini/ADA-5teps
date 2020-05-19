@@ -148,10 +148,10 @@ class Subview: UIView {
         let challengeStarted = Challenge.listInProgress()
         if challengeStarted.count > 0 {
             //quotes
-            mentorMotivatesYou(imageName: "mentor")
+            mentorMotivatesYou(imageName: "mentorindicates")
         }else{
             //Why don't u start a new challenge?
-            IfYouHaveNoChallenges(imageName: "mentor")
+            IfYouHaveNoChallenges(imageName: "mentorindicates")
         }
     }
     
