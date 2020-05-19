@@ -18,6 +18,12 @@ class InProgressViewController: UIViewController {
     var sections: [Int: [Challenge]]!
     var dateSection: [String:Int]!
     
+    var stepsView: StepsView!
+    var challengeTitle = String()
+    var effect = UIBlurEffect(style: .light)
+    var blurEffect = UIVisualEffectView()
+    var isOpened = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -38,6 +44,20 @@ class InProgressViewController: UIViewController {
         //------------------------------------------------------------------
         
         challengeCollectionView.register(UINib.init(nibName: "CardChallenge", bundle: nil), forCellWithReuseIdentifier: "cellCard")
+        
+        stepsView = UINib(nibName: "StepsView", bundle: nil).instantiate(withOwner: nil, options: nil).first as? StepsView
+        
+        blurEffect.frame.size.height = self.view.frame.size.height
+        blurEffect.frame.size.width = self.view.frame.size.width
+        blurEffect.effect = nil
+        self.view.addSubview(blurEffect)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        tap.numberOfTouchesRequired = 1
+
+        blurEffect.addGestureRecognizer(tap)
+        
+        stepsView.layer.cornerRadius = 20
         
         challengeCollectionView.delegate = self
         challengeCollectionView.dataSource = self
@@ -63,6 +83,10 @@ class InProgressViewController: UIViewController {
             
         }
         challengeCollectionView.reloadData()
+    }
+    
+    @objc func tapped(){
+        animateOut()
     }
     
     /*
@@ -117,6 +141,12 @@ extension InProgressViewController : UICollectionViewDelegate, UICollectionViewD
         }
         fatalError()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        challengeTitle = sections[indexPath.section]?[indexPath.row].name ?? ""
+        presentView()
+    }
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -142,5 +172,56 @@ extension InProgressViewController : UICollectionViewDelegate, UICollectionViewD
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+    
+    func presentView(){
+        animateIn()
+        stepsView.titleLabel.text = challengeTitle
+        let c = Challenge.findByName(name: challengeTitle)
+        stepsView.challenge = c
+        if c!.isStart{
+            stepsView.startButton.alpha = 0
+        }
+        stepsView.backgroundColor = c!.topic?.bgColor
+        stepsView.steps = c!.stepsOrder
+        stepsView.label1.text = stepsView.steps[0].name
+        stepsView.label2.text = stepsView.steps[1].name
+        stepsView.label3.text = stepsView.steps[2].name
+        stepsView.label4.text = stepsView.steps[3].name
+        stepsView.label5.text = stepsView.steps[4].name
+        stepsView.verifySteps()
+    }
+    
+    func animateIn(){
+        self.view.addSubview(stepsView)
+        stepsView.center = self.view.center
+        
+        stepsView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        stepsView.alpha = 0
+        
+        UIView.animate(withDuration: 0.4) {
+            self.blurEffect.effect = self.effect
+            self.stepsView.alpha = 1
+            self.stepsView.transform = CGAffineTransform.identity
+        }
+        
+        isOpened = true
+        self.blurEffect.isUserInteractionEnabled = true
+        
+    }
+    
+    func animateOut(){
+        if isOpened{
+            UIView.animate(withDuration: 0.3) {
+                self.stepsView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+                self.stepsView.alpha = 0
+                
+                self.blurEffect.effect = nil
+                
+                self.stepsView.removeFromSuperview()
+            }
+        }
+        self.blurEffect.isUserInteractionEnabled = false
+        isOpened = false
     }
 }
