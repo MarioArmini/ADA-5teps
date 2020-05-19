@@ -146,7 +146,7 @@ class CardCollectionViewCell: UICollectionViewCell {
             gradientLayer?.startPoint = CGPoint(x: 0.0, y: 0.0)
             gradientLayer?.endPoint = CGPoint(x: 1.0, y: 1.0)
             gradientLayer?.locations = [0, 1]
-            gradientLayer?.frame = viewCard.bounds
+            gradientLayer?.frame = CGRect(x: 0, y: 0, width: viewCard.bounds.width + 100, height: viewCard.bounds.height + 100)
             
             viewCard.layer.insertSublayer(gradientLayer!, at: 0)
         }
