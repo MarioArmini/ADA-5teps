@@ -53,7 +53,7 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
         slide3.imageView.image = UIImage(named: "mentor")
         slide3.title.text = "TITOLO 3"
         slide3.desc.text = "DESCRIZIONE 3"
-        slide3.playMentorPresentation.isHidden = false
+       
         return [slide1, slide2, slide3]
     }
     
