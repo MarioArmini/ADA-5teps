@@ -21,6 +21,7 @@ class ProfiloGoalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        goalCollectionView.register(UINib.init(nibName: "MedalCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "medalCell")
         
         goalCollectionView.delegate = self
         goalCollectionView.dataSource = self
@@ -63,10 +64,10 @@ extension ProfiloGoalViewController : UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellMedal", for: indexPath) as! MedalCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "medalCell", for: indexPath) as! MedalCollectionViewCell
         //cell.contentView.backgroundColor = UIColor.red
         if let goal = sections[indexPath.section]?[indexPath.row] {
-            cell.imageView.image = UIImage(named: "medal")
+            cell.goal = goal
         }
         return cell
     }
@@ -74,7 +75,7 @@ extension ProfiloGoalViewController : UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemsPerRow: CGFloat = 3
+        let itemsPerRow: CGFloat = 2
         //2
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = collectionView.layer.bounds.width - paddingSpace

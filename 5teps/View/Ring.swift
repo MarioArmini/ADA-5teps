@@ -40,6 +40,7 @@ class Ring: UIView
         layer.addSublayer(shapeLayer)
     }
     public static func degreeToRadiant(gradi: Int) -> CGFloat {
-        return CGFloat((Double(gradi) * Double.pi)/180)
+        let gradi2 = gradi - 90
+        return CGFloat((Double(gradi2) * Double.pi)/180)
     }
 }

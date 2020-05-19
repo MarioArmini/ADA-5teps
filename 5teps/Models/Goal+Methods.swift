@@ -110,19 +110,26 @@ extension Goal {
     }
     public static func generaFakeGoals() -> [Goal] {
         var result = [Goal]()
-        var currentLevel = Goal.getMaxLevel()
-        if (currentLevel.count + 1) >= MAX_GOAL_CHANGE_LEVEL {
-            currentLevel.level = currentLevel.level + 1
-            currentLevel.count = 0
-        }
+        
+        let challenges = Challenge.list()
+        
         for _ in 1...20 {
+            let c = challenges[Int.random(in: 0..<challenges.count)]
+            
+            var currentLevel = Goal.getMaxLevel()
+            if (currentLevel.count + 1) >= MAX_GOAL_CHANGE_LEVEL {
+                currentLevel.level = currentLevel.level + 1
+                currentLevel.count = 0
+            }
+            print("Level \(currentLevel.level) - \(currentLevel.count)")
+            
             let goal = Goal(context: SharedInfo.context)
             goal.id = UUID()
             goal.date = Date()
             goal.level = Int16(currentLevel.level)
-            goal.name = Goal.getNameLevel(level: goal.level)
+            goal.name = c.name
             goal.icon = Goal.findIconMedal(level: goal.level)
-            //goal.challenge = self
+            goal.challenge = c
             goal.save()
             result.append(goal)
         }
@@ -136,7 +143,7 @@ extension Goal {
         return Ring.degreeToRadiant(gradi: val)
     }
     public static func findIconMedal(level: Int16)  -> String {
-        var icons = Utils.getArrayIconMedal()
+        let icons = Utils.getArrayIconMedal()
         
         let i = Int.random(in: 0..<icons.count)
         return icons[i]

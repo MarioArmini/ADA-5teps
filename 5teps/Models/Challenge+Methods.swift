@@ -179,10 +179,10 @@ extension Challenge {
     }
     public func debugPrint() {
         print("####################################")
-        print(self.name, self.state, self.dateStart, self.deadLine, self.dateEnd)
+        print(self.name ?? "", self.state, self.dateStart ?? "", self.deadLine ?? "", self.dateEnd ?? "")
         let steps = self.stepsOrder
         for i in steps {
-            print(i.name, i.step, i.state, i.dateStart, i.dateEnd, i.dateComplete)
+            print(i.name ?? "", i.step, i.state, i.dateStart ?? "", i.dateEnd ?? "", i.dateComplete ?? "")
         }
         print("####################################")
     }
@@ -241,7 +241,7 @@ extension Challenge {
             goal.id = UUID()
             goal.date = Date()
             goal.level = Int16(level.level)
-            goal.name = Goal.getNameLevel(level: goal.level)
+            goal.name = self.name
             goal.icon = Goal.findIconMedal(level: goal.level)
             goal.challenge = self
             goal.save()

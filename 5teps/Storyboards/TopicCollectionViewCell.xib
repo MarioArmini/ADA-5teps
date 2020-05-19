@@ -57,7 +57,7 @@
                 <outlet property="topicLabel" destination="KTD-cg-QSB" id="0eJ-21-aeF"/>
                 <outlet property="viewCard" destination="H44-y8-p7V" id="84y-gV-XbQ"/>
             </connections>
-            <point key="canvasLocation" x="219.56521739130437" y="210.26785714285714"/>
+            <point key="canvasLocation" x="218.84057971014494" y="210.26785714285714"/>
         </collectionViewCell>
     </objects>
     <resources>

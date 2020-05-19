@@ -12,13 +12,13 @@ class ProfiloChallengeViewController: UIViewController {
 
     @IBOutlet weak var challangeCollectionView: UICollectionView!
     
-    let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+    let sectionInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
     var sections: [Int: [Challenge]]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        challangeCollectionView.register(UINib.init(nibName: "CardChallenge", bundle: nil), forCellWithReuseIdentifier: "cellCard")
+        challangeCollectionView.register(UINib.init(nibName: "CardProfiloViewCell", bundle: nil), forCellWithReuseIdentifier: "cardCell")
         
         challangeCollectionView.delegate = self
         challangeCollectionView.dataSource = self
@@ -26,6 +26,10 @@ class ProfiloChallengeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         sections = [Int: [Challenge]]()
         sections[0] = Challenge.listByState(state: ChallengeState.Finished)
+        
+        if sections[0]?.count == 0 {
+            //sections[0] = Challenge.list()
+        }
         
         challangeCollectionView.reloadData()
     }
@@ -39,7 +43,7 @@ extension ProfiloChallengeViewController : UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellCard", for: indexPath) as! CardCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! CardProfiloViewCell
         if let challenge = sections[indexPath.section]?[indexPath.row] {
             cell.challenge = challenge
         }
@@ -50,11 +54,13 @@ extension ProfiloChallengeViewController : UICollectionViewDelegate, UICollectio
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemsPerRow: CGFloat = 2
+        var left: CGFloat = sectionInsets.left
+        left = (left == 0) ? 5 : left
         //2
-        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let paddingSpace = left * (itemsPerRow + 1)
         let availableWidth = collectionView.layer.bounds.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
-        let heightPerItem = widthPerItem * 1.25
+        let heightPerItem: CGFloat = 219
         
         return CGSize(width: widthPerItem, height: heightPerItem)
     }
@@ -70,7 +76,9 @@ extension ProfiloChallengeViewController : UICollectionViewDelegate, UICollectio
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInsets.left
+        var bottom: CGFloat = sectionInsets.bottom
+        bottom = (bottom == 0) ? 10 : bottom
+        return bottom
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("\(indexPath)")
