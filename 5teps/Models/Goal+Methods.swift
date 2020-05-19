@@ -10,7 +10,17 @@ import Foundation
 import CoreData
 import UIKit
 
+public struct CurrentLevel {
+    var level: Int
+    var count: Int
+    
+    init(level: Int, count: Int) {
+        self.level = level
+        self.count = count
+    }
+}
 extension Goal {
+    public static let MAX_GOAL_CHANGE_LEVEL = 5
     
     public static func list() -> [Goal] {
         let context = SharedInfo.context
@@ -70,15 +80,22 @@ extension Goal {
     public func save() {
         _ = SharedInfo.context.safeSave()
     }
-    public static func getMaxLevel() ->Int {
-        var level = 0
+    public static func getMaxLevel() -> CurrentLevel {
+        var level = 1
+        var levelCount = [Int:Int]()
+        levelCount[level] = 0
         
         let goals = Goal.list()
         for g in goals {
             level = max(level,Int(g.level))
+            if !levelCount.keys.contains(level) {
+                levelCount[level] = 0
+            }
+            levelCount[level] = levelCount[level]! + 1
         }
         
-        return level + 1
+        let curLevel = CurrentLevel(level: level, count: levelCount[level]!)
+        return curLevel
     }
     public static func getNameLevel(level: Int16) -> String {
         var name = "Beginner"
@@ -93,16 +110,35 @@ extension Goal {
     }
     public static func generaFakeGoals() -> [Goal] {
         var result = [Goal]()
+        var currentLevel = Goal.getMaxLevel()
+        if (currentLevel.count + 1) >= MAX_GOAL_CHANGE_LEVEL {
+            currentLevel.level = currentLevel.level + 1
+            currentLevel.count = 0
+        }
         for _ in 1...20 {
             let goal = Goal(context: SharedInfo.context)
             goal.id = UUID()
             goal.date = Date()
-            goal.level = Int16(Goal.getMaxLevel() + 1)
+            goal.level = Int16(currentLevel.level)
             goal.name = Goal.getNameLevel(level: goal.level)
+            goal.icon = Goal.findIconMedal(level: goal.level)
             //goal.challenge = self
             goal.save()
             result.append(goal)
         }
         return result
+    }
+    public static func getPercentualeComplete(level: CurrentLevel) -> CGFloat{
+        var val: Int = 0
+        
+        val = level.count * 360/MAX_GOAL_CHANGE_LEVEL
+        
+        return Ring.degreeToRadiant(gradi: val)
+    }
+    public static func findIconMedal(level: Int16)  -> String {
+        var icons = Utils.getArrayIconMedal()
+        
+        let i = Int.random(in: 0..<icons.count)
+        return icons[i]
     }
 }

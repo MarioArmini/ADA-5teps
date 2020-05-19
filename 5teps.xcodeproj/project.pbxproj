@@ -59,6 +59,7 @@
 		6C8E2ED32472E738009511F0 /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C8E2ED22472E738009511F0 /* icons.xcassets */; };
 		6C91AF31246882C600A98D8B /* ChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C91AF30246882C600A98D8B /* ChallengesViewController.swift */; };
 		6C91AF332468831F00A98D8B /* ChallengeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C91AF322468831F00A98D8B /* ChallengeCollectionViewCell.swift */; };
+		6CC14BFC2473AAE6006D2FD1 /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC14BFB2473AAE6006D2FD1 /* Ring.swift */; };
 		6CE1FDE32472563A00AD3A3F /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CE1FDE22472563A00AD3A3F /* colors.xcassets */; };
 		6CE3A11B246D0E0B00299E21 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3A11A246D0E0B00299E21 /* Protocols.swift */; };
 		6CEFFD78246FCE2E0067E5C9 /* TopicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CEFFD76246FCE2E0067E5C9 /* TopicCollectionViewCell.xib */; };
@@ -126,6 +127,7 @@
 		6C8E2ED22472E738009511F0 /* icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icons.xcassets; sourceTree = "<group>"; };
 		6C91AF30246882C600A98D8B /* ChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengesViewController.swift; sourceTree = "<group>"; };
 		6C91AF322468831F00A98D8B /* ChallengeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeCollectionViewCell.swift; sourceTree = "<group>"; };
+		6CC14BFB2473AAE6006D2FD1 /* Ring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
 		6CE1FDE22472563A00AD3A3F /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = colors.xcassets; sourceTree = "<group>"; };
 		6CE3A11A246D0E0B00299E21 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		6CEFFD76246FCE2E0067E5C9 /* TopicCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				6C567C8C246BB6500092E9F7 /* NewStepLayout.swift */,
 				018AD8892466B5EF002BA840 /* TopicCollectionViewCell.swift */,
 				6CEFFD79246FD7790067E5C9 /* ZoomAndSnapFlowLayout.swift */,
+				6CC14BFB2473AAE6006D2FD1 /* Ring.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				6C6FEDAD246525DB0089BDFF /* User+Methods.swift in Sources */,
 				6CF2840A2466F20200340C6B /* NewTopicCollectionViewCell.swift in Sources */,
 				6C09D3C02469B40100445C07 /* ProfiloGoalViewController.swift in Sources */,
+				6CC14BFC2473AAE6006D2FD1 /* Ring.swift in Sources */,
 				4E13BF6124658A83006AD0C4 /* Onboarding.swift in Sources */,
 				6C6FEDA6246525630089BDFF /* User+CoreDataClass.swift in Sources */,
 				6C567E1724683D3300B7CB3E /* InProgressViewController.swift in Sources */,

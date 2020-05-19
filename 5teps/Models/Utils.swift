@@ -77,9 +77,23 @@ public class Utils {
             let c = String(UnicodeScalar(i)!)
             icons.append(c)
         }*/
-        icons.append("cucina")
-        icons.append("gioco")
+        icons.append("cuoco")
+        icons.append("camera")
         icons.append("libro")
+        icons.append("mano")
+        icons.append("musica")
+        icons.append("notebook")
+        icons.append("pianta")
+        icons.append("sport")
+        icons.append("tavolozza")
+        return icons
+    }
+    public static func getArrayIconMedal() -> [String] {
+        var icons = [String]()
+        
+        icons.append("medal1")
+        icons.append("medal1")
+        
         return icons
     }
     public static func getArrayColor() -> [ColorCard] {

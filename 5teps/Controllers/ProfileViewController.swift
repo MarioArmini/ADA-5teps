@@ -14,17 +14,15 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var goalSegment: UISegmentedControl!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
     
     var user: User?
     var referenceForViewTop : Subview?
-    
+    var currentLevel: CurrentLevel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-          
-        
-       
     }
     override func viewWillAppear(_ animated: Bool) {
         updateUI()
@@ -32,6 +30,11 @@ class ProfileViewController: UIViewController {
     func updateUI() {
         user = User.userData
         nameLabel.text = user?.name
+        currentLevel = Goal.getMaxLevel()
+        if(nameLabel.text?.count == 0) {
+            nameLabel.text = "(customize your profile)"
+        }
+        
         
         self.profileImageView.image = user?.getProfiloImage()
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
@@ -39,6 +42,16 @@ class ProfileViewController: UIViewController {
         self.profileImageView.layer.borderWidth = 4.0
         self.profileImageView.clipsToBounds = true
         
+        let ring = Ring(frame: profileImageView.bounds)
+        ring.colorCircle = UIColor(named: "purple") ?? UIColor.red
+        ring.lineWidth = 6
+        ring.endAngle = Goal.getPercentualeComplete(level: currentLevel)
+        if ring.endAngle != 0 {
+            self.profileImageView.addSubview(ring)
+        }
+        
+        
+        levelLabel.text = "Level \(currentLevel.level)"
         
         updateView()
     }

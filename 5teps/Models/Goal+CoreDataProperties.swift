@@ -19,6 +19,7 @@ extension Goal {
 
     @NSManaged public var id: UUID?
     @NSManaged public var date: Date?
+    @NSManaged public var icon: String?
     @NSManaged public var level: Int16
     @NSManaged public var name: String?
     @NSManaged public var challenge: Challenge?

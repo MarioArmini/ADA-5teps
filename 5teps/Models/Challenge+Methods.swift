@@ -232,11 +232,17 @@ extension Challenge {
             
             self.save()
             //Salvo l'obiettivo raggiunto
+            var level = Goal.getMaxLevel()
+            if (level.count + 1) >= Goal.MAX_GOAL_CHANGE_LEVEL {
+                level.level = level.level + 1
+                level.count = 0
+            }
             let goal = Goal(context: SharedInfo.context)
             goal.id = UUID()
             goal.date = Date()
-            goal.level = Int16(Goal.getMaxLevel() + 1)
+            goal.level = Int16(level.level)
             goal.name = Goal.getNameLevel(level: goal.level)
+            goal.icon = Goal.findIconMedal(level: goal.level)
             goal.challenge = self
             goal.save()
         }

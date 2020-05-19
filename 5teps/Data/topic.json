@@ -1,7 +1,7 @@
 [
     {
         "name": "Sport",
-        "icon": "gioco",
+        "icon": "sport",
         "color": "FFC859",
         "challenge": [
             {
@@ -38,7 +38,7 @@
     },
     {
         "name": "Cucina",
-        "icon": "cucina",
+        "icon": "cuoco",
         "color": "89B2FD",
         "challenge": [
             {
