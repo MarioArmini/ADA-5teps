@@ -50,11 +50,11 @@ class Subview: UIView {
     var msgIndex = 0
     
     override func awakeFromNib() {
-        imageView.layer.borderWidth = 2
+        //imageView.layer.borderWidth = 2
         imageView.layer.masksToBounds = false
-        imageView.layer.borderColor = UIColor.gray.cgColor
+        //imageView.layer.borderColor = UIColor.gray.cgColor
         //imageView.layer.cornerRadius = 40.0//imageView.frame.height/2
-        imageView.clipsToBounds = true
+        //imageView.clipsToBounds = true
         /*imageView.layer.cornerRadius = 20.0
          imageView.layer.masksToBounds = true
          imageView.clipsToBounds = true */
