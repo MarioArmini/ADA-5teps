@@ -41,15 +41,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mid-7I-HCO">
-                                <rect key="frame" x="0.0" y="88" width="414" height="169"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="100"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="169" id="lLq-3M-0K4"/>
+                                    <constraint firstAttribute="height" constant="100" id="lLq-3M-0K4"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVm-G4-hHA">
-                                <rect key="frame" x="0.0" y="257" width="414" height="556"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="0.0" y="188" width="414" height="625"/>
+                                <color key="backgroundColor" name="background"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7Ja-MP-hEg">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -59,7 +59,8 @@
                                 <cells/>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="background"/>
+                        <color key="tintColor" name="purple"/>
                         <constraints>
                             <constraint firstItem="XVm-G4-hHA" firstAttribute="top" secondItem="mid-7I-HCO" secondAttribute="bottom" id="2C3-FM-Niv"/>
                             <constraint firstItem="XVm-G4-hHA" firstAttribute="leading" secondItem="GsT-7C-JFW" secondAttribute="leading" id="F1Z-yc-ncf"/>
@@ -98,16 +99,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Tg-eU-bw2">
-                                <rect key="frame" x="0.0" y="44" width="414" height="169"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="100"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="169" id="3fj-kI-IlE"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="169" id="bBX-fG-zPe"/>
+                                    <constraint firstAttribute="height" constant="100" id="3fj-kI-IlE"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qpK-iC-jR6">
-                                <rect key="frame" x="0.0" y="221" width="414" height="641"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="0.0" y="152" width="414" height="710"/>
+                                <color key="backgroundColor" name="background"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="k4s-J1-VFD">
                                     <size key="itemSize" width="155" height="169"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -130,7 +130,8 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="background"/>
+                        <color key="tintColor" name="purple"/>
                         <constraints>
                             <constraint firstItem="qpK-iC-jR6" firstAttribute="bottom" secondItem="Dz9-a9-uwY" secondAttribute="bottom" id="4Ml-JX-f82"/>
                             <constraint firstItem="qpK-iC-jR6" firstAttribute="trailing" secondItem="Dz9-a9-uwY" secondAttribute="trailing" id="7FY-IA-UCe"/>
@@ -162,6 +163,9 @@
     <resources>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <namedColor name="background">
+            <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="fontColor">
             <color red="0.16862745098039217" green="0.20392156862745098" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

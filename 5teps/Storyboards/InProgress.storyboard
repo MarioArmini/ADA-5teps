@@ -41,14 +41,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="em1-e4-rwN">
-                                <rect key="frame" x="0.0" y="88" width="414" height="169"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="100"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="169" id="f06-Y1-BUf"/>
+                                    <constraint firstAttribute="height" constant="100" id="f06-Y1-BUf"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ubB-2y-Qzv">
-                                <rect key="frame" x="0.0" y="277" width="414" height="536"/>
+                                <rect key="frame" x="0.0" y="208" width="414" height="605"/>
                                 <color key="backgroundColor" name="background"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yc2-YT-C3L">
                                     <size key="itemSize" width="128" height="128"/>
