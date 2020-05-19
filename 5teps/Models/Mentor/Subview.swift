@@ -27,7 +27,7 @@ class Subview: UIView {
     
     //greetings = welcome
     //MARK: Mentor Local sentences
-    var greetings : [String] = ["Hello", "Salut", "Hola", "Hey!", "This is a great day to be productive!",  "Privet!", "Welcome!", "Hey there!", "I'm happy to see you! Can't wait to start!", "Hi! I'll be by your side during every challenge!" ]
+    var greetings : [String] = ["Hello", "Salut", "Hola", "Hey!", "This is a great day \nto be productive!",  "Privet!", "Welcome!", "Hey there!", "I'm happy to see you! \nCan't wait to start!", "Hi! I'll be by your side \nduring every challenge!" ]
     var motivation : [String] = ["Every challenge is possible if you write it in the right way!", "Every single step becomes a leap of faith", "Just reach up, don't give up", "I can't wait to see all the amazing things that you will achieve!", "Every step will take you a bit closer to your goal!", "Every step matter!"]
     
     //MARK: CHALLENGES
