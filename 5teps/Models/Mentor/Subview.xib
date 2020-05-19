@@ -19,7 +19,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SNv-Ri-LMC">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mentorgreetings" translatesAutoresizingMaskIntoConstraints="NO" id="SNv-Ri-LMC">
                     <rect key="frame" x="335" y="40" width="100" height="100"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="APM-7S-nFe"/>
@@ -44,4 +44,7 @@
             <point key="canvasLocation" x="119.56521739130436" y="-81.696428571428569"/>
         </view>
     </objects>
+    <resources>
+        <image name="mentorgreetings" width="100" height="100"/>
+    </resources>
 </document>
