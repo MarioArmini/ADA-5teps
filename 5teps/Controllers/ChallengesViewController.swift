@@ -11,25 +11,10 @@ import UIKit
 class ChallengesViewController: UIViewController {
     
     @IBOutlet weak var viewMentorTop: UIView!
-    @IBOutlet var stepView: UIView!
-    @IBOutlet weak var blurEffect: UIVisualEffectView!
     @IBOutlet weak var challengeCollectionView: UICollectionView!
-    
-    // single challenge
-    @IBOutlet weak var titleChallengeLabel: UILabel!
-    @IBOutlet weak var firstStepLabel: UILabel!
-    @IBOutlet weak var secondStepLabel: UILabel!
-    @IBOutlet weak var thirdStepLabel: UILabel!
-    @IBOutlet weak var fourthStepLabel: UILabel!
-    @IBOutlet weak var fifthStepLabel: UILabel!
-    @IBOutlet weak var startButton: UIButton!
-    
-    @IBOutlet weak var circle1: UIImageView!
-    @IBOutlet weak var circle2: UIImageView!
-    @IBOutlet weak var circle3: UIImageView!
-    @IBOutlet weak var circle4: UIImageView!
-    @IBOutlet weak var circle5: UIImageView!
-    
+    var stepsView: StepsView!
+    var effect = UIBlurEffect(style: .light)
+    var blurEffect = UIVisualEffectView()
     
     var referenceForViewTop : Subview?
     let defaults = UserDefaults.standard
@@ -41,7 +26,6 @@ class ChallengesViewController: UIViewController {
     var challengeSections = [Int: [Challenge]]()
     public var id: UUID!
     let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-    var effect : UIVisualEffect!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,19 +44,23 @@ class ChallengesViewController: UIViewController {
         //referenceForViewTop?.settingsMentor(imageName: "mentor", text: "Hello!")
         referenceForViewTop?.greetingsMentor()
         //------------------------------------------------------------------
-       
+        
+        stepsView = UINib(nibName: "StepsView", bundle: nil).instantiate(withOwner: nil, options: nil).first as? StepsView
         
         challengeCollectionView.register(UINib.init(nibName: "CardChallenge", bundle: nil), forCellWithReuseIdentifier: "cellCard")
         
-        effect = blurEffect.effect
+        
+        blurEffect.frame.size.height = self.view.frame.size.height
+        blurEffect.frame.size.width = self.view.frame.size.width
         blurEffect.effect = nil
+        self.view.addSubview(blurEffect)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
         tap.numberOfTouchesRequired = 1
 
         blurEffect.addGestureRecognizer(tap)
         
-        stepView.layer.cornerRadius = 20
+        stepsView.layer.cornerRadius = 20
         
         let deleteNotification = Notification.Name("deleteNotification")
         NotificationCenter.default.addObserver(self, selector: #selector(deleteChallenge(_:)), name: deleteNotification, object: id)
@@ -109,8 +97,7 @@ class ChallengesViewController: UIViewController {
     }
     
     @objc func deleteChallenge(_ notification: Notification){
-        print("qui")
-        self.id = notification.object as! UUID
+        self.id = notification.object as? UUID
         for c in challenges{
             if c.id == self.id{
                 let alert = UIAlertController(title: "Attention", message: "Do you want to delete this challenge?", preferredStyle: .alert)
@@ -140,17 +127,6 @@ class ChallengesViewController: UIViewController {
             self.navigationController?.pushViewController(viewTmp, animated: true)
         } else {
             Utils.showMessage(vc: self, title: "Attention", msg: "Hobby topic not found")
-        }
-    }
-    
-    @IBAction func startChallenge(_ sender: Any) {
-        if isOpened{
-            for c in challenges{
-                if c.name == titleChallengeLabel.text{
-                    let _ = c.start()
-                    animateOut()
-                }
-            }
         }
     }
     
@@ -219,55 +195,33 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func presentView(){
         animateIn()
-        
-        self.titleChallengeLabel.text = challengeTitle
-        for c in challenges{
+        stepsView.titleLabel.text = challengeTitle
+        for c in self.challenges{
             if c.name == challengeTitle{
-                self.stepView.backgroundColor = c.topic?.bgColor
-                steps = c.stepsOrder
-                self.firstStepLabel.text = steps[0].name
-                self.secondStepLabel.text = steps[1].name
-                self.thirdStepLabel.text = steps[2].name
-                self.fourthStepLabel.text = steps[3].name
-                self.fifthStepLabel.text = steps[4].name
+                stepsView.challenge = c
+                stepsView.backgroundColor = c.topic?.bgColor
+                stepsView.steps = c.stepsOrder
+                stepsView.label1.text = stepsView.steps[0].name
+                stepsView.label2.text = stepsView.steps[1].name
+                stepsView.label3.text = stepsView.steps[2].name
+                stepsView.label4.text = stepsView.steps[3].name
+                stepsView.label5.text = stepsView.steps[4].name
             }
         }
-        verifySteps()
-    }
-    
-    func verifySteps(){
-        if self.steps[0].isFinish{
-            self.circle1.image = UIImage(systemName: "circle.fill")
-            drawLineFromPoint(start: circle1.center, toPoint: circle2.center, ofColor: UIColor.black, inView: stepView)
-        }
-        if self.steps[1].isFinish{
-            self.circle2.image = UIImage(systemName: "circle.fill")
-            drawLineFromPoint(start: circle2.center, toPoint: circle3.center, ofColor: UIColor.black, inView: stepView)
-        }
-        if self.steps[2].isFinish{
-            self.circle3.image = UIImage(systemName: "circle.fill")
-            drawLineFromPoint(start: circle3.center, toPoint: circle4.center, ofColor: UIColor.black, inView: stepView)
-        }
-        if self.steps[3].isFinish{
-            self.circle4.image = UIImage(systemName: "circle.fill")
-            drawLineFromPoint(start: circle4.center, toPoint: circle5.center, ofColor: UIColor.black, inView: stepView)
-        }
-        if self.steps[4].isFinish{
-            self.circle5.image = UIImage(systemName: "circle.fill")
-        }
+        stepsView.verifySteps()
     }
     
     func animateIn(){
-        self.view.addSubview(stepView)
-        self.stepView.center = self.view.center
+        self.view.addSubview(stepsView)
+        stepsView.center = self.view.center
         
-        self.stepView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-        self.stepView.alpha = 0
+        stepsView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        stepsView.alpha = 0
         
         UIView.animate(withDuration: 0.4) {
             self.blurEffect.effect = self.effect
-            self.stepView.alpha = 1
-            self.stepView.transform = CGAffineTransform.identity
+            self.stepsView.alpha = 1
+            self.stepsView.transform = CGAffineTransform.identity
         }
         
         isOpened = true
@@ -278,29 +232,16 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
     func animateOut(){
         if isOpened{
             UIView.animate(withDuration: 0.3) {
-                self.stepView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-                self.stepView.alpha = 0
+                self.stepsView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+                self.stepsView.alpha = 0
                 
                 self.blurEffect.effect = nil
                 
-                self.stepView.removeFromSuperview()
+                self.stepsView.removeFromSuperview()
             }
         }
         self.blurEffect.isUserInteractionEnabled = false
         isOpened = false
-    }
-    
-    func drawLineFromPoint(start: CGPoint, toPoint end: CGPoint, ofColor lineColor: UIColor, inView view:UIView) {
-        let path = UIBezierPath()
-        path.move(to: start)
-        path.addLine(to: end)
-
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = path.cgPath
-        shapeLayer.strokeColor = lineColor.cgColor
-        shapeLayer.lineWidth = 1.5
-
-        view.layer.insertSublayer(shapeLayer, below: self.circle1.layer)
     }
     
 }

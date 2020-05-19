@@ -17,6 +17,8 @@
 		01B3E2E52464615500B0C18A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01B3E2E32464615500B0C18A /* LaunchScreen.storyboard */; };
 		01B3E2F1246461CB00B0C18A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01B3E2F0246461CB00B0C18A /* Profile.storyboard */; };
 		01B3E2F3246461DE00B0C18A /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01B3E2F2246461DE00B0C18A /* Home.storyboard */; };
+		01C3921424740B8C0045C7F7 /* StepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C3921324740B8C0045C7F7 /* StepsView.swift */; };
+		01C3921624740B9D0045C7F7 /* StepsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C3921524740B9D0045C7F7 /* StepsView.xib */; };
 		4E13BF5D24656A59006AD0C4 /* InProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E13BF5C24656A59006AD0C4 /* InProgress.storyboard */; };
 		4E13BF6124658A83006AD0C4 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13BF6024658A83006AD0C4 /* Onboarding.swift */; };
 		4E20461A24686D4C00AA9A17 /* mentorpresentation.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E20461924686D4C00AA9A17 /* mentorpresentation.mp3 */; };
@@ -88,6 +90,8 @@
 		01B3E2E62464615500B0C18A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01B3E2F0246461CB00B0C18A /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		01B3E2F2246461DE00B0C18A /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		01C3921324740B8C0045C7F7 /* StepsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsView.swift; sourceTree = "<group>"; };
+		01C3921524740B9D0045C7F7 /* StepsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepsView.xib; sourceTree = "<group>"; };
 		4E13BF5C24656A59006AD0C4 /* InProgress.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InProgress.storyboard; sourceTree = "<group>"; };
 		4E13BF6024658A83006AD0C4 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		4E20461924686D4C00AA9A17 /* mentorpresentation.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mentorpresentation.mp3; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 				6C64C83224648E3100D03184 /* Topic+Methods.swift */,
 				6C64C82D24648E3000D03184 /* Utils.swift */,
 				6CE3A11A246D0E0B00299E21 /* Protocols.swift */,
+				01C3921324740B8C0045C7F7 /* StepsView.swift */,
+				01C3921524740B9D0045C7F7 /* StepsView.xib */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -370,6 +376,7 @@
 				6CCE31B924741B1F002040E1 /* MedalCollectionViewCell.xib in Resources */,
 				01B3E2E22464615500B0C18A /* Assets.xcassets in Resources */,
 				4E3565392467448600A06C29 /* Slide.xib in Resources */,
+				01C3921624740B9D0045C7F7 /* StepsView.xib in Resources */,
 				4E20461A24686D4C00AA9A17 /* mentorpresentation.mp3 in Resources */,
 				6C8E2ED32472E738009511F0 /* icons.xcassets in Resources */,
 				6C09D3C42469B94600445C07 /* CardChallenge.xib in Resources */,
@@ -408,6 +415,7 @@
 				6C6FEDA8246525630089BDFF /* Goal+CoreDataClass.swift in Sources */,
 				6C1F848D2467C7C300EDF793 /* NewChallengeViewController.swift in Sources */,
 				6CFC4B7D2468415500D31B2D /* CardCollectionViewCell.swift in Sources */,
+				01C3921424740B8C0045C7F7 /* StepsView.swift in Sources */,
 				6C567E152467E06400B7CB3E /* MedalCollectionViewCell.swift in Sources */,
 				018AD88A2466B5EF002BA840 /* TopicCollectionViewCell.swift in Sources */,
 				6CEFFD7A246FD7790067E5C9 /* ZoomAndSnapFlowLayout.swift in Sources */,
