@@ -27,16 +27,16 @@ class Subview: UIView {
     
     //greetings = welcome
     //MARK: Mentor Local sentences
-    var greetings : [String] = ["Hello", "Salut", "Hola", "Hey!", "This is a great day to be productive!"]
-    var motivation : [String] = ["Just do it", "Every single step becomes a leap of faith", "Just reach up, don't give up"]
+    var greetings : [String] = ["Hello", "Salut", "Hola", "Hey!", "This is a great day to be productive!",  "Privet!", "Welcome!", "Hey there!", "I'm happy to see you! Can't wait to start!", "Hi! I'll be by your side during every challenge!" ]
+    var motivation : [String] = ["Every challenge is possible if you write it in the right way!", "Every single step becomes a leap of faith", "Just reach up, don't give up", "I can't wait to see all the amazing things that you will achieve!", "Every step will take you a bit closer to your goal!", "Every step matter!"]
     
     //MARK: CHALLENGES
     
     //Incitazioni se nn ci sono challenge
-    var noChallengeInProgress: [String] = ["Why don't you start a new challenge?", "Today is a great day to start a new challenge", "A new beginning: start your challenge today!"]
+    var noChallengeInProgress: [String] = ["Why don't you start a new challenge?", "Today is a great day to start a new challenge", "A new beginning: start your challenge today!", "What a great day to start a new challenge!", "Feeling bored? What about starting a new challenge?", "What about trying one of our challenges?", "Feeling productive? Try one of our challenge or create one yourself!", "Today is a great day to learn something new!", "If not now, when?"]
     //---------------------------------------------------------
-    var challengeCompleted: [String] = ["Well done", "Great Job"]
-    var challengeFailed: [String] = ["Oh no!"]
+    var challengeCompleted: [String] = ["Well done! Your reward is waiting for you in you profile section!", "Great Job! You deserved a reward, go in your profile section to find it out!", "I knew you would have smashed it! Your reward is waiting for you in your profile section!", "You did it! Your reward is waiting for you in you profile section!", "You did amazing!", "It has been amazing to guide you  through this challenge! ", "Your reward is waiting for you in you profile section!", "Congratulation! Your reward is waiting for you in your profile section!"]
+    var challengeFailed: [String] = ["Oh no!", "Failing is just another part of the process, don't give up!", "Bad day happens, don't worry!", "I know you can do it, just try it again!", "I know you can do amazing things, keep trying!", "Don't worry, it's not the end, you can do it!", "Every failure is a lesson, just mae the best of it!", "It can happen, don't worry, I believe in you!"]
     
     //MARK: INDICATIONS + CAZZIATONE
     var stepIndications: [String] = ["In this section..."]
