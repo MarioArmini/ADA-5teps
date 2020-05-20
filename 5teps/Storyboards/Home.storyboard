@@ -72,7 +72,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GsT-7C-JFW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Decks" image="house" catalog="system" id="3R4-Pp-6Ay"/>
+                    <tabBarItem key="tabBarItem" title="Decks" image="decks" id="3R4-Pp-6Ay"/>
                     <navigationItem key="navigationItem" title="Topics" id="7Jm-JZ-sZI">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="Vlg-RU-ocC">
                             <connections>
@@ -161,7 +161,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="house" catalog="system" width="128" height="110"/>
+        <image name="decks" width="30" height="27"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="background">
             <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
