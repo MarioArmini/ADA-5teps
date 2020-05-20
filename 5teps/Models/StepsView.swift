@@ -42,31 +42,55 @@ class StepsView: UIView {
     func verifySteps(){
         if self.steps[0].isFinish{
             self.button1.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
-            drawLineFromPoint(start: self.button1.center, toPoint: self.button2.center, ofColor: UIColor.black, inView: self)
+            //drawLineFromPoint(start: self.button1.center, toPoint: self.button2.center, ofColor: UIColor.black, inView: self)
             self.deadlineLabel1.text = "Completed"
             self.deadlineLabel2.text = String(steps[1].days) + " day/s"
         }
+        else if !self.steps[0].isFinish{
+            self.button1.setBackgroundImage(UIImage(systemName: "circle"), for: .normal)
+            self.deadlineLabel1.text = ""
+            self.deadlineLabel2.text = ""
+        }
         if self.steps[1].isFinish{
             self.button2.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
-            drawLineFromPoint(start: self.button2.center, toPoint: self.button3.center, ofColor: UIColor.black, inView: self)
+            //drawLineFromPoint(start: self.button2.center, toPoint: self.button3.center, ofColor: UIColor.black, inView: self)
             self.deadlineLabel2.text = "Completed"
             self.deadlineLabel3.text = String(steps[1].days) + " day/s"
         }
+        else if !self.steps[1].isFinish{
+            self.button2.setBackgroundImage(UIImage(systemName: "circle"), for: .normal)
+            self.deadlineLabel2.text = ""
+            self.deadlineLabel3.text = ""
+        }
         if self.steps[2].isFinish{
             self.button3.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
-            drawLineFromPoint(start: self.button3.center, toPoint: self.button4.center, ofColor: UIColor.black, inView: self)
+            //drawLineFromPoint(start: self.button3.center, toPoint: self.button4.center, ofColor: UIColor.black, inView: self)
             self.deadlineLabel3.text = "Completed"
             self.deadlineLabel4.text = String(steps[1].days) + " day/s"
         }
+        else if !self.steps[2].isFinish{
+            self.button3.setBackgroundImage(UIImage(systemName: "circle"), for: .normal)
+            self.deadlineLabel3.text = ""
+            self.deadlineLabel4.text = ""
+        }
         if self.steps[3].isFinish{
             self.button4.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
-            drawLineFromPoint(start: self.button4.center, toPoint: self.button5.center, ofColor: UIColor.black, inView: self)
+            //drawLineFromPoint(start: self.button4.center, toPoint: self.button5.center, ofColor: UIColor.black, inView: self)
             self.deadlineLabel4.text = "Completed"
             self.deadlineLabel5.text = String(steps[1].days) + " day/s"
+        }
+        else if !self.steps[3].isFinish{
+            self.button4.setBackgroundImage(UIImage(systemName: "circle"), for: .normal)
+            self.deadlineLabel4.text = ""
+            self.deadlineLabel5.text = ""
         }
         if self.steps[4].isFinish{
             self.button5.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
             self.deadlineLabel5.text = "Completed"
+        }
+        else if !self.steps[4].isFinish{
+            self.button5.setBackgroundImage(UIImage(systemName: "circle"), for: .normal)
+            self.deadlineLabel5.text = ""
         }
     }
     
@@ -87,6 +111,7 @@ class StepsView: UIView {
         //challenge = Challenge.findByName(name: self.titleLabel.text ?? "")
         let _ = challenge.start()
         self.deadlineLabel1.text = String(steps[0].days) + " day/s"
+        self.startButton.alpha = 0
     }
     @IBAction func completeStep1(_ sender: Any) {
         self.button1.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
