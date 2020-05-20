@@ -101,4 +101,17 @@ extension StepChallenge {
             self.state = Int64(StepChallengeState.Finished.rawValue)
         }
     }
+    public func daysToDeadline() -> Int {
+        if let d = self.dateEnd {
+            let dNow = Date()
+            var diffInDays = Calendar.current.dateComponents([.day], from: dNow, to: d).day ?? 0
+            var hours = Calendar.current.dateComponents([.hour], from: dNow, to: d).hour ?? 0
+            hours = hours % 24
+            if hours > 12 {
+                diffInDays = diffInDays + 1
+            }
+            return diffInDays
+        }
+        return 0
+    }
 }

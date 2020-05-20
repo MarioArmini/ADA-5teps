@@ -143,6 +143,30 @@ class Subview: UIView {
     }
     //----------------------------------------------
     
+    public func backgroundChallengeInProgress(name: String, dayToLeft: Int, step: Int) -> (title: String, message: String) {
+        var title = ""
+        var message = ""
+        
+        title = "Forza devi completare la challenge"
+        if dayToLeft == 0 {
+            message = "E' scaduto il tempo forza forza per completare \(name)"
+        } else if dayToLeft == 1 {
+            message = "Ti mancano solo un giorno per completare \(name)"
+        } else {
+            message = "Ti mancano solo \(dayToLeft) giorni per completare \(name)"
+        }
+        
+        return (title: title, message: message)
+    }
+    public func backgroundNoChallenge() -> (title: String, message: String) {
+        var title = ""
+        var message = ""
+        
+        title = "Start a challenge!!!"
+        message = "Do something, start a challenge"
+        
+        return (title: title, message: message)
+    }
     
     
     //MARK:  State Control

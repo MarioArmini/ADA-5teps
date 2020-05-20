@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         notificationCenter.delegate = self
-        //registerBackgroundTask()
+        registerBackgroundTask()
         return true
     }
     
@@ -107,7 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     // MARK: - Gestione Notifiche
     func applicationDidEnterBackground(_ application: UIApplication) {
-        //scheduleAppRefresh()
+        scheduleAppRefresh()
     }
     func applicationDidBecomeActive(_ application: UIApplication) {
         UIApplication.shared.applicationIconBadgeNumber = 0
@@ -135,12 +135,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let inProgress = Challenge.listInProgress()
         if inProgress.count > 0 {
-            title = "Challenge in progress!!!"
-            body = "You have \(inProgress.count) challenges in progress.... come on"
+            var minDeadLine = Int.max
+            var currentStep = 0
+            var challengeName = ""
+            for c in inProgress {
+                if let step = c.getCurrentStepChallenge() {
+                    let deadLine = step.daysToDeadline()
+                    if (minDeadLine > deadLine) {
+                        minDeadLine = deadLine
+                        challengeName = c.name ?? ""
+                        currentStep = Int(step.step)
+                    }
+                }
+            }
+            let subview = Subview()
+            let message = subview.backgroundChallengeInProgress(name: challengeName, dayToLeft: minDeadLine, step: currentStep)
+            title = message.title
+            body = message.message
             identifier = "inprogress"
         } else {
-            title = "Start a challenge!!!"
-            body = "Do something, start a challenge"
+            let subview = Subview()
+            let message = subview.backgroundNoChallenge()
+            title = message.title
+            body = message.message
             identifier = "generic"
         }
         
