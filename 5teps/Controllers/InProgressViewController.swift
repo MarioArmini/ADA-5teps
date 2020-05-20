@@ -223,5 +223,6 @@ extension InProgressViewController : UICollectionViewDelegate, UICollectionViewD
         }
         self.blurEffect.isUserInteractionEnabled = false
         isOpened = false
+        self.challengeCollectionView.reloadData()
     }
 }

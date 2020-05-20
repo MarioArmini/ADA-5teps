@@ -221,6 +221,7 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
                 }
                 stepsView.backgroundColor = c.topic?.bgColor
                 stepsView.steps = c.stepsOrder
+                stepsView.verifySteps()
                 stepsView.label1.text = stepsView.steps[0].name
                 stepsView.label2.text = stepsView.steps[1].name
                 stepsView.label3.text = stepsView.steps[2].name
