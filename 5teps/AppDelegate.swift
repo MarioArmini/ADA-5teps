@@ -12,13 +12,13 @@ import BackgroundTasks
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     public static var app: AppDelegate {
         get {
             return (UIApplication.shared.delegate as! AppDelegate)
         }
     }
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.shared.applicationIconBadgeNumber = 0
@@ -43,38 +43,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         notificationCenter.delegate = self
+        //registerBackgroundTask()
         return true
     }
-
+    
     // MARK: UISceneSession Lifecycle
-
+    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
-
+    
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
+    
     // MARK: - Core Data stack
-
+    
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
-        */
+         */
         let container = NSPersistentCloudKitContainer(name: "5teps")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
+                
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -88,9 +89,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving support
-
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -105,7 +106,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     // MARK: - Gestione Notifiche
-    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        //scheduleAppRefresh()
+    }
     func applicationDidBecomeActive(_ application: UIApplication) {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
@@ -126,15 +129,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     func fetchSomeData() -> String? {
+        var title: String = ""
+        var body: String = ""
+        var identifier: String = "generic"
         
-        scheduleNotification(notificationType: "Prova")
+        let inProgress = Challenge.listInProgress()
+        if inProgress.count > 0 {
+            title = "Challenge in progress!!!"
+            body = "You have \(inProgress.count) challenges in progress.... come on"
+            identifier = "inprogress"
+        } else {
+            title = "Start a challenge!!!"
+            body = "Do something, start a challenge"
+            identifier = "generic"
+        }
+        
+        scheduleNotification(title: title, body: body, identifier: identifier)
         return "dati"
     }
-    func scheduleNotification(notificationType: String) {
+    func scheduleNotification(title: String, body: String, identifier: String) {
         
         let content = UNMutableNotificationContent()
-        content.title = notificationType
-        content.body = "This is example how to create " + notificationType + " Notifications"
+        content.title = title
+        content.body = body
         content.sound = UNNotificationSound.default
         content.badge = 1
         
@@ -143,9 +160,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         
-        let identifier = "Local Notification"
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-
+        
         let notificationCenter = UNUserNotificationCenter.current()
         
         notificationCenter.add(request) { (error) in
@@ -154,14 +170,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         /*
-        let userActions = "User Actions"
+         let userActions = "User Actions"
+         
+         let snoozeAction = UNNotificationAction(identifier: "Snooze", title: "Snooze", options: [])
+         let deleteAction = UNNotificationAction(identifier: "Delete", title: "Delete", options: [.destructive])
+         let category = UNNotificationCategory(identifier: userActions, actions: [snoozeAction, deleteAction], intentIdentifiers: [], options: [])
+         
+         notificationCenter.setNotificationCategories([category])
+         */
+    }
+    //MARK: Register BackGround Tasks
+    private func registerBackgroundTask() {
         
-        let snoozeAction = UNNotificationAction(identifier: "Snooze", title: "Snooze", options: [])
-        let deleteAction = UNNotificationAction(identifier: "Delete", title: "Delete", options: [.destructive])
-        let category = UNNotificationCategory(identifier: userActions, actions: [snoozeAction, deleteAction], intentIdentifiers: [], options: [])
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.5steps.bgservice", using: nil) { task in
+            DispatchQueue.global().async {
+                let _ = self.fetchSomeData()
+                task.setTaskCompleted(success: true)
+            }
+            self.scheduleAppRefresh()
+        }
+        scheduleAppRefresh()
+    }
+    
+    func scheduleAppRefresh() {
+        let request = BGProcessingTaskRequest(identifier: "com.5steps.bgservice")
+        request.requiresNetworkConnectivity = false // Need to true if your task need to network process. Defaults to false.
+        request.requiresExternalPower = false  //If we keep requiredExternalPow*er = true then it required device is connected to external power.
         
-        notificationCenter.setNotificationCategories([category])
-        */
+        request.earliestBeginDate = Date(timeIntervalSinceNow: 1 * 60) // fetch Image Count after 1 minute.
+        
+        do {
+            BGTaskScheduler.shared.cancelAllTaskRequests()
+            try BGTaskScheduler.shared.submit(request)
+            print("scheduleAppRefresh register")
+        } catch {
+            print("Could not scheduleAppRefresh fetch: (error)")
+        }
+    }
+    func cancelAllPendingBGTask() {
+        BGTaskScheduler.shared.cancelAllTaskRequests()
     }
 }
 
@@ -171,8 +218,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        if response.notification.request.identifier == "Local Notification" {
-            print("Handling notifications with the Local Notification Identifier")
+        if response.notification.request.identifier == "generic" {
+            
+        } else if response.notification.request.identifier == "inprogress" {
+            
         }
         
         completionHandler()
