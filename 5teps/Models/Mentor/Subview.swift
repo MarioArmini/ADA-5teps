@@ -40,7 +40,7 @@ class Subview: UIView {
     
     //MARK: INDICATIONS + CAZZIATONE
     var stepIndications: [String] = ["In this section..."]
-    var arrayCazziatone: [String] = []
+    var arrayCazziatone: [String] = ["Hey! What's wrong? \nYou can do more!", "You have to demonstrate \nyour commitment!", "Okay, You can do \nbetter than that!", "Come on, it's your \ntime to shine!\nDo more!", "If you don't try, you won't know!", "You'll never know what \nyou are capable of \nif you don't try"]
     
     var mentorImages : [String] = ["mentor", "mentor1", "mentor2"]
     //MARK:  CHECKCHALLENGE 2 SECTION
