@@ -35,45 +35,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
-        front = UIView(frame: contentView.frame)
-        back = UIView(frame: contentView.frame)
-        
-        back.isHidden = !flipped
-        
-        //front.layer.borderWidth = 2.0
-        //back.layer.borderWidth = 2.0
-        
-        let editButton = UIButton()
-        let deleteButton = UIButton()
-        
-        
-        editButton.frame = CGRect(x: viewCard.layer.bounds.width / 3 - 25, y: viewCard.layer.bounds.height / 2 - 30, width: 40, height: 40)
-        editButton.setImage(UIImage(systemName: "pencil"), for: .normal)
-        deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
-        deleteButton.frame = CGRect(x: viewCard.layer.bounds.width - viewCard.layer.bounds.width / 3, y: viewCard.layer.bounds.height / 2 - 25, width: 40, height: 30)
-        
-        back.backgroundColor = UIColor.clear
-        front.backgroundColor = UIColor.clear
-        
-        front.layer.cornerRadius = cornerRadius
-        front.clipsToBounds = true
-        //front.layer.borderWidth = 2.0
-        
-        back.layer.cornerRadius = cornerRadius
-        back.clipsToBounds = true
-        //back.layer.borderWidth = 2.0
-        
-        back.addSubview(deleteButton)
-        back.addSubview(editButton)
-        
-        editButton.addTarget(self, action: #selector(edit), for: .touchUpInside)
-        deleteButton.addTarget(self, action: #selector(deleteChallenge), for: .touchUpInside)
-        
-        self.viewCard.addSubview(front)
-        self.viewCard.addSubview(back)
-        back.isHidden = true
+        createFlipView()
         
     }
     
@@ -94,6 +56,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         if challenge != nil {
             let editNotification = Notification.Name("editNotification")
             NotificationCenter.default.post(name: editNotification, object: challenge!)
+            restoreFlipView()
         }
         
     }
@@ -102,6 +65,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         if challenge != nil {
             let deleteNotification = Notification.Name("deleteNotification")
             NotificationCenter.default.post(name: deleteNotification, object: challenge!.id)
+            restoreFlipView()
         }
         
     }
@@ -128,6 +92,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         imageStep[4] = step4
         imageStep[5] = step5
         
+        restoreFlipView()
         
         viewCard.layer.cornerRadius = cornerRadius
         viewCard.clipsToBounds = true
@@ -179,5 +144,61 @@ class CardCollectionViewCell: UICollectionViewCell {
         }
         
     }
-    
+    func restoreFlipView() {
+        flipped = true
+        back.isHidden = true
+    }
+    func createFlipView() {
+        let tap = UILongPressGestureRecognizer(target: self, action: #selector(flipCard))
+        tap.numberOfTouchesRequired = 1
+        tap.delaysTouchesEnded = true
+        tap.minimumPressDuration = 0.5
+        
+        self.contentView.addGestureRecognizer(tap)
+        self.contentView.isUserInteractionEnabled = true
+        
+        
+        front = UIView(frame: contentView.frame)
+        back = UIView(frame: contentView.frame)
+        
+        back.isHidden = !flipped
+        
+        //front.layer.borderWidth = 2.0
+        //back.layer.borderWidth = 2.0
+        
+        let editButton = UIButton()
+        let deleteButton = UIButton()
+        
+        
+        editButton.frame = CGRect(x: 10, y: viewCard.layer.bounds.height / 2 - 30, width: 40, height: 40)
+        editButton.setImage(UIImage(systemName: "pencil"), for: .normal)
+        editButton.backgroundColor = UIColor(named: "purple")
+        editButton.tintColor = UIColor.white
+        editButton.layer.cornerRadius = 20
+        
+        deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
+        deleteButton.frame = CGRect(x: viewCard.layer.bounds.width - 50, y: viewCard.layer.bounds.height / 2 - 30, width: 40, height: 40)
+        deleteButton.backgroundColor = UIColor(named: "purple")
+        deleteButton.tintColor = UIColor.white
+        deleteButton.layer.cornerRadius = 20
+        
+        back.backgroundColor = UIColor.clear
+        front.backgroundColor = UIColor.clear
+        
+        front.layer.cornerRadius = cornerRadius
+        front.clipsToBounds = true
+        
+        back.layer.cornerRadius = cornerRadius
+        back.clipsToBounds = true
+        
+        back.addSubview(deleteButton)
+        back.addSubview(editButton)
+        
+        editButton.addTarget(self, action: #selector(edit), for: .touchUpInside)
+        deleteButton.addTarget(self, action: #selector(deleteChallenge), for: .touchUpInside)
+        
+        self.viewCard.addSubview(front)
+        self.viewCard.addSubview(back)
+        back.isHidden = true
+    }
 }

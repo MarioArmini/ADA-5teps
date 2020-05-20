@@ -49,8 +49,18 @@ class FirstViewController: UIViewController {
             let json = ImportData.importJson()
             ImportData.saveTopic(topics: json)
         }
+        
+        let deleteNotification = Notification.Name("deleteNotificationTopic")
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteTopic), name: deleteNotification, object: nil)
+        
+        let nameNotification = Notification.Name("editNotificationTopic")
+        NotificationCenter.default.addObserver(self, selector: #selector(editTopic), name: nameNotification, object: nil)
+        
     }
     override func viewWillAppear(_ animated: Bool) {
+        reloadData()
+    }
+    func reloadData() {
         topics = Topic.list()
         TopicCollectionView.reloadData()
     }
@@ -59,7 +69,30 @@ class FirstViewController: UIViewController {
         viewTmp.parentVC = self
         self.navigationController?.pushViewController(viewTmp, animated: true)
     }
-    
+    @objc func deleteTopic(_ notification: Notification){
+        if let id = notification.object as? UUID {
+            if let c = Topic.findById(id: "\(id)") {
+                let alert = UIAlertController(title: "Attention", message: "Do you want to delete this topic?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    c.delete()
+                    self.reloadData()
+                    }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {action in
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
+    }
+    @objc func editTopic(_ notification: Notification){
+        if let topicReceived = notification.object as? Topic {
+            let viewTmp = UIStoryboard(name: "NewTopic", bundle: nil).instantiateViewController(withIdentifier: "newTopicView") as! NewTopicViewController
+            viewTmp.parentVC = self
+            viewTmp.topic = topicReceived
+            self.navigationController?.pushViewController(viewTmp, animated: true)
+        }
+        
+    }
 }
 
 
