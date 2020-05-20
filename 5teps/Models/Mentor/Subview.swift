@@ -27,7 +27,7 @@ class Subview: UIView {
     
     //greetings = welcome
     //MARK: Mentor Local sentences
-    var greetings : [String] = ["Hello", "Salut", "Hola", "Hey!", "This is a great day \nto be productive!",  "Privet!", "Welcome!", "Hey there!", "I'm happy to see you! \nCan't wait to start!", "Hi! I'll be by your side \nduring every challenge!" ]
+    var greetings : [String] = ["Hello", "Salut", "Hola", "Hey!", "This is a great day \nto be productive!",  "Privet!", "Welcome!", "Hey there!", "I'm happy to see you! \nCan't wait to start!", "Hi! I'll be by your side \nduring every challenge!\n" ]
     var motivation : [String] = ["Every challenge is possible if \nyou write it in the right way!", "Every single step becomes \na leap of faith", "Just reach up, \ndon't give up", "I can't wait to see all the \namazing things that you \nwill achieve!", "Every step will take you \na bit closer to your goal!", "Every step matter!"]
     
     //MARK: CHALLENGES
@@ -43,6 +43,11 @@ class Subview: UIView {
     var arrayCazziatone: [String] = ["Hey! What's wrong? \nYou can do more!", "You have to demonstrate \nyour commitment!", "Okay, You can do \nbetter than that!", "Come on, it's your \ntime to shine!\nDo more!", "If you don't try, you won't know!", "You'll never know what \nyou are capable of \nif you don't try"]
     
     var mentorImages : [String] = ["mentor", "mentor1", "mentor2"]
+    
+    var notificationIfChallengeIsInProgress = [String]()
+    var notificationIfChallengeIsNotInProgress = [String]()
+    
+    
     //MARK:  CHECKCHALLENGE 2 SECTION
     //----------------------------------------------------------
     
@@ -157,7 +162,7 @@ class Subview: UIView {
     
     
     func localNotification(){
-        /*let center = UNUserNotificationCenter.current()
+         /*let center = UNUserNotificationCenter.current()
          let content = UNMutableNotificationContent()
          let randomGreetings = Int(arc4random() % UInt32(greetings.count))
          
@@ -174,7 +179,7 @@ class Subview: UIView {
          print("Error = \(error?.localizedDescription ?? "error local notification")")
          
          }
-         }*/
+        }*/
     }
     
 }
