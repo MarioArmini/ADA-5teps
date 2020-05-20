@@ -20,6 +20,7 @@ class Slide: UIView, AVAudioPlayerDelegate {
     
     @IBOutlet weak var desc: UILabel!
     
+    @IBOutlet weak var imageForTest: UIImageView!
     
    
     

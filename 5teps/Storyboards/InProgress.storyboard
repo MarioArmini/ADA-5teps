@@ -92,7 +92,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Mu-V5-rSa"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Progress" image="arrow.up" catalog="system" id="8jt-34-LSM"/>
+                    <tabBarItem key="tabBarItem" title="In Progress" image="chart.bar" catalog="system" id="8jt-34-LSM"/>
                     <navigationItem key="navigationItem" title="Your Progress" id="pUc-wx-M7Z"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -106,7 +106,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.up" catalog="system" width="120" height="128"/>
+        <image name="chart.bar" catalog="system" width="128" height="90"/>
         <namedColor name="background">
             <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

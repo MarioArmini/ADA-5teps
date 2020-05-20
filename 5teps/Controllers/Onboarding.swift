@@ -18,6 +18,8 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var skipButton: UIButton!
     var mentor = Subview()
     var slides:[Slide] = []
+    var userDef = true
+    let app = AppDelegate.app
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,14 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
         view.bringSubviewToFront(pageControl)
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "tutorialAccepted") {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let rootViewController = storyboard.instantiateViewController(withIdentifier: "SecondVC")
+            AppDelegate.app.window?.rootViewController = rootViewController
+        }
+    }
     
     func createSlides() -> [Slide] {
         
@@ -42,18 +52,19 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
         slide1.imageView.image = UIImage(named: "mentor")
         slide1.title.text = "TITOLO 1"
         slide1.desc.text  = "DESCRIZIONE 1"
-        
+        slide1.imageForTest.image = UIImage(named: "onboarding1")
         
         let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide2.imageView.image = UIImage(named: "mentor")
         slide2.title.text = "TITOLO 2"
         slide2.desc.text = "DESCRIZIONE 2"
+        slide2.imageForTest.image = UIImage(named: "onboarding2")
         
         let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide3.imageView.image = UIImage(named: "mentor")
         slide3.title.text = "TITOLO 3"
         slide3.desc.text = "DESCRIZIONE 3"
-       
+       slide3.imageForTest.image = UIImage(named: "onboarding3")
         return [slide1, slide2, slide3]
     }
     
@@ -88,8 +99,10 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func start(_ sender: Any) {
+    
+         UserDefaults.standard.set(true, forKey: "tutorialAccepted")
         
     }
-    
-    
 }
+    
+

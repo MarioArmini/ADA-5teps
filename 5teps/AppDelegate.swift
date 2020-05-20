@@ -13,6 +13,8 @@ import BackgroundTasks
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    var window: UIWindow?
+    
     public static var app: AppDelegate {
         get {
             return (UIApplication.shared.delegate as! AppDelegate)
