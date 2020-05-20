@@ -26,6 +26,8 @@ class ChallengesViewController: UIViewController {
     var challengeSections = [Int: [Challenge]]()
     //public var id: UUID!
     let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+    var row = Int()
+    var section = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -180,6 +182,8 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         challengeTitle = challengeSections[indexPath.section]?[indexPath.row].name ?? ""
+        row = indexPath.row
+        section = indexPath.section
         presentView()
     }
     
@@ -251,6 +255,9 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func animateOut(){
         if isOpened{
+            let indexPath = IndexPath(row: row, section: section)
+            let cell = challengeCollectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
+            cell.updateUI()
             UIView.animate(withDuration: 0.3) {
                 self.stepsView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
                 self.stepsView.alpha = 0

@@ -24,6 +24,9 @@ class InProgressViewController: UIViewController {
     var blurEffect = UIVisualEffectView()
     var isOpened = false
     
+    var row = Int()
+    var section = Int()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -144,6 +147,8 @@ extension InProgressViewController : UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         challengeTitle = sections[indexPath.section]?[indexPath.row].name ?? ""
+        row = indexPath.row
+        section = indexPath.section
         presentView()
     }
     
@@ -212,6 +217,9 @@ extension InProgressViewController : UICollectionViewDelegate, UICollectionViewD
     
     func animateOut(){
         if isOpened{
+            let indexPath = IndexPath(row: row, section: section)
+            let cell = challengeCollectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
+            cell.updateUI()
             UIView.animate(withDuration: 0.3) {
                 self.stepsView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
                 self.stepsView.alpha = 0
