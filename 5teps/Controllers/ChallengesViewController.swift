@@ -220,17 +220,7 @@ extension ChallengesViewController: UICollectionViewDelegate, UICollectionViewDa
         for c in self.challenges{
             if c.name == challengeTitle{
                 stepsView.challenge = c
-                if c.isStart{
-                    stepsView.startButton.alpha = 0
-                }
-                stepsView.backgroundColor = c.topic?.bgColor
-                stepsView.steps = c.stepsOrder
-                stepsView.verifySteps()
-                stepsView.label1.text = stepsView.steps[0].name
-                stepsView.label2.text = stepsView.steps[1].name
-                stepsView.label3.text = stepsView.steps[2].name
-                stepsView.label4.text = stepsView.steps[3].name
-                stepsView.label5.text = stepsView.steps[4].name
+                
             }
         }
     }
