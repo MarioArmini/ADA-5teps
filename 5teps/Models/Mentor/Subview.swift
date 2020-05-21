@@ -38,8 +38,9 @@ class Subview: UIView {
     var challengeCompleted: [String] = ["Well done! \nYour reward is waiting for you \nin you profile section!", "Great Job! You deserved a reward, \ngo in your profile section \nto find it out!", "I knew you would have \nsmashed it! Your reward is waiting \nfor you in your profile section!", "You did it! \nYour reward is waiting for you \nin you profile section!", "You did amazing!", "It has been amazing to guide you \nthrough this challenge! ", "Your reward is waiting for you \nin you profile section!", "Congratulation! Your reward \nis waiting for you \nin your profile section!"]
     var challengeFailed: [String] = ["Oh no!", "Failing is just another part \nof the process, don't give up!", "Bad day happens, don't worry!", "I know you can do it, \njust try it again!", "I know you can do amazing things, \nkeep trying!", "Don't worry, it's not the end, \nyou can do it!", "Every failure is a lesson, \njust mae the best of it!", "It can happen, \ndon't worry, \nI believe in you!"]
     
-    var stepCompleted = [String]()
-    var levelCompleted = [String]()
+    var stepCompleted : [String] = ["Great Job!", "Step Completed!", "Go, Go!", "Cool! This is \nyour next step"]
+    
+    var levelCompleted : [String] = ["Amazing! You've just \ncompleted your level"]
     
     //MARK: INDICATIONS + CAZZIATONE
     var stepIndications: [String] = ["In this section..."]
@@ -119,6 +120,24 @@ class Subview: UIView {
         
     }
     
+    
+    func ifStepIsCompleted(imageName: String) {
+        imageView.image = UIImage(named: imageName)
+        let randomStepCompleted = Int(arc4random() % UInt32(stepCompleted.count))
+        textView.text = "\(stepCompleted[randomStepCompleted])"
+        let stepComp = textView
+        print(stepComp!)
+    }
+    
+    func ifLevelIsCompleted(imageName: String) {
+        imageView.image = UIImage(named: imageName)
+        let randomLevelCompleted = Int(arc4random() % UInt32(levelCompleted.count))
+        textView.text = "\(levelCompleted[randomLevelCompleted])"
+        let levelCom = textView
+        print(levelCom!)
+    }
+    
+    
     func ifTheChallengeIsFailed(imageName: String) {
         //var challenge completed
         imageView.image = UIImage(named: imageName)
@@ -189,7 +208,7 @@ class Subview: UIView {
     
     
     func localNotification(){
-         /*let center = UNUserNotificationCenter.current()
+        /*let center = UNUserNotificationCenter.current()
          let content = UNMutableNotificationContent()
          let randomGreetings = Int(arc4random() % UInt32(greetings.count))
          
@@ -206,7 +225,7 @@ class Subview: UIView {
          print("Error = \(error?.localizedDescription ?? "error local notification")")
          
          }
-        }*/
+         }*/
     }
     
 }
