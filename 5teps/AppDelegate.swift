@@ -208,7 +208,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             self.scheduleAppRefresh()
         }
-        scheduleAppRefresh()
+        //scheduleAppRefresh()
     }
     
     func scheduleAppRefresh() {
@@ -222,8 +222,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             BGTaskScheduler.shared.cancelAllTaskRequests()
             try BGTaskScheduler.shared.submit(request)
             print("scheduleAppRefresh register")
-        } catch {
-            print("Could not scheduleAppRefresh fetch: (error)")
+        } catch  {
+            print("Could not scheduleAppRefresh fetch: \(error)")
         }
     }
     func cancelAllPendingBGTask() {

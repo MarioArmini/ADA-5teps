@@ -2,7 +2,7 @@
 //  Challenge+CoreDataProperties.swift
 //  5teps
 //
-//  Created by Fabio Palladino on 08/05/2020.
+//  Created by Fabio Palladino on 21/05/2020.
 //  Copyright © 2020 Mario Armini. All rights reserved.
 //
 //
@@ -26,9 +26,9 @@ extension Challenge {
     @NSManaged public var numberSteps: Int64
     @NSManaged public var state: Int64
     @NSManaged public var timestamp: Date?
+    @NSManaged public var goal: Goal?
     @NSManaged public var steps: NSSet?
     @NSManaged public var topic: Topic?
-    @NSManaged public var goal: Goal?
 
 }
 

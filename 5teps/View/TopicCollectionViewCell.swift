@@ -115,15 +115,18 @@ class TopicCollectionViewCell: UICollectionViewCell {
         self.viewCard.addSubview(back)
         back.isHidden = true
         
-        editButton.topAnchor.constraint(equalTo: self.viewCard.topAnchor).isActive = true
-        editButton.bottomAnchor.constraint(equalTo: self.viewCard.bottomAnchor).isActive = true
-        editButton.leadingAnchor.constraint(equalTo: self.viewCard.leadingAnchor).isActive = true
-        editButton.trailingAnchor.constraint(equalTo: self.viewCard.trailingAnchor).isActive = true
+        editButton.translatesAutoresizingMaskIntoConstraints = false
+        editButton.topAnchor.constraint(equalTo: self.viewCard.topAnchor, constant: self.viewCard.bounds.height/2 - 20).isActive = true
+        editButton.leadingAnchor.constraint(equalTo: self.viewCard.leadingAnchor, constant: 10).isActive = true
+        editButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        editButton.heightAnchor.constraint(equalTo: editButton.widthAnchor).isActive = true
         
-        deleteButton.topAnchor.constraint(equalTo: self.viewCard.topAnchor).isActive = true
-        deleteButton.bottomAnchor.constraint(equalTo: self.viewCard.bottomAnchor).isActive = true
-        deleteButton.leadingAnchor.constraint(equalTo: self.viewCard.leadingAnchor).isActive = true
-        deleteButton.trailingAnchor.constraint(equalTo: self.viewCard.trailingAnchor).isActive = true
+        deleteButton.translatesAutoresizingMaskIntoConstraints = false
+        deleteButton.topAnchor.constraint(equalTo: self.viewCard.topAnchor, constant: self.viewCard.bounds.height/2 - 20).isActive = true
+        deleteButton.trailingAnchor.constraint(equalTo: self.viewCard.trailingAnchor, constant: -10).isActive = true
+        deleteButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        deleteButton.heightAnchor.constraint(equalTo: editButton.widthAnchor).isActive = true
+        
     }
     @objc func flipCard(gesture:UIGestureRecognizer) {
         if gesture.state != .ended{
