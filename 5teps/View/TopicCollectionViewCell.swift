@@ -55,6 +55,7 @@ class TopicCollectionViewCell: UICollectionViewCell {
             gradientLayer?.frame = viewCard.bounds
             
             viewCard.layer.insertSublayer(gradientLayer!, at: 0)
+           
         }
     }
     func restoreFlipView() {
@@ -113,6 +114,16 @@ class TopicCollectionViewCell: UICollectionViewCell {
         self.viewCard.addSubview(front)
         self.viewCard.addSubview(back)
         back.isHidden = true
+        
+        editButton.topAnchor.constraint(equalTo: self.viewCard.topAnchor).isActive = true
+        editButton.bottomAnchor.constraint(equalTo: self.viewCard.bottomAnchor).isActive = true
+        editButton.leadingAnchor.constraint(equalTo: self.viewCard.leadingAnchor).isActive = true
+        editButton.trailingAnchor.constraint(equalTo: self.viewCard.trailingAnchor).isActive = true
+        
+        deleteButton.topAnchor.constraint(equalTo: self.viewCard.topAnchor).isActive = true
+        deleteButton.bottomAnchor.constraint(equalTo: self.viewCard.bottomAnchor).isActive = true
+        deleteButton.leadingAnchor.constraint(equalTo: self.viewCard.leadingAnchor).isActive = true
+        deleteButton.trailingAnchor.constraint(equalTo: self.viewCard.trailingAnchor).isActive = true
     }
     @objc func flipCard(gesture:UIGestureRecognizer) {
         if gesture.state != .ended{
