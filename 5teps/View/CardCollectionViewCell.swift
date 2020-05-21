@@ -170,14 +170,14 @@ class CardCollectionViewCell: UICollectionViewCell {
         let deleteButton = UIButton()
         
         
-        editButton.frame = CGRect(x: 10, y: viewCard.layer.bounds.height / 2 - 30, width: 40, height: 40)
+        editButton.frame = CGRect(x: 25, y: viewCard.layer.bounds.height / 2 - 15, width: 40, height: 40)
         editButton.setImage(UIImage(systemName: "pencil"), for: .normal)
         editButton.backgroundColor = UIColor(named: "purple")
         editButton.tintColor = UIColor.white
         editButton.layer.cornerRadius = 20
         
         deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
-        deleteButton.frame = CGRect(x: viewCard.layer.bounds.width - 50, y: viewCard.layer.bounds.height / 2 - 30, width: 40, height: 40)
+        deleteButton.frame = CGRect(x: viewCard.layer.bounds.width - 25, y: viewCard.layer.bounds.height / 2 - 15, width: 40, height: 40)
         deleteButton.backgroundColor = UIColor(named: "purple")
         deleteButton.tintColor = UIColor.white
         deleteButton.layer.cornerRadius = 20
@@ -200,5 +200,15 @@ class CardCollectionViewCell: UICollectionViewCell {
         self.viewCard.addSubview(front)
         self.viewCard.addSubview(back)
         back.isHidden = true
+        
+        editButton.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
+        editButton.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
+        editButton.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
+        editButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
+        
+        deleteButton.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
+        deleteButton.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
+        deleteButton.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
+        deleteButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
     }
 }
