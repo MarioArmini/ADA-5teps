@@ -38,6 +38,9 @@ class Subview: UIView {
     var challengeCompleted: [String] = ["Well done! \nYour reward is waiting for you \nin you profile section!", "Great Job! You deserved a reward, \ngo in your profile section \nto find it out!", "I knew you would have \nsmashed it! Your reward is waiting \nfor you in your profile section!", "You did it! \nYour reward is waiting for you \nin you profile section!", "You did amazing!", "It has been amazing to guide you \nthrough this challenge! ", "Your reward is waiting for you \nin you profile section!", "Congratulation! Your reward \nis waiting for you \nin your profile section!"]
     var challengeFailed: [String] = ["Oh no!", "Failing is just another part \nof the process, don't give up!", "Bad day happens, don't worry!", "I know you can do it, \njust try it again!", "I know you can do amazing things, \nkeep trying!", "Don't worry, it's not the end, \nyou can do it!", "Every failure is a lesson, \njust mae the best of it!", "It can happen, \ndon't worry, \nI believe in you!"]
     
+    var stepCompleted = [String]()
+    var levelCompleted = [String]()
+    
     //MARK: INDICATIONS + CAZZIATONE
     var stepIndications: [String] = ["In this section..."]
     var arrayCazziatone: [String] = ["Hey! What's wrong? \nYou can do more!", "You have to demonstrate \nyour commitment!", "Okay, You can do \nbetter than that!", "Come on, it's your \ntime to shine!\nDo more!", "If you don't try, you won't know!", "You'll never know what \nyou are capable of \nif you don't try"]

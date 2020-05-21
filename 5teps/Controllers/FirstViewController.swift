@@ -22,6 +22,8 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
+        
+        
         // MARK: Mentor top view settings ------------------------------------
         if let referenceForViewOnTheTop = Bundle.main.loadNibNamed("Subview", owner: self, options: nil)?.first as? Subview  {
             viewMentorTop.addSubview(referenceForViewOnTheTop)
