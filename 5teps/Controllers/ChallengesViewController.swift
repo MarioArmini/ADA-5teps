@@ -70,9 +70,19 @@ class ChallengesViewController: UIViewController {
         let nameNotification = Notification.Name("editNotification")
         NotificationCenter.default.addObserver(self, selector: #selector(editClick), name: nameNotification, object: nil)
                
+        let endNotification = Notification.Name("endNotification")
+        NotificationCenter.default.addObserver(self, selector: #selector(endChallenge), name: endNotification, object: nil)
         
         
-        
+    }
+    
+    @objc func endChallenge(){
+        let alert = UIAlertController(title: "Congratulations!", message: "You completed a challenge!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.animateOut()
+            self.reloadData()
+            }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func deleteChallenge(_ notification: Notification){

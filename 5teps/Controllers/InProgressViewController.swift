@@ -64,6 +64,9 @@ class InProgressViewController: UIViewController {
         
         challengeCollectionView.delegate = self
         challengeCollectionView.dataSource = self
+        
+        let endNotification = Notification.Name("endNotification")
+        NotificationCenter.default.addObserver(self, selector: #selector(endChallenge), name: endNotification, object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         sections = [Int: [Challenge]]()
@@ -91,6 +94,16 @@ class InProgressViewController: UIViewController {
     @objc func tapped(){
         animateOut()
     }
+    
+    @objc func endChallenge(){
+        let alert = UIAlertController(title: "Congratulations!", message: "You completed a challenge!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.animateOut()
+            self.challengeCollectionView.reloadData()
+            }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     
     /*
      // MARK: - Navigation

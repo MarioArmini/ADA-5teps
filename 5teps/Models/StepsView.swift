@@ -198,5 +198,7 @@ class StepsView: UIView {
         }
         let _ = challenge.nextStep()
         self.deadlineLabel5.text = "Completed"
+        let endNotification = Notification.Name("endNotification")
+        NotificationCenter.default.post(name: endNotification, object: nil)
     }
 }
