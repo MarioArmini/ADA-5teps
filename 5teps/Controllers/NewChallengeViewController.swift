@@ -32,7 +32,7 @@ class NewChallengeViewController: UIViewController {
         }
         
         // MARK: update Mentor topview -------------------------------------------------------------
-        referenceForViewTop?.greetingsMentor()
+        referenceForViewTop?.stepIndicationsInsideaChallenge(imageName: "mentorindicates")
         //------------------------------------------------------------------
         
         // Do any additional setup after loading the view.

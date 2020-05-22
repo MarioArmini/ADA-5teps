@@ -49,6 +49,8 @@ class Subview: UIView {
     var stepIndications: [String] = ["select an icon, a color and \ntype a name for your card."]
     var arrayCazziatone: [String] = ["Hey! What's wrong? \nYou can do more!", "You have to demonstrate \nyour commitment!", "Okay, You can do \nbetter than that!", "Come on, it's your \ntime to shine!\nDo more!", "If you don't try, you won't know!", "You'll never know what \nyou are capable of \nif you don't try"]
     
+    var indicationsAddNewCardInsideaChallenge : String = "Insert your card's name, \nset your steps and days."
+    
     var mentorImages : [String] = ["mentor", "mentor1", "mentor2"]
     
     var notificationIfChallengeIsInProgress = [String]()
@@ -167,6 +169,22 @@ class Subview: UIView {
         let someSteps = textView
         print(someSteps!)
     }
+    
+    func stepIndicationsInsideaChallenge(imageName: String){
+        imageView.image = UIImage(named: imageName)
+       
+         user = User.userData
+         if user?.name != nil {
+             textView.text = "\(user!.name!) \(indicationsAddNewCardInsideaChallenge)"
+         }else{
+             textView.text = "\(indicationsAddNewCardInsideaChallenge)"
+         }
+        
+   
+        let indicationsChallenge = textView
+        print(indicationsChallenge!)
+    }
+    
     //----------------------------------------------
     
     public func backgroundChallengeInProgress(name: String, dayToLeft: Int, step: Int) -> (title: String, message: String) {
