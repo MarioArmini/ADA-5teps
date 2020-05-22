@@ -119,4 +119,16 @@ public class Utils {
         
         return grayView
     }
+    public static func stringToDate(string: String, format: String = "yyyy-MM-dd'T'HH:mm:ss") -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.date(from: string)
+    }
+    public static func dateToString(date: Date, format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = .current
+        dateFormatter.dateFormat = format
+        
+        return dateFormatter.string(from: date)
+    }
 }

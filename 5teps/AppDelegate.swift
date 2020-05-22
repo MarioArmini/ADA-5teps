@@ -111,7 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     // MARK: - Gestione Notifiche
-   
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
@@ -164,18 +164,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         content.badge = 1
         
         //let date = Date(timeIntervalSinceNow: 60)
-        //let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
-        //let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: true)
-        
-        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-        
-        
-        notificationCenter.add(request) { (error) in
-            if let error = error {
-                print("Error \(error.localizedDescription)")
+        let today = Date()
+        let modifiedDate = Calendar.current.date(byAdding: .day, value: 1, to: today)!
+        print(modifiedDate)
+        let buf = Utils.dateToString(date: modifiedDate, format: "yyyy-mm-dd") + " 10:00"
+        if let dateEvent = Utils.stringToDate(string: buf, format: "yyy-mm-dd HH:mm") {
+            print(dateEvent)
+            let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: dateEvent)
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+            //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: true)
+            
+            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+            
+            
+            notificationCenter.add(request) { (error) in
+                if let error = error {
+                    print("Error \(error.localizedDescription)")
+                }
             }
         }
+        
+        
         /*
          let userActions = "User Actions"
          
