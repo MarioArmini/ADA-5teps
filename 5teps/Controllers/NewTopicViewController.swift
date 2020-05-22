@@ -41,7 +41,7 @@ class NewTopicViewController: UIViewController {
         }
         
         // MARK: update Mentor topview -------------------------------------------------------------
-        referenceForViewTop?.greetingsMentor()
+        referenceForViewTop?.someStepIndications(imageName: "mentorindicates")
         //------------------------------------------------------------------
         
         colorsPickerView.delegate = self
