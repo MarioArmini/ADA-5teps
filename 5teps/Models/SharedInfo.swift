@@ -10,6 +10,9 @@ import Foundation
 import CoreData
 
 public class SharedInfo {
+    static let TIME_TO_STANDARD_NOTIFY = 6
+    static let TIME_TO_DEAD_LINE = 1
+    
     static var app: AppDelegate {
         return AppDelegate.app
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-import BackgroundTasks
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.shared.applicationIconBadgeNumber = 0
-        application.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         
         
         let notificationCenter = UNUserNotificationCenter.current()
@@ -45,7 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         notificationCenter.delegate = self
-        registerBackgroundTask()
         return true
     }
     
@@ -62,7 +60,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    
+    func applicationWillTerminate(_ application: UIApplication) {
+        generateScedulateNotify()
+    }
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        generateScedulateNotify()
+    }
     // MARK: - Core Data stack
     
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
@@ -108,33 +111,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     // MARK: - Gestione Notifiche
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        scheduleAppRefresh()
-    }
+   
     func applicationDidBecomeActive(_ application: UIApplication) {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
-    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        // fetch data from internet now
-        guard let data = fetchSomeData() else {
-            // data download failed
-            completionHandler(.failed)
-            return
-        }
-        
-        if data.count > 0 {
-            // data download succeeded and is new
-            completionHandler(.newData)
-        } else {
-            // data downloaded succeeded and is not new
-            completionHandler(.noData)
-        }
-    }
-    func fetchSomeData() -> String? {
+    func generateScedulateNotify() {
         var title: String = ""
         var body: String = ""
         var identifier: String = "generic"
-        
+        var timeInterval: TimeInterval = TimeInterval(SharedInfo.TIME_TO_STANDARD_NOTIFY * 60 * 60) //Notifica di default
         let inProgress = Challenge.listInProgress()
         if inProgress.count > 0 {
             var minDeadLine = Int.max
@@ -154,6 +139,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let message = subview.backgroundChallengeInProgress(name: challengeName, dayToLeft: minDeadLine, step: currentStep)
             title = message.title
             body = message.message
+            timeInterval = TimeInterval(SharedInfo.TIME_TO_DEAD_LINE * 60 * 60) //Notifica di deadline
             identifier = "inprogress"
         } else {
             let subview = Subview()
@@ -162,11 +148,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             body = message.message
             identifier = "generic"
         }
-        
-        scheduleNotification(title: title, body: body, identifier: identifier)
-        return "dati"
+        //timeInterval = TimeInterval(5 * 60) //TEST
+        scheduleNotification(title: title, body: body, identifier: identifier, timeInterval: timeInterval)
     }
-    func scheduleNotification(title: String, body: String, identifier: String) {
+    func scheduleNotification(title: String, body: String, identifier: String, timeInterval: TimeInterval) {
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.removeAllPendingNotificationRequests()
+        notificationCenter.removeAllDeliveredNotifications()
         
         let content = UNMutableNotificationContent()
         content.title = title
@@ -177,11 +166,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //let date = Date(timeIntervalSinceNow: 60)
         //let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
         //let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: true)
         
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
-        let notificationCenter = UNUserNotificationCenter.current()
         
         notificationCenter.add(request) { (error) in
             if let error = error {
@@ -198,37 +186,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          notificationCenter.setNotificationCategories([category])
          */
     }
-    //MARK: Register BackGround Tasks
-    private func registerBackgroundTask() {
-        
-        BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.5steps.bgservice", using: nil) { task in
-            DispatchQueue.global().async {
-                let _ = self.fetchSomeData()
-                task.setTaskCompleted(success: true)
-            }
-            self.scheduleAppRefresh()
-        }
-        //scheduleAppRefresh()
-    }
     
-    func scheduleAppRefresh() {
-        let request = BGProcessingTaskRequest(identifier: "com.5steps.bgservice")
-        request.requiresNetworkConnectivity = false // Need to true if your task need to network process. Defaults to false.
-        request.requiresExternalPower = false  //If we keep requiredExternalPow*er = true then it required device is connected to external power.
-        
-        request.earliestBeginDate = Date(timeIntervalSinceNow: 1 * 60) // fetch Image Count after 1 minute.
-        
-        do {
-            BGTaskScheduler.shared.cancelAllTaskRequests()
-            try BGTaskScheduler.shared.submit(request)
-            print("scheduleAppRefresh register")
-        } catch  {
-            print("Could not scheduleAppRefresh fetch: \(error)")
-        }
-    }
-    func cancelAllPendingBGTask() {
-        BGTaskScheduler.shared.cancelAllTaskRequests()
-    }
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
