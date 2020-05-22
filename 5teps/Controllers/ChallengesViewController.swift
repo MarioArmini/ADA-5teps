@@ -44,7 +44,7 @@ class ChallengesViewController: UIViewController {
         // MARK: update Mentor topview -------------------------------------------------------------
        
         //referenceForViewTop?.settingsMentor(imageName: "mentor", text: "Hello!")
-        referenceForViewTop?.greetingsMentor()
+        referenceForViewTop?.checkChallenge()
         //------------------------------------------------------------------
         
         stepsView = UINib(nibName: "StepsView", bundle: nil).instantiate(withOwner: nil, options: nil).first as? StepsView
