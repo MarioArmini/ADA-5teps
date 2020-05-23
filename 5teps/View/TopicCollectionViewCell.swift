@@ -70,7 +70,6 @@ class TopicCollectionViewCell: UICollectionViewCell {
         back?.isHidden = true
     }
     func createFlipView() {
-        return
         let tap = UILongPressGestureRecognizer(target: self, action: #selector(flipCard))
         tap.numberOfTouchesRequired = 1
         tap.delaysTouchesEnded = true
@@ -181,10 +180,10 @@ class TopicCollectionViewCell: UICollectionViewCell {
         shadowLayer?.removeFromSuperlayer()
         shadowLayer = CAShapeLayer()
         
-        let rect = CGRect(x: 15, y: 15, width: viewCard.bounds.width - 35, height: viewCard.bounds.height - 35)
+        let rect = CGRect(x: 10, y: 10, width: viewCard.bounds.width - 15, height: viewCard.bounds.height - 15)
         shadowLayer?.path = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).cgPath
         shadowLayer?.cornerRadius = cornerRadius
-        shadowLayer?.applyShadow(color: UIColor.black, alpha: 0.50, x: 6, y: 5, blur: 30, spread: -13, path: nil)
+        shadowLayer?.applyShadow(color: UIColor.black, alpha: 0.50, x: 6, y: 5, blur: 15, spread: -13, path: nil)
         viewCard.layer.insertSublayer(shadowLayer!, at: 0)
     }
     override func layoutSubviews() {
