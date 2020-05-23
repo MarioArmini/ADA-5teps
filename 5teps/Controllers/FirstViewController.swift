@@ -93,7 +93,15 @@ class FirstViewController: UIViewController {
             viewTmp.topic = topicReceived
             self.navigationController?.pushViewController(viewTmp, animated: true)
         }
-        
+    }
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?){
+        if motion == .motionShake {
+            let vc = UIStoryboard(name: "NewTopic", bundle: Bundle.main).instantiateViewController(identifier: "randomChallengeView") as! RandomChallengeViewController
+            vc.parentVC = self
+            self.present(vc, animated: true, completion: {
+                print("finish lanch random view")
+            })
+        }
     }
 }
 

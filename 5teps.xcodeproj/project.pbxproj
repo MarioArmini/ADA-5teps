@@ -75,6 +75,7 @@
 		6CF2840A2466F20200340C6B /* NewTopicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF284092466F20200340C6B /* NewTopicCollectionViewCell.swift */; };
 		6CF2840C2466FA3300340C6B /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF2840B2466FA3300340C6B /* ColorCollectionViewCell.swift */; };
 		6CFC4B7D2468415500D31B2D /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFC4B7C2468415500D31B2D /* CardCollectionViewCell.swift */; };
+		6CFE157F2479232E009ECC6F /* RandomChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFE157E2479232E009ECC6F /* RandomChallengeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +149,7 @@
 		6CF284092466F20200340C6B /* NewTopicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTopicCollectionViewCell.swift; sourceTree = "<group>"; };
 		6CF2840B2466FA3300340C6B /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		6CFC4B7C2468415500D31B2D /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		6CFE157E2479232E009ECC6F /* RandomChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomChallengeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 				6C09D3BF2469B40100445C07 /* ProfiloGoalViewController.swift */,
 				6C09D3C12469B41600445C07 /* ProfiloChallengeViewController.swift */,
 				6C40A9E824710887003E2EC9 /* EditProfiloViewController.swift */,
+				6CFE157E2479232E009ECC6F /* RandomChallengeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				6C64C83824648E3100D03184 /* Utils.swift in Sources */,
 				6C64C83C24648E3100D03184 /* Topic+CoreDataProperties.swift in Sources */,
 				01B3E2D42464615400B0C18A /* AppDelegate.swift in Sources */,
+				6CFE157F2479232E009ECC6F /* RandomChallengeViewController.swift in Sources */,
 				6CF284072466EB3B00340C6B /* NewTopicViewController.swift in Sources */,
 				6C6FEDA8246525630089BDFF /* Goal+CoreDataClass.swift in Sources */,
 				6C1F848D2467C7C300EDF793 /* NewChallengeViewController.swift in Sources */,
