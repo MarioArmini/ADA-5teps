@@ -16,7 +16,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UoD-SN-Gsw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" name="purple"/>
+                        <color key="tintColor" name="blue"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" name="fontColor"/>
                         </textAttributes>
@@ -72,7 +72,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GsT-7C-JFW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Decks" image="Newcards" id="3R4-Pp-6Ay"/>
+                    <tabBarItem key="tabBarItem" title="Decks" image="Newcards" id="3R4-Pp-6Ay">
+                        <color key="badgeColor" name="blue"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Topics" id="7Jm-JZ-sZI">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="addButton" largeContentSizeImage="addButton" id="Vlg-RU-ocC">
                             <color key="tintColor" red="0.3893936872" green="0.47359389070000002" blue="0.74905043839999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -162,10 +164,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Newcards" width="29" height="26"/>
+        <image name="Newcards" width="31" height="31"/>
         <image name="addButton" width="29" height="29"/>
         <namedColor name="background">
             <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blue">
+            <color red="0.42699998617172241" green="0.52899998426437378" blue="0.82700002193450928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="fontColor">
             <color red="0.16862745098039217" green="0.20392156862745098" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

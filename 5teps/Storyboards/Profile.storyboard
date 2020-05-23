@@ -15,7 +15,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V4I-bX-3LG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" name="purple"/>
+                        <color key="tintColor" name="blue"/>
                         <color key="barTintColor" name="background"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" name="fontColor"/>
@@ -73,7 +73,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6w-Ic-wmq">
                                 <rect key="frame" x="191.5" y="220" width="31.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                <color key="textColor" name="purple"/>
+                                <color key="textColor" name="blue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -178,21 +178,27 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pS-6i-ajS">
                                 <rect key="frame" x="360" y="54" width="34" height="30"/>
-                                <state key="normal" title="Save"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" name="blue"/>
+                                </state>
                                 <connections>
                                     <action selector="onClickSave:" destination="Lzc-FD-06b" eventType="touchUpInside" id="tyC-sH-OTm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1O-yw-Y1B">
                                 <rect key="frame" x="19" y="54" width="48" height="30"/>
-                                <state key="normal" title="Cancel"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" name="blue"/>
+                                </state>
                                 <connections>
                                     <action selector="onClickCancel:" destination="Lzc-FD-06b" eventType="touchUpInside" id="pQI-7J-Lya"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUn-nl-KW0">
                                 <rect key="frame" x="192" y="203" width="30" height="30"/>
-                                <state key="normal" title="Edit"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" name="blue"/>
+                                </state>
                                 <connections>
                                     <action selector="onClickEdit:" destination="Lzc-FD-06b" eventType="touchUpInside" id="Fot-UG-HxX"/>
                                 </connections>
@@ -266,6 +272,9 @@
         <image name="person" catalog="system" width="128" height="117"/>
         <namedColor name="background">
             <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blue">
+            <color red="0.42699998617172241" green="0.52899998426437378" blue="0.82700002193450928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="fontColor">
             <color red="0.16862745098039217" green="0.20392156862745098" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

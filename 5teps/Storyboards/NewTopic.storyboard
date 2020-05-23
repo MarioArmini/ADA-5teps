@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -130,6 +130,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="New Topic" id="qeY-Dx-Bip">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="paD-mb-BMi">
+                            <color key="tintColor" name="blue"/>
                             <connections>
                                 <action selector="onClickDone:" destination="jQt-mO-Rhd" id="Xj4-cn-xcz"/>
                             </connections>
@@ -358,6 +359,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="New Topic" id="exp-bt-lwc">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="fgN-03-Xel">
+                            <color key="tintColor" name="blue"/>
                             <connections>
                                 <action selector="onClickDone:" destination="162-sE-Kkp" id="g9V-RM-CV4"/>
                             </connections>
@@ -596,6 +598,9 @@
     <resources>
         <namedColor name="background">
             <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blue">
+            <color red="0.42699998617172241" green="0.52899998426437378" blue="0.82700002193450928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="fontColor">
             <color red="0.16862745098039217" green="0.20392156862745098" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
