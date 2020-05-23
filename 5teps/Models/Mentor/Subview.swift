@@ -28,7 +28,7 @@ class Subview: UIView {
     //MARK: Mentor Local sentences
     var greetings : [String] = ["Hello", "Salut", "Hola", "Hey!", "This is a great day \nto be productive!",  "Privet!", "Welcome!", "Hey there!", "I'm happy to see you! \nCan't wait to start!", "Hi! I'll be by your side \nduring every challenge!\n" ]
     //MARK: Mentor Local Motivations
-    var motivation : [String] = ["Every challenge is possible if \nyou write it in the right way!", "Every single step becomes \na leap of faith", "Just reach up, \ndon't give up", "I can't wait to see all the \namazing things that you \nwill achieve!", "Every step will take you \na bit closer to your goal!", "Every step matter!"]
+    var motivation : [String] = ["Every challenge is possible if \nyou write it in the right way!", "Every single step becomes \na leap of faith", "Just reach up, \ndon't give up", "I can't wait to see all the \namazing things that you \nwill achieve!", "Every step will take you \na bit closer to your goal!", "Every step matter!", "We are in this together, \nDon't quit now!"]
     
     //MARK: CHALLENGES
     //MARK: Mentor motivates you if you have no challenges
@@ -38,11 +38,11 @@ class Subview: UIView {
     //MARK: [Mentor] when a challenge is completed
     var challengeCompleted: [String] = ["Well done! \nYour reward is waiting for you \nin you profile section!", "Great Job! You deserved a reward, \ngo in your profile section \nto find it out!", "I knew you would have \nsmashed it! Your reward is waiting \nfor you in your profile section!", "You did it! \nYour reward is waiting for you \nin you profile section!", "You did amazing!", "It has been amazing to guide you \nthrough this challenge! ", "Your reward is waiting for you \nin you profile section!", "Congratulation! Your reward \nis waiting for you \nin your profile section!"]
     //MARK: [Mentor] when a challenge is failed
-    var challengeFailed: [String] = ["Oh no!", "Failing is just another part \nof the process, don't give up!", "Bad day happens, don't worry!", "I know you can do it, \njust try it again!", "I know you can do amazing things, \nkeep trying!", "Don't worry, it's not the end, \nyou can do it!", "Every failure is a lesson, \njust mae the best of it!", "It can happen, \ndon't worry, \nI believe in you!"]
+    var challengeFailed: [String] = ["Oh no!", "Failing is just another part \nof the process, don't give up!", "Bad day happens, don't worry!", "I know you can do it, \njust try it again!", "I know you can do amazing things, \nkeep trying!", "Don't worry, it's not the end, \nyou can do it!", "Every failure is a lesson, \njust mae the best of it!", "It can happen, \ndon't worry, \nI believe in you!", "Tomorrow will be better, keep going!", "Don't even think to quit! \nI'm sure you can do it!"]
     //MARK: [Mentor] when a step is completed
-    var stepCompleted : [String] = ["Great Job!", "Step Completed!", "Go, Go!", "Cool! This is \nyour next step", "Congratulations!","Amazing!"]
+    var stepCompleted : [String] = ["Great Job!", "Step Completed!", "Go, Go!", "Cool! This is \nyour next step", "Congratulations!","Amazing!", "We're nearly there, just keep going!", "You're doing great!", "Everyday you're closer to your goal \nKeep pushing!", "Well done! \nYou deserved some rest!"]
     //MARK: [Mentor] when a a level is completed
-    var levelCompleted : [String] = ["Amazing! You've just \ncompleted your level", "Great!"]
+    var levelCompleted : [String] = ["Amazing! You've just \ncompleted your level", "Great!", "I knew you would have smashed it!", "Amazing!\neep going!", "Your progress are unbeliveable!", "Everyday you get better! \nI'm sure you're gonna reach all your goals!", "keep going, your goal are waiting for you!","Great! \nI'm so proud of you!", "Amazing! \nI can't wait to see your profile full of rewards!"]
     
     //MARK: INDICATIONS + CAZZIATONE
     //MARK: when an user creates a new card. Some indications are useful
