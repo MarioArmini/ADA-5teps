@@ -548,7 +548,7 @@
                                         <rect key="frame" x="77" y="256" width="66" height="36"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <state key="normal" title="Accept">
-                                            <color key="titleColor" name="fontColor"/>
+                                            <color key="titleColor" name="background"/>
                                         </state>
                                         <connections>
                                             <action selector="onClickStart:" destination="48K-Ed-kGy" eventType="touchUpInside" id="qQb-yO-mxp"/>
