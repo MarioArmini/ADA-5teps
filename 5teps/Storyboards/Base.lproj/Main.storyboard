@@ -34,15 +34,25 @@
                                 <rect key="frame" x="44.666666666666664" y="822" width="64.666666666666686" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="JSh-mp-ftd"/>
-                                    <constraint firstAttribute="width" constant="64.670000000000002" id="ddH-Mf-2Fz"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="64.670000000000002" id="ddH-Mf-2Fz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                <state key="normal" title="Skip">
+                                <state key="normal" title="SKIP">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="start:" destination="dwy-wk-8Pi" eventType="touchUpInside" id="b6r-Us-EhE"/>
                                     <segue destination="49e-Tb-3d3" kind="presentation" modalPresentationStyle="fullScreen" id="wSl-Sm-FPA"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sV0-wc-Y2J">
+                                <rect key="frame" x="0.0" y="786" width="414" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="Huf-R4-kYf"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="whenGetStartedIsPressed:" destination="dwy-wk-8Pi" eventType="touchUpInside" id="Ypc-1D-2tW"/>
+                                    <segue destination="49e-Tb-3d3" kind="presentation" modalPresentationStyle="fullScreen" id="u4V-aa-s8C"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -51,8 +61,11 @@
                             <constraint firstItem="kMJ-U5-uCh" firstAttribute="centerX" secondItem="9g0-S3-geF" secondAttribute="centerX" constant="-130" id="8cf-hy-KcM"/>
                             <constraint firstItem="y2v-cZ-s9c" firstAttribute="trailing" secondItem="9Hj-qA-ros" secondAttribute="trailing" id="BgT-mt-7W0"/>
                             <constraint firstItem="LkE-At-8mV" firstAttribute="width" secondItem="9g0-S3-geF" secondAttribute="width" id="Bqe-iA-naw"/>
+                            <constraint firstItem="sV0-wc-Y2J" firstAttribute="leading" secondItem="9Hj-qA-ros" secondAttribute="leading" id="Gy7-tX-Gqz"/>
                             <constraint firstItem="xAz-fS-t4J" firstAttribute="centerX" secondItem="9g0-S3-geF" secondAttribute="centerX" id="Hrm-uq-COr"/>
                             <constraint firstItem="LkE-At-8mV" firstAttribute="height" secondItem="9g0-S3-geF" secondAttribute="height" id="Isq-Sj-pGG"/>
+                            <constraint firstAttribute="bottom" secondItem="sV0-wc-Y2J" secondAttribute="bottom" id="Jr4-Gh-ebP"/>
+                            <constraint firstItem="sV0-wc-Y2J" firstAttribute="trailing" secondItem="9Hj-qA-ros" secondAttribute="trailing" id="SoV-Yh-Jzm"/>
                             <constraint firstItem="9Hj-qA-ros" firstAttribute="bottom" secondItem="xAz-fS-t4J" secondAttribute="bottom" constant="5" id="l3q-To-QAa"/>
                             <constraint firstItem="9Hj-qA-ros" firstAttribute="bottom" secondItem="kMJ-U5-uCh" secondAttribute="bottom" constant="8" id="lXb-of-YZT"/>
                             <constraint firstItem="LkE-At-8mV" firstAttribute="centerX" secondItem="9Hj-qA-ros" secondAttribute="centerX" id="nVf-2H-z91"/>
@@ -64,6 +77,7 @@
                     </view>
                     <connections>
                         <outlet property="barBottom" destination="y2v-cZ-s9c" id="5eo-VH-qRX"/>
+                        <outlet property="hiddenButton" destination="sV0-wc-Y2J" id="FSN-uP-SZg"/>
                         <outlet property="pageControl" destination="xAz-fS-t4J" id="YFX-oU-7Q2"/>
                         <outlet property="scrollView" destination="LkE-At-8mV" id="sVM-CE-6wE"/>
                         <outlet property="skipButton" destination="kMJ-U5-uCh" id="ART-WG-Igj"/>
@@ -127,6 +141,9 @@
             <point key="canvasLocation" x="-262" y="652"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="u4V-aa-s8C"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.up" catalog="system" width="120" height="128"/>
         <image name="barBottom" width="414" height="120"/>
