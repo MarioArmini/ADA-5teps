@@ -23,7 +23,8 @@ class NewTopicViewController: UIViewController {
     var colors = Utils.getArrayColor()
     var gradientView: UIView?
     var gradientLayer: CAGradientLayer?
-    
+    var shadowLayer: CAShapeLayer?
+    let cornerRadius: CGFloat = 20.20
     
     public var topic: Topic?
     public var parentVC: OnCloseChildView?
@@ -51,11 +52,8 @@ class NewTopicViewController: UIViewController {
         if topic != nil {
             nameTextField.text = topic?.name
         }
-        cardView.layer.cornerRadius = 20.20
-        cardView.clipsToBounds = true
         cardView.backgroundColor = UIColor.clear
-        //cardView.layer.borderWidth = 2.0
-        //cardView.layer.borderColor = UIColor.black.cgColor
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         if topic != nil {
@@ -110,34 +108,38 @@ class NewTopicViewController: UIViewController {
         let color1 = Utils.hexStringToUIColor(hex: color.color1)
         let color2 = Utils.hexStringToUIColor(hex: color.color2)
         
-        if self.gradientView == nil {
-            gradientLayer = CAGradientLayer()
-            
+        if gradientView == nil {
             gradientView = UIView(frame: rectFrame)
             cardView.insertSubview(gradientView!, at: 0)
-            
-            gradientLayer?.colors = [color1.cgColor, color2.cgColor]
-            gradientLayer?.startPoint = CGPoint(x: 0.0, y: 0.0)
-            gradientLayer?.endPoint = CGPoint(x: 1.0, y: 1.0)
-            gradientLayer?.locations = [0, 1]
-            gradientLayer?.frame = cardView.bounds
-            
-            gradientView?.layer.insertSublayer(gradientLayer!, at: 1)
-            
-            
-            
-        } else {
-            gradientLayer?.removeFromSuperlayer()
-            gradientLayer = CAGradientLayer()
-            gradientLayer?.colors = [color1.cgColor, color2.cgColor]
-            gradientLayer?.startPoint = CGPoint(x: 0.0, y: 0.0)
-            gradientLayer?.endPoint = CGPoint(x: 1.0, y: 1.0)
-            gradientLayer?.locations = [0, 1]
-            gradientLayer?.frame = cardView.bounds
-        
-            gradientView?.layer.insertSublayer(gradientLayer!, at: 0)
-            
         }
+        
+        
+        gradientLayer?.removeFromSuperlayer()
+        gradientLayer = CAGradientLayer()
+        gradientLayer?.colors = [color1.cgColor, color2.cgColor]
+        gradientLayer?.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer?.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer?.locations = [0, 1]
+        gradientLayer?.frame = gradientView!.bounds
+        gradientLayer?.cornerRadius = cornerRadius
+    
+        gradientView?.layer.insertSublayer(gradientLayer!, at: 0)
+        
+        shadowLayer?.removeFromSuperlayer()
+        shadowLayer = CAShapeLayer()
+        
+       // let rect = CGRect(x: 15, y: 15, width: (gradientView?.bounds.width)! - 35, height: gradientView?.bounds.height - 35)
+        shadowLayer?.path = UIBezierPath(roundedRect: gradientView!.bounds, cornerRadius: cornerRadius).cgPath
+        shadowLayer?.cornerRadius = cornerRadius
+        shadowLayer?.applyShadow(color: UIColor.black, alpha: 0.50, x: 6, y: 5, blur: 50, spread: -13, path: nil)
+        gradientView?.layer.insertSublayer(shadowLayer!, at: 0)
+        
+        
+    }
+    override func viewDidLayoutSubviews() {
+        gradientView?.frame = cardView.bounds
+        gradientLayer?.frame = cardView.bounds
+        shadowLayer?.path = UIBezierPath(roundedRect: cardView.bounds, cornerRadius: cornerRadius).cgPath
         
     }
 }
