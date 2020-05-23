@@ -165,14 +165,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //let date = Date(timeIntervalSinceNow: 60)
         let today = Date()
-        let modifiedDate = Calendar.current.date(byAdding: .day, value: 1, to: today)!
+        let modifiedDate = Calendar.current.date(byAdding: .hour, value: 1, to: today)!
         print(modifiedDate)
-        let buf = Utils.dateToString(date: modifiedDate, format: "yyyy-mm-dd") + " 10:00"
+        //let buf = Utils.dateToString(date: modifiedDate, format: "yyyy-mm-dd") + " 10:00"
+        let buf = Utils.dateToString(date: modifiedDate, format: "yyyy-mm-dd HH:mm")
         if let dateEvent = Utils.stringToDate(string: buf, format: "yyy-mm-dd HH:mm") {
             print(dateEvent)
             let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: dateEvent)
             
-            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
             //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: true)
             
             let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)

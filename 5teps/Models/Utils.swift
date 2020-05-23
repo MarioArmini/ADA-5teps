@@ -122,6 +122,7 @@ public class Utils {
     public static func stringToDate(string: String, format: String = "yyyy-MM-dd'T'HH:mm:ss") -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
+        dateFormatter.locale = .current
         return dateFormatter.date(from: string)
     }
     public static func dateToString(date: Date, format: String) -> String {
