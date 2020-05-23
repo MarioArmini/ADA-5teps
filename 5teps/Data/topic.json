@@ -1,91 +1,91 @@
 [
     {
-        "name": "Sport",
+        "name": "Workout",
         "icon": "sport",
         "color": "FFC859",
         "challenge": [
             {
-                "name": "10 Flessioni x 5 Giorni",
+                "name": "1 minute Plank in 5 days",
                 "steps": [
-                    {"name": "step #1", "days": 1},
-                    {"name": "step #2", "days": 1},
-                    {"name": "step #3", "days": 1},
-                    {"name": "step #4", "days": 1},
-                    {"name": "step #5", "days": 1}
+                    {"name": "Hold the plank position for 20 seconds", "days": 1},
+                    {"name": "Hold the plank position for 30 seconds", "days": 1},
+                    {"name": "Hold the plank position for 40 seconds", "days": 1},
+                    {"name": "Hold the plank position for 50 seconds", "days": 1},
+                    {"name": "Hold the plank position for 1 minute!", "days": 1}
                 ]
             },
             {
-                "name": "5 Km x 5 Giorni",
+                "name": "50 Squats in 5 days!",
                 "steps": [
-                    {"name": "step #1", "days": 1},
-                    {"name": "step #2", "days": 1},
-                    {"name": "step #3", "days": 1},
-                    {"name": "step #4", "days": 1},
-                    {"name": "step #5", "days": 1}
+                    {"name": "Start with 25 squats!", "days": 1},
+                    {"name": "It's time for 30 squats!", "days": 1},
+                    {"name": "Again 30 squats", "days": 1},
+                    {"name": "Today is 45 squats day!", "days": 1},
+                    {"name": "Finally 50 squats!", "days": 1}
                 ]
             },
             {
-                "name": "10 Km x 5 Giorni",
+                "name": "10 minutes running in 5 days",
                 "steps": [
-                    {"name": "step #1", "days": 1},
-                    {"name": "step #2", "days": 1},
-                    {"name": "step #3", "days": 1},
-                    {"name": "step #4", "days": 1},
-                    {"name": "step #5", "days": 1}
+                    {"name": "Run for 4 min and rest for 1 minute. Repeat 2 times", "days": 1},
+                    {"name": "Run for 5 min and wal for 5 minutes", "days": 1},
+                    {"name": "Run for 5 min and and add 10 seconds of sprint!", "days": 1},
+                    {"name": "Run for a minute and walk for another one. Repeat 5 times!", "days": 1},
+                    {"name": "10 minutes run!", "days": 1}
                 ]
             }
         ]
     },
     {
-        "name": "Cucina",
+        "name": "Healthy Cooking",
         "icon": "cuoco",
         "color": "89B2FD",
         "challenge": [
             {
-                "name": "Mangia sano x 5 giorni",
+                "name": "Breakfast",
                 "steps": [
-                    {"name": "step #1", "days": 1},
-                    {"name": "step #2", "days": 1},
-                    {"name": "step #3", "days": 1},
-                    {"name": "step #4", "days": 1},
-                    {"name": "step #5", "days": 1}
+                    {"name": "Drink two glasses of water before eating", "days": 1},
+                    {"name": "try at least one of the pancake healthy recipe", "days": 1},
+                    {"name": "Drink or coffee or tea without sugar!", "days": 1},
+                    {"name": "Make your breakfast colorful with fresh fruit!", "days": 1},
+                    {"name": "Try the instagram-friendly porridge and share a picture!", "days": 1}
                 ]
             },
             {
-                "name": "Solo sfizi",
+                "name": "5 Healthy meals!",
                 "steps": [
-                    {"name": "step #1", "days": 1},
-                    {"name": "step #2", "days": 1},
-                    {"name": "step #3", "days": 1},
-                    {"name": "step #4", "days": 1},
-                    {"name": "step #5", "days": 1}
+                    {"name": "Cook your lunch AND dinner using only two spoons of oil!", "days": 1},
+                    {"name": "Instead of commercial ones, make homemade biscuits", "days": 1},
+                    {"name": "Replace white bread with Rye bread for today!", "days": 1},
+                    {"name": "Find the best recipe of banana bread and do it yourself!", "days": 1},
+                    {"name": "Eat Pizza to celebrate!", "days": 1}
                 ]
             },
             {
-                "name": "Solo Pane e Acqua",
+                "name": "Smoothies Challenge!",
                 "steps": [
-                    {"name": "step #1", "days": 1},
-                    {"name": "step #2", "days": 1},
-                    {"name": "step #3", "days": 1},
-                    {"name": "step #4", "days": 1},
-                    {"name": "step #5", "days": 1}
+                    {"name": "Apple Pie Smoothie!", "days": 1},
+                    {"name": "Metabolism Boosting Smoothie": 1},
+                    {"name": "Immunity Boosting Orange Smoothie", "days": 1},
+                    {"name": "Banana Smoothie", "days": 1},
+                    {"name": "Cocoa Almond Protein Smoothie", "days": 1}
                 ]
             }
         ]
     },
     {
-        "name": "Hobby",
+        "name": "Reading",
         "icon": "libro",
         "color": "F77F57",
         "challenge": [
             {
-                "name": "1 Libro in 5 giorni",
+                "name": "Set up your profile!",
                 "steps": [
-                    {"name": "step #1", "days": 1},
-                    {"name": "step #2", "days": 1},
-                    {"name": "step #3", "days": 1},
-                    {"name": "step #4", "days": 1},
-                    {"name": "step #5", "days": 1}
+                    {"name": "Go to your profile and choose your Name", "days": 1},
+                    {"name": "Pick your best picture!", "days": 1},
+                    {"name": "Create your first deck!", "days": 1},
+                    {"name": "Create at least two challenges", "days": 1},
+                    {"name": "Collect your prize!", "days": 1}
                 ]
             },
             {
@@ -107,7 +107,22 @@
                     {"name": "step #4", "days": 1},
                     {"name": "step #5", "days": 1}
                 ]
-            }
+            },
+            {
+            "name": "First Challenge",
+            "icon": "libro",
+            "color": "F77F57",
+            "challenge": [
+                {
+                    "name": "Set up your profile!",
+                    "steps": [
+                        {"name": "Go to your profile and choose your Name", "days": 1},
+                        {"name": "Pick your best picture!", "days": 1},
+                        {"name": "Create your first deck!", "days": 1},
+                        {"name": "Create at least two challenges", "days": 1},
+                        {"name": "Collect your prize!", "days": 1}
+                    ]
+                },
         ]
     }
 ]
