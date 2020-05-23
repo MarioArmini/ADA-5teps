@@ -67,6 +67,9 @@ class InProgressViewController: UIViewController {
         
         let endNotification = Notification.Name("endNotification")
         NotificationCenter.default.addObserver(self, selector: #selector(endChallenge), name: endNotification, object: nil)
+        
+        let endNotification2 = Notification.Name("endNotification2")
+        NotificationCenter.default.addObserver(self, selector: #selector(endChallenge), name: endNotification2, object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         sections = [Int: [Challenge]]()
@@ -96,12 +99,12 @@ class InProgressViewController: UIViewController {
     }
     
     @objc func endChallenge(){
-        let alert = UIAlertController(title: "Congratulations!", message: "You completed a challenge!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+        let alert2 = UIAlertController(title: "Congratulations!", message: "You completed a challenge!", preferredStyle: .alert)
+        alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             self.animateOut()
             self.challengeCollectionView.reloadData()
             }))
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert2, animated: true, completion: nil)
     }
     
     
@@ -244,6 +247,5 @@ extension InProgressViewController : UICollectionViewDelegate, UICollectionViewD
         }
         self.blurEffect.isUserInteractionEnabled = false
         isOpened = false
-        self.challengeCollectionView.reloadData()
     }
 }

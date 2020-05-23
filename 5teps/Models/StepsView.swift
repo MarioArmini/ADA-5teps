@@ -169,7 +169,7 @@ class StepsView: UIView {
         let _ = challenge.start()
         let deadline = steps[0].daysToDeadline()
         self.deadlineLabel1.text = "\(deadline) day/s"
-        self.startButton.alpha = 0
+        //self.startButton.alpha = 0
     }
     @IBAction func completeStep1(_ sender: Any) {
         self.button1.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
@@ -225,5 +225,8 @@ class StepsView: UIView {
         self.deadlineLabel5.text = "Completed"
         let endNotification = Notification.Name("endNotification")
         NotificationCenter.default.post(name: endNotification, object: nil)
+        
+        let endNotification2 = Notification.Name("endNotification2")
+        NotificationCenter.default.post(name: endNotification2, object: nil)
     }
 }
