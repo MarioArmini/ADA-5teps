@@ -72,7 +72,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GsT-7C-JFW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Decks" image="decks" id="3R4-Pp-6Ay"/>
+                    <tabBarItem key="tabBarItem" title="Decks" image="Newcards" id="3R4-Pp-6Ay"/>
                     <navigationItem key="navigationItem" title="Topics" id="7Jm-JZ-sZI">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="addButton" largeContentSizeImage="addButton" id="Vlg-RU-ocC">
                             <color key="tintColor" red="0.3893936872" green="0.47359389070000002" blue="0.74905043839999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -162,8 +162,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Newcards" width="29" height="26"/>
         <image name="addButton" width="29" height="29"/>
-        <image name="decks" width="30" height="27"/>
         <namedColor name="background">
             <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
