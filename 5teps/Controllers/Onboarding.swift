@@ -11,10 +11,12 @@ import UIKit
 
 class Onboarding: UIViewController, UIScrollViewDelegate {
     
+    @IBOutlet weak var hiddenButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var barBottom: UIImageView!
     @IBOutlet weak var skipButton: UIButton!
     var mentor = Subview()
     var slides:[Slide] = []
@@ -28,7 +30,6 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
         
         slides = createSlides()
         setupSlideScrollView(slides: slides)
-        
         pageControl.numberOfPages = slides.count
         pageControl.currentPage = 0
         scrollView.isExclusiveTouch = true
@@ -49,23 +50,27 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
     func createSlides() -> [Slide] {
         
         let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide1.imageView.image = UIImage(named: "mentor")
-        slide1.title.text = "TITOLO 1"
-        slide1.desc.text  = "DESCRIZIONE 1"
+        //slide1.imageView.image = UIImage(named: "mentor")
+        slide1.title.text = "Start"
+        slide1.desc.text  = "If not now, when? Every deck is a goal to achieve. Find the most engaging for you and overcome every challenge! Nothing suitable? Create one yourself!"
         slide1.imageForTest.image = UIImage(named: "onboarding1")
-        
+        barBottom.image = UIImage(named: "barBottom")
         let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide2.imageView.image = UIImage(named: "mentor")
-        slide2.title.text = "TITOLO 2"
-        slide2.desc.text = "DESCRIZIONE 2"
-        slide2.imageForTest.image = UIImage(named: "onboarding2")
+        //slide2.imageView.image = UIImage(named: "mentor")
+        slide2.title.text = "Pick"
+        slide2.desc.text = "Feeling Brave? \nCreate your own challenge: set your steps, your deadlines and you're ready to go! Don't forget to check your steps as done to keep your progress updated!"
         
+        slide2.imageForTest.image = UIImage(named: "onboarding2")
+        barBottom.image = UIImage(named: "barBottom")
         let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide3.imageView.image = UIImage(named: "mentor")
-        slide3.title.text = "TITOLO 3"
-        slide3.desc.text = "DESCRIZIONE 3"
-       slide3.imageForTest.image = UIImage(named: "onboarding3")
+        //slide3.imageView.image = UIImage(named: "mentor")
+        slide3.title.text = "Smash"
+        slide3.desc.text = "Win every challenge in order to achieve your goals and reach everyday an higher level! Our virtual assistant will support you during your personal growth."
+        slide3.imageForTest.image = UIImage(named: "onboarding3")
+        
+        //pageControl.isHidden = true
         return [slide1, slide2, slide3]
+        
     }
     
     func setupSlideScrollView(slides : [Slide]) {
@@ -84,11 +89,26 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
         pageControl.currentPage = Int(pageIndex)
         
         if pageIndex == 2{
-            changeTitle()
-        }else{
-            skipButton.setTitle("Skip", for: .normal)
+            //changeTitle()
+            skipButton.isHidden = true
+            UIView.transition(with: self.barBottom, duration: 1.0, options: .transitionFlipFromBottom, animations: {
+                self.barBottom.image =  UIImage(named: "getstarted")
+            }, completion: nil)
             
-        } 
+            //barBottom.image = UIImage(named: "getstarted")
+            pageControl.isHidden = true
+            hiddenButton.isHidden = false
+        }else{
+            UIView.transition(with: self.barBottom, duration: 1.0, options: .transitionFlipFromBottom, animations: {
+                self.barBottom.image =  UIImage(named: "barBottom")
+            }, completion: nil)
+            skipButton.setTitle("SKIP", for: .normal)
+            // barBottom.image = UIImage(named: "barBottom")
+            pageControl.isHidden = false
+            skipButton.isHidden = false
+            hiddenButton.isHidden = true
+        }
+        
         if scrollView.contentOffset.y > 0 || scrollView.contentOffset.y < 0 {
             scrollView.contentOffset.y = 0
         }
@@ -99,10 +119,15 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func start(_ sender: Any) {
-    
-         UserDefaults.standard.set(true, forKey: "tutorialAccepted")
+        
+        UserDefaults.standard.set(true, forKey: "tutorialAccepted")
         
     }
-}
     
+    @IBAction func whenGetStartedIsPressed(_ sender: Any) {
+        UserDefaults.standard.set(true, forKey: "tutorialAccepted")
+    }
+    
+}
+
 

@@ -13,7 +13,9 @@ class TopicCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var topicLabel: UILabel!
     @IBOutlet weak var topicIconView: UIImageView!
     var gradientLayer: CAGradientLayer?
-
+    var shadowLayer: CAShapeLayer?
+    var colorCard: ColorCard?
+    
     var back: UIView!
     var front: UIView!
     
@@ -34,8 +36,11 @@ class TopicCollectionViewCell: UICollectionViewCell {
     func updateUI() {
         restoreFlipView()
         //Card Layout
-        viewCard.layer.cornerRadius = 20.29
-        viewCard.clipsToBounds = true
+        //viewCard.layer.cornerRadius = 20.29
+        //viewCard.clipsToBounds = true
+        //contentView.backgroundColor = UIColor.clear
+        //contentView.layer.cornerRadius = cornerRadius
+    
         
         //self.topicIconView.backgroundColor = topic?.bgColor
         let w = self.topicIconView.layer.bounds.width
@@ -45,8 +50,9 @@ class TopicCollectionViewCell: UICollectionViewCell {
         self.topicIconView.image = UIImage.loadTopicIcon(name: topic?.icon ?? "", width: w, height: h, sizeFont: 80)
         
         if let color = topic?.colorCard {
+            colorCard = color
             //print(topic?.name, color,topic?.color)
-            gradientLayer?.removeFromSuperlayer()
+            /*gradientLayer?.removeFromSuperlayer()
             gradientLayer = CAGradientLayer()
             gradientLayer?.colors = [color.uiColor1.cgColor, color.uiColor2.cgColor]
             gradientLayer?.startPoint = CGPoint(x: 0.0, y: 0.0)
@@ -55,12 +61,13 @@ class TopicCollectionViewCell: UICollectionViewCell {
             gradientLayer?.frame = viewCard.bounds
             
             viewCard.layer.insertSublayer(gradientLayer!, at: 0)
-           
+           */
+            applyGradientShadow(color: color)
         }
     }
     func restoreFlipView() {
         flipped = true
-        back.isHidden = true
+        back?.isHidden = true
     }
     func createFlipView() {
         let tap = UILongPressGestureRecognizer(target: self, action: #selector(flipCard))
@@ -154,5 +161,35 @@ class TopicCollectionViewCell: UICollectionViewCell {
             restoreFlipView()
         }
         
+    }
+    public func applyGradientShadow(color: ColorCard) {
+        
+        
+        //let cornerRadius: CGFloat = 22
+        gradientLayer?.removeFromSuperlayer()
+        gradientLayer = CAGradientLayer()
+        gradientLayer?.colors = [color.uiColor1.cgColor, color.uiColor2.cgColor]
+        gradientLayer?.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer?.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer?.locations = [0, 1]
+        gradientLayer?.frame = viewCard.bounds
+        gradientLayer?.cornerRadius = cornerRadius
+        
+        viewCard.layer.insertSublayer(gradientLayer!, at: 0)
+        
+        shadowLayer?.removeFromSuperlayer()
+        shadowLayer = CAShapeLayer()
+        
+        let rect = CGRect(x: 10, y: 10, width: viewCard.bounds.width - 15, height: viewCard.bounds.height - 15)
+        shadowLayer?.path = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).cgPath
+        shadowLayer?.cornerRadius = cornerRadius
+        shadowLayer?.applyShadow(color: UIColor.black, alpha: 0.50, x: 6, y: 5, blur: 15, spread: -13, path: nil)
+        viewCard.layer.insertSublayer(shadowLayer!, at: 0)
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if colorCard != nil {
+            applyGradientShadow(color: colorCard!)
+        }
     }
 }

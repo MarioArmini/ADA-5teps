@@ -19,37 +19,65 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LkE-At-8mV">
                                 <rect key="frame" x="0.0" y="5" width="414" height="896"/>
                             </scrollView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barBottom" translatesAutoresizingMaskIntoConstraints="NO" id="y2v-cZ-s9c">
+                                <rect key="frame" x="0.0" y="786" width="414" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="xYd-TF-J4z"/>
+                                </constraints>
+                            </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="xAz-fS-t4J">
+                                <rect key="frame" x="187.66666666666666" y="820" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" red="0.3893936872" green="0.47359389070000002" blue="0.74905043839999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMJ-U5-uCh">
-                                <rect key="frame" x="200" y="832" width="214" height="30"/>
-                                <state key="normal" title="Skip">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="44.666666666666664" y="822" width="64.666666666666686" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="JSh-mp-ftd"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="64.670000000000002" id="ddH-Mf-2Fz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <state key="normal" title="SKIP">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="start:" destination="dwy-wk-8Pi" eventType="touchUpInside" id="b6r-Us-EhE"/>
                                     <segue destination="49e-Tb-3d3" kind="presentation" modalPresentationStyle="fullScreen" id="wSl-Sm-FPA"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="xAz-fS-t4J">
-                                <rect key="frame" x="187.66666666666666" y="767" width="39" height="37"/>
-                                <color key="pageIndicatorTintColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </pageControl>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sV0-wc-Y2J">
+                                <rect key="frame" x="0.0" y="786" width="414" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="Huf-R4-kYf"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="whenGetStartedIsPressed:" destination="dwy-wk-8Pi" eventType="touchUpInside" id="Ypc-1D-2tW"/>
+                                    <segue destination="49e-Tb-3d3" kind="presentation" modalPresentationStyle="fullScreen" id="u4V-aa-s8C"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="background"/>
                         <constraints>
-                            <constraint firstItem="9Hj-qA-ros" firstAttribute="bottom" secondItem="kMJ-U5-uCh" secondAttribute="bottom" id="03s-T9-KZM"/>
+                            <constraint firstItem="kMJ-U5-uCh" firstAttribute="centerX" secondItem="9g0-S3-geF" secondAttribute="centerX" constant="-130" id="8cf-hy-KcM"/>
+                            <constraint firstItem="y2v-cZ-s9c" firstAttribute="trailing" secondItem="9Hj-qA-ros" secondAttribute="trailing" id="BgT-mt-7W0"/>
                             <constraint firstItem="LkE-At-8mV" firstAttribute="width" secondItem="9g0-S3-geF" secondAttribute="width" id="Bqe-iA-naw"/>
+                            <constraint firstItem="sV0-wc-Y2J" firstAttribute="leading" secondItem="9Hj-qA-ros" secondAttribute="leading" id="Gy7-tX-Gqz"/>
+                            <constraint firstItem="xAz-fS-t4J" firstAttribute="centerX" secondItem="9g0-S3-geF" secondAttribute="centerX" id="Hrm-uq-COr"/>
                             <constraint firstItem="LkE-At-8mV" firstAttribute="height" secondItem="9g0-S3-geF" secondAttribute="height" id="Isq-Sj-pGG"/>
-                            <constraint firstItem="9Hj-qA-ros" firstAttribute="trailing" secondItem="kMJ-U5-uCh" secondAttribute="trailing" id="KxF-8q-4wD"/>
-                            <constraint firstItem="kMJ-U5-uCh" firstAttribute="top" secondItem="xAz-fS-t4J" secondAttribute="bottom" constant="28" id="QPU-SP-5nV"/>
-                            <constraint firstItem="xAz-fS-t4J" firstAttribute="centerX" secondItem="9g0-S3-geF" secondAttribute="centerX" id="eBq-qc-y47"/>
+                            <constraint firstAttribute="bottom" secondItem="sV0-wc-Y2J" secondAttribute="bottom" id="Jr4-Gh-ebP"/>
+                            <constraint firstItem="sV0-wc-Y2J" firstAttribute="trailing" secondItem="9Hj-qA-ros" secondAttribute="trailing" id="SoV-Yh-Jzm"/>
+                            <constraint firstItem="9Hj-qA-ros" firstAttribute="bottom" secondItem="xAz-fS-t4J" secondAttribute="bottom" constant="5" id="l3q-To-QAa"/>
+                            <constraint firstItem="9Hj-qA-ros" firstAttribute="bottom" secondItem="kMJ-U5-uCh" secondAttribute="bottom" constant="8" id="lXb-of-YZT"/>
                             <constraint firstItem="LkE-At-8mV" firstAttribute="centerX" secondItem="9Hj-qA-ros" secondAttribute="centerX" id="nVf-2H-z91"/>
-                            <constraint firstItem="kMJ-U5-uCh" firstAttribute="centerX" secondItem="9g0-S3-geF" secondAttribute="centerX" constant="100" id="u7n-FR-jXD"/>
+                            <constraint firstAttribute="bottom" secondItem="y2v-cZ-s9c" secondAttribute="bottom" id="qcP-gd-hvr"/>
                             <constraint firstItem="LkE-At-8mV" firstAttribute="centerY" secondItem="9Hj-qA-ros" secondAttribute="centerY" id="ubm-u6-zQ1"/>
+                            <constraint firstItem="y2v-cZ-s9c" firstAttribute="leading" secondItem="9Hj-qA-ros" secondAttribute="leading" id="ulp-kz-FiI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Hj-qA-ros"/>
                     </view>
                     <connections>
+                        <outlet property="barBottom" destination="y2v-cZ-s9c" id="5eo-VH-qRX"/>
+                        <outlet property="hiddenButton" destination="sV0-wc-Y2J" id="FSN-uP-SZg"/>
                         <outlet property="pageControl" destination="xAz-fS-t4J" id="YFX-oU-7Q2"/>
                         <outlet property="scrollView" destination="LkE-At-8mV" id="sVM-CE-6wE"/>
                         <outlet property="skipButton" destination="kMJ-U5-uCh" id="ART-WG-Igj"/>
@@ -113,10 +141,17 @@
             <point key="canvasLocation" x="-262" y="652"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="u4V-aa-s8C"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.up" catalog="system" width="120" height="128"/>
+        <image name="barBottom" width="414" height="120"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <namedColor name="background">
+            <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="purple">
             <color red="0.49019607843137253" green="0.34509803921568627" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

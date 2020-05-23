@@ -27,7 +27,7 @@ class Subview: UIView {
     
     //MARK: Mentor Local sentences
     var greetings : [String] = ["Hello", "Salut", "Hola", "Hey!", "This is a great day \nto be productive!",  "Privet!", "Welcome!", "Hey there!", "I'm happy to see you! \nCan't wait to start!", "Hi! I'll be by your side \nduring every challenge!\n" ]
-     //MARK: Mentor Local Motivations
+    //MARK: Mentor Local Motivations
     var motivation : [String] = ["Every challenge is possible if \nyou write it in the right way!", "Every single step becomes \na leap of faith", "Just reach up, \ndon't give up", "I can't wait to see all the \namazing things that you \nwill achieve!", "Every step will take you \na bit closer to your goal!", "Every step matter!"]
     
     //MARK: CHALLENGES
@@ -35,13 +35,13 @@ class Subview: UIView {
     //Incitazioni se nn ci sono challenge
     var noChallengeInProgress: [String] = ["Why don't you start \na new challenge?", "Today is a great day \nto start a new challenge", "A new beginning: \nstart your challenge today!", "What a great day \nto start a new challenge!", "Feeling bored? \nWhat about starting \na new challenge?", "What about trying \none of our challenges?", "Feeling productive? \nTry one of our challenge \nor create one yourself!", "Today is a great day \nto learn something new!", "If not now, when?"]
     //---------------------------------------------------------
-     //MARK: [Mentor] when a challenge is completed
+    //MARK: [Mentor] when a challenge is completed
     var challengeCompleted: [String] = ["Well done! \nYour reward is waiting for you \nin you profile section!", "Great Job! You deserved a reward, \ngo in your profile section \nto find it out!", "I knew you would have \nsmashed it! Your reward is waiting \nfor you in your profile section!", "You did it! \nYour reward is waiting for you \nin you profile section!", "You did amazing!", "It has been amazing to guide you \nthrough this challenge! ", "Your reward is waiting for you \nin you profile section!", "Congratulation! Your reward \nis waiting for you \nin your profile section!"]
-     //MARK: [Mentor] when a challenge is failed
+    //MARK: [Mentor] when a challenge is failed
     var challengeFailed: [String] = ["Oh no!", "Failing is just another part \nof the process, don't give up!", "Bad day happens, don't worry!", "I know you can do it, \njust try it again!", "I know you can do amazing things, \nkeep trying!", "Don't worry, it's not the end, \nyou can do it!", "Every failure is a lesson, \njust mae the best of it!", "It can happen, \ndon't worry, \nI believe in you!"]
-     //MARK: [Mentor] when a step is completed
+    //MARK: [Mentor] when a step is completed
     var stepCompleted : [String] = ["Great Job!", "Step Completed!", "Go, Go!", "Cool! This is \nyour next step", "Congratulations!","Amazing!"]
-     //MARK: [Mentor] when a a level is completed
+    //MARK: [Mentor] when a a level is completed
     var levelCompleted : [String] = ["Amazing! You've just \ncompleted your level", "Great!"]
     
     //MARK: INDICATIONS + CAZZIATONE
@@ -82,7 +82,7 @@ class Subview: UIView {
     //MARK: GREETINGS [RANDOM]
     func greetingsMentor() {
         msgIndex = .random(in: 0...2)
-        imageView.image = UIImage(named: "mentorgreetings")
+        imageView.image = UIImage(named: "oscar")
         
         let randomGreetings = Int(arc4random() % UInt32(greetings.count))
         user = User.userData
@@ -172,15 +172,15 @@ class Subview: UIView {
     
     func stepIndicationsInsideaChallenge(imageName: String){
         imageView.image = UIImage(named: imageName)
-       
-         user = User.userData
-         if user?.name != nil {
-             textView.text = "\(user!.name!) \(indicationsAddNewCardInsideaChallenge)"
-         }else{
-             textView.text = "\(indicationsAddNewCardInsideaChallenge)"
-         }
         
-   
+        user = User.userData
+        if user?.name != nil {
+            textView.text = "\(user!.name!) \(indicationsAddNewCardInsideaChallenge)"
+        }else{
+            textView.text = "\(indicationsAddNewCardInsideaChallenge)"
+        }
+        
+        
         let indicationsChallenge = textView
         print(indicationsChallenge!)
     }
@@ -248,6 +248,7 @@ class Subview: UIView {
          
          }
          }*/
+        //test
     }
     
 }
