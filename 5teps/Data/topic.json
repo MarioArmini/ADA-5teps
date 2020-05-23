@@ -74,38 +74,38 @@
         ]
     },
     {
-        "name": "Reading",
+        "name": "Relax",
         "icon": "libro",
         "color": "F77F57",
         "challenge": [
             {
-                "name": "Set up your profile!",
+                "name": "Movie Challenge!",
                 "steps": [
-                    {"name": "Go to your profile and choose your Name", "days": 1},
-                    {"name": "Pick your best picture!", "days": 1},
-                    {"name": "Create your first deck!", "days": 1},
-                    {"name": "Create at least two challenges", "days": 1},
-                    {"name": "Collect your prize!", "days": 1}
+                    {"name": "Watch at least one of Tarantino's movie!", "days": 1},
+                    {"name": "Take a day off and go to the closest Movie Theatre!", "days": 1},
+                    {"name": "Watch a movie in a foreign language!", "days": 1},
+                    {"name": "Watch an horror movie before going to bed (good luck)", "days": 1},
+                    {"name": "Rewatch your favorite Disney Movie!", "days": 1}
                 ]
             },
             {
-                "name": "Impara il russo",
+                "name": "Skin Care",
                 "steps": [
-                    {"name": "step #1", "days": 1},
-                    {"name": "step #2", "days": 1},
-                    {"name": "step #3", "days": 1},
-                    {"name": "step #4", "days": 1},
-                    {"name": "step #5", "days": 1}
+                    {"name": "Wash your face twice a day without soap but with micellar Water", "days": 1},
+                    {"name": "Drink at least 2L of water!", "days": 1},
+                    {"name": "Apply your tonic of cream everyday (morning and evening)", "days": 1},
+                    {"name": "Try the down sugar + lemon scrub", "days": 1},
+                    {"name": "Avoid candies for five days!", "days": 5}
                 ]
             },
             {
-                "name": "Non far niete x 5 giorni",
+                "name": "Social Media distancing",
                 "steps": [
-                    {"name": "step #1", "days": 1},
-                    {"name": "step #2", "days": 1},
-                    {"name": "step #3", "days": 1},
-                    {"name": "step #4", "days": 1},
-                    {"name": "step #5", "days": 1}
+                    {"name": "Do not post any story on instagram for today", "days": 1},
+                    {"name": "Set a specific time span for your social media interactions", "days": 1},
+                    {"name": "Use your phone just to check this step today", "days": 1},
+                    {"name": "Write down all the things you achieved during your no-phone day", "days": 1},
+                    {"name": "Organize a party with your friends and challenge them to not use your phones for the whole time!", "days": 1}
                 ]
             },
             {
