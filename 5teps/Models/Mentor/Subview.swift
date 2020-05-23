@@ -82,7 +82,7 @@ class Subview: UIView {
     //MARK: GREETINGS [RANDOM]
     func greetingsMentor() {
         msgIndex = .random(in: 0...2)
-        imageView.image = UIImage(named: "mentorgreetings")
+        imageView.image = UIImage(named: "oscar")
         
         let randomGreetings = Int(arc4random() % UInt32(greetings.count))
         user = User.userData
