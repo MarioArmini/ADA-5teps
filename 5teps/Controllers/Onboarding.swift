@@ -15,6 +15,7 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var barBottom: UIImageView!
     @IBOutlet weak var skipButton: UIButton!
     var mentor = Subview()
     var slides:[Slide] = []
@@ -49,21 +50,21 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
     func createSlides() -> [Slide] {
         
         let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide1.imageView.image = UIImage(named: "mentor")
-        slide1.title.text = "TITOLO 1"
-        slide1.desc.text  = "DESCRIZIONE 1"
+        //slide1.imageView.image = UIImage(named: "mentor")
+        slide1.title.text = "Start"
+        slide1.desc.text  = "If not now, when? Every deck is a goal to achieve. Find the most engaging for you and overcome every challenge! Nothing suitable? Create one yourself!"
         slide1.imageForTest.image = UIImage(named: "onboarding1")
         
         let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide2.imageView.image = UIImage(named: "mentor")
-        slide2.title.text = "TITOLO 2"
-        slide2.desc.text = "DESCRIZIONE 2"
+        //slide2.imageView.image = UIImage(named: "mentor")
+        slide2.title.text = "Pick"
+        slide2.desc.text = "Feeling Brave? Create your own challenge: set your steps, your deadlines and you're ready to go! Don't forget to check your steps as done to keep your progress updated!"
         slide2.imageForTest.image = UIImage(named: "onboarding2")
         
         let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide3.imageView.image = UIImage(named: "mentor")
-        slide3.title.text = "TITOLO 3"
-        slide3.desc.text = "DESCRIZIONE 3"
+        //slide3.imageView.image = UIImage(named: "mentor")
+        slide3.title.text = "Smash"
+        slide3.desc.text = "Win every challenge in order to achieve your goals and reach everyday an higher level! Our virtual assistant will support you during your personal growth."
        slide3.imageForTest.image = UIImage(named: "onboarding3")
         return [slide1, slide2, slide3]
     }
