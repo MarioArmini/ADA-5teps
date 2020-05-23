@@ -192,8 +192,10 @@ extension Challenge {
             self.finish()
             return false
         }
+        var updateDeadLine = false
         if let step = getCurrentStepChallenge() {
             step.finish()
+            updateDeadLine = true
         }
         self.currentStep = self.currentStep + 1
         
@@ -201,7 +203,6 @@ extension Challenge {
         if self.currentStep == 1 {
             self.calculateDeadLine()
         }
-        var updateDeadLine = false
         let steps = self.stepsOrder
         for i in steps {
             if i.step < self.currentStep {

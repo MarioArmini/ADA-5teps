@@ -9,7 +9,7 @@
 import UIKit
 
 class StepsView: UIView {
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var button1: UIButton!
@@ -124,18 +124,43 @@ class StepsView: UIView {
             self.button5.setBackgroundImage(UIImage(systemName: "circle"), for: .normal)
             self.deadlineLabel5.text = ""
         }
+        if let c = challenge {
+            if c.currentStep > 0 && c.currentStep <= Challenge.DEFAULT_STEPS {
+                let deadline = steps[Int(c.currentStep) - 1].daysToDeadline()
+                switch(c.currentStep) {
+                case 1:
+                    self.deadlineLabel1.text = "\(deadline) day/s"
+                    break;
+                case 2:
+                    self.deadlineLabel2.text = "\(deadline) day/s"
+                    break;
+                case 3:
+                    self.deadlineLabel3.text = "\(deadline) day/s"
+                    break;
+                case 4:
+                    self.deadlineLabel4.text = "\(deadline) day/s"
+                    break;
+                case 5:
+                    self.deadlineLabel5.text = "\(deadline) day/s"
+                    break;
+                default:
+                    break;
+                }
+            }
+        }
+        
     }
     
     func drawLineFromPoint(start: CGPoint, toPoint end: CGPoint, ofColor lineColor: UIColor, inView view:UIView) {
         let path = UIBezierPath()
         path.move(to: start)
         path.addLine(to: end)
-
+        
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath
         shapeLayer.strokeColor = lineColor.cgColor
         shapeLayer.lineWidth = 1.5
-
+        
         view.layer.insertSublayer(shapeLayer, below: self.button1.layer)
     }
     
