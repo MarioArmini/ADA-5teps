@@ -39,7 +39,7 @@ class RandomChallengeViewController: UIViewController {
         }
         
         // MARK: update Mentor topview -------------------------------------------------------------
-        referenceForViewTop?.greetingsMentor()
+        referenceForViewTop?.randomShakingChallenge()
         //------------------------------------------------------------------
     
         let list = Challenge.listByState(state: .Create)

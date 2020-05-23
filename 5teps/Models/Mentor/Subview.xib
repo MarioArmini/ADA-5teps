@@ -26,7 +26,7 @@
                     </subviews>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mentor's message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="ICr-Kl-4Cb">
-                    <rect key="frame" x="220.5" y="39" width="114" height="16"/>
+                    <rect key="frame" x="230.5" y="39" width="114" height="16"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
                 <constraint firstAttribute="bottom" secondItem="Nfb-tF-AgB" secondAttribute="bottom" id="1Ra-u6-bLL"/>
                 <constraint firstItem="Nfb-tF-AgB" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="8cR-ZV-NVr"/>
                 <constraint firstItem="Nfb-tF-AgB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="EtX-43-vCu"/>
-                <constraint firstItem="ICr-Kl-4Cb" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="40" id="R1d-Ml-dnb"/>
+                <constraint firstItem="ICr-Kl-4Cb" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="50" id="R1d-Ml-dnb"/>
                 <constraint firstItem="Nfb-tF-AgB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="ZOX-4x-4KA"/>
                 <constraint firstItem="ICr-Kl-4Cb" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-10" id="zXf-vT-V31"/>
             </constraints>

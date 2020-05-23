@@ -52,7 +52,7 @@ class Subview: UIView {
     var indicationsAddNewCardInsideaChallenge : String = "Insert your card's name, \nset your steps and days."
     
     var mentorImages : [String] = ["mentor", "mentor1", "mentor2"]
-    
+    var randomChallenge: String = "This is your \nrandom challenge!"
     var notificationIfChallengeIsInProgress = [String]()
     var notificationIfChallengeIsNotInProgress = [String]()
     
@@ -137,6 +137,20 @@ class Subview: UIView {
         let levelCom = textView
         print(levelCom!)
     }
+    
+    func randomShakingChallenge() {
+        imageView.image = UIImage(named: "oscar")
+        user = User.userData
+        if user?.name != nil {
+            textView.text = "\(user!.name!) \(randomChallenge)"
+        }else{
+            textView.text = "\(randomChallenge)"
+        }
+        
+        
+       
+    }
+    
     
     // MARK: if your challenge is failed
     func ifTheChallengeIsFailed(imageName: String) {
