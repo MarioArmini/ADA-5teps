@@ -27,10 +27,10 @@
             {
                 "name": "10 minutes running in 5 days",
                 "steps": [
-                    {"name": "Run for 4 min and rest for 1 minute. Repeat 2 times", "days": 1},
-                    {"name": "Run for 5 min and wal for 5 minutes", "days": 1},
-                    {"name": "Run for 5 min and and add 10 seconds of sprint!", "days": 1},
-                    {"name": "Run for a minute and walk for another one. Repeat 5 times!", "days": 1},
+                    {"name": "Run for 4 min and rest for 1 min. Repeat 2 times", "days": 1},
+                    {"name": "Run for 5 min and walk for 5 min", "days": 1},
+                    {"name": "Run for 5 min and and add 10 sec of sprint!", "days": 1},
+                    {"name": "Run for a min and walk for another one. Repeat 5 times!", "days": 1},
                     {"name": "10 minutes run!", "days": 1}
                 ]
             }
@@ -91,10 +91,10 @@
             {
                 "name": "Skin Care",
                 "steps": [
-                    {"name": "Wash your face twice a day without soap but with micellar Water", "days": 1},
+                    {"name": "Wash your face twice a day with micellar Water", "days": 1},
                     {"name": "Drink at least 2L of water!", "days": 1},
-                    {"name": "Apply your tonic of cream everyday (morning and evening)", "days": 1},
-                    {"name": "Try the down sugar + lemon scrub", "days": 1},
+                    {"name": "Apply your tonic of cream everyday twice", "days": 1},
+                    {"name": "Try the brown sugar + lemon scrub", "days": 1},
                     {"name": "Avoid candies for five days!", "days": 5}
                 ]
             },
@@ -105,7 +105,7 @@
                     {"name": "Set a specific time span for your social media interactions", "days": 1},
                     {"name": "Use your phone just to check this step today", "days": 1},
                     {"name": "Write down all the things you achieved during your no-phone day", "days": 1},
-                    {"name": "Organize a party with your friends and challenge them to not use your phones for the whole time!", "days": 1}
+                    {"name": "While you are with friends challenge them to not use phones at all!", "days": 1}
                 ]
             },
             {
