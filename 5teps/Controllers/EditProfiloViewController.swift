@@ -43,7 +43,7 @@ class EditProfiloViewController: UIViewController {
     @IBAction func onClickSave(_ sender: UIButton) {
         let user = User.userData
         user.name = nameTextField.text ?? ""
-        user.profiloImage = imageView.image?.pngData()
+        user.profiloImage = imageView.image?.jpegData(compressionQuality: 1.0)
         user.save()
         
         self.dismiss(animated: true) {
