@@ -65,7 +65,7 @@
                 "name": "Smoothies Challenge!",
                 "steps": [
                     {"name": "Apple Pie Smoothie!", "days": 1},
-                    {"name": "Metabolism Boosting Smoothie": 1},
+                    {"name": "Metabolism Boosting Smoothie", "days": 1},
                     {"name": "Immunity Boosting Orange Smoothie", "days": 1},
                     {"name": "Banana Smoothie", "days": 1},
                     {"name": "Cocoa Almond Protein Smoothie", "days": 1}
@@ -107,22 +107,24 @@
                     {"name": "Write down all the things you achieved during your no-phone day", "days": 1},
                     {"name": "While you are with friends challenge them to not use phones at all!", "days": 1}
                 ]
-            },
+            }
+        ]
+    },
+    {
+        "name": "First Challenge",
+        "icon": "libro",
+        "color": "F77F57",
+        "challenge": [
             {
-            "name": "First Challenge",
-            "icon": "libro",
-            "color": "F77F57",
-            "challenge": [
-                {
-                    "name": "Set up your profile!",
-                    "steps": [
-                        {"name": "Go to your profile and choose your Name", "days": 1},
-                        {"name": "Pick your best picture!", "days": 1},
-                        {"name": "Create your first deck!", "days": 1},
-                        {"name": "Create at least two challenges", "days": 1},
-                        {"name": "Collect your prize!", "days": 1}
-                    ]
-                },
+                "name": "Set up your profile!",
+                "steps": [
+                    {"name": "Go to your profile and choose your Name", "days": 1},
+                    {"name": "Pick your best picture!", "days": 1},
+                    {"name": "Create your first deck!", "days": 1},
+                    {"name": "Create at least two challenges", "days": 1},
+                    {"name": "Collect your prize!", "days": 1}
+                ]
+            }
         ]
     }
 ]

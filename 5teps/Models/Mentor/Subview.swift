@@ -46,13 +46,13 @@ class Subview: UIView {
     
     //MARK: INDICATIONS + CAZZIATONE
     //MARK: when an user creates a new card. Some indications are useful
-    var stepIndications: [String] = ["select an icon, a color and \ntype a name for your card."]
+    var stepIndications: [String] = ["Select an icon, a color and \ntype a name for your card."]
     var arrayCazziatone: [String] = ["Hey! What's wrong? \nYou can do more!", "You have to demonstrate \nyour commitment!", "Okay, You can do \nbetter than that!", "Come on, it's your \ntime to shine!\nDo more!", "If you don't try, you won't know!", "You'll never know what \nyou are capable of \nif you don't try"]
     
     var indicationsAddNewCardInsideaChallenge : String = "Insert your card's name, \nset your steps and days."
     
     var mentorImages : [String] = ["mentor", "mentor1", "mentor2"]
-    
+    var randomChallenge: String = "This is your \nrandom challenge!"
     var notificationIfChallengeIsInProgress = [String]()
     var notificationIfChallengeIsNotInProgress = [String]()
     
@@ -138,6 +138,20 @@ class Subview: UIView {
         print(levelCom!)
     }
     
+    func randomShakingChallenge() {
+        imageView.image = UIImage(named: "oscar")
+        user = User.userData
+        if user?.name != nil {
+            textView.text = "\(user!.name!) \(randomChallenge)"
+        }else{
+            textView.text = "\(randomChallenge)"
+        }
+        
+        
+       
+    }
+    
+    
     // MARK: if your challenge is failed
     func ifTheChallengeIsFailed(imageName: String) {
         //var challenge completed
@@ -154,7 +168,7 @@ class Subview: UIView {
         let randomSomeSteps = Int(arc4random() % UInt32(stepIndications.count))
         user = User.userData
         if user?.name != nil {
-            textView.text = "\(user!.name!), \(stepIndications[randomSomeSteps])"
+            textView.text = "\(user!.name!) \(stepIndications[randomSomeSteps])"
         }else{
             textView.text = "\(stepIndications[randomSomeSteps])"
         }
@@ -191,13 +205,13 @@ class Subview: UIView {
         var title = ""
         var message = ""
         
-        title = "Forza devi completare la challenge"
+        title = "Come on, you have to achieve your goals!"
         if dayToLeft == 0 {
-            message = "E' scaduto il tempo forza forza per completare \(name)"
+            message = " Your time is up!!! Come on, complete your challenge! \(name)"
         } else if dayToLeft == 1 {
-            message = "Ti mancano solo un giorno per completare \(name)"
+            message = "One day left! \(name)"
         } else {
-            message = "Ti mancano solo \(dayToLeft) giorni per completare \(name)"
+            message = "Days left \(dayToLeft) to complete your challenge! \(name)"
         }
         
         return (title: title, message: message)
@@ -206,8 +220,8 @@ class Subview: UIView {
         var title = ""
         var message = ""
         
-        title = "Start a challenge!!!"
-        message = "Do something, start a challenge"
+        title = "Your Mentor"
+        message = "Today is a great day to start a challenge!"
         
         return (title: title, message: message)
     }
@@ -221,10 +235,10 @@ class Subview: UIView {
         let challengeStarted = Challenge.listInProgress()
         if challengeStarted.count > 0 {
             //quotes
-            mentorMotivatesYou(imageName: "mentorindicates")
+            mentorMotivatesYou(imageName: "oscar")
         }else{
             //Why don't u start a new challenge?
-            IfYouHaveNoChallenges(imageName: "mentorindicates")
+            IfYouHaveNoChallenges(imageName: "oscar")
         }
     }
     

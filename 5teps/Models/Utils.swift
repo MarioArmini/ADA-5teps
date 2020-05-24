@@ -99,8 +99,14 @@ public class Utils {
     public static func getArrayColor() -> [ColorCard] {
         var colors = [ColorCard]()
         colors.append(ColorCard(color1: "FFDF88", color2: "FFC859"))
+        colors.append(ColorCard(color1: "DCFF81", color2: "BBE846"))
+        colors.append(ColorCard(color1: "86FAB8", color2: "4DDA8A"))
         colors.append(ColorCard(color1: "BED5FF", color2: "89B2FD"))
+        colors.append(ColorCard(color1: "A2C8F0", color2: "4AA1FF"))
         colors.append(ColorCard(color1: "FFA183", color2: "F77F57"))
+        colors.append(ColorCard(color1: "FFABFB", color2: "E352DC"))
+        colors.append(ColorCard(color1: "AEA7FD", color2: "7569FF"))
+        colors.append(ColorCard(color1: "FAC1CF", color2: "FF9BB4"))
         return colors
     }
     public static func addGradient(imageBackground: UIView, color1: UIColor, color2: UIColor) -> UIView {
@@ -131,5 +137,27 @@ public class Utils {
         dateFormatter.dateFormat = format
         
         return dateFormatter.string(from: date)
+    }
+    public static func ResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+
+        let widthRatio  = targetSize.width  / image.size.width
+        let heightRatio = targetSize.height / image.size.height
+
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+        }
+
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage!
     }
 }

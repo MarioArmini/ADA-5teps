@@ -43,7 +43,7 @@ class EditProfiloViewController: UIViewController {
     @IBAction func onClickSave(_ sender: UIButton) {
         let user = User.userData
         user.name = nameTextField.text ?? ""
-        user.profiloImage = imageView.image?.pngData()
+        user.profiloImage = imageView.image?.jpegData(compressionQuality: 1.0)
         user.save()
         
         self.dismiss(animated: true) {
@@ -60,7 +60,9 @@ class EditProfiloViewController: UIViewController {
         
         let azione1 = UIAlertAction(title: "Take a picture", style: .default,
             handler: {(paramAction:UIAlertAction!) in
-                self.takePhoto()
+                DispatchQueue.main.async {
+                  self.takePhoto()
+                }
         })
         let azione2 = UIAlertAction(title: "Choose a photo", style: .default,
             handler: {(paramAction:UIAlertAction!) in
@@ -122,7 +124,7 @@ extension EditProfiloViewController: UIImagePickerControllerDelegate,UINavigatio
         }
         
         imagePicker.dismiss(animated: true) {
-            self.imageView.image = image
+            self.imageView.image = Utils.ResizeImage(image: image, targetSize: CGSize(width: 200, height: 200))
         }
         
     }

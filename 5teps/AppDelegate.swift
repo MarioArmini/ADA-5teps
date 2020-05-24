@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         notificationCenter.delegate = self
+        generateScedulateNotify()
         return true
     }
     
@@ -148,14 +149,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             body = message.message
             identifier = "generic"
         }
-        //timeInterval = TimeInterval(5 * 60) //TEST
+        //timeInterval = TimeInterval(10 * 60) //TEST
+        identifier = identifier + "-\(UUID())"
         scheduleNotification(title: title, body: body, identifier: identifier, timeInterval: timeInterval)
     }
     func scheduleNotification(title: String, body: String, identifier: String, timeInterval: TimeInterval) {
         
         let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.removeAllPendingNotificationRequests()
-        notificationCenter.removeAllDeliveredNotifications()
+        //notificationCenter.removeAllPendingNotificationRequests()
+        //notificationCenter.removeAllDeliveredNotifications()
         
         let content = UNMutableNotificationContent()
         content.title = title
@@ -173,15 +175,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(dateEvent)
             let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: dateEvent)
             
-            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
-            //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: true)
+            //let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: true)
             
             let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
             
             
             notificationCenter.add(request) { (error) in
+                print(request)
                 if let error = error {
                     print("Error \(error.localizedDescription)")
+                } else {
+                    print("Request notify added \(trigger) \(identifier) \(content)")
                 }
             }
         }
