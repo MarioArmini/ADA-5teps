@@ -149,7 +149,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             body = message.message
             identifier = "generic"
         }
-        timeInterval = TimeInterval(10 * 60) //TEST
+        //timeInterval = TimeInterval(10 * 60) //TEST
         identifier = identifier + "-\(UUID())"
         scheduleNotification(title: title, body: body, identifier: identifier, timeInterval: timeInterval)
     }
