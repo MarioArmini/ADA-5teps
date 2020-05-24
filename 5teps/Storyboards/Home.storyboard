@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ewd-KP-hP9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ewd-KP-hP9">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -76,7 +76,7 @@
                         <color key="badgeColor" name="blue"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Topics" id="7Jm-JZ-sZI">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="addButton" largeContentSizeImage="addButton" id="Vlg-RU-ocC">
+                        <barButtonItem key="rightBarButtonItem" image="plus.circle.fill" catalog="system" id="Vlg-RU-ocC">
                             <color key="tintColor" red="0.3893936872" green="0.47359389070000002" blue="0.74905043839999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="onClickNewTopic:" destination="ViF-AZ-p7O" id="CCz-uv-Lz5"/>
@@ -102,14 +102,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Tg-eU-bw2">
-                                <rect key="frame" x="0.0" y="44" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="100"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="3fj-kI-IlE"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qpK-iC-jR6">
-                                <rect key="frame" x="0.0" y="152" width="414" height="710"/>
+                                <rect key="frame" x="0.0" y="196" width="414" height="617"/>
                                 <color key="backgroundColor" name="background"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="k4s-J1-VFD">
                                     <size key="itemSize" width="155" height="169"/>
@@ -147,12 +147,15 @@
                         <viewLayoutGuide key="safeArea" id="Dz9-a9-uwY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Challenges" id="pDd-Fx-yZT">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="wZM-nx-rGT">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus.circle.fill" catalog="system" style="plain" id="wZM-nx-rGT">
+                            <color key="tintColor" name="blue"/>
                             <connections>
                                 <action selector="onClickNewChallenge:" destination="Gv8-kr-XoY" id="JL3-tU-93i"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="challengeCollectionView" destination="qpK-iC-jR6" id="q9y-4o-uEx"/>
                         <outlet property="viewMentorTop" destination="1Tg-eU-bw2" id="BPt-R4-WJC"/>
@@ -165,7 +168,7 @@
     </scenes>
     <resources>
         <image name="Newcards" width="31" height="31"/>
-        <image name="addButton" width="29" height="29"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="background">
             <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
