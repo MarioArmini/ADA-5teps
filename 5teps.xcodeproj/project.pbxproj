@@ -25,6 +25,7 @@
 		4E8FAED22479859D00BA475D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8FAED12479859D00BA475D /* Assets.xcassets */; };
 		4EA0879C2465FD33001DEFBF /* Subview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA0879B2465FD33001DEFBF /* Subview.swift */; };
 		4EA0879E2465FD70001DEFBF /* Subview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0879D2465FD70001DEFBF /* Subview.xib */; };
+		4ECE83D1247ADA38000C0323 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECE83D0247ADA38000C0323 /* CloudKit.framework */; };
 		6C09D3C02469B40100445C07 /* ProfiloGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09D3BF2469B40100445C07 /* ProfiloGoalViewController.swift */; };
 		6C09D3C22469B41600445C07 /* ProfiloChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09D3C12469B41600445C07 /* ProfiloChallengeViewController.swift */; };
 		6C09D3C42469B94600445C07 /* CardChallenge.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C09D3C32469B94600445C07 /* CardChallenge.xib */; };
@@ -98,6 +99,8 @@
 		4E8FAED12479859D00BA475D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EA0879B2465FD33001DEFBF /* Subview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subview.swift; sourceTree = "<group>"; };
 		4EA0879D2465FD70001DEFBF /* Subview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Subview.xib; sourceTree = "<group>"; };
+		4ECE83CE247ADA34000C0323 /* 5teps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 5teps.entitlements; sourceTree = "<group>"; };
+		4ECE83D0247ADA38000C0323 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		6C09D3BF2469B40100445C07 /* ProfiloGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfiloGoalViewController.swift; sourceTree = "<group>"; };
 		6C09D3C12469B41600445C07 /* ProfiloChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfiloChallengeViewController.swift; sourceTree = "<group>"; };
 		6C09D3C32469B94600445C07 /* CardChallenge.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardChallenge.xib; sourceTree = "<group>"; };
@@ -155,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ECE83D1247ADA38000C0323 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +170,7 @@
 			children = (
 				01B3E2D22464615400B0C18A /* 5teps */,
 				01B3E2D12464615400B0C18A /* Products */,
+				4ECE83CF247ADA38000C0323 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,6 +185,7 @@
 		01B3E2D22464615400B0C18A /* 5teps */ = {
 			isa = PBXGroup;
 			children = (
+				4ECE83CE247ADA34000C0323 /* 5teps.entitlements */,
 				6CF284082466F1DF00340C6B /* View */,
 				6C6FEDB024666FA80089BDFF /* Data */,
 				6C64C82A24648E0200D03184 /* Models */,
@@ -249,6 +255,14 @@
 				4EA0879D2465FD70001DEFBF /* Subview.xib */,
 			);
 			path = Mentor;
+			sourceTree = "<group>";
+		};
+		4ECE83CF247ADA38000C0323 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4ECE83D0247ADA38000C0323 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		6C64C82A24648E0200D03184 /* Models */ = {
@@ -588,8 +602,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = 5teps/5teps.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LZCKTYVC4V;
+				DEVELOPMENT_TEAM = TEFZ2Z35DD;
 				INFOPLIST_FILE = 5teps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -606,8 +621,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = 5teps/5teps.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LZCKTYVC4V;
+				DEVELOPMENT_TEAM = TEFZ2Z35DD;
 				INFOPLIST_FILE = 5teps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

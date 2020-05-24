@@ -205,13 +205,13 @@ class Subview: UIView {
         var title = ""
         var message = ""
         
-        title = "Forza devi completare la challenge"
+        title = "Come on, you have to achieve your goals!"
         if dayToLeft == 0 {
-            message = "E' scaduto il tempo forza forza per completare \(name)"
+            message = " Your time is up!!! Come on, complete your challenge! \(name)"
         } else if dayToLeft == 1 {
-            message = "Ti mancano solo un giorno per completare \(name)"
+            message = "One day left! \(name)"
         } else {
-            message = "Ti mancano solo \(dayToLeft) giorni per completare \(name)"
+            message = "Days left \(dayToLeft) to complete your challenge! \(name)"
         }
         
         return (title: title, message: message)
@@ -220,8 +220,8 @@ class Subview: UIView {
         var title = ""
         var message = ""
         
-        title = "Start a challenge!!!"
-        message = "Do something, start a challenge"
+        title = "Your Mentor"
+        message = "Today is a great day to start a challenge!"
         
         return (title: title, message: message)
     }
