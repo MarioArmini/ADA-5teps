@@ -122,7 +122,7 @@ extension EditProfiloViewController: UIImagePickerControllerDelegate,UINavigatio
         }
         
         imagePicker.dismiss(animated: true) {
-            self.imageView.image = image
+            self.imageView.image = Utils.ResizeImage(image: image, targetSize: CGSize(width: 200, height: 200))
         }
         
     }
