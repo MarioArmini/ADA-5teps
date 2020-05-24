@@ -46,7 +46,7 @@ class Subview: UIView {
     
     //MARK: INDICATIONS + CAZZIATONE
     //MARK: when an user creates a new card. Some indications are useful
-    var stepIndications: [String] = ["select an icon, a color and \ntype a name for your card."]
+    var stepIndications: [String] = ["Select an icon, a color and \ntype a name for your card."]
     var arrayCazziatone: [String] = ["Hey! What's wrong? \nYou can do more!", "You have to demonstrate \nyour commitment!", "Okay, You can do \nbetter than that!", "Come on, it's your \ntime to shine!\nDo more!", "If you don't try, you won't know!", "You'll never know what \nyou are capable of \nif you don't try"]
     
     var indicationsAddNewCardInsideaChallenge : String = "Insert your card's name, \nset your steps and days."
@@ -168,7 +168,7 @@ class Subview: UIView {
         let randomSomeSteps = Int(arc4random() % UInt32(stepIndications.count))
         user = User.userData
         if user?.name != nil {
-            textView.text = "\(user!.name!), \(stepIndications[randomSomeSteps])"
+            textView.text = "\(user!.name!) \(stepIndications[randomSomeSteps])"
         }else{
             textView.text = "\(stepIndications[randomSomeSteps])"
         }
