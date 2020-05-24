@@ -60,7 +60,9 @@ class EditProfiloViewController: UIViewController {
         
         let azione1 = UIAlertAction(title: "Take a picture", style: .default,
             handler: {(paramAction:UIAlertAction!) in
-                self.takePhoto()
+                DispatchQueue.main.async {
+                  self.takePhoto()
+                }
         })
         let azione2 = UIAlertAction(title: "Choose a photo", style: .default,
             handler: {(paramAction:UIAlertAction!) in
