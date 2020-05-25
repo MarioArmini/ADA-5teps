@@ -68,10 +68,13 @@ class InProgressViewController: UIViewController {
         let endNotification = Notification.Name("endNotification")
         NotificationCenter.default.addObserver(self, selector: #selector(endChallenge), name: endNotification, object: nil)
         
-        let endNotification2 = Notification.Name("endNotification2")
-        NotificationCenter.default.addObserver(self, selector: #selector(endChallenge), name: endNotification2, object: nil)
+        //let endNotification2 = Notification.Name("endNotification2")
+        //NotificationCenter.default.addObserver(self, selector: #selector(endChallenge), name: endNotification2, object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
+        reloadData()
+    }
+    func reloadData() {
         sections = [Int: [Challenge]]()
         dateSection = [String:Int]()
         let list = Challenge.listInProgress()
@@ -99,24 +102,13 @@ class InProgressViewController: UIViewController {
     }
     
     @objc func endChallenge(){
-        let alert2 = UIAlertController(title: "Congratulations!", message: "You completed a challenge!", preferredStyle: .alert)
-        alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+        let alert = UIAlertController(title: "Congratulations!", message: "You completed a challenge!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             self.animateOut()
-            self.challengeCollectionView.reloadData()
+            self.reloadData()
             }))
-        self.present(alert2, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 // MARK: Mentor SubviewDelegate

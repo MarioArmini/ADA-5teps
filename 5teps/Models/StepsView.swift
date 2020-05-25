@@ -61,11 +61,35 @@ class StepsView: UIView {
         label4.text = steps[3].name
         label5.text = steps[4].name
         
-        self.startButton.isHidden = challenge.isStart
+        self.startButton.isHidden = !challenge.isCreate
         
         self.backgroundColor = challenge.topic?.bgColor
         verifySteps()
-        
+        for i in 0..<5 {
+            var enable = true
+            if self.steps[i].isCreate || self.steps[i].isFinish {
+                enable = false
+            }
+            switch(i) {
+            case 0:
+                self.button1.isEnabled = enable
+                break;
+            case 1:
+                self.button2.isEnabled = enable
+                break;
+            case 2:
+                self.button3.isEnabled = enable
+                break;
+            case 3:
+                self.button4.isEnabled = enable
+                break;
+            case 4:
+                self.button5.isEnabled = enable
+                break;
+            default:
+                break;
+            }
+        }
     }
     func verifySteps(){
         if self.steps[0].isFinish{
@@ -75,9 +99,10 @@ class StepsView: UIView {
             let deadline = steps[1].daysToDeadline()
             self.deadlineLabel2.text = "\(deadline) day/s"
         }
-        else if !self.steps[0].isFinish{
+        else if !self.steps[0].isFinish {
             self.button1.setBackgroundImage(UIImage(systemName: "circle"), for: .normal)
             self.deadlineLabel1.text = ""
+            
         }
         
         if self.steps[1].isFinish{
@@ -170,6 +195,7 @@ class StepsView: UIView {
         let deadline = steps[0].daysToDeadline()
         self.deadlineLabel1.text = "\(deadline) day/s"
         //self.startButton.alpha = 0
+        updateUI()
     }
     @IBAction func completeStep1(_ sender: Any) {
         self.button1.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
@@ -181,6 +207,7 @@ class StepsView: UIView {
         self.deadlineLabel1.text = "Completed"
         let deadline = steps[1].daysToDeadline()
         self.deadlineLabel2.text = "\(deadline) day/s"
+        updateUI()
     }
     @IBAction func completeStep2(_ sender: Any) {
         self.button2.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
@@ -192,6 +219,7 @@ class StepsView: UIView {
         self.deadlineLabel2.text = "Completed"
         let deadline = steps[2].daysToDeadline()
         self.deadlineLabel3.text = "\(deadline) day/s"
+        updateUI()
     }
     @IBAction func completeStep3(_ sender: Any) {
         self.button3.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
@@ -203,6 +231,7 @@ class StepsView: UIView {
         self.deadlineLabel3.text = "Completed"
         let deadline = steps[3].daysToDeadline()
         self.deadlineLabel4.text = "\(deadline) day/s"
+        updateUI()
     }
     @IBAction func completeStep4(_ sender: Any) {
         self.button4.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
@@ -214,6 +243,7 @@ class StepsView: UIView {
         self.deadlineLabel4.text = "Completed"
         let deadline = steps[4].daysToDeadline()
         self.deadlineLabel5.text = "\(deadline) day/s"
+        updateUI()
     }
     @IBAction func completeStep5(_ sender: Any) {
         self.button5.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
@@ -226,7 +256,8 @@ class StepsView: UIView {
         let endNotification = Notification.Name("endNotification")
         NotificationCenter.default.post(name: endNotification, object: nil)
         
-        let endNotification2 = Notification.Name("endNotification2")
-        NotificationCenter.default.post(name: endNotification2, object: nil)
+        //let endNotification2 = Notification.Name("endNotification2")
+        //NotificationCenter.default.post(name: endNotification2, object: nil)
+        updateUI()
     }
 }
