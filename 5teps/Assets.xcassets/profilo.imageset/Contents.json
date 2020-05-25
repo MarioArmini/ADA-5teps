@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "carte (3).png",
+      "filename" : "profilo.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "carte@2x (3).png",
+      "filename" : "profilo@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "carte@3x (3).png",
+      "filename" : "profilo@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
