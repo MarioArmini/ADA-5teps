@@ -19,6 +19,8 @@ class ProfileViewController: UIViewController {
     var user: User?
     var referenceForViewTop : Subview?
     var currentLevel: CurrentLevel!
+    var ring: Ring?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -42,12 +44,13 @@ class ProfileViewController: UIViewController {
         self.profileImageView.layer.borderWidth = 4.0
         self.profileImageView.clipsToBounds = true
         
-        let ring = Ring(frame: profileImageView.bounds)
-        ring.colorCircle = UIColor(named: "purple") ?? UIColor.red
-        ring.lineWidth = 6
-        ring.endAngle = Goal.getPercentualeComplete(level: currentLevel)
-        if ring.endAngle != 0 {
-            self.profileImageView.addSubview(ring)
+        ring?.removeFromSuperview()
+        ring = Ring(frame: profileImageView.bounds)
+        ring?.colorCircle = UIColor(named: "blue") ?? UIColor.red
+        ring?.lineWidth = 6
+        ring?.endAngle = Goal.getPercentualeComplete(level: currentLevel)
+        if ring!.endAngle != 0 {
+            self.profileImageView.addSubview(ring!)
         }
         
         

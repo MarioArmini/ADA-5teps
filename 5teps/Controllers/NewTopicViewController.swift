@@ -54,6 +54,12 @@ class NewTopicViewController: UIViewController {
         }
         cardView.backgroundColor = UIColor.clear
         
+        //Keyboard Handler
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         if topic != nil {
@@ -133,14 +139,30 @@ class NewTopicViewController: UIViewController {
         shadowLayer?.cornerRadius = cornerRadius
         shadowLayer?.applyShadow(color: UIColor.black, alpha: 0.50, x: 6, y: 5, blur: 50, spread: -13, path: nil)
         gradientView?.layer.insertSublayer(shadowLayer!, at: 0)
-        
-        
     }
     override func viewDidLayoutSubviews() {
         gradientView?.frame = cardView.bounds
         gradientLayer?.frame = cardView.bounds
         shadowLayer?.path = UIBezierPath(roundedRect: cardView.bounds, cornerRadius: cornerRadius).cgPath
-        
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                var height = keyboardSize.height
+                height -= (view.frame.height - cardView.frame.minY - cardView.frame.height)
+                self.view.frame.origin.y -= height
+            }
+        }
+    }
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if ((notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y = 0
+            }
+        }
     }
 }
 

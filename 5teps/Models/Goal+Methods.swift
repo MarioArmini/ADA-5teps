@@ -138,7 +138,11 @@ extension Goal {
     public static func getPercentualeComplete(level: CurrentLevel) -> CGFloat{
         var val: Int = 0
         
-        val = level.count * 360/MAX_GOAL_CHANGE_LEVEL
+        val = 72 * level.count
+        if(val == 360) {
+            val = val - 1
+        }
+        //val = level.count * 360/MAX_GOAL_CHANGE_LEVEL
         
         return Ring.degreeToRadiant(gradi: val)
     }

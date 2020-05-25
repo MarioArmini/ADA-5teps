@@ -234,7 +234,7 @@ extension Challenge {
             self.save()
             //Salvo l'obiettivo raggiunto
             var level = Goal.getMaxLevel()
-            if (level.count + 1) >= Goal.MAX_GOAL_CHANGE_LEVEL {
+            if (level.count) >= Goal.MAX_GOAL_CHANGE_LEVEL {
                 level.level = level.level + 1
                 level.count = 0
             }
@@ -246,6 +246,12 @@ extension Challenge {
             goal.icon = Goal.findIconMedal(level: goal.level)
             goal.challenge = self
             goal.save()
+            
+            let remainChallenges = self.topic?.findChallengeByState(state: .Create, state2: .Started)
+            if remainChallenges?.count == 0 {
+                self.topic?.active = false
+                self.save()
+            }
         }
     }
     public func getCurrentStepChallenge() -> StepChallenge? {

@@ -93,13 +93,13 @@ class TopicCollectionViewCell: UICollectionViewCell {
         
         editButton.frame = CGRect(x: 10, y: viewCard.layer.bounds.height / 2 - 30, width: 40, height: 40)
         editButton.setImage(UIImage(systemName: "pencil"), for: .normal)
-        editButton.backgroundColor = UIColor(named: "purple")
+        editButton.backgroundColor = UIColor(named: "blue")
         editButton.tintColor = UIColor.white
         editButton.layer.cornerRadius = 20
         
         deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
         deleteButton.frame = CGRect(x: viewCard.layer.bounds.width - 50, y: viewCard.layer.bounds.height / 2 - 30, width: 40, height: 40)
-        deleteButton.backgroundColor = UIColor(named: "purple")
+        deleteButton.backgroundColor = UIColor(named: "blue")
         deleteButton.tintColor = UIColor.white
         deleteButton.layer.cornerRadius = 20
         

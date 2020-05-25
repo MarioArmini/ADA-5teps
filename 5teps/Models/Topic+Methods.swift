@@ -37,6 +37,9 @@ extension Topic {
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
+        let filter = NSPredicate(format: "active == %@", NSNumber(value: true))
+        fetchRequest.predicate = filter
+        
         do {
             
             let result = try context.fetch(fetchRequest)
@@ -126,7 +129,8 @@ extension Topic {
         let context = SharedInfo.context
         
         do {
-            context.delete(self)
+            self.active = false
+            //context.delete(self)
             if context.hasChanges {
                 try context.save()
             }
