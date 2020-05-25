@@ -92,7 +92,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Mu-V5-rSa"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="In Progress" image="progress" id="8jt-34-LSM"/>
+                    <tabBarItem key="tabBarItem" title="" image="progress" id="8jt-34-LSM"/>
                     <navigationItem key="navigationItem" title="Your Progress" id="pUc-wx-M7Z"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

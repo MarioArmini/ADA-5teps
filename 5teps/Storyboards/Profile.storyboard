@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jkZ-d3-dCC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jkZ-d3-dCC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -35,7 +35,7 @@
         <!--Profile-->
         <scene sceneID="UdY-Wq-t71">
             <objects>
-                <viewController id="0r3-CG-Yz4" customClass="ProfileViewController" customModule="_teps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0r3-CG-Yz4" customClass="ProfileViewController" customModule="_Steps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oi9-LH-ePE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,7 +95,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Zo-yK-Wpl"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="eWx-EV-oFg"/>
+                    <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="eWx-EV-oFg"/>
                     <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="V7T-1e-6e7">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="pencil.circle.fill" catalog="system" id="Dyr-Ir-yZe">
                             <connections>
@@ -119,7 +119,7 @@
         <!--Profilo Challenge View Controller-->
         <scene sceneID="3DZ-La-Yo9">
             <objects>
-                <viewController storyboardIdentifier="profiloChallengeView" id="jee-gI-rIZ" customClass="ProfiloChallengeViewController" customModule="_teps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profiloChallengeView" id="jee-gI-rIZ" customClass="ProfiloChallengeViewController" customModule="_Steps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="SVl-FM-mu7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -156,7 +156,7 @@
         <!--Profilo-->
         <scene sceneID="iH1-d9-eh4">
             <objects>
-                <viewController storyboardIdentifier="editProfiloView" title="Profilo" id="Lzc-FD-06b" customClass="EditProfiloViewController" customModule="_teps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editProfiloView" title="Profilo" id="Lzc-FD-06b" customClass="EditProfiloViewController" customModule="_Steps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a0P-ms-p3T">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -232,7 +232,7 @@
         <!--Profilo Goal View Controller-->
         <scene sceneID="RhP-bt-aDI">
             <objects>
-                <viewController storyboardIdentifier="profiloGoalView" id="XCy-rf-yjx" customClass="ProfiloGoalViewController" customModule="_teps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profiloGoalView" id="XCy-rf-yjx" customClass="ProfiloGoalViewController" customModule="_Steps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pQm-ay-wNM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

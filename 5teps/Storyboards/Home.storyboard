@@ -72,7 +72,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GsT-7C-JFW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Decks" image="carte (3)" id="3R4-Pp-6Ay">
+                    <tabBarItem key="tabBarItem" title="" image="carte (3)" id="3R4-Pp-6Ay">
                         <color key="badgeColor" name="blue"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Topics" id="7Jm-JZ-sZI">
