@@ -35,6 +35,7 @@ class NewStepCollectionViewCell: UICollectionViewCell {
     func updateUI() {
         daysLabel.text = "days"
         if let step = self.step {
+            nameTextField.placeholder = "Step #\(step.step)"
             nameTextField.text = step.name
             dayTextField.text = "\(step.days)"
             

@@ -33,6 +33,7 @@ class StepsView: UIView {
     @IBOutlet weak var startButton: UIButton!
     
     var steps = [StepChallenge]()
+    let labelCompleted = ""
     var challenge: Challenge! {
         didSet {
             self.steps = challenge.stepsOrder
@@ -95,7 +96,7 @@ class StepsView: UIView {
         if self.steps[0].isFinish{
             self.button1.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
             //drawLineFromPoint(start: self.button1.center, toPoint: self.button2.center, ofColor: UIColor.black, inView: self)
-            self.deadlineLabel1.text = "Completed"
+            self.deadlineLabel1.text = labelCompleted
             let deadline = steps[1].daysToDeadline()
             self.deadlineLabel2.text = "\(deadline) day/s"
         }
@@ -108,7 +109,7 @@ class StepsView: UIView {
         if self.steps[1].isFinish{
             self.button2.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
             //drawLineFromPoint(start: self.button2.center, toPoint: self.button3.center, ofColor: UIColor.black, inView: self)
-            self.deadlineLabel2.text = "Completed"
+            self.deadlineLabel2.text = labelCompleted
             let deadline = steps[2].daysToDeadline()
             self.deadlineLabel3.text = "\(deadline) day/s"
         }
@@ -120,7 +121,7 @@ class StepsView: UIView {
         if self.steps[2].isFinish{
             self.button3.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
             //drawLineFromPoint(start: self.button3.center, toPoint: self.button4.center, ofColor: UIColor.black, inView: self)
-            self.deadlineLabel3.text = "Completed"
+            self.deadlineLabel3.text = labelCompleted
             let deadline = steps[3].daysToDeadline()
             self.deadlineLabel4.text = "\(deadline) day/s"
         }
@@ -132,7 +133,7 @@ class StepsView: UIView {
         if self.steps[3].isFinish{
             self.button4.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
             //drawLineFromPoint(start: self.button4.center, toPoint: self.button5.center, ofColor: UIColor.black, inView: self)
-            self.deadlineLabel4.text = "Completed"
+            self.deadlineLabel4.text = labelCompleted
             let deadline = steps[4].daysToDeadline()
             self.deadlineLabel5.text = "\(deadline) day/s"
         }
@@ -141,32 +142,33 @@ class StepsView: UIView {
             self.deadlineLabel4.text = ""
         }
         
-        if self.steps[4].isFinish{
+        if self.steps[4].isFinish {
             self.button5.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
-            self.deadlineLabel5.text = "Completed"
+            self.deadlineLabel5.text = labelCompleted
         }
-        else if !self.steps[4].isFinish{
+        else if !self.steps[4].isFinish {
             self.button5.setBackgroundImage(UIImage(systemName: "circle"), for: .normal)
             self.deadlineLabel5.text = ""
         }
         if let c = challenge {
             if c.currentStep > 0 && c.currentStep <= Challenge.DEFAULT_STEPS {
-                let deadline = steps[Int(c.currentStep) - 1].daysToDeadline()
+                let step = steps[Int(c.currentStep) - 1]
+                let deadline = step.daysToDeadline()
                 switch(c.currentStep) {
                 case 1:
-                    self.deadlineLabel1.text = "\(deadline) day/s"
+                    self.deadlineLabel1.text = step.isFinish ? labelCompleted : "\(deadline) day/s"
                     break;
                 case 2:
-                    self.deadlineLabel2.text = "\(deadline) day/s"
+                    self.deadlineLabel2.text = step.isFinish ? labelCompleted : "\(deadline) day/s"
                     break;
                 case 3:
-                    self.deadlineLabel3.text = "\(deadline) day/s"
+                    self.deadlineLabel3.text = step.isFinish ? labelCompleted : "\(deadline) day/s"
                     break;
                 case 4:
-                    self.deadlineLabel4.text = "\(deadline) day/s"
+                    self.deadlineLabel4.text = step.isFinish ? labelCompleted : "\(deadline) day/s"
                     break;
                 case 5:
-                    self.deadlineLabel5.text = "\(deadline) day/s"
+                    self.deadlineLabel5.text = step.isFinish ? labelCompleted : "\(deadline) day/s"
                     break;
                 default:
                     break;
@@ -204,7 +206,7 @@ class StepsView: UIView {
             return
         }
         let _ = challenge.nextStep()
-        self.deadlineLabel1.text = "Completed"
+        self.deadlineLabel1.text = labelCompleted
         let deadline = steps[1].daysToDeadline()
         self.deadlineLabel2.text = "\(deadline) day/s"
         updateUI()
@@ -216,7 +218,7 @@ class StepsView: UIView {
             return
         }
         let _ = challenge.nextStep()
-        self.deadlineLabel2.text = "Completed"
+        self.deadlineLabel2.text = labelCompleted
         let deadline = steps[2].daysToDeadline()
         self.deadlineLabel3.text = "\(deadline) day/s"
         updateUI()
@@ -228,7 +230,7 @@ class StepsView: UIView {
             return
         }
         let _ = challenge.nextStep()
-        self.deadlineLabel3.text = "Completed"
+        self.deadlineLabel3.text = labelCompleted
         let deadline = steps[3].daysToDeadline()
         self.deadlineLabel4.text = "\(deadline) day/s"
         updateUI()
@@ -240,7 +242,7 @@ class StepsView: UIView {
             return
         }
         let _ = challenge.nextStep()
-        self.deadlineLabel4.text = "Completed"
+        self.deadlineLabel4.text = labelCompleted
         let deadline = steps[4].daysToDeadline()
         self.deadlineLabel5.text = "\(deadline) day/s"
         updateUI()
@@ -252,12 +254,11 @@ class StepsView: UIView {
             return
         }
         let _ = challenge.nextStep()
-        self.deadlineLabel5.text = "Completed"
-        let endNotification = Notification.Name("endNotification")
-        NotificationCenter.default.post(name: endNotification, object: nil)
-        
-        //let endNotification2 = Notification.Name("endNotification2")
-        //NotificationCenter.default.post(name: endNotification2, object: nil)
+        self.deadlineLabel5.text = labelCompleted
         updateUI()
+        DispatchQueue.main.async {
+            let endNotification = Notification.Name("endNotification")
+            NotificationCenter.default.post(name: endNotification, object: nil)
+        }
     }
 }

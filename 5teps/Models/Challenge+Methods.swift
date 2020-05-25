@@ -227,10 +227,13 @@ extension Challenge {
             self.dateEnd = Date()
             self.dateLast = Date()
             self.state = Int64(ChallengeState.Finished.rawValue)
-            if let step = getCurrentStepChallenge() {
-                step.finish()
+            let steps = self.stepsOrder
+            for i in steps {
+                if(!i.isFinish) {
+                    i.finish()
+                }
             }
-            
+            self.calculateDeadLine()
             self.save()
             //Salvo l'obiettivo raggiunto
             var level = Goal.getMaxLevel()

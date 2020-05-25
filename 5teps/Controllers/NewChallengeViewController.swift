@@ -17,12 +17,14 @@ class NewChallengeViewController: UIViewController {
     var referenceForViewTop : Subview?
     public var topic: Topic?
     public var challenge: Challenge?
+    public var parentVC: OnCloseChildView?
     var steps: [StepBase]!
     
     var gradientView: UIView?
     var gradientLayer: CAGradientLayer?
     var shadowLayer: CAShapeLayer?
     let cornerRadius: CGFloat = 20.20
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +60,7 @@ class NewChallengeViewController: UIViewController {
             for i in 1...5 {
                 let step = StepBase()
                 step.step = i
-                step.name = "Step #\(i)"
+                step.name = ""; //Step #\(i)"
                 step.days = 1
                 steps.append(step)
             }
@@ -122,7 +124,7 @@ class NewChallengeViewController: UIViewController {
  */
     }
 
-    @IBAction func onClickDone(_ sender: Any) {
+    @IBAction func onClickSave(_ sender: UIButton) {
         if nameTextField.text?.count == 0{
             Utils.showMessage(vc: self, title: "Field Mandatory", msg: "Insert name of topic")
             return
@@ -155,7 +157,7 @@ class NewChallengeViewController: UIViewController {
             for s in steps {
                 let step = StepChallenge(context: SharedInfo.context)
                 step.id = UUID()
-                step.name = s.name
+                step.name = s.name.count > 0 ? s.name : "Step #\(s.step)"
                 step.timestamp = Date()
                 step.state = StepChallengeState.Create.rawValue
                 step.days = Int16(s.days)
@@ -165,8 +167,15 @@ class NewChallengeViewController: UIViewController {
             
             challenge.save()
         }
-        
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true) {
+            self.parentVC?.onReloadDati()
+        }
+        //self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func onClickCancel(_ sender: UIButton) {
+        self.dismiss(animated: true) {
+            
+        }
     }
     override func viewDidLayoutSubviews() {
         gradientView?.frame = cardView.bounds

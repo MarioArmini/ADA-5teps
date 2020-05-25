@@ -69,7 +69,10 @@ class FirstViewController: UIViewController {
     @IBAction func onClickNewTopic(_ sender: UIBarButtonItem) {
         let viewTmp = UIStoryboard(name: "NewTopic", bundle: nil).instantiateViewController(withIdentifier: "newTopicView") as! NewTopicViewController
         viewTmp.parentVC = self
-        self.navigationController?.pushViewController(viewTmp, animated: true)
+        //self.navigationController?.pushViewController(viewTmp, animated: true)
+        self.present(viewTmp, animated: true) {
+            
+        }
     }
     @objc func deleteTopic(_ notification: Notification){
         if let id = notification.object as? UUID {
@@ -91,7 +94,10 @@ class FirstViewController: UIViewController {
             let viewTmp = UIStoryboard(name: "NewTopic", bundle: nil).instantiateViewController(withIdentifier: "newTopicView") as! NewTopicViewController
             viewTmp.parentVC = self
             viewTmp.topic = topicReceived
-            self.navigationController?.pushViewController(viewTmp, animated: true)
+            self.present(viewTmp, animated: true) {
+                
+            }
+            //self.navigationController?.pushViewController(viewTmp, animated: true)
         }
     }
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?){

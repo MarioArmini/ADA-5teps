@@ -103,10 +103,11 @@ class InProgressViewController: UIViewController {
     
     @objc func endChallenge(){
         let alert = UIAlertController(title: "Congratulations!", message: "You completed a challenge!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+        let okButton = UIAlertAction(title: "OK", style: .default, handler: { action in
             self.animateOut()
             self.reloadData()
-            }))
+        })
+        alert.addAction(okButton);
         self.present(alert, animated: true, completion: nil)
     }
     

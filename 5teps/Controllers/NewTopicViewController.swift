@@ -73,7 +73,11 @@ class NewTopicViewController: UIViewController {
         updateUI()
     }
     
-    @IBAction func onClickDone(_ sender: UIBarButtonItem) {
+    @IBAction func onClickCancel(_ sender: UIButton) {
+        self.dismiss(animated: true) {
+        }
+    }
+    @IBAction func onClickSave(_ sender: UIButton) {
         if nameTextField.text?.count == 0{
             Utils.showMessage(vc: self, title: "Field Mandatory", msg: "Insert name of topic")
             return
@@ -98,8 +102,11 @@ class NewTopicViewController: UIViewController {
         topic?.name = nameTextField.text
         topic?.save()
         
-        self.navigationController?.popViewController(animated: true)
-        parentVC?.onOpenChallengeView(topic: topic!)
+        //self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true) {
+            self.parentVC?.onOpenChallengeView(topic: self.topic!)
+        }
+        
     }
     func updateUI() {
         let iconsSel = icons[iconsPickerView.selectedRow(inComponent: 0)]

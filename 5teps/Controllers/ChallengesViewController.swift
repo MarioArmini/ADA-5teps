@@ -108,7 +108,11 @@ class ChallengesViewController: UIViewController {
         let viewTmp = UIStoryboard(name: "NewTopic", bundle: nil).instantiateViewController(withIdentifier: "newChallengeView") as! NewChallengeViewController
         viewTmp.topic = challengeReceived.topic
         viewTmp.challenge = challengeReceived
-        self.navigationController?.pushViewController(viewTmp, animated: true)
+        viewTmp.parentVC = self
+        self.present(viewTmp, animated: true) {
+            
+        }
+        //self.navigationController?.pushViewController(viewTmp, animated: true)
     }
     
     @objc func tapped(){
@@ -122,7 +126,11 @@ class ChallengesViewController: UIViewController {
         if let topic = Topic.findByName(name: topicName) {
             let viewTmp = UIStoryboard(name: "NewTopic", bundle: nil).instantiateViewController(withIdentifier: "newChallengeView") as! NewChallengeViewController
             viewTmp.topic = topic
-            self.navigationController?.pushViewController(viewTmp, animated: true)
+            viewTmp.parentVC = self
+            self.present(viewTmp, animated: true) {
+                
+            }
+            //self.navigationController?.pushViewController(viewTmp, animated: true)
         } else {
             Utils.showMessage(vc: self, title: "Attention", msg: "Hobby topic not found")
         }
@@ -282,3 +290,8 @@ extension ChallengesViewController : SubviewDelegate {
     
 }
 
+extension ChallengesViewController : OnCloseChildView {
+    func onReloadDati() {
+        self.reloadData()
+    }
+}
