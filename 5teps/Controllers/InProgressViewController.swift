@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InProgressViewController: UIViewController {
+class InProgressViewController: UIViewController, OnCloseChildView {
     
     @IBOutlet weak var viewMentorTop: UIView!
     @IBOutlet weak var challengeCollectionView: UICollectionView!
@@ -68,6 +68,9 @@ class InProgressViewController: UIViewController {
         let endNotification = Notification.Name("endNotification")
         NotificationCenter.default.addObserver(self, selector: #selector(endChallenge), name: endNotification, object: nil)
         
+        let nameNotification = Notification.Name("editNotification")
+        NotificationCenter.default.addObserver(self, selector: #selector(editClick), name: nameNotification, object: nil)
+        
         //let endNotification2 = Notification.Name("endNotification2")
         //NotificationCenter.default.addObserver(self, selector: #selector(endChallenge), name: endNotification2, object: nil)
     }
@@ -109,6 +112,18 @@ class InProgressViewController: UIViewController {
         })
         alert.addAction(okButton);
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func editClick(_ notification: Notification){
+        let challengeReceived = notification.object as! Challenge
+        let viewTmp = UIStoryboard(name: "NewTopic", bundle: nil).instantiateViewController(withIdentifier: "newChallengeView") as! NewChallengeViewController
+        viewTmp.topic = challengeReceived.topic
+        viewTmp.challenge = challengeReceived
+        viewTmp.parentVC = self
+        self.present(viewTmp, animated: true) {
+            
+        }
+        //self.navigationController?.pushViewController(viewTmp, animated: true)
     }
     
 }
