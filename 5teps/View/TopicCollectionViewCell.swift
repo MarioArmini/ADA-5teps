@@ -176,7 +176,7 @@ class TopicCollectionViewCell: UICollectionViewCell {
         gradientLayer?.cornerRadius = cornerRadius
         
         viewCard.layer.insertSublayer(gradientLayer!, at: 0)
-        
+        /*
         shadowLayer?.removeFromSuperlayer()
         shadowLayer = CAShapeLayer()
         
@@ -185,6 +185,7 @@ class TopicCollectionViewCell: UICollectionViewCell {
         shadowLayer?.cornerRadius = cornerRadius
         shadowLayer?.applyShadow(color: UIColor.black, alpha: 0.50, x: 6, y: 5, blur: 15, spread: -13, path: nil)
         viewCard.layer.insertSublayer(shadowLayer!, at: 0)
+ */
     }
     override func layoutSubviews() {
         super.layoutSubviews()
