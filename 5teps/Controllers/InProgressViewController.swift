@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InProgressViewController: UIViewController, OnCloseChildView {
+class InProgressViewController: UIViewController{
     
     @IBOutlet weak var viewMentorTop: UIView!
     @IBOutlet weak var challengeCollectionView: UICollectionView!
@@ -131,6 +131,11 @@ class InProgressViewController: UIViewController, OnCloseChildView {
 extension InProgressViewController : SubviewDelegate {
     func didTapOnMe(name: String, showMessage: String) {
         print("name: \(name), message: \(showMessage)")
+    }
+}
+extension InProgressViewController : OnCloseChildView{
+    func onReloadDati() {
+        self.reloadData()
     }
 }
 extension InProgressViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
