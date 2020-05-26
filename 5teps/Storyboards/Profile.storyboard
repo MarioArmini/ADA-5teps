@@ -95,7 +95,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Zo-yK-Wpl"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="eWx-EV-oFg"/>
+                    <tabBarItem key="tabBarItem" title="" image="profilo" id="eWx-EV-oFg"/>
                     <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="V7T-1e-6e7">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="pencil.circle.fill" catalog="system" id="Dyr-Ir-yZe">
                             <connections>
@@ -269,7 +269,7 @@
     </scenes>
     <resources>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="profilo" width="25" height="32"/>
         <namedColor name="background">
             <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

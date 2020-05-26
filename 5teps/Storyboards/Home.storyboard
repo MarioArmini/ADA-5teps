@@ -72,7 +72,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GsT-7C-JFW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="carte (3)" id="3R4-Pp-6Ay">
+                    <tabBarItem key="tabBarItem" title="" image="carte" id="3R4-Pp-6Ay">
                         <color key="badgeColor" name="blue"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Topics" id="7Jm-JZ-sZI">
@@ -167,7 +167,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="carte (3)" width="31" height="31"/>
+        <image name="carte" width="31" height="31"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="background">
             <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

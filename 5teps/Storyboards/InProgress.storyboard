@@ -41,14 +41,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="em1-e4-rwN">
-                                <rect key="frame" x="0.0" y="88" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="118" width="414" height="100"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="f06-Y1-BUf"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ubB-2y-Qzv">
-                                <rect key="frame" x="0.0" y="208" width="414" height="605"/>
+                                <rect key="frame" x="0.0" y="238" width="414" height="575"/>
                                 <color key="backgroundColor" name="background"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yc2-YT-C3L">
                                     <size key="itemSize" width="128" height="128"/>
@@ -86,7 +86,7 @@
                             <constraint firstItem="ubB-2y-Qzv" firstAttribute="bottom" secondItem="1Mu-V5-rSa" secondAttribute="bottom" id="5hn-KE-ZYn"/>
                             <constraint firstItem="ubB-2y-Qzv" firstAttribute="trailing" secondItem="1Mu-V5-rSa" secondAttribute="trailing" id="Rn0-v7-ZFR"/>
                             <constraint firstItem="ubB-2y-Qzv" firstAttribute="leading" secondItem="1Mu-V5-rSa" secondAttribute="leading" id="eDX-nx-PMe"/>
-                            <constraint firstItem="em1-e4-rwN" firstAttribute="top" secondItem="1Mu-V5-rSa" secondAttribute="top" id="rG8-xQ-CQb"/>
+                            <constraint firstItem="em1-e4-rwN" firstAttribute="top" secondItem="1Mu-V5-rSa" secondAttribute="top" constant="30" id="rG8-xQ-CQb"/>
                             <constraint firstItem="em1-e4-rwN" firstAttribute="leading" secondItem="1Mu-V5-rSa" secondAttribute="leading" id="rJY-RI-Mu9"/>
                             <constraint firstItem="em1-e4-rwN" firstAttribute="trailing" secondItem="1Mu-V5-rSa" secondAttribute="trailing" id="t2s-w5-H4a"/>
                         </constraints>
