@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "good.png",
+      "filename" : "libro copy.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "libro copy@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "libro copy@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

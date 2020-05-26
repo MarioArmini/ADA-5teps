@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "hands-and-gestures.png",
+      "filename" : "mani copy.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "mani copy@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "mani copy@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

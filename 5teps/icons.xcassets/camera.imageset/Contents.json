@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "tools-and-utensils.png",
+      "filename" : "fotocamera copy.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "fotocamera copy@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "fotocamera copy@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

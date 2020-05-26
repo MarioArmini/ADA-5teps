@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "interface.png",
+      "filename" : "NOta Copy.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "NOta Copy@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "NOta Copy@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
