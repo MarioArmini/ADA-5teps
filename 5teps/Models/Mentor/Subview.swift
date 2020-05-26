@@ -46,7 +46,7 @@ class Subview: UIView {
     
     //MARK: INDICATIONS + CAZZIATONE
     //MARK: when an user creates a new card. Some indications are useful
-    var stepIndications: [String] = ["Select an icon, a color and \ntype a name for your card."]
+    var stepIndications: [String] = ["Select an icon, a color and \ntype a name for your card"]
     var arrayCazziatone: [String] = ["Hey! What's wrong? \nYou can do more!", "You have to demonstrate \nyour commitment!", "Okay, You can do \nbetter than that!", "Come on, it's your \ntime to shine!\nDo more!", "If you don't try, you won't know!", "You'll never know what \nyou are capable of \nif you don't try"]
     
     var indicationsAddNewCardInsideaChallenge : String = "Insert your card's name, \nset your steps and days."
@@ -82,7 +82,7 @@ class Subview: UIView {
     //MARK: GREETINGS [RANDOM]
     func greetingsMentor() {
         msgIndex = .random(in: 0...2)
-        imageView.image = UIImage(named: "oscar")
+        imageView.image = UIImage(named: "mentorwithbubble")
         
         let randomGreetings = Int(arc4random() % UInt32(greetings.count))
         user = User.userData
@@ -139,7 +139,7 @@ class Subview: UIView {
     }
     
     func randomShakingChallenge() {
-        imageView.image = UIImage(named: "oscar")
+        imageView.image = UIImage(named: "mentorwithbubble")
         user = User.userData
         if user?.name != nil {
             textView.text = "\(user!.name!) \(randomChallenge)"
@@ -168,7 +168,7 @@ class Subview: UIView {
         let randomSomeSteps = Int(arc4random() % UInt32(stepIndications.count))
         user = User.userData
         if user?.name != nil {
-            textView.text = "\(user!.name!) \(stepIndications[randomSomeSteps])"
+            textView.text = "\(stepIndications[randomSomeSteps]) \(user!.name!)"
         }else{
             textView.text = "\(stepIndications[randomSomeSteps])"
         }
@@ -189,7 +189,7 @@ class Subview: UIView {
         
         user = User.userData
         if user?.name != nil {
-            textView.text = "\(user!.name!) \(indicationsAddNewCardInsideaChallenge)"
+            textView.text = "\(indicationsAddNewCardInsideaChallenge) \(user!.name!)"
         }else{
             textView.text = "\(indicationsAddNewCardInsideaChallenge)"
         }
@@ -220,7 +220,7 @@ class Subview: UIView {
         var title = ""
         var message = ""
         
-        title = "Your Mentor"
+        title = "Oscar - Your Mentor"
         message = "Today is a great day to start a challenge!"
         
         return (title: title, message: message)
@@ -235,10 +235,10 @@ class Subview: UIView {
         let challengeStarted = Challenge.listInProgress()
         if challengeStarted.count > 0 {
             //quotes
-            mentorMotivatesYou(imageName: "oscar")
+            mentorMotivatesYou(imageName: "mentorwithbubble")
         }else{
             //Why don't u start a new challenge?
-            IfYouHaveNoChallenges(imageName: "oscar")
+            IfYouHaveNoChallenges(imageName: "mentorwithbubble")
         }
     }
     

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -13,46 +13,33 @@
             <rect key="frame" x="0.0" y="0.0" width="475" height="114"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="ec2-eN-NBh">
-                    <rect key="frame" x="114" y="0.0" width="361" height="114"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="251" image="mentorwithbubble" translatesAutoresizingMaskIntoConstraints="NO" id="SNv-Ri-LMC">
+                    <rect key="frame" x="20" y="4" width="455" height="110"/>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="oscar" translatesAutoresizingMaskIntoConstraints="NO" id="SNv-Ri-LMC">
-                    <rect key="frame" x="0.0" y="0.0" width="114" height="114"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="114" id="WFy-Ls-6EI"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oscar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ql-kB-4ml">
-                    <rect key="frame" x="145" y="15" width="62.5" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="20" id="Ap1-h0-q2B"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
-                    <color key="textColor" name="blue"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mentor's message " lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ICr-Kl-4Cb">
-                    <rect key="frame" x="145" y="36" width="330" height="53"/>
+                    <rect key="frame" x="165.66666666666663" y="51.666666666666664" width="264" height="15.666666666666664"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                     <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oscar         " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ql-kB-4ml">
+                    <rect key="frame" x="165.66666666666666" y="23.666666666666671" width="93.999999999999972" height="23"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                    <color key="textColor" name="blue"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" name="background"/>
             <constraints>
-                <constraint firstItem="SNv-Ri-LMC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9NK-MJ-IQK"/>
-                <constraint firstAttribute="trailing" secondItem="ec2-eN-NBh" secondAttribute="trailing" id="Ib0-If-3Hd"/>
-                <constraint firstAttribute="trailing" secondItem="ICr-Kl-4Cb" secondAttribute="trailing" id="Jg4-4i-dVl"/>
-                <constraint firstItem="6Ql-kB-4ml" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="QKH-4u-VSI"/>
-                <constraint firstItem="SNv-Ri-LMC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="SN2-w6-kbg"/>
-                <constraint firstItem="ec2-eN-NBh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VjB-dU-A1G"/>
-                <constraint firstAttribute="bottom" secondItem="ec2-eN-NBh" secondAttribute="bottom" id="YSJ-S5-wv6"/>
-                <constraint firstItem="6Ql-kB-4ml" firstAttribute="leading" secondItem="SNv-Ri-LMC" secondAttribute="trailing" constant="31" id="jJr-g2-aVT"/>
-                <constraint firstItem="ICr-Kl-4Cb" firstAttribute="leading" secondItem="SNv-Ri-LMC" secondAttribute="trailing" constant="31" id="nfj-1r-4Xw"/>
-                <constraint firstAttribute="bottom" secondItem="ICr-Kl-4Cb" secondAttribute="bottom" constant="25" id="ngl-l7-6jX"/>
-                <constraint firstItem="ec2-eN-NBh" firstAttribute="leading" secondItem="SNv-Ri-LMC" secondAttribute="trailing" id="qQH-ff-tdl"/>
-                <constraint firstAttribute="bottom" secondItem="SNv-Ri-LMC" secondAttribute="bottom" id="qtz-Xl-B0e"/>
-                <constraint firstItem="ICr-Kl-4Cb" firstAttribute="top" secondItem="6Ql-kB-4ml" secondAttribute="bottom" constant="1" id="xRd-et-6c1"/>
+                <constraint firstAttribute="trailing" secondItem="SNv-Ri-LMC" secondAttribute="trailing" id="3CD-Kf-aah"/>
+                <constraint firstItem="SNv-Ri-LMC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="A1S-lY-hUs"/>
+                <constraint firstItem="SNv-Ri-LMC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="O3f-k2-mPk"/>
+                <constraint firstItem="ICr-Kl-4Cb" firstAttribute="leading" secondItem="6Ql-kB-4ml" secondAttribute="leading" id="PVd-e8-vej"/>
+                <constraint firstItem="6Ql-kB-4ml" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-25" id="Qh8-g1-U7o"/>
+                <constraint firstItem="ICr-Kl-4Cb" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="60" id="bCN-A6-wQ3"/>
+                <constraint firstItem="6Ql-kB-4ml" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-22" id="mPA-YN-Azt"/>
+                <constraint firstAttribute="bottom" secondItem="SNv-Ri-LMC" secondAttribute="bottom" id="mqB-sg-xsK"/>
+                <constraint firstItem="ICr-Kl-4Cb" firstAttribute="top" secondItem="6Ql-kB-4ml" secondAttribute="bottom" constant="5" id="oNT-6o-nGI"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -63,8 +50,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bubble" width="321" height="115"/>
-        <image name="oscar" width="118" height="118"/>
+        <image name="mentorwithbubble" width="421" height="126"/>
         <namedColor name="background">
             <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
