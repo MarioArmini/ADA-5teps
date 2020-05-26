@@ -123,13 +123,13 @@ class TopicCollectionViewCell: UICollectionViewCell {
         back.isHidden = true
         
         editButton.translatesAutoresizingMaskIntoConstraints = false
-        editButton.topAnchor.constraint(equalTo: self.viewCard.topAnchor, constant: self.viewCard.bounds.height/2 - 20).isActive = true
+        editButton.topAnchor.constraint(equalTo: self.viewCard.topAnchor, constant: 95).isActive = true
         editButton.leadingAnchor.constraint(equalTo: self.viewCard.leadingAnchor, constant: 10).isActive = true
         editButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
         editButton.heightAnchor.constraint(equalTo: editButton.widthAnchor).isActive = true
         
         deleteButton.translatesAutoresizingMaskIntoConstraints = false
-        deleteButton.topAnchor.constraint(equalTo: self.viewCard.topAnchor, constant: self.viewCard.bounds.height/2 - 20).isActive = true
+        deleteButton.topAnchor.constraint(equalTo: self.viewCard.topAnchor, constant: 95).isActive = true
         deleteButton.trailingAnchor.constraint(equalTo: self.viewCard.trailingAnchor, constant: -10).isActive = true
         deleteButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
         deleteButton.heightAnchor.constraint(equalTo: editButton.widthAnchor).isActive = true

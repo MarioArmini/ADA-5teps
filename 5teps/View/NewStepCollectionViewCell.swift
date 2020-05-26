@@ -71,6 +71,10 @@ class NewStepCollectionViewCell: UICollectionViewCell {
         //timeAndRoomLabel.alpha = delta
         //speakerLabel.alpha = delta
     }
+    public func forceEndEditing() {
+        self.nameTextField.endEditing(true)
+        self.dayTextField.endEditing(true)
+    }
 }
 
 extension NewStepCollectionViewCell: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {

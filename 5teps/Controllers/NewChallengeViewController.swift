@@ -129,6 +129,12 @@ class NewChallengeViewController: UIViewController {
             Utils.showMessage(vc: self, title: "Field Mandatory", msg: "Insert name of topic")
             return
         }
+        let cells = stepsCollectionView.visibleCells
+        for cell in cells {
+            if let stepCell = cell as? NewStepCollectionViewCell {
+                stepCell.forceEndEditing()
+            }
+        }
         if self.challenge != nil {
             challenge?.name = nameTextField.text
             if let stepChallenge = challenge?.stepsOrder {
