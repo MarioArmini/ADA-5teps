@@ -242,6 +242,16 @@ class Subview: UIView {
         }
     }
     
+    
+    // A topic has been created, Oscar should say something in the "Challenges" Section:
+    
+    func feedbackSimone() {
+        imageView.image = UIImage(named: "mentorwithbubble")
+        textView.text = "Great! Please, click on the Add button \nto create your new challenge now"
+    }
+    
+    
+    
     //MARK: Scheduled local notifications.
     func localNotification(){
         /*let center = UNUserNotificationCenter.current()
