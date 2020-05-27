@@ -121,6 +121,10 @@ class ChallengesViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         reloadData()
+        
+        if challenges.isEmpty{
+            referenceForViewTop?.feedbackSimone()
+        }
     }
     @IBAction func onClickNewChallenge(_ sender: Any) {
         if let topic = Topic.findByName(name: topicName) {
