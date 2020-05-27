@@ -80,7 +80,7 @@
 
 /* Begin PBXFileReference section */
 		018AD8892466B5EF002BA840 /* TopicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCollectionViewCell.swift; sourceTree = "<group>"; };
-		01B3E2D02464615400B0C18A /* 5Steps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 5Steps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01B3E2D02464615400B0C18A /* FiveSteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FiveSteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01B3E2D32464615400B0C18A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01B3E2D52464615400B0C18A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		01B3E2D72464615400B0C18A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 		01B3E2D12464615400B0C18A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				01B3E2D02464615400B0C18A /* 5Steps.app */,
+				01B3E2D02464615400B0C18A /* FiveSteps.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -340,7 +340,7 @@
 			);
 			name = 5teps;
 			productName = 5teps;
-			productReference = 01B3E2D02464615400B0C18A /* 5Steps.app */;
+			productReference = 01B3E2D02464615400B0C18A /* FiveSteps.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -604,7 +604,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = 5teps/5teps.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4;
+				CURRENT_PROJECT_VERSION = 1.7;
 				DEVELOPMENT_TEAM = TEFZ2Z35DD;
 				INFOPLIST_FILE = 5teps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -612,7 +612,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tk.giusydipaola.5teps;
-				PRODUCT_NAME = 5Steps;
+				PRODUCT_NAME = FiveSteps;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -624,7 +624,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = 5teps/5teps.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4;
+				CURRENT_PROJECT_VERSION = 1.7;
 				DEVELOPMENT_TEAM = TEFZ2Z35DD;
 				INFOPLIST_FILE = 5teps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -632,7 +632,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tk.giusydipaola.5teps;
-				PRODUCT_NAME = 5Steps;
+				PRODUCT_NAME = FiveSteps;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
