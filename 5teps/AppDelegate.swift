@@ -150,13 +150,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             identifier = "generic"
         }
         //timeInterval = TimeInterval(10 * 60) //TEST
-        identifier = identifier + "-\(UUID())"
-        scheduleNotification(title: title, body: body, identifier: identifier, timeInterval: timeInterval)
+        //identifier = identifier + "-\(UUID())"
+        scheduleNotification(title: title, body: body, identifier: identifier, timeInterval: nil)
     }
-    func scheduleNotification(title: String, body: String, identifier: String, timeInterval: TimeInterval) {
+    func scheduleNotification(title: String, body: String, identifier: String, timeInterval: TimeInterval?) {
         
         let notificationCenter = UNUserNotificationCenter.current()
-        //notificationCenter.removeAllPendingNotificationRequests()
+        notificationCenter.removeAllPendingNotificationRequests()
+        /*notificationCenter.getPendingNotificationRequests { (requests) in
+            for r in requests {
+
+                print(r)
+            }
+        }*/
         //notificationCenter.removeAllDeliveredNotifications()
         
         let content = UNMutableNotificationContent()
@@ -167,30 +173,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //let date = Date(timeIntervalSinceNow: 60)
         let today = Date()
-        let modifiedDate = Calendar.current.date(byAdding: .hour, value: 1, to: today)!
-        print(modifiedDate)
-        //let buf = Utils.dateToString(date: modifiedDate, format: "yyyy-mm-dd") + " 10:00"
-        let buf = Utils.dateToString(date: modifiedDate, format: "yyyy-mm-dd HH:mm")
-        if let dateEvent = Utils.stringToDate(string: buf, format: "yyy-mm-dd HH:mm") {
-            print(dateEvent)
-            let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: dateEvent)
+        let suffix = Utils.dateToString(date: today, format: "yyyy-MM-dd")
+        let identifierNotify = "\(identifier)-\(suffix)"
+        var request: UNNotificationRequest!
+        
+        if timeInterval != nil {
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval!, repeats: true)
+            request = UNNotificationRequest(identifier: identifierNotify, content: content, trigger: trigger)
             
-            //let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: true)
+        } else {
+            let modifiedDate = Calendar.current.date(byAdding: .day, value: 1, to: today)!
+            //print(modifiedDate)
+            let buf = Utils.dateToString(date: modifiedDate, format: "yyyy-MM-dd") + " 09:00"
+            //let buf = Utils.dateToString(date: modifiedDate, format: "yyyy-MM-dd HH:mm")
+            let dateEvent = Utils.stringToDate(string: buf, format: "yyyy-MM-dd HH:mm")
+            //print(dateEvent)
+            let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: dateEvent!)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+            request = UNNotificationRequest(identifier: identifierNotify, content: content, trigger: trigger)
             
-            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-            
-            
-            notificationCenter.add(request) { (error) in
-                print(request)
-                if let error = error {
-                    print("Error \(error.localizedDescription)")
-                } else {
-                    print("Request notify added \(trigger) \(identifier) \(content)")
-                }
-            }
         }
         
+        notificationCenter.add(request) { (error) in
+            print(request ?? "")
+            if let error = error {
+                print("Error \(error.localizedDescription)")
+            } else {
+                print("Request notify added \(identifier) \(content)")
+            }
+        }
+       
         
         /*
          let userActions = "User Actions"
