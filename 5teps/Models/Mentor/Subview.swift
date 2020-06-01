@@ -83,6 +83,7 @@ class Subview: UIView {
                 let json = try decoder.decode(JsonMentor.self, from: jsonData)
                 
                 self.greetings = json.greetings
+                self.motivation = json.motivation   
                 self.noChallengeInProgress = json.noChallengeInProgress
                 self.challengeCompleted = json.challengeCompleted
                 self.challengeFailed = json.challengeFailed
