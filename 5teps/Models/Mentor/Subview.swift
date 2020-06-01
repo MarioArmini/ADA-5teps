@@ -26,32 +26,33 @@ class Subview: UIView {
     var user: User?
     
     //MARK: Mentor Local sentences
-    var greetings : [String] = ["Hello", "Salut", "Hola", "Hey!", "This is a great day \nto be productive!",  "Privet!", "Welcome!", "Hey there!", "I'm happy to see you! \nCan't wait to start!", "Hi! I'll be by your side \nduring every challenge!\n" ]
+    var greetings : [String]!
     //MARK: Mentor Local Motivations
-    var motivation : [String] = ["Every challenge is possible if \nyou write it in the right way!", "Every single step becomes \na leap of faith", "Just reach up, \ndon't give up", "I can't wait to see all the \namazing things that you will achieve!", "Every step will take you \na bit closer to your goal!", "Every step matter!", "We are in this together, \nDon't quit now!"]
+    var motivation : [String]!
     
     //MARK: CHALLENGES
     //MARK: Mentor motivates you if you have no challenges
     //Incitazioni se nn ci sono challenge
-    var noChallengeInProgress: [String] = ["Why don't you start \na new challenge?", "Today is a great day \nto start a new challenge", "A new beginning: \nstart your challenge today!", "What a great day \nto start a new challenge!", "Feeling bored? \nWhat about starting a new challenge?", "What about trying \none of our challenges?", "Feeling productive? \nTry one of our challenge", "Today is a great day \nto learn something new!", "If not now, when?"]
+    var noChallengeInProgress: [String]!
     //---------------------------------------------------------
     //MARK: [Mentor] when a challenge is completed
-    var challengeCompleted: [String] = ["Well done! Your reward is waiting for you \nin you profile section!", "Great Job! You deserved a reward, go in your \nprofile section to find it out!", "I knew you would have smashed it! \nYour reward is waiting for you in your profile section!", "You did it! \nYour reward is waiting for you \nin you profile section!", "You did amazing!", "It has been amazing to guide you \nthrough this challenge! ", "Your reward is waiting for you \nin you profile section!", "Congratulation! Your reward \nis waiting for you \nin your profile section!"]
+    var challengeCompleted: [String]!
     //MARK: [Mentor] when a challenge is failed
-    var challengeFailed: [String] = ["Oh no!", "Failing is just another part \nof the process, don't give up!", "Bad day happens, don't worry!", "I know you can do it, \njust try it again!", "I know you can do amazing things, \nkeep trying!", "Don't worry, it's not the end, \nyou can do it!", "Every failure is a lesson, \njust mae the best of it!", "It can happen, \ndon't worry, \nI believe in you!", "Tomorrow will be better, keep going!", "Don't even think to quit! \nI'm sure you can do it!"]
+    var challengeFailed: [String]!
     //MARK: [Mentor] when a step is completed
-    var stepCompleted : [String] = ["Great Job!", "Step Completed!", "Go, Go!", "Cool! This is \nyour next step", "Congratulations!","Amazing!", "We're nearly there, just keep going!", "You're doing great!", "Everyday you're closer to your goal \nKeep pushing!", "Well done! \nYou deserved some rest!"]
+    var stepCompleted : [String]!
     //MARK: [Mentor] when a a level is completed
-    var levelCompleted : [String] = ["Amazing! You've just \ncompleted your level", "Great!", "I knew you would have smashed it!", "Amazing!\neep going!", "Your progress are unbeliveable!", "Everyday you get better! \nI'm sure you're gonna reach all your goals!", "keep going, your goal are waiting for you!","Great! \nI'm so proud of you!", "Amazing! \nI can't wait to see your profile full of rewards!"]
+    var levelCompleted : [String]!
+    
     
     //MARK: INDICATIONS + CAZZIATONE
     //MARK: when an user creates a new card. Some indications are useful
-    var stepIndications: [String] = ["Select an icon, a color and \ntype a name for your card"]
-    var arrayCazziatone: [String] = ["Hey! What's wrong? \nYou can do more!", "You have to demonstrate \nyour commitment!", "Okay, You can do \nbetter than that!", "Come on, it's your \ntime to shine!\nDo more!", "If you don't try, you won't know!", "You'll never know what \nyou are capable of \nif you don't try"]
+    var stepIndications: [String]!
+    var arrayCazziatone: [String]!
     
     var indicationsAddNewCardInsideaChallenge : String = "Insert your card's name, \nset your steps and days."
     
-    var mentorImages : [String] = ["mentor", "mentor1", "mentor2"]
+    var mentorImages : [String]!
     var randomChallenge: String = "This is your \nrandom challenge!"
     var notificationIfChallengeIsInProgress = [String]()
     var notificationIfChallengeIsNotInProgress = [String]()
@@ -69,9 +70,34 @@ class Subview: UIView {
         /*imageView.layer.cornerRadius = 20.0
          imageView.layer.masksToBounds = true
          imageView.clipsToBounds = true */
-        
+        self.importJson()
     }
-    
+    func importJson() {
+        
+        let nameJson =  NSLocalizedString("JSON_FILE_MENTOR", comment: "")
+        if let pathFile = Bundle.main.path(forResource: nameJson, ofType: "json") {
+            do {
+                let jsonData = try Data(contentsOf: URL(fileURLWithPath: pathFile), options: .mappedIfSafe)
+               
+                let decoder = JSONDecoder()
+                let json = try decoder.decode(JsonMentor.self, from: jsonData)
+                
+                self.greetings = json.greetings
+                self.noChallengeInProgress = json.noChallengeInProgress
+                self.challengeCompleted = json.challengeCompleted
+                self.challengeFailed = json.challengeFailed
+                self.stepCompleted = json.stepCompleted
+                self.levelCompleted = json.levelCompleted
+                self.stepIndications = json.stepIndications
+                self.arrayCazziatone = json.arrayCazziatone
+                self.mentorImages = json.mentorImages
+            } catch {
+                print("Error importJson: \(error.localizedDescription)")
+            }
+        } else {
+            print("file non found")
+        }
+    }
     //MARK: CUSTOMIZE THE MENTOR
     func settingsMentor(imageName: String, text: String) {
         imageView.image = UIImage(named: imageName)
@@ -275,4 +301,17 @@ class Subview: UIView {
         //test
     }
     
+}
+
+struct JsonMentor: Codable {
+    var greetings: [String]
+    var motivation: [String]
+    var noChallengeInProgress: [String]
+    var challengeCompleted: [String]
+    var challengeFailed: [String]
+    var stepCompleted: [String]
+    var levelCompleted: [String]
+    var stepIndications: [String]
+    var arrayCazziatone: [String]
+    var mentorImages: [String]
 }

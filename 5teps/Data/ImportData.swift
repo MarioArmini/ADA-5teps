@@ -15,7 +15,8 @@ public class ImportData {
     static func importJson() -> [JsonTopic] {
         var json = [JsonTopic]()
         
-        if let pathFile = Bundle.main.path(forResource: "topic", ofType: "json") {
+        let nameJson =  NSLocalizedString("JSON_FILE_CHALLENGE", comment: "")
+        if let pathFile = Bundle.main.path(forResource: nameJson, ofType: "json") {
             do {
                 let jsonData = try Data(contentsOf: URL(fileURLWithPath: pathFile), options: .mappedIfSafe)
                

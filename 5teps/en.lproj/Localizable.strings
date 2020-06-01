@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  5teps
+
+  Created by Fabio Palladino on 01/06/2020.
+  Copyright © 2020 Mario Armini. All rights reserved.
+ 
+ NSLocalizedString("TITLE_PROFILE_VIEW", comment: "")
+*/
+
+/**
+ GIUSY
+ */
+"TEST" = "TEST";
+
+
+
+/**
+ MARIO
+ */
+"TEST" = "TEST";
+
+
+/**
+FABIO
+ */
+"TEST" = "TEST";
+"JSON_FILE_CHALLENGE" = "topic";
+"JSON_FILE_MENTOR" = "mentor";

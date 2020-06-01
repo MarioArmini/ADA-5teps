@@ -1,0 +1,130 @@
+[
+    {
+        "name": "Workout",
+        "icon": "sport",
+        "color": "FFC859",
+        "challenge": [
+            {
+                "name": "1 minute Plank in 5 days",
+                "steps": [
+                    {"name": "Hold the plank position for 20 seconds", "days": 1},
+                    {"name": "Hold the plank position for 30 seconds", "days": 1},
+                    {"name": "Hold the plank position for 40 seconds", "days": 1},
+                    {"name": "Hold the plank position for 50 seconds", "days": 1},
+                    {"name": "Hold the plank position for 1 minute!", "days": 1}
+                ]
+            },
+            {
+                "name": "50 Squats in 5 days!",
+                "steps": [
+                    {"name": "Start with 25 squats!", "days": 1},
+                    {"name": "It's time for 30 squats!", "days": 1},
+                    {"name": "Again 30 squats", "days": 1},
+                    {"name": "Today is 45 squats day!", "days": 1},
+                    {"name": "Finally 50 squats!", "days": 1}
+                ]
+            },
+            {
+                "name": "10 minutes running in 5 days",
+                "steps": [
+                    {"name": "Run for 4 min and rest for 1 min. Repeat 2 times", "days": 1},
+                    {"name": "Run for 5 min and walk for 5 min", "days": 1},
+                    {"name": "Run for 5 min and and add 10 sec of sprint!", "days": 1},
+                    {"name": "Run for a min and walk for another one. Repeat 5 times!", "days": 1},
+                    {"name": "10 minutes run!", "days": 1}
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Healthy Cooking",
+        "icon": "cuoco",
+        "color": "89B2FD",
+        "challenge": [
+            {
+                "name": "Breakfast",
+                "steps": [
+                    {"name": "Drink two glasses of water before eating", "days": 1},
+                    {"name": "try at least one of the pancake healthy recipe", "days": 1},
+                    {"name": "Drink or coffee or tea without sugar!", "days": 1},
+                    {"name": "Make your breakfast colorful with fresh fruit!", "days": 1},
+                    {"name": "Try the instagram-friendly porridge and share a picture!", "days": 1}
+                ]
+            },
+            {
+                "name": "5 Healthy meals!",
+                "steps": [
+                    {"name": "Cook your lunch AND dinner using only two spoons of oil!", "days": 1},
+                    {"name": "Instead of commercial ones, make homemade biscuits", "days": 1},
+                    {"name": "Replace white bread with Rye bread for today!", "days": 1},
+                    {"name": "Find the best recipe of banana bread and do it yourself!", "days": 1},
+                    {"name": "Eat Pizza to celebrate!", "days": 1}
+                ]
+            },
+            {
+                "name": "Smoothies Challenge!",
+                "steps": [
+                    {"name": "Apple Pie Smoothie!", "days": 1},
+                    {"name": "Metabolism Boosting Smoothie", "days": 1},
+                    {"name": "Immunity Boosting Orange Smoothie", "days": 1},
+                    {"name": "Banana Smoothie", "days": 1},
+                    {"name": "Cocoa Almond Protein Smoothie", "days": 1}
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Relax",
+        "icon": "libro",
+        "color": "F77F57",
+        "challenge": [
+            {
+                "name": "Movie Challenge!",
+                "steps": [
+                    {"name": "Watch at least one of Tarantino's movie!", "days": 1},
+                    {"name": "Take a day off and go to the closest Movie Theatre!", "days": 1},
+                    {"name": "Watch a movie in a foreign language!", "days": 1},
+                    {"name": "Watch an horror movie before going to bed (good luck)", "days": 1},
+                    {"name": "Rewatch your favorite Disney Movie!", "days": 1}
+                ]
+            },
+            {
+                "name": "Skin Care",
+                "steps": [
+                    {"name": "Wash your face twice a day with micellar Water", "days": 1},
+                    {"name": "Drink at least 2L of water!", "days": 1},
+                    {"name": "Apply your tonic of cream everyday twice", "days": 1},
+                    {"name": "Try the brown sugar + lemon scrub", "days": 1},
+                    {"name": "Avoid candies for five days!", "days": 5}
+                ]
+            },
+            {
+                "name": "Social Media distancing",
+                "steps": [
+                    {"name": "Do not post any story on instagram for today", "days": 1},
+                    {"name": "Set a specific time span for your social media interactions", "days": 1},
+                    {"name": "Use your phone just to check this step today", "days": 1},
+                    {"name": "Write down all the things you achieved during your no-phone day", "days": 1},
+                    {"name": "While you are with friends challenge them to not use phones at all!", "days": 1}
+                ]
+            }
+        ]
+    },
+    {
+        "name": "First Challenge",
+        "icon": "libro",
+        "color": "F77F57",
+        "challenge": [
+            {
+                "name": "Set up your profile!",
+                "steps": [
+                    {"name": "Go to your profile and choose your Name", "days": 1},
+                    {"name": "Pick your best picture!", "days": 1},
+                    {"name": "Create your first deck!", "days": 1},
+                    {"name": "Create at least two challenges", "days": 1},
+                    {"name": "Collect your prize!", "days": 1}
+                ]
+            }
+        ]
+    }
+]
