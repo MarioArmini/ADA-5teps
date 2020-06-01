@@ -54,10 +54,12 @@ class Subview: UIView {
     
     var mentorImages : [String]!
     var randomChallenge: String = "This is your \nrandom challenge!"
+    
     var notificationIfChallengeIsInProgress = [String]()
     var notificationIfChallengeIsNotInProgress = [String]()
     
-    
+    //MARK: LOCALIZED STRINGS
+   
     
     var msgIndex = 0
     
@@ -168,6 +170,7 @@ class Subview: UIView {
     func randomShakingChallenge() {
         imageView.image = UIImage(named: "mentorwithbubble")
         user = User.userData
+        randomChallenge = NSLocalizedString("RANDOM_CHALLENGE", comment: "")
         if user?.name != nil {
             textView.text = "\(user!.name!) \(randomChallenge)"
         }else{
@@ -213,10 +216,11 @@ class Subview: UIView {
     
     func stepIndicationsInsideaChallenge(imageName: String){
         imageView.image = UIImage(named: imageName)
-        
+        indicationsAddNewCardInsideaChallenge = NSLocalizedString("INDICATIONSADDNEWCARD", comment: "")
         user = User.userData
         if user?.name != nil {
             textView.text = "\(indicationsAddNewCardInsideaChallenge) \(user!.name!)"
+            
         }else{
             textView.text = "\(indicationsAddNewCardInsideaChallenge)"
         }
@@ -233,12 +237,16 @@ class Subview: UIView {
         var message = ""
         
         title = "Come on, you have to achieve your goals!"
+        title = NSLocalizedString("TITLE_1", comment: "")
         if dayToLeft == 0 {
-            message = " Your time is up!!! Come on, complete your challenge! \(name)"
+            message = "Your time is up!!! Come on, complete your challenge! \(name)"
+            message = NSLocalizedString("MSG_1", comment: "notification1")
         } else if dayToLeft == 1 {
             message = "One day left! \(name)"
+            message = NSLocalizedString("MSG_2", comment: "notification2")
         } else {
             message = "Days left \(dayToLeft) to complete your challenge! \(name)"
+            message = NSLocalizedString("MSG_3", comment: "notificatio3")
         }
         
         return (title: title, message: message)
@@ -248,7 +256,9 @@ class Subview: UIView {
         var message = ""
         
         title = "Oscar - Your Mentor"
+        title = NSLocalizedString("TITLE_NOTIFICATION", comment: "title")
         message = "Today is a great day to start a challenge!"
+        message = NSLocalizedString("MESSAGE_NOTIFICATION", comment: "message background no challenge")
         
         return (title: title, message: message)
     }
@@ -275,6 +285,7 @@ class Subview: UIView {
     func feedbackSimone() {
         imageView.image = UIImage(named: "mentorwithbubble")
         textView.text = "Great! Please, click on the Add button \nto create your new challenge now"
+        textView.text = NSLocalizedString("FEED_SIMONE", comment: "add Button To Create a New Challenge")
     }
     
     

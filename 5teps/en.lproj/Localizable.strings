@@ -12,7 +12,15 @@
  GIUSY
  */
 "TEST" = "TEST";
-
+"FEED_SIMONE" = "Great! Please, click on the Add button \nto create your new challenge now";
+"INDICATIONSADDNEWCARD" = "Insert your card's name, \nset your steps and days.";
+"RANDOM_CHALLENGE" = "This is your \nrandom challenge!";
+"MSG_1" = "Your time is up!!! Come on, complete your challenge! \(name)";
+"MSG_2" = "One day left! \(name)";
+"MSG_3" = "Days left \(dayToLeft) to complete your challenge! \(name)";
+"TITLE_1" = "Come on, you have to achieve your goals!";
+"TITLE_NOTIFICATION" = "Oscar - Your Mentor";
+"MESSAGE_NOTIFICATION" = "Today is a great day to start a challenge!";
 
 
 /**
