@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "ICONA SENZA BORDI.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ICONA SENZA BORDI@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ICONA SENZA BORDI@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
