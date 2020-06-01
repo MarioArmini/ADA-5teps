@@ -14,7 +14,7 @@
 "RANDOM_CHALLENGE" = "Questa è la tua sfida random";
 "MSG_1" = "Il tuo tempo è scaduto! Forza! Completa la tua challenge \(name)";
 "MSG_2" = "Manca solo un giorno \(name)";
-"MSG_3" = "Mancano \(dayToLeft) per completare la tua challenge \(name)";
+"MSG_3" = "Mancano \(dayToLeft) giorni per completare la tua challenge \(name)";
 "TITLE_1" = "Forza! Devi raggiungere i tuoi obiettivi";
 "TITLE_NOTIFICATION" = "Oscar - Il tuo Mentor";
 "MESSAGE_NOTIFICATION" = "Oggi è un gran giorno per iniziare una challenge";
