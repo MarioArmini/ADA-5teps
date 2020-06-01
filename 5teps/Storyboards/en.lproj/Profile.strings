@@ -1,0 +1,33 @@
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "45f-y3-D80"; */
+"45f-y3-D80.placeholder" = "Name";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "4pS-6i-ajS"; */
+"4pS-6i-ajS.normalTitle" = "Save";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Dyr-Ir-yZe"; */
+"Dyr-Ir-yZe.title" = "Item";
+
+/* Class = "UISegmentedControl"; EgJ-lu-Kmg.segmentTitles[0] = "Completed"; ObjectID = "EgJ-lu-Kmg"; */
+"EgJ-lu-Kmg.segmentTitles[0]" = "Completed";
+
+/* Class = "UISegmentedControl"; EgJ-lu-Kmg.segmentTitles[1] = "Achievement"; ObjectID = "EgJ-lu-Kmg"; */
+"EgJ-lu-Kmg.segmentTitles[1]" = "Achievement";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "K1O-yw-Y1B"; */
+"K1O-yw-Y1B.normalTitle" = "Cancel";
+
+/* Class = "UIViewController"; title = "Profilo"; ObjectID = "Lzc-FD-06b"; */
+"Lzc-FD-06b.title" = "Profilo";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "RUn-nl-KW0"; */
+"RUn-nl-KW0.normalTitle" = "Edit";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "V7T-1e-6e7"; */
+"V7T-1e-6e7.title" = "Profile";
+
+/* Class = "UILabel"; text = "Nome"; ObjectID = "fNP-ek-S3L"; */
+"fNP-ek-S3L.text" = "Nome";
+
+/* Class = "UILabel"; text = "level"; ObjectID = "g6w-Ic-wmq"; */
+"g6w-Ic-wmq.text" = "level";

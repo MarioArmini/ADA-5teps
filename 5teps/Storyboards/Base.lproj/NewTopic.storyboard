@@ -35,7 +35,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="UT9-Bs-JQQ" customClass="NewTopicCollectionViewCell" customModule="_Steps" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="UT9-Bs-JQQ" customClass="NewTopicCollectionViewCell" customModule="FiveSteps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="10" width="371" height="280"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="v4y-sW-D9w">
@@ -76,7 +76,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellColor" id="2vB-mU-jnX" customClass="ColorCollectionViewCell" customModule="_Steps" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellColor" id="2vB-mU-jnX" customClass="ColorCollectionViewCell" customModule="FiveSteps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VTk-wz-f0a">
@@ -152,7 +152,7 @@
         <!--New Challenge-->
         <scene sceneID="oK4-bG-NGv">
             <objects>
-                <viewController storyboardIdentifier="newChallengeView" id="zOB-uO-kL8" customClass="NewChallengeViewController" customModule="_Steps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newChallengeView" id="zOB-uO-kL8" customClass="NewChallengeViewController" customModule="FiveSteps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mto-9h-yOI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -175,9 +175,9 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hdh-CU-eXe">
                                         <rect key="frame" x="10" y="54" width="230" height="286"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <collectionViewLayout key="collectionViewLayout" id="rYA-Pa-OIA" customClass="NewStepLayout" customModule="_Steps" customModuleProvider="target"/>
+                                        <collectionViewLayout key="collectionViewLayout" id="rYA-Pa-OIA" customClass="NewStepLayout" customModule="FiveSteps" customModuleProvider="target"/>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="D9X-d3-ldW" customClass="NewStepCollectionViewCell" customModule="_Steps" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="D9X-d3-ldW" customClass="NewStepCollectionViewCell" customModule="FiveSteps" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="230" height="93"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -309,7 +309,7 @@
         <!--New Topic-->
         <scene sceneID="pVL-u7-N0E">
             <objects>
-                <viewController storyboardIdentifier="newTopicView" title="New Topic" id="162-sE-Kkp" customClass="NewTopicViewController" customModule="_Steps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newTopicView" title="New Topic" id="162-sE-Kkp" customClass="NewTopicViewController" customModule="FiveSteps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zep-AM-haK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -430,7 +430,7 @@
         <!--New Challenge-->
         <scene sceneID="63d-U9-p4a">
             <objects>
-                <viewController storyboardIdentifier="newChallengeView2" id="HiJ-wR-LKo" customClass="NewChallengeViewController" customModule="_Steps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newChallengeView2" id="HiJ-wR-LKo" customClass="NewChallengeViewController" customModule="FiveSteps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="phG-SM-krc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -454,9 +454,9 @@
                                         <rect key="frame" x="20" y="102" width="377" height="473"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" name="background"/>
-                                        <collectionViewLayout key="collectionViewLayout" id="0lt-yG-9f8" customClass="NewStepLayout" customModule="_Steps" customModuleProvider="target"/>
+                                        <collectionViewLayout key="collectionViewLayout" id="0lt-yG-9f8" customClass="NewStepLayout" customModule="FiveSteps" customModuleProvider="target"/>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="xn7-Uh-S3F" customClass="NewStepCollectionViewCell" customModule="_Steps" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="xn7-Uh-S3F" customClass="NewStepCollectionViewCell" customModule="FiveSteps" customModuleProvider="target">
                                                 <rect key="frame" x="1.5" y="0.0" width="374" height="135"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -563,7 +563,7 @@
         <!--Random Challenge View Controller-->
         <scene sceneID="0GF-6A-xQW">
             <objects>
-                <viewController storyboardIdentifier="randomChallengeView" id="48K-Ed-kGy" customClass="RandomChallengeViewController" customModule="_Steps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="randomChallengeView" id="48K-Ed-kGy" customClass="RandomChallengeViewController" customModule="FiveSteps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8dt-qJ-CuQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
