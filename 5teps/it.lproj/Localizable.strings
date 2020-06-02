@@ -26,7 +26,12 @@
  */
 "TEST" = "TEST";
 "TITLE_START_BUTTON" = "Inizia";
-"DAYS" = "Giorni";
+"DAYS" = "Giorno/i";
+"TITLE_ALERT" = "Congratulazioni!";
+"MESSAGE_ALERT" = "Hai completato una challenge!";
+"TITLE_DELETE_ALERT" = "Attenzione";
+"MESSAGE_DELETE_ALERT" = "Vuoi cancellare questa challenge?";
+"CANCEL_ACTION" = "Annulla";
 
 
 /**

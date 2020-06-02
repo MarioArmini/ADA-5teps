@@ -77,7 +77,7 @@ class ChallengesViewController: UIViewController {
     }
     
     @objc func endChallenge(){
-        let alert = UIAlertController(title: "Congratulations!", message: "You completed a challenge!", preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("TITLE_ALERT", comment: ""), message: NSLocalizedString("MESSAGE_ALERT", comment: ""), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             self.animateOut()
             self.reloadData()
@@ -88,7 +88,7 @@ class ChallengesViewController: UIViewController {
     @objc func deleteChallenge(_ notification: Notification){
         if let id = notification.object as? UUID {
             if let c = Challenge.findById(id: "\(id)") {
-                let alert = UIAlertController(title: "Attention", message: "Do you want to delete this challenge?", preferredStyle: .alert)
+                let alert = UIAlertController(title: NSLocalizedString("TITLE_DELETE_ALERT", comment: ""), message: NSLocalizedString("MESSAGE_DELETE_ALERT", comment: ""), preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                     c.delete()
                     DispatchQueue.main.async {
@@ -96,7 +96,7 @@ class ChallengesViewController: UIViewController {
                     }
                     self.reloadData()
                     }))
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {action in
+                alert.addAction(UIAlertAction(title: NSLocalizedString("CANCEL_ACTION", comment: ""), style: .cancel, handler: {action in
                 }))
                 self.present(alert, animated: true, completion: nil)
             }
