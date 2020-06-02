@@ -34,7 +34,7 @@ class ProfileViewController: UIViewController {
         nameLabel.text = user?.name
         currentLevel = Goal.getMaxLevel()
         if(nameLabel.text?.count == 0) {
-            nameLabel.text = "(customize your profile)"
+            nameLabel.text = NSLocalizedString("LABEL_NAME_EMPTY", comment: "")
         }
         
         
@@ -53,8 +53,8 @@ class ProfileViewController: UIViewController {
             self.profileImageView.addSubview(ring!)
         }
         
-        
-        levelLabel.text = "Level \(currentLevel.level)"
+        //"\(currentLevel.level)"
+        levelLabel.text = String(format: NSLocalizedString("LABEL_LEVEL", comment: ""),"\(currentLevel.level)")
         
         updateView()
     }

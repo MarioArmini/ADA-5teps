@@ -1,9 +1,9 @@
 
 /* Class = "UIViewController"; title = "New Topic"; ObjectID = "162-sE-Kkp"; */
-"162-sE-Kkp.title" = "New Topic";
+"162-sE-Kkp.title" = "Nuovo Topic";
 
 /* Class = "UIButton"; normalTitle = "Discard"; ObjectID = "2aq-Ts-b35"; */
-"2aq-Ts-b35.normalTitle" = "Discard";
+"2aq-Ts-b35.normalTitle" = "Annulla";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "9Hk-H8-jro"; */
 "9Hk-H8-jro.text" = "Label";
@@ -12,52 +12,52 @@
 "Bl6-WG-UMh.text" = "Label";
 
 /* Class = "UITextField"; placeholder = "Insert Topic Name"; ObjectID = "FSH-Ci-rC2"; */
-"FSH-Ci-rC2.placeholder" = "Insert Topic Name";
+"FSH-Ci-rC2.placeholder" = "Inserisci il nome del Topic";
 
 /* Class = "UILabel"; text = "New Challenge"; ObjectID = "JDF-fy-pY6"; */
-"JDF-fy-pY6.text" = "New Challenge";
+"JDF-fy-pY6.text" = "Nuova Challenge";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "MF3-az-cTQ"; */
-"MF3-az-cTQ.normalTitle" = "Save";
+"MF3-az-cTQ.normalTitle" = "Salva";
 
 /* Class = "UITextField"; placeholder = "Insert Topic Name"; ObjectID = "R0n-Wf-TOK"; */
-"R0n-Wf-TOK.placeholder" = "Insert Topic Name";
+"R0n-Wf-TOK.placeholder" = "Inserisci il nome del Topic";
 
 /* Class = "UITextField"; placeholder = "Insert Card Name"; ObjectID = "R1h-QX-z7m"; */
-"R1h-QX-z7m.placeholder" = "Insert Card Name";
+"R1h-QX-z7m.placeholder" = "Inserisci il nome della Challenge";
 
 /* Class = "UIButton"; normalTitle = "Accept"; ObjectID = "ZDA-L8-syG"; */
-"ZDA-L8-syG.normalTitle" = "Accept";
+"ZDA-L8-syG.normalTitle" = "Accetta";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "eLG-Tw-MoG"; */
-"eLG-Tw-MoG.normalTitle" = "Save";
+"eLG-Tw-MoG.normalTitle" = "Salva";
 
 /* Class = "UINavigationItem"; title = "New Topic"; ObjectID = "exp-bt-lwc"; */
-"exp-bt-lwc.title" = "New Topic";
+"exp-bt-lwc.title" = "Nuovo Topic";
 
 /* Class = "UINavigationItem"; title = "New Challenge"; ObjectID = "f5w-B3-tvZ"; */
-"f5w-B3-tvZ.title" = "New Challenge";
+"f5w-B3-tvZ.title" = "Nuova Challenge";
 
 /* Class = "UILabel"; text = "iconLabel"; ObjectID = "hav-Ve-Qgp"; */
 "hav-Ve-Qgp.text" = "iconLabel";
 
 /* Class = "UIViewController"; title = "New Topic"; ObjectID = "jQt-mO-Rhd"; */
-"jQt-mO-Rhd.title" = "New Topic";
+"jQt-mO-Rhd.title" = "Nuovo Topic";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "luF-5S-6L1"; */
 "luF-5S-6L1.text" = "Label";
 
 /* Class = "UINavigationItem"; title = "New Challenge"; ObjectID = "pHM-de-0qv"; */
-"pHM-de-0qv.title" = "New Challenge";
+"pHM-de-0qv.title" = "Nuova Challenge";
 
 /* Class = "UINavigationItem"; title = "New Topic"; ObjectID = "qeY-Dx-Bip"; */
-"qeY-Dx-Bip.title" = "New Topic";
+"qeY-Dx-Bip.title" = "Nuovo Topic";
 
 /* Class = "UITextField"; placeholder = "Insert Card Name"; ObjectID = "rop-SQ-Mus"; */
-"rop-SQ-Mus.placeholder" = "Insert Card Name";
+"rop-SQ-Mus.placeholder" = "Inserisci il nome della Challenge";
 
 /* Class = "UIButton"; normalTitle = "Discard"; ObjectID = "tmX-Yx-2gA"; */
-"tmX-Yx-2gA.normalTitle" = "Discard";
+"tmX-Yx-2gA.normalTitle" = "Annulla";
 
 /* Class = "UILabel"; text = "New Topic"; ObjectID = "yap-me-Fb9"; */
-"yap-me-Fb9.text" = "New Topic";
+"yap-me-Fb9.text" = "Nuovo Topic";

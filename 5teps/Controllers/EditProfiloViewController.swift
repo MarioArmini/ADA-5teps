@@ -58,19 +58,19 @@ class EditProfiloViewController: UIViewController {
     @IBAction func onClickEdit(_ sender: UIButton) {
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let azione1 = UIAlertAction(title: "Take a picture", style: .default,
+        let azione1 = UIAlertAction(title: NSLocalizedString("TITLE_PICTURE", comment: ""), style: .default,
             handler: {(paramAction:UIAlertAction!) in
                 DispatchQueue.main.async {
                   self.takePhoto()
                 }
         })
-        let azione2 = UIAlertAction(title: "Choose a photo", style: .default,
+        let azione2 = UIAlertAction(title: NSLocalizedString("TITLE_PHOTO", comment: ""), style: .default,
             handler: {(paramAction:UIAlertAction!) in
                 DispatchQueue.main.async {
                   self.choosePhoto()
                 }
         })
-        let azioneDestructive = UIAlertAction(title: "Cancel", style: .cancel,
+        let azioneDestructive = UIAlertAction(title: NSLocalizedString("TITLE_CANCEL", comment: ""), style: .cancel,
             handler: {(paramAction:UIAlertAction!) in
 
         })

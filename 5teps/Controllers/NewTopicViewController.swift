@@ -78,8 +78,10 @@ class NewTopicViewController: UIViewController {
         }
     }
     @IBAction func onClickSave(_ sender: UIButton) {
+      
+        
         if nameTextField.text?.count == 0{
-            Utils.showMessage(vc: self, title: "Field Mandatory", msg: "Insert name of topic")
+            Utils.showMessage(vc: self, title: NSLocalizedString("TITLE_SAVE", comment: ""), msg: NSLocalizedString("TITLE_INSERT_NAME", comment: ""))
             return
         }
         

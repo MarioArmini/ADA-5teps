@@ -33,7 +33,7 @@ class NewStepCollectionViewCell: UICollectionViewCell {
         
     }
     func updateUI() {
-        daysLabel.text = "days"
+        daysLabel.text = NSLocalizedString("LABEL_DAYS", comment: "") 
         if let step = self.step {
             nameTextField.placeholder = "Step #\(step.step)"
             nameTextField.text = step.name
@@ -99,7 +99,7 @@ extension NewStepCollectionViewCell: UIPickerViewDelegate, UIPickerViewDataSourc
     func dismissPickerView() {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.actionEnd))
+        let button = UIBarButtonItem(title: NSLocalizedString("TITLE_DONE", comment: ""), style: .plain, target: self, action: #selector(self.actionEnd))
         toolBar.setItems([button], animated: true)
         toolBar.isUserInteractionEnabled = true
         dayTextField.inputAccessoryView = toolBar

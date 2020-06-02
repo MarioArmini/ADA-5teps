@@ -24,7 +24,7 @@
 "R0n-Wf-TOK.placeholder" = "Insert Topic Name";
 
 /* Class = "UITextField"; placeholder = "Insert Card Name"; ObjectID = "R1h-QX-z7m"; */
-"R1h-QX-z7m.placeholder" = "Insert Card Name";
+"R1h-QX-z7m.placeholder" = "Insert Challenge Name";
 
 /* Class = "UIButton"; normalTitle = "Accept"; ObjectID = "ZDA-L8-syG"; */
 "ZDA-L8-syG.normalTitle" = "Accept";
@@ -54,7 +54,7 @@
 "qeY-Dx-Bip.title" = "New Topic";
 
 /* Class = "UITextField"; placeholder = "Insert Card Name"; ObjectID = "rop-SQ-Mus"; */
-"rop-SQ-Mus.placeholder" = "Insert Card Name";
+"rop-SQ-Mus.placeholder" = "Insert Challenge Name";
 
 /* Class = "UIButton"; normalTitle = "Discard"; ObjectID = "tmX-Yx-2gA"; */
 "tmX-Yx-2gA.normalTitle" = "Discard";

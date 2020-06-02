@@ -35,3 +35,15 @@ FABIO
 "TEST" = "TEST";
 "JSON_FILE_CHALLENGE" = "topic";
 "JSON_FILE_MENTOR" = "mentor";
+"LABEL_DAYS" = "days";
+"LABEL_NAME_EMPTY" = "(customize your profile)";
+"LABEL_LEVEL" = "Level %@";
+"TITLE_PICTURE" = "Take a picture";
+"TITLE_PHOTO" = "Choose a photo";
+"TITLE_CANCEL" = "Cancel";
+"TITLE_DONE" = "Done";
+
+/** NEW TOPIC **/
+"TITLE_SAVE" = "Field Mandatory";
+"TITLE_INSERT_NAME" = "Insert name of topic";
+"TITLE_INSERT_NAME_CHALLENGE" = "Insert name of challenge";
