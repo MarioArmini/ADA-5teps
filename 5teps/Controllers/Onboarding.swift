@@ -52,20 +52,25 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
         let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         //slide1.imageView.image = UIImage(named: "mentor")
         slide1.title.text = "Start"
+        slide1.title.text = NSLocalizedString("SLIDE_1_TITLE", comment: "")
         slide1.desc.text  = "If not now, when? Every deck is a goal to achieve. Find the most engaging for you and overcome every challenge! Nothing suitable? Create one yourself!"
+        slide1.desc.text = NSLocalizedString("SLIDE_1_DESC", comment: "")
         slide1.imageForTest.image = UIImage(named: "onboarding1")
         barBottom.image = UIImage(named: "barBottom")
         let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         //slide2.imageView.image = UIImage(named: "mentor")
         slide2.title.text = "Pick"
+        slide2.title.text = NSLocalizedString("SLIDE_2_TITLE", comment: "")
         slide2.desc.text = "Feeling Brave? \nCreate your own challenge: set your steps, your deadlines and you're ready to go! Don't forget to check your steps as done to keep your progress updated!"
-        
+        slide2.desc.text = NSLocalizedString("SLIDE_2_DESC", comment: "")
         slide2.imageForTest.image = UIImage(named: "onboarding2")
         barBottom.image = UIImage(named: "barBottom")
         let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         //slide3.imageView.image = UIImage(named: "mentor")
         slide3.title.text = "Smash"
+        slide3.title.text = NSLocalizedString("SLIDE_3_TITLE", comment: "")
         slide3.desc.text = "Win every challenge in order to achieve your goals and reach everyday an higher level! Our virtual assistant will support you during your personal growth."
+        slide3.desc.text = NSLocalizedString("SLIDE_3_DESC", comment: "")
         slide3.imageForTest.image = UIImage(named: "onboarding3")
         
         //pageControl.isHidden = true
