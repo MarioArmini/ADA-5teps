@@ -31,25 +31,25 @@
       "Guarda dove sei già arrivato fino a ora!"
    ],
    "noChallengeInProgress":[
-        "Perché non inizi \nuna nuova challenge?",
-        "Oggi è il giorno giusto \nper iniziare una nuova challenge",
-        "Un nuovo inizio: \nincomincia la tua challenge oggi stesso!",
-        "Che giorno perfetto \nper cominciare una challenge!",
-        "Ti annoi? \nChe te ne pare di provare una challenge?",
-        "Che ne dici di provare \una delle nostre challenge?",
-        "Ti senti produttivo? \nProva una delle nostre challenge",
-        "Ottima giornata \nper imparare qualcosa di nuovo!",
-        "Se non ora, quando?"
+      "Perché non inizi \nuna nuova challenge?",
+      "Oggi è il giorno giusto \nper iniziare una nuova challenge",
+      "Un nuovo inizio: \nincomincia la tua challenge oggi stesso!",
+      "Che giorno perfetto \nper cominciare una challenge!",
+      "Ti annoi? \nChe te ne pare di provare una challenge?",
+      "Che ne dici di provare \\una delle nostre challenge?",
+      "Ti senti produttivo? \nProva una delle nostre challenge",
+      "Ottima giornata \nper imparare qualcosa di nuovo!",
+      "Se non ora, quando?"
    ],
    "challengeCompleted":[
-        "Ben fatto! Il tuo premio ti aspetta \nnella sezione del tuo profilo!",
-         "Bel lavoro! Ti sei meritato un premio, va' nella \nsezione del tuo profilo per scoprirlo!",
-         "Sapevo che ce l'avresti fatta! \nIl tuo premio ti aspetta nella sezione del tuo profilo!",
-         "Ce l'hai fatta! \nIl tuo premio ti attende \nnel tuo profilo!",
-         "Sei stato grande!",
-         "È stato fantastico guidarti \in questa challenge!",
-         "Il tuo premio ti sta aspettando \nnella sezione profilo!",
-         "Congratulazioni! Il tuo premio \nti aspetta \nnella sezione del tuo profilo!"
+      "Ben fatto! Il tuo premio ti aspetta \nnella sezione del tuo profilo!",
+      "Bel lavoro! Ti sei meritato un premio, va' nella \nsezione del tuo profilo per scoprirlo!",
+      "Sapevo che ce l'avresti fatta! \nIl tuo premio ti aspetta nella sezione del tuo profilo!",
+      "Ce l'hai fatta! \nIl tuo premio ti attende \nnel tuo profilo!",
+      "Sei stato grande!",
+      "È stato fantastico guidarti \\in questa challenge!",
+      "Il tuo premio ti sta aspettando \nnella sezione profilo!",
+      "Congratulazioni! Il tuo premio \nti aspetta \nnella sezione del tuo profilo!"
    ],
    "challengeFailed":[
       "Oh no!",
