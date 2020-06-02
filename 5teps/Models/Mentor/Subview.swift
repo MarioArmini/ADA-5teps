@@ -239,18 +239,20 @@ class Subview: UIView {
         title = "Come on, you have to achieve your goals!"
         title = NSLocalizedString("TITLE_1", comment: "")
         if dayToLeft == 0 {
-            message = "Your time is up!!! Come on, complete your challenge! \(name)"
-            message = NSLocalizedString("MSG_1", comment: "notification1")
+            //message = "Your time is up!!! Come on, complete your challenge! \(name)"
+            message = String(format: NSLocalizedString("MSG_1", comment: "notification1"), "\(name)")
         } else if dayToLeft == 1 {
-            message = "One day left! \(name)"
-            message = NSLocalizedString("MSG_2", comment: "notification2")
+            //message = "One day left! \(name)"
+            message = String(format: NSLocalizedString("MSG_2", comment: "notification2"), "\(name)")
         } else {
-            message = "Days left \(dayToLeft) to complete your challenge! \(name)"
-            message = NSLocalizedString("MSG_3", comment: "notificatio3")
+            //message = "Days left \(dayToLeft) to complete your challenge! \(name)"
+            message = String(format: NSLocalizedString("MSG_3", comment: "notification3"), "\(dayToLeft)", "\(name)")
         }
         
         return (title: title, message: message)
     }
+    
+    //  levelLabel.text = String(format: NSLocalizedString("LABEL_LEVEL", comment: ""),"\(currentLevel.level)")
     public func backgroundNoChallenge() -> (title: String, message: String) {
         var title = ""
         var message = ""
