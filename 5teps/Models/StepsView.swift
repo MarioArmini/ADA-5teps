@@ -63,6 +63,7 @@ class StepsView: UIView {
         label5.text = steps[4].name
         
         self.startButton.isHidden = !challenge.isCreate
+        self.startButton.setTitle(NSLocalizedString("TITLE_START_BUTTON", comment: ""), for: .normal)
         
         self.backgroundColor = challenge.topic?.bgColor
         verifySteps()
