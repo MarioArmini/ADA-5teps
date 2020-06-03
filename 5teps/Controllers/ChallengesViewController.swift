@@ -73,7 +73,7 @@ class ChallengesViewController: UIViewController {
         let endNotification = Notification.Name("endNotification")
         NotificationCenter.default.addObserver(self, selector: #selector(endChallenge), name: endNotification, object: nil)
         
-        
+        reloadData()
     }
     
     @objc func endChallenge(){
@@ -143,6 +143,8 @@ class ChallengesViewController: UIViewController {
         topicName = defaults.string(forKey: "topicName") ?? ""
         if let topic = Topic.findByName(name: topicName) {
             challenges = topic.findChallengeByState(state: ChallengeState.Create, state2: ChallengeState.Started)
+            self.title = topic.name
+            
         }
         challengeSections[0] = challenges
         /*if challenges.count % 4 > 0{

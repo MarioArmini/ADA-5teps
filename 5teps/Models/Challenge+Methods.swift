@@ -96,8 +96,17 @@ extension Challenge {
         
         do {
             
+            var resultTmp = [Challenge]()
+            
             let result = try context.fetch(fetchRequest)
-            return result
+            for r in result {
+                if let t = r.topic {
+                    if t.active {
+                        resultTmp.append(r)
+                    }
+                }
+            }
+            return resultTmp
         } catch {
             print ("Error retrieving data")
         }

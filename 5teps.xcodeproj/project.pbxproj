@@ -688,7 +688,7 @@
 				CODE_SIGN_ENTITLEMENTS = 5teps/5teps.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.7;
-				DEVELOPMENT_TEAM = TEFZ2Z35DD;
+				DEVELOPMENT_TEAM = LZCKTYVC4V;
 				INFOPLIST_FILE = 5teps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
