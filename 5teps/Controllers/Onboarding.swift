@@ -56,9 +56,11 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
         slide1.desc.text  = "If not now, when? Every deck is a goal to achieve. Find the most engaging for you and overcome every challenge! Nothing suitable? Create one yourself!"
         slide1.desc.text = NSLocalizedString("SLIDE_1_DESC", comment: "")
         slide1.imageForTest.image = UIImage(named: "onboarding1")
-        barBottom.image = UIImage(named: "barBottom")
+        //barBottom.image = UIImage(named: "barBottom")
+        hiddenButton.isHidden = true
         let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         //slide2.imageView.image = UIImage(named: "mentor")
+        hiddenButton.isHidden = true
         slide2.title.text = "Pick"
         slide2.title.text = NSLocalizedString("SLIDE_2_TITLE", comment: "")
         slide2.desc.text = "Feeling Brave? \nCreate your own challenge: set your steps, your deadlines and you're ready to go! Don't forget to check your steps as done to keep your progress updated!"
@@ -66,6 +68,7 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
         slide2.imageForTest.image = UIImage(named: "onboarding2")
         barBottom.image = UIImage(named: "barBottom")
         let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
+        hiddenButton.isHidden = true
         //slide3.imageView.image = UIImage(named: "mentor")
         slide3.title.text = "Smash"
         slide3.title.text = NSLocalizedString("SLIDE_3_TITLE", comment: "")
@@ -81,7 +84,7 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
                slide4.desc.text = "You won't be alone! Oscar, your mentor, will guide you through your personal growth by giving you motivation, information and everything you need to reach your goals."
                slide4.desc.text = NSLocalizedString("SLIDE_4_DESC", comment: "")
                slide4.imageForTest.image = UIImage(named: "mentoronboarding")
-               
+               hiddenButton.isHidden = false
         //pageControl.isHidden = true
         
         
@@ -111,7 +114,7 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
            /* UIView.transition(with: self.barBottom, duration: 1.0, options: .transitionFlipFromBottom, animations: {
                 self.barBottom.image =  UIImage(named: "getstarted")
             }, completion: nil)*/
-            
+            hiddenButton.setTitle("GET STARTED", for: .normal)
             barBottom.image = UIImage(named: "getstarted")
             pageControl.isHidden = true
             hiddenButton.isHidden = false
