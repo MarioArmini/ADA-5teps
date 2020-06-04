@@ -173,8 +173,17 @@ extension Challenge {
     }
     public func delete() {
         let context = SharedInfo.context
+        
+        let remainChallenges = self.topic?.findChallengeByState(state: .Create, state2: .Started)
+        if remainChallenges?.count == 1 {
+            self.topic?.active = false
+            self.save()
+        }
+        
         context.delete(self)
         _ = context.safeSave()
+        
+        
     }
     public func start() -> Bool {
         if isCreate {
