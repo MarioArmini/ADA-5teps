@@ -14,32 +14,24 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="251" image="mentorwithbubble" translatesAutoresizingMaskIntoConstraints="NO" id="SNv-Ri-LMC">
-                    <rect key="frame" x="20" y="4" width="455" height="110"/>
+                    <rect key="frame" x="0.0" y="4" width="475" height="110"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mentor's message " lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ICr-Kl-4Cb">
-                    <rect key="frame" x="165.66666666666663" y="51.666666666666664" width="264" height="15.666666666666664"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mentor's message " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ICr-Kl-4Cb">
+                    <rect key="frame" x="115" y="30.000000000000004" width="310" height="15.666666666666668"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                     <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oscar         " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ql-kB-4ml">
-                    <rect key="frame" x="165.66666666666666" y="23.666666666666671" width="93.999999999999972" height="23"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                    <color key="textColor" name="blue"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" name="background"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="SNv-Ri-LMC" secondAttribute="trailing" id="3CD-Kf-aah"/>
-                <constraint firstItem="SNv-Ri-LMC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="A1S-lY-hUs"/>
+                <constraint firstItem="SNv-Ri-LMC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="A1S-lY-hUs"/>
                 <constraint firstItem="SNv-Ri-LMC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="O3f-k2-mPk"/>
-                <constraint firstItem="ICr-Kl-4Cb" firstAttribute="leading" secondItem="6Ql-kB-4ml" secondAttribute="leading" id="PVd-e8-vej"/>
-                <constraint firstItem="6Ql-kB-4ml" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-25" id="Qh8-g1-U7o"/>
-                <constraint firstItem="ICr-Kl-4Cb" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="60" id="bCN-A6-wQ3"/>
-                <constraint firstItem="6Ql-kB-4ml" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-22" id="mPA-YN-Azt"/>
+                <constraint firstAttribute="trailing" secondItem="ICr-Kl-4Cb" secondAttribute="trailing" constant="50" id="VmU-a0-0zi"/>
+                <constraint firstItem="ICr-Kl-4Cb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="115" id="cMu-B5-Mj9"/>
+                <constraint firstItem="ICr-Kl-4Cb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="m7s-oo-hOs"/>
                 <constraint firstAttribute="bottom" secondItem="SNv-Ri-LMC" secondAttribute="bottom" id="mqB-sg-xsK"/>
-                <constraint firstItem="ICr-Kl-4Cb" firstAttribute="top" secondItem="6Ql-kB-4ml" secondAttribute="bottom" constant="5" id="oNT-6o-nGI"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -50,12 +42,9 @@
         </view>
     </objects>
     <resources>
-        <image name="mentorwithbubble" width="421" height="126"/>
+        <image name="mentorwithbubble" width="401" height="115"/>
         <namedColor name="background">
             <color red="0.93333333333333335" green="0.92941176470588238" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="blue">
-            <color red="0.42699998617172241" green="0.52899998426437378" blue="0.82700002193450928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
