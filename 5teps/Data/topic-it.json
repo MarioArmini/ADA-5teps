@@ -79,50 +79,50 @@
         "color": "F77F57",
         "challenge": [
             {
-                "name": "Movie Challenge!",
+                "name": "Film Challenge!",
                 "steps": [
-                    {"name": "Watch at least one of Tarantino's movie!", "days": 1},
-                    {"name": "Take a day off and go to the closest Movie Theatre!", "days": 1},
-                    {"name": "Watch a movie in a foreign language!", "days": 1},
-                    {"name": "Watch an horror movie before going to bed (good luck)", "days": 1},
-                    {"name": "Rewatch your favorite Disney Movie!", "days": 1}
+                    {"name": "Guarda almeno uno dei film di Tarantino!", "giorni": 1},
+                    {"name": "Prendi un giorno di pausa e va al cinema più vicino!", "giorni": 1},
+                    {"name": "Guarda un film in una lingua straniera!", "giorni": 1},
+                    {"name": "Guarda un film horror prima di andare a dormire (buona fortuna)", "giorni": 1},
+                    {"name": "Riguarda il tuo film Disney preferito!", "giorni": 1}
                 ]
             },
             {
                 "name": "Skin Care",
                 "steps": [
-                    {"name": "Wash your face twice a day with micellar Water", "days": 1},
-                    {"name": "Drink at least 2L of water!", "days": 1},
-                    {"name": "Apply your tonic of cream everyday twice", "days": 1},
-                    {"name": "Try the brown sugar + lemon scrub", "days": 1},
-                    {"name": "Avoid candies for five days!", "days": 5}
+                    {"name": "Lavati il viso con l'acqua micellare!", "giorni": 1},
+                    {"name": "Bevi almeno 2L d'acqua!", "giorni": 1},
+                    {"name": "Applica crema idratante o tinico due volte al giorno!", "giorni": 1},
+                    {"name": "Priva lo scrub allo zucchero di canna + limone", "giorni": 1},
+                    {"name": "Evita dolciumi per 5 giorni!", "giorni": 5}
                 ]
             },
             {
-                "name": "Social Media distancing",
+                "name": "Distanza dai Social",
                 "steps": [
-                    {"name": "Do not post any story on instagram for today", "days": 1},
-                    {"name": "Set a specific time span for your social media interactions", "days": 1},
-                    {"name": "Use your phone just to check this step today", "days": 1},
-                    {"name": "Write down all the things you achieved during your no-phone day", "days": 1},
-                    {"name": "While you are with friends challenge them to not use phones at all!", "days": 1}
+                    {"name": "Non postare nessuna storia su instagram per oggi!", "giorni": 1},
+                    {"name": "Stabilisci un orario preciso da passare sui social oggi!", "giorni": 1},
+                    {"name": "Usa il tuo telefono solo per segnare questo step oggi!", "days": 1},
+                    {"name": "Scrivi tutte le cose che sei riuscito a fare durante il tuo giorno senza telefono!", "giorni": 1},
+                    {"name": "Quasndo sei con i tuoi amici sfidali a non usare i vostri telefoni!", "giorni": 1}
                 ]
             }
         ]
     },
     {
-        "name": "First Challenge",
+        "name": "Prima Challenge",
         "icon": "libro",
         "color": "F77F57",
         "challenge": [
             {
-                "name": "Set up your profile!",
+                "name": "Configura il tuo profilo!",
                 "steps": [
-                    {"name": "Go to your profile and choose your Name", "days": 1},
-                    {"name": "Pick your best picture!", "days": 1},
-                    {"name": "Create your first deck!", "days": 1},
-                    {"name": "Create at least two challenges", "days": 1},
-                    {"name": "Collect your prize!", "days": 1}
+                    {"name": "Vai nella sezione del tuo profilo ed inserisci il tuo nome", "giorni": 1},
+                    {"name": "Scegli la tua foto più bella!", "giorni": 1},
+                    {"name": "Crea il tuo primo Deck!", "giorni": 1},
+                    {"name": "Crea almeno due challenge!", "giorni": 1},
+                    {"name": "Ricevi il tuo premio!", "giorni": 1}
                 ]
             }
         ]
