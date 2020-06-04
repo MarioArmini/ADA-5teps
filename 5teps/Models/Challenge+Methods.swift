@@ -182,8 +182,6 @@ extension Challenge {
         
         context.delete(self)
         _ = context.safeSave()
-        
-        
     }
     public func start() -> Bool {
         if isCreate {

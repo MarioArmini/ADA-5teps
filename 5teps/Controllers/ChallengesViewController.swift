@@ -29,6 +29,7 @@ class ChallengesViewController: UIViewController {
     var row = Int()
     var section = Int()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true

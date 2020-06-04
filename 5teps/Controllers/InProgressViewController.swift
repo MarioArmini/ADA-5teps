@@ -66,6 +66,7 @@ class InProgressViewController: UIViewController{
         challengeCollectionView.dataSource = self
         
     }
+
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
     }
