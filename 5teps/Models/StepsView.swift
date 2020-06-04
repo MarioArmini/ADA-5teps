@@ -99,7 +99,12 @@ class StepsView: UIView {
             //drawLineFromPoint(start: self.button1.center, toPoint: self.button2.center, ofColor: UIColor.black, inView: self)
             self.deadlineLabel1.text = labelCompleted
             let deadline = steps[1].daysToDeadline()
-            self.deadlineLabel2.text = "\(deadline)" + NSLocalizedString("DAYS", comment: "")
+            if deadline == 1{
+                self.deadlineLabel2.text = "\(deadline) " + NSLocalizedString("DAY", comment: "")
+            }
+            else{
+                self.deadlineLabel2.text = "\(deadline) " + NSLocalizedString("DAYS", comment: "")
+            }
         }
         else if !self.steps[0].isFinish {
             self.button1.setBackgroundImage(UIImage(systemName: "circle"), for: .normal)
@@ -112,7 +117,12 @@ class StepsView: UIView {
             //drawLineFromPoint(start: self.button2.center, toPoint: self.button3.center, ofColor: UIColor.black, inView: self)
             self.deadlineLabel2.text = labelCompleted
             let deadline = steps[2].daysToDeadline()
-            self.deadlineLabel3.text = "\(deadline)" + NSLocalizedString("DAYS", comment: "")
+            if deadline == 1{
+                self.deadlineLabel3.text = "\(deadline) " + NSLocalizedString("DAY", comment: "")
+            }
+            else{
+                self.deadlineLabel3.text = "\(deadline) " + NSLocalizedString("DAYS", comment: "")
+            }
         }
         else if !self.steps[1].isFinish{
             self.button2.setBackgroundImage(UIImage(systemName: "circle"), for: .normal)
@@ -124,7 +134,12 @@ class StepsView: UIView {
             //drawLineFromPoint(start: self.button3.center, toPoint: self.button4.center, ofColor: UIColor.black, inView: self)
             self.deadlineLabel3.text = labelCompleted
             let deadline = steps[3].daysToDeadline()
-            self.deadlineLabel4.text = "\(deadline)" + NSLocalizedString("DAYS", comment: "")
+            if deadline == 1{
+                self.deadlineLabel4.text = "\(deadline) " + NSLocalizedString("DAY", comment: "")
+            }
+            else{
+                self.deadlineLabel4.text = "\(deadline) " + NSLocalizedString("DAYS", comment: "")
+            }
         }
         else if !self.steps[2].isFinish{
             self.button3.setBackgroundImage(UIImage(systemName: "circle"), for: .normal)
@@ -136,7 +151,12 @@ class StepsView: UIView {
             //drawLineFromPoint(start: self.button4.center, toPoint: self.button5.center, ofColor: UIColor.black, inView: self)
             self.deadlineLabel4.text = labelCompleted
             let deadline = steps[4].daysToDeadline()
-            self.deadlineLabel5.text = "\(deadline)" + NSLocalizedString("DAYS", comment: "")
+            if deadline == 1{
+                self.deadlineLabel5.text = "\(deadline) " + NSLocalizedString("DAY", comment: "")
+            }
+            else{
+                self.deadlineLabel5.text = "\(deadline) " + NSLocalizedString("DAYS", comment: "")
+            }
         }
         else if !self.steps[3].isFinish{
             self.button4.setBackgroundImage(UIImage(systemName: "circle"), for: .normal)
@@ -157,19 +177,44 @@ class StepsView: UIView {
                 let deadline = step.daysToDeadline()
                 switch(c.currentStep) {
                 case 1:
-                    self.deadlineLabel1.text = step.isFinish ? labelCompleted : "\(deadline)" + NSLocalizedString("DAYS", comment: "")
+                    if deadline == 1 {
+                        self.deadlineLabel1.text = step.isFinish ? labelCompleted : "\(deadline) " + NSLocalizedString("DAY", comment: "")
+                    }
+                    else{
+                        self.deadlineLabel1.text = step.isFinish ? labelCompleted : "\(deadline) " + NSLocalizedString("DAYS", comment: "")
+                    }
                     break;
                 case 2:
-                    self.deadlineLabel2.text = step.isFinish ? labelCompleted : "\(deadline)" + NSLocalizedString("DAYS", comment: "")
+                    if deadline == 1 {
+                        self.deadlineLabel2.text = step.isFinish ? labelCompleted : "\(deadline) " + NSLocalizedString("DAY", comment: "")
+                    }
+                    else{
+                        self.deadlineLabel2.text = step.isFinish ? labelCompleted : "\(deadline) " + NSLocalizedString("DAYS", comment: "")
+                    }
                     break;
                 case 3:
-                    self.deadlineLabel3.text = step.isFinish ? labelCompleted : "\(deadline)" + NSLocalizedString("DAYS", comment: "")
+                    if deadline == 1 {
+                        self.deadlineLabel3.text = step.isFinish ? labelCompleted : "\(deadline) " + NSLocalizedString("DAY", comment: "")
+                    }
+                    else{
+                        self.deadlineLabel3.text = step.isFinish ? labelCompleted : "\(deadline) " + NSLocalizedString("DAYS", comment: "")
+                    }
                     break;
                 case 4:
-                    self.deadlineLabel4.text = step.isFinish ? labelCompleted : "\(deadline)" + NSLocalizedString("DAYS", comment: "")
+                    if deadline == 1 {
+                        self.deadlineLabel4.text = step.isFinish ? labelCompleted : "\(deadline) " + NSLocalizedString("DAY", comment: "")
+                    }
+                    else{
+                        self.deadlineLabel4.text = step.isFinish ? labelCompleted : "\(deadline) " + NSLocalizedString("DAYS", comment: "")
+                    }
                     break;
                 case 5:
-                    self.deadlineLabel5.text = step.isFinish ? labelCompleted : "\(deadline)" + NSLocalizedString("DAYS", comment: "")
+                    if deadline == 1 {
+                        self.deadlineLabel5.text = step.isFinish ? labelCompleted : "\(deadline) " + NSLocalizedString("DAY", comment: "")
+                    }
+                    else{
+                        self.deadlineLabel5.text = step.isFinish ? labelCompleted : "\(deadline) " + NSLocalizedString("DAYS", comment: "")
+                    }
                     break;
                 default:
                     break;
@@ -196,7 +241,12 @@ class StepsView: UIView {
         //challenge = Challenge.findByName(name: self.titleLabel.text ?? "")
         let _ = challenge.start()
         let deadline = steps[0].daysToDeadline()
-        self.deadlineLabel1.text = "\(deadline)" + NSLocalizedString("DAYS", comment: "")
+        if deadline == 1 {
+            self.deadlineLabel1.text = "\(deadline) " + NSLocalizedString("DAY", comment: "")
+        }
+        else{
+            self.deadlineLabel1.text = "\(deadline) " + NSLocalizedString("DAYS", comment: "")
+        }
         //self.startButton.alpha = 0
         updateUI()
     }
@@ -209,7 +259,12 @@ class StepsView: UIView {
         let _ = challenge.nextStep()
         self.deadlineLabel1.text = labelCompleted
         let deadline = steps[1].daysToDeadline()
-        self.deadlineLabel2.text = "\(deadline)" + NSLocalizedString("DAYS", comment: "")
+        if deadline == 1 {
+            self.deadlineLabel2.text = "\(deadline) " + NSLocalizedString("DAY", comment: "")
+        }
+        else{
+            self.deadlineLabel2.text = "\(deadline) " + NSLocalizedString("DAYS", comment: "")
+        }
         updateUI()
     }
     @IBAction func completeStep2(_ sender: Any) {
@@ -221,7 +276,12 @@ class StepsView: UIView {
         let _ = challenge.nextStep()
         self.deadlineLabel2.text = labelCompleted
         let deadline = steps[2].daysToDeadline()
-        self.deadlineLabel3.text = "\(deadline)" + NSLocalizedString("DAYS", comment: "")
+        if deadline == 1 {
+            self.deadlineLabel3.text = "\(deadline) " + NSLocalizedString("DAY", comment: "")
+        }
+        else{
+            self.deadlineLabel3.text = "\(deadline) " + NSLocalizedString("DAYS", comment: "")
+        }
         updateUI()
     }
     @IBAction func completeStep3(_ sender: Any) {
@@ -233,7 +293,12 @@ class StepsView: UIView {
         let _ = challenge.nextStep()
         self.deadlineLabel3.text = labelCompleted
         let deadline = steps[3].daysToDeadline()
-        self.deadlineLabel4.text = "\(deadline)" + NSLocalizedString("DAYS", comment: "")
+        if deadline == 1 {
+            self.deadlineLabel4.text = "\(deadline) " + NSLocalizedString("DAY", comment: "")
+        }
+        else{
+            self.deadlineLabel4.text = "\(deadline) " + NSLocalizedString("DAYS", comment: "")
+        }
         updateUI()
     }
     @IBAction func completeStep4(_ sender: Any) {
@@ -245,7 +310,12 @@ class StepsView: UIView {
         let _ = challenge.nextStep()
         self.deadlineLabel4.text = labelCompleted
         let deadline = steps[4].daysToDeadline()
-        self.deadlineLabel5.text = "\(deadline)" + NSLocalizedString("DAYS", comment: "")
+        if deadline == 1 {
+            self.deadlineLabel5.text = "\(deadline) " + NSLocalizedString("DAY", comment: "")
+        }
+        else{
+            self.deadlineLabel5.text = "\(deadline) " + NSLocalizedString("DAYS", comment: "")
+        }
         updateUI()
     }
     @IBAction func completeStep5(_ sender: Any) {

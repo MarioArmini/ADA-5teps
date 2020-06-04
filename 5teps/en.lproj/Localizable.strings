@@ -33,7 +33,8 @@
  */
 "TEST" = "TEST";
 "TITLE_START_BUTTON" = "Start";
-"DAYS" = "Day/s";
+"DAY" = "Day";
+"DAYS" = "Days";
 "TITLE_ALERT" = "Congratulations!";
 "MESSAGE_ALERT" = "You completed a challenge!";
 "TITLE_DELETE_ALERT" = "Attention";

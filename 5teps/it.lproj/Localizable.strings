@@ -31,7 +31,8 @@
  */
 "TEST" = "TEST";
 "TITLE_START_BUTTON" = "Inizia";
-"DAYS" = "Giorno/i";
+"DAY" = "Giorno";
+"DAYS" = "Giorni";
 "TITLE_ALERT" = "Congratulazioni!";
 "MESSAGE_ALERT" = "Hai completato una challenge!";
 "TITLE_DELETE_ALERT" = "Attenzione";
