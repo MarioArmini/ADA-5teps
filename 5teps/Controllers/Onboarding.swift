@@ -73,8 +73,20 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
         slide3.desc.text = NSLocalizedString("SLIDE_3_DESC", comment: "")
         slide3.imageForTest.image = UIImage(named: "onboarding3")
         
+        
+        let slide4:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
+               //slide3.imageView.image = UIImage(named: "mentor")
+               slide4.title.text = "Meet Oscar"
+               slide4.title.text = NSLocalizedString("SLIDE_4_TITLE", comment: "")
+               slide4.desc.text = "You won't be alone! Oscar, your mentor, will guide you through your personal growth by giving you motivation, information and everything you need to reach your goals."
+               slide4.desc.text = NSLocalizedString("SLIDE_4_DESC", comment: "")
+               slide4.imageForTest.image = UIImage(named: "mentoronboarding")
+               
         //pageControl.isHidden = true
-        return [slide1, slide2, slide3]
+        
+        
+        
+        return [slide1, slide2, slide3, slide4]
         
     }
     
@@ -93,7 +105,7 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
         
-        if pageIndex == 2{
+        if pageIndex == 3{
             //changeTitle()
             skipButton.isHidden = true
             UIView.transition(with: self.barBottom, duration: 1.0, options: .transitionFlipFromBottom, animations: {
