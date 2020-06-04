@@ -29,6 +29,7 @@ class ChallengesViewController: UIViewController {
     var row = Int()
     var section = Int()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -64,14 +65,6 @@ class ChallengesViewController: UIViewController {
         
         stepsView.layer.cornerRadius = 20
         
-        let deleteNotification = Notification.Name("deleteNotification")
-        NotificationCenter.default.addObserver(self, selector: #selector(deleteChallenge), name: deleteNotification, object: nil)
-        
-        let nameNotification = Notification.Name("editNotification")
-        NotificationCenter.default.addObserver(self, selector: #selector(editClick), name: nameNotification, object: nil)
-               
-        let endNotification = Notification.Name("endNotification")
-        NotificationCenter.default.addObserver(self, selector: #selector(endChallenge), name: endNotification, object: nil)
         
         reloadData()
     }
@@ -120,11 +113,23 @@ class ChallengesViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        let deleteNotification = Notification.Name("deleteNotification")
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteChallenge), name: deleteNotification, object: nil)
+        
+        let nameNotification = Notification.Name("editNotification")
+        NotificationCenter.default.addObserver(self, selector: #selector(editClick), name: nameNotification, object: nil)
+               
+        let endNotification = Notification.Name("endNotification")
+        NotificationCenter.default.addObserver(self, selector: #selector(endChallenge), name: endNotification, object: nil)
+        
         reloadData()
         
         if challenges.isEmpty{
             referenceForViewTop?.feedbackSimone()
         }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
     @IBAction func onClickNewChallenge(_ sender: Any) {
         if let topic = Topic.findByName(name: topicName) {

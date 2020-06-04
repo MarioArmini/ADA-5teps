@@ -41,7 +41,7 @@ class InProgressViewController: UIViewController{
         }
         
         // MARK: update Mentor topview -------------------------------------------------------------
-       
+        
         //referenceForViewTop?.settingsMentor(imageName: "mentor", text: "Hello!")
         referenceForViewTop?.checkChallenge()
         //------------------------------------------------------------------
@@ -57,7 +57,7 @@ class InProgressViewController: UIViewController{
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
         tap.numberOfTouchesRequired = 1
-
+        
         blurEffect.addGestureRecognizer(tap)
         
         stepsView.layer.cornerRadius = 20
@@ -65,16 +65,21 @@ class InProgressViewController: UIViewController{
         challengeCollectionView.delegate = self
         challengeCollectionView.dataSource = self
         
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    override func viewWillAppear(_ animated: Bool) {
         let endNotification = Notification.Name("endNotification")
         NotificationCenter.default.addObserver(self, selector: #selector(endChallenge), name: endNotification, object: nil)
         
         let nameNotification = Notification.Name("editNotification")
         NotificationCenter.default.addObserver(self, selector: #selector(editClick), name: nameNotification, object: nil)
         
-        //let endNotification2 = Notification.Name("endNotification2")
-        //NotificationCenter.default.addObserver(self, selector: #selector(endChallenge), name: endNotification2, object: nil)
-    }
-    override func viewWillAppear(_ animated: Bool) {
+        let deleteNotification = Notification.Name("deleteNotification")
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteChallenge), name: deleteNotification, object: nil)
+        
         reloadData()
     }
     func reloadData() {
@@ -125,7 +130,24 @@ class InProgressViewController: UIViewController{
         }
         //self.navigationController?.pushViewController(viewTmp, animated: true)
     }
-    
+    @objc func deleteChallenge(_ notification: Notification){
+        if let id = notification.object as? UUID {
+            if let c = Challenge.findById(id: "\(id)") {
+                let alert = UIAlertController(title: NSLocalizedString("TITLE_DELETE_ALERT", comment: ""), message: NSLocalizedString("MESSAGE_DELETE_ALERT", comment: ""), preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    c.delete()
+                    DispatchQueue.main.async {
+                        
+                    }
+                    self.reloadData()
+                }))
+                alert.addAction(UIAlertAction(title: NSLocalizedString("CANCEL_ACTION", comment: ""), style: .cancel, handler: {action in
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
+    }
 }
 // MARK: Mentor SubviewDelegate
 extension InProgressViewController : SubviewDelegate {

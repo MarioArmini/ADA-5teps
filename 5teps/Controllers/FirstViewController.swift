@@ -109,6 +109,13 @@ class FirstViewController: UIViewController {
             })
         }
     }
+    @IBAction func onClickRandomLabel(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "NewTopic", bundle: Bundle.main).instantiateViewController(identifier: "randomChallengeView") as! RandomChallengeViewController
+        vc.parentVC = self
+        self.present(vc, animated: true, completion: {
+            print("finish lanch random view")
+        })
+    }
 }
 
 
