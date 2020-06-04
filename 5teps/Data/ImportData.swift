@@ -19,12 +19,13 @@ public class ImportData {
         if let pathFile = Bundle.main.path(forResource: nameJson, ofType: "json") {
             do {
                 let jsonData = try Data(contentsOf: URL(fileURLWithPath: pathFile), options: .mappedIfSafe)
-               
+                //let output = String(data: jsonData, encoding: .utf8)
+                //print(output!)
                 let decoder = JSONDecoder()
                 json = try decoder.decode([JsonTopic].self, from: jsonData)
                 
             } catch {
-                print("Error importJson: \(error.localizedDescription)")
+                print("Error importJson: \(error.localizedDescription) \(error)")
             }
         } else {
             print("file non found")

@@ -46,7 +46,7 @@
                 "steps": [
                     {"name": "Bevi due bicchieri d'acqua prima di mangiare", "days": 1},
                     {"name": "Prova almeno una ricetta di pancakes proteici", "days": 1},
-                    {"name": "Bevi tè o caffè senza zucchero!", "days": 1},
+                    {"name": "Bevi te' o caffe' senza zucchero!", "days": 1},
                     {"name": "Rendi la tua colazione colorata con frutta fresca!", "days": 1},
                     {"name": "Prova a fare un porrige instagrammabile e condividi la foto!", "days": 1}
                 ]
@@ -56,7 +56,7 @@
                 "steps": [
                     {"name": "Cucina il tuo pranzo E cena usando solo due cucchiai di olio!", "days": 1},
                     {"name": "Invece di quelli commerciali, prepara dei biscotti fatti in casa!", "days": 1},
-                    {"name": "Sostituisci il pane bianco con pane di segale per oggi!", "days" 1},
+                    {"name": "Sostituisci il pane bianco con pane di segale per oggi!", "days": 1},
                     {"name": "Trova la migliore ricetta di Banana bread e replicala!", "days": 1},
                     {"name": "Mangia pizza per festeggiare!", "days": 1}
                 ]
@@ -82,8 +82,8 @@
                 "name": "Film Challenge!",
                 "steps": [
                     {"name": "Guarda almeno uno dei film di Tarantino!", "days": 1},
-                    {"name": "Prendi un giorno di pausa e va al cinema più vicino!", "days": 1},
-                    {"name": "Guarda un film in una lingua straniera!", "giorni": 1},
+                    {"name": "Prendi un giorno di pausa e va al cinema piu' vicino!", "days": 1},
+                    {"name": "Guarda un film in una lingua straniera!", "days": 1},
                     {"name": "Guarda un film horror prima di andare a dormire (buona fortuna)", "days": 1},
                     {"name": "Riguarda il tuo film Disney preferito!", "days": 1}
                 ]
@@ -119,7 +119,7 @@
                 "name": "Configura il tuo profilo!",
                 "steps": [
                     {"name": "Vai nella sezione del tuo profilo ed inserisci il tuo nome", "days": 1},
-                    {"name": "Scegli la tua foto più bella!", "days": 1},
+                    {"name": "Scegli la tua foto piu' bella!", "days": 1},
                     {"name": "Crea il tuo primo Deck!", "days": 1},
                     {"name": "Crea almeno due challenge!", "days": 1},
                     {"name": "Ricevi il tuo premio!", "days": 1}
