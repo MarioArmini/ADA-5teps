@@ -115,6 +115,7 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
                 self.barBottom.image =  UIImage(named: "getstarted")
             }, completion: nil)*/
             hiddenButton.setTitle("GET STARTED", for: .normal)
+            hiddenButton.setTitle(NSLocalizedString("START", comment: ""), for: .normal)
             barBottom.image = UIImage(named: "getstarted")
             pageControl.isHidden = true
             hiddenButton.isHidden = false
