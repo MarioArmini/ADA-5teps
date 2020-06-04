@@ -7,31 +7,31 @@
             {
                 "name": "1 minuto di Plank in 5 giorni",
                 "steps": [
-                    {"name": "Resta in posizione di plank per 20 secondi", "giorni": 1},
-                    {"name": "Resta in posizione di plank per 30 secondi", "giorni": 1},
-                    {"name": "Resta in posizione di plank per 40 secondi", "giorni": 1},
-                    {"name": "Resta in posizione di plank per 50 secondi", "giorni": 1},
-                    {"name": "Resta in posizione di plank per 1 minuto!", "giorni": 1}
+                    {"name": "Resta in posizione di plank per 20 secondi", "days": 1},
+                    {"name": "Resta in posizione di plank per 30 secondi", "days": 1},
+                    {"name": "Resta in posizione di plank per 40 secondi", "days": 1},
+                    {"name": "Resta in posizione di plank per 50 secondi", "days": 1},
+                    {"name": "Resta in posizione di plank per 1 minuto!", "days": 1}
                 ]
             },
             {
                 "name": "50 Squats in 5 giorni!",
                 "steps": [
-                    {"name": "Inizia con 25 squats!", "giorni": 1},
-                    {"name": "E' tempo di passare a 30 squats!", "giorni": 1},
-                    {"name": "Anche oggi 30 squats", "giorni": 1},
-                    {"name": "Oggi invece 45 squats!", "giorni": 1},
-                    {"name": "Finalmente 50 squats!", "giorni": 1}
+                    {"name": "Inizia con 25 squats!", "days": 1},
+                    {"name": "E' tempo di passare a 30 squats!", "days": 1},
+                    {"name": "Anche oggi 30 squats", "days": 1},
+                    {"name": "Oggi invece 45 squats!","days": 1},
+                    {"name": "Finalmente 50 squats!", "days": 1}
                 ]
             },
             {
                 "name": "10 minuti di corsa in 5 giorni",
                 "steps": [
-                    {"name": "Corri per 4 minuti e riposa per un 1 min. Ripeti 2 volte", "giorni": 1},
-                    {"name": "Corri per 5 min e cammina per 5 min", "giorni": 1},
-                    {"name": "Corri per 5 min ed aggiungi 5 minuti di sprint!", "giorni": 1},
-                    {"name": "Corri per un min e cammina per un altro min. Ripeti 5 volte!", "giorni": 1},
-                    {"name": "10 minuti di corsa!", "giorni": 1}
+                    {"name": "Corri per 4 minuti e riposa per un 1 min. Ripeti 2 volte", "days": 1},
+                    {"name": "Corri per 5 min e cammina per 5 min", "days": 1},
+                    {"name": "Corri per 5 min ed aggiungi 5 minuti di sprint!", "days": 1},
+                    {"name": "Corri per un min e cammina per un altro min. Ripeti 5 volte!", "days": 1},
+                    {"name": "10 minuti di corsa!", "days": 1}
                 ]
             }
         ]
@@ -44,31 +44,31 @@
             {
                 "name": "Colazione",
                 "steps": [
-                    {"name": "Bevi due bicchieri d'acqua prima di mangiare", "giorni": 1},
-                    {"name": "Prova almeno una ricetta di pancakes proteici", "giorni": 1},
-                    {"name": "Bevi tè o caffè senza zucchero!", "giorni": 1},
-                    {"name": "Rendi la tua colazione colorata con frutta fresca!", "giorni": 1},
-                    {"name": "Prova a fare un porrige instagrammabile e condividi la foto!", "giorni": 1}
+                    {"name": "Bevi due bicchieri d'acqua prima di mangiare", "days": 1},
+                    {"name": "Prova almeno una ricetta di pancakes proteici", "days": 1},
+                    {"name": "Bevi tè o caffè senza zucchero!", "days": 1},
+                    {"name": "Rendi la tua colazione colorata con frutta fresca!", "days": 1},
+                    {"name": "Prova a fare un porrige instagrammabile e condividi la foto!", "days": 1}
                 ]
             },
             {
                 "name": "5 Pasti salutari!",
                 "steps": [
-                    {"name": "Cucina il tuo pranzo E cena usando solo due cucchiai di olio!", "giorni": 1},
-                    {"name": "Invece di quelli commerciali, prepara dei biscotti fatti in casa!", "giorni": 1},
-                    {"name": "Sostituisci il pane bianco con pane di segale per oggi!", "giorni": 1},
-                    {"name": "Trova la migliore ricetta di Banana bread e replicala!", "giorni": 1},
-                    {"name": "Mangia pizza per festeggiare!", "giorni": 1}
+                    {"name": "Cucina il tuo pranzo E cena usando solo due cucchiai di olio!", "days": 1},
+                    {"name": "Invece di quelli commerciali, prepara dei biscotti fatti in casa!", "days": 1},
+                    {"name": "Sostituisci il pane bianco con pane di segale per oggi!", "days" 1},
+                    {"name": "Trova la migliore ricetta di Banana bread e replicala!", "days": 1},
+                    {"name": "Mangia pizza per festeggiare!", "days": 1}
                 ]
             },
             {
                 "name": "Smoothies Challenge!",
                 "steps": [
-                    {"name": "Smoothie alle mele!", "giorni": 1},
-                    {"name": "Smoothie per accellerare il metabolismo", "giorni": 1},
-                    {"name": "Smoothie all'arancia per difese immunitarie", "giorni": 1},
-                    {"name": "Banana Smoothie", "giorni": 1},
-                    {"name": "Cacao e Mandorle Smoothie proteico", "giorni": 1}
+                    {"name": "Smoothie alle mele!", "days": 1},
+                    {"name": "Smoothie per accellerare il metabolismo", "days": 1},
+                    {"name": "Smoothie all'arancia per difese immunitarie", "days": 1},
+                    {"name": "Banana Smoothie", "days": 1},
+                    {"name": "Cacao e Mandorle Smoothie proteico", "days": 1}
                 ]
             }
         ]
@@ -81,31 +81,31 @@
             {
                 "name": "Film Challenge!",
                 "steps": [
-                    {"name": "Guarda almeno uno dei film di Tarantino!", "giorni": 1},
-                    {"name": "Prendi un giorno di pausa e va al cinema più vicino!", "giorni": 1},
+                    {"name": "Guarda almeno uno dei film di Tarantino!", "days": 1},
+                    {"name": "Prendi un giorno di pausa e va al cinema più vicino!", "days": 1},
                     {"name": "Guarda un film in una lingua straniera!", "giorni": 1},
-                    {"name": "Guarda un film horror prima di andare a dormire (buona fortuna)", "giorni": 1},
-                    {"name": "Riguarda il tuo film Disney preferito!", "giorni": 1}
+                    {"name": "Guarda un film horror prima di andare a dormire (buona fortuna)", "days": 1},
+                    {"name": "Riguarda il tuo film Disney preferito!", "days": 1}
                 ]
             },
             {
                 "name": "Skin Care",
                 "steps": [
-                    {"name": "Lavati il viso con l'acqua micellare!", "giorni": 1},
-                    {"name": "Bevi almeno 2L d'acqua!", "giorni": 1},
-                    {"name": "Applica crema idratante o tinico due volte al giorno!", "giorni": 1},
-                    {"name": "Priva lo scrub allo zucchero di canna + limone", "giorni": 1},
-                    {"name": "Evita dolciumi per 5 giorni!", "giorni": 5}
+                    {"name": "Lavati il viso con l'acqua micellare!", "days": 1},
+                    {"name": "Bevi almeno 2L d'acqua!", "days": 1},
+                    {"name": "Applica crema idratante o tinico due volte al giorno!", "days": 1},
+                    {"name": "Priva lo scrub allo zucchero di canna + limone", "days": 1},
+                    {"name": "Evita dolciumi per 5 giorni!", "days": 5}
                 ]
             },
             {
                 "name": "Distanza dai Social",
                 "steps": [
-                    {"name": "Non postare nessuna storia su instagram per oggi!", "giorni": 1},
-                    {"name": "Stabilisci un orario preciso da passare sui social oggi!", "giorni": 1},
+                    {"name": "Non postare nessuna storia su instagram per oggi!", "days": 1},
+                    {"name": "Stabilisci un orario preciso da passare sui social oggi!", "days": 1},
                     {"name": "Usa il tuo telefono solo per segnare questo step oggi!", "days": 1},
-                    {"name": "Scrivi tutte le cose che sei riuscito a fare durante il tuo giorno senza telefono!", "giorni": 1},
-                    {"name": "Quasndo sei con i tuoi amici sfidali a non usare i vostri telefoni!", "giorni": 1}
+                    {"name": "Scrivi tutte le cose che sei riuscito a fare durante il tuo giorno senza telefono!", "days": 1},
+                    {"name": "Quasndo sei con i tuoi amici sfidali a non usare i vostri telefoni!", "days": 1}
                 ]
             }
         ]
@@ -118,11 +118,11 @@
             {
                 "name": "Configura il tuo profilo!",
                 "steps": [
-                    {"name": "Vai nella sezione del tuo profilo ed inserisci il tuo nome", "giorni": 1},
-                    {"name": "Scegli la tua foto più bella!", "giorni": 1},
-                    {"name": "Crea il tuo primo Deck!", "giorni": 1},
-                    {"name": "Crea almeno due challenge!", "giorni": 1},
-                    {"name": "Ricevi il tuo premio!", "giorni": 1}
+                    {"name": "Vai nella sezione del tuo profilo ed inserisci il tuo nome", "days": 1},
+                    {"name": "Scegli la tua foto più bella!", "days": 1},
+                    {"name": "Crea il tuo primo Deck!", "days": 1},
+                    {"name": "Crea almeno due challenge!", "days": 1},
+                    {"name": "Ricevi il tuo premio!", "days": 1}
                 ]
             }
         ]
