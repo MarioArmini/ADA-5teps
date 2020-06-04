@@ -108,19 +108,19 @@ class Onboarding: UIViewController, UIScrollViewDelegate {
         if pageIndex == 3{
             //changeTitle()
             skipButton.isHidden = true
-            UIView.transition(with: self.barBottom, duration: 1.0, options: .transitionFlipFromBottom, animations: {
+           /* UIView.transition(with: self.barBottom, duration: 1.0, options: .transitionFlipFromBottom, animations: {
                 self.barBottom.image =  UIImage(named: "getstarted")
-            }, completion: nil)
+            }, completion: nil)*/
             
-            //barBottom.image = UIImage(named: "getstarted")
+            barBottom.image = UIImage(named: "getstarted")
             pageControl.isHidden = true
             hiddenButton.isHidden = false
         }else{
-            UIView.transition(with: self.barBottom, duration: 1.0, options: .transitionFlipFromBottom, animations: {
+            /*UIView.transition(with: self.barBottom, duration: 1.0, options: .transitionFlipFromBottom, animations: {
                 self.barBottom.image =  UIImage(named: "barBottom")
-            }, completion: nil)
+            }, completion: nil)*/
             skipButton.setTitle("SKIP", for: .normal)
-            // barBottom.image = UIImage(named: "barBottom")
+            barBottom.image = UIImage(named: "barBottom")
             pageControl.isHidden = false
             skipButton.isHidden = false
             hiddenButton.isHidden = true
