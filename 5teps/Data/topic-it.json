@@ -5,70 +5,70 @@
         "color": "FFC859",
         "challenge": [
             {
-                "name": "1 minute Plank in 5 days",
+                "name": "1 minuto di Plank in 5 giorni",
                 "steps": [
-                    {"name": "Hold the plank position for 20 seconds", "days": 1},
-                    {"name": "Hold the plank position for 30 seconds", "days": 1},
-                    {"name": "Hold the plank position for 40 seconds", "days": 1},
-                    {"name": "Hold the plank position for 50 seconds", "days": 1},
-                    {"name": "Hold the plank position for 1 minute!", "days": 1}
+                    {"name": "Resta in posizione di plank per 20 secondi", "giorni": 1},
+                    {"name": "Resta in posizione di plank per 30 secondi", "giorni": 1},
+                    {"name": "Resta in posizione di plank per 40 secondi", "giorni": 1},
+                    {"name": "Resta in posizione di plank per 50 secondi", "giorni": 1},
+                    {"name": "Resta in posizione di plank per 1 minuto!", "giorni": 1}
                 ]
             },
             {
-                "name": "50 Squats in 5 days!",
+                "name": "50 Squats in 5 giorni!",
                 "steps": [
-                    {"name": "Start with 25 squats!", "days": 1},
-                    {"name": "It's time for 30 squats!", "days": 1},
-                    {"name": "Again 30 squats", "days": 1},
-                    {"name": "Today is 45 squats day!", "days": 1},
-                    {"name": "Finally 50 squats!", "days": 1}
+                    {"name": "Inizia con 25 squats!", "giorni": 1},
+                    {"name": "E' tempo di passare a 30 squats!", "giorni": 1},
+                    {"name": "Anche oggi 30 squats", "giorni": 1},
+                    {"name": "Oggi invece 45 squats!", "giorni": 1},
+                    {"name": "Finalmente 50 squats!", "giorni": 1}
                 ]
             },
             {
-                "name": "10 minutes running in 5 days",
+                "name": "10 minuti di corsa in 5 giorni",
                 "steps": [
-                    {"name": "Run for 4 min and rest for 1 min. Repeat 2 times", "days": 1},
-                    {"name": "Run for 5 min and walk for 5 min", "days": 1},
-                    {"name": "Run for 5 min and and add 10 sec of sprint!", "days": 1},
-                    {"name": "Run for a min and walk for another one. Repeat 5 times!", "days": 1},
-                    {"name": "10 minutes run!", "days": 1}
+                    {"name": "Corri per 4 minuti e riposa per un 1 min. Ripeti 2 volte", "giorni": 1},
+                    {"name": "Corri per 5 min e cammina per 5 min", "giorni": 1},
+                    {"name": "Corri per 5 min ed aggiungi 5 minuti di sprint!", "giorni": 1},
+                    {"name": "Corri per un min e cammina per un altro min. Ripeti 5 volte!", "giorni": 1},
+                    {"name": "10 minuti di corsa!", "giorni": 1}
                 ]
             }
         ]
     },
     {
-        "name": "Healthy Cooking",
+        "name": "Cucina salutare",
         "icon": "cuoco",
         "color": "89B2FD",
         "challenge": [
             {
-                "name": "Breakfast",
+                "name": "Colazione",
                 "steps": [
-                    {"name": "Drink two glasses of water before eating", "days": 1},
-                    {"name": "try at least one of the pancake healthy recipe", "days": 1},
-                    {"name": "Drink or coffee or tea without sugar!", "days": 1},
-                    {"name": "Make your breakfast colorful with fresh fruit!", "days": 1},
-                    {"name": "Try the instagram-friendly porridge and share a picture!", "days": 1}
+                    {"name": "Bevi due bicchieri d'acqua prima di mangiare", "giorni": 1},
+                    {"name": "Prova almeno una ricetta di pancakes proteici", "giorni": 1},
+                    {"name": "Bevi tè o caffè senza zucchero!", "giorni": 1},
+                    {"name": "Rendi la tua colazione colorata con frutta fresca!", "giorni": 1},
+                    {"name": "Prova a fare un porrige instagrammabile e condividi la foto!", "giorni": 1}
                 ]
             },
             {
-                "name": "5 Healthy meals!",
+                "name": "5 Pasti salutari!",
                 "steps": [
-                    {"name": "Cook your lunch AND dinner using only two spoons of oil!", "days": 1},
-                    {"name": "Instead of commercial ones, make homemade biscuits", "days": 1},
-                    {"name": "Replace white bread with Rye bread for today!", "days": 1},
-                    {"name": "Find the best recipe of banana bread and do it yourself!", "days": 1},
-                    {"name": "Eat Pizza to celebrate!", "days": 1}
+                    {"name": "Cucina il tuo pranzo E cena usando solo due cucchiai di olio!", "giorni": 1},
+                    {"name": "Invece di quelli commerciali, prepara dei biscotti fatti in casa!", "giorni": 1},
+                    {"name": "Sostituisci il pane bianco con pane di segale per oggi!", "giorni": 1},
+                    {"name": "Trova la migliore ricetta di Banana bread e replicala!", "giorni": 1},
+                    {"name": "Mangia pizza per festeggiare!", "giorni": 1}
                 ]
             },
             {
                 "name": "Smoothies Challenge!",
                 "steps": [
-                    {"name": "Apple Pie Smoothie!", "days": 1},
-                    {"name": "Metabolism Boosting Smoothie", "days": 1},
-                    {"name": "Immunity Boosting Orange Smoothie", "days": 1},
-                    {"name": "Banana Smoothie", "days": 1},
-                    {"name": "Cocoa Almond Protein Smoothie", "days": 1}
+                    {"name": "Smoothie alle mele!", "giorni": 1},
+                    {"name": "Smoothie per accellerare il metabolismo", "giorni": 1},
+                    {"name": "Smoothie all'arancia per difese immunitarie", "giorni": 1},
+                    {"name": "Banana Smoothie", "giorni": 1},
+                    {"name": "Cacao e Mandorle Smoothie proteico", "giorni": 1}
                 ]
             }
         ]
