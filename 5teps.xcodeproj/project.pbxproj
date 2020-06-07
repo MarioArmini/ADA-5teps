@@ -19,6 +19,7 @@
 		4E13BF6124658A83006AD0C4 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13BF6024658A83006AD0C4 /* Onboarding.swift */; };
 		4E3565362467442700A06C29 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3565352467442700A06C29 /* Slide.swift */; };
 		4E3565392467448600A06C29 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E3565382467448600A06C29 /* Slide.xib */; };
+		4E60AE9C248DA1D9002128F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E60AE9E248DA1D9002128F8 /* InfoPlist.strings */; };
 		4E8FAED22479859D00BA475D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8FAED12479859D00BA475D /* Assets.xcassets */; };
 		4EA0879C2465FD33001DEFBF /* Subview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA0879B2465FD33001DEFBF /* Subview.swift */; };
 		4EA0879E2465FD70001DEFBF /* Subview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0879D2465FD70001DEFBF /* Subview.xib */; };
@@ -97,6 +98,8 @@
 		4E13BF6024658A83006AD0C4 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		4E3565352467442700A06C29 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		4E3565382467448600A06C29 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
+		4E60AE9D248DA1D9002128F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4E60AE9F248DA1DE002128F8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4E8FAED12479859D00BA475D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EA0879B2465FD33001DEFBF /* Subview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subview.swift; sourceTree = "<group>"; };
 		4EA0879D2465FD70001DEFBF /* Subview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Subview.xib; sourceTree = "<group>"; };
@@ -216,6 +219,7 @@
 				4E8FAED12479859D00BA475D /* Assets.xcassets */,
 				01B3E2E32464615500B0C18A /* LaunchScreen.storyboard */,
 				01B3E2E62464615500B0C18A /* Info.plist */,
+				4E60AE9E248DA1D9002128F8 /* InfoPlist.strings */,
 				6C64C82724648DF600D03184 /* 5teps.xcdatamodeld */,
 				6CE1FDE22472563A00AD3A3F /* colors.xcassets */,
 				6C8E2ED22472E738009511F0 /* icons.xcassets */,
@@ -415,6 +419,7 @@
 				6CE1FDE32472563A00AD3A3F /* colors.xcassets in Resources */,
 				6C64614724850C7600D0E110 /* mentor.json in Resources */,
 				4E8FAED22479859D00BA475D /* Assets.xcassets in Resources */,
+				4E60AE9C248DA1D9002128F8 /* InfoPlist.strings in Resources */,
 				6C64614A248511EC00D0E110 /* Localizable.strings in Resources */,
 				6CCE31B924741B1F002040E1 /* MedalCollectionViewCell.xib in Resources */,
 				4E3565392467448600A06C29 /* Slide.xib in Resources */,
@@ -511,6 +516,15 @@
 				6C64611F248509A400D0E110 /* it */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4E60AE9E248DA1D9002128F8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E60AE9D248DA1D9002128F8 /* en */,
+				4E60AE9F248DA1DE002128F8 /* it */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		6C646122248509AF00D0E110 /* Home.storyboard */ = {
@@ -688,7 +702,7 @@
 				CODE_SIGN_ENTITLEMENTS = 5teps/5teps.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2.1;
-				DEVELOPMENT_TEAM = LZCKTYVC4V;
+				DEVELOPMENT_TEAM = TEFZ2Z35DD;
 				INFOPLIST_FILE = 5teps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

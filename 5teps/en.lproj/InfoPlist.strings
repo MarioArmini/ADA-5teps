@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  5teps
+
+  Created by Giusy Di Paola on 08/06/2020.
+  Copyright © 2020 Mario Armini. All rights reserved.
+*/
+
+NSCameraUsageDescription = "This will allow you to add a profile picture";
