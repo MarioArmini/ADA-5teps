@@ -53,6 +53,7 @@ class InProgressViewController: UIViewController{
         blurEffect.frame.size.height = self.view.frame.size.height
         blurEffect.frame.size.width = self.view.frame.size.width
         blurEffect.effect = nil
+        blurEffect.isUserInteractionEnabled = false
         self.view.addSubview(blurEffect)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
